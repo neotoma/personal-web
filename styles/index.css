@@ -27,13 +27,14 @@
   text-align: center;
 }
 
-#posts {
-  color: #c2cad2;
-}
-
 #posts li {
   margin-bottom: 0.6em;
   font-size: 1.1em;
+}
+
+#posts li .post-published-at {
+  color: #c2cad2;
+  font-size: 0.9em;
 }
 
 #profiles li {

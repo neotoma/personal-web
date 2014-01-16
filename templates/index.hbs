@@ -32,10 +32,13 @@
 </div>
 
 <div id="posts">
-  <h1>Posts I've written ({{posts.length}})</h1>
+  <h1>Posts I've written</h1>
   <ul>
-    {{#each post in posts}}
-      <li>{{post.publishedAtReadable}}<br />{{#link-to 'post' post}}{{post.title}}{{/link-to}}</li>
+    {{#each post in model}}
+      <li>
+        <div class="post-published-at">{{post.publishedAtReadable}}</div>
+        {{#link-to 'post' post}}{{post.title}}{{/link-to}}
+      </li>
     {{/each}}
   </ul>
 </div>

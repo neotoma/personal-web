@@ -20,6 +20,19 @@ for (var i = 0; i < App.TemplateNames.length; i++) {
 
 App.Router.map(function() {
   this.route('index', { path: '/' });
-  //this.resource('posts');
   this.resource('post', { path: '/post/:post_id' });
+});
+
+App.ApplicationAdapter = DS.RESTAdapter.extend({
+  namespace: 'data',
+
+  buildURL: function(type, id) {
+    var url = this._super(type, id);
+
+    if (!id) {
+      url = url + '-all';
+    }
+
+    return url;
+  }
 });

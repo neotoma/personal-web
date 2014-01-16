@@ -1,3 +1,18 @@
+<style type="text/css">
+  #app-name {
+    font-size: 1.8em;
+  }
+
+  #app-name a:hover {
+    cursor: default;
+    color: #283746;
+  }
+
+  #app { 
+    margin-top: 7.5em;
+  }
+</style>
+
 <div id="bio">
   <h1>About</h1>
   <p>I am a product designer and developer from San Francisco, CA with an extensive history of working on web and mobile applications.</p>
@@ -36,7 +51,7 @@
   <ul>
     {{#each post in model}}
       <li>
-        <div class="post-published-at">{{post.publishedAtReadable}}</div>
+        <div class="post-published-at">{{post.publishedAt}}</div>
         {{#link-to 'post' post}}{{post.title}}{{/link-to}}
       </li>
     {{/each}}

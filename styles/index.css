@@ -1,11 +1,8 @@
 #bio, #profiles, #posts {
   background: #f9fbfd;
   border-bottom: 1px solid #dee5ec;
-  border-left: 0;
-  border-right: 0;
   padding: 2em;
   margin: 1em auto 1em auto;
-  vertical-align: top;
   max-width: 42em;
 }
 

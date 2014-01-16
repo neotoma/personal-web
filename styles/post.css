@@ -1,0 +1,23 @@
+.post {
+  background: #f9fbfd;
+  border-bottom: 1px solid #dee5ec;
+  padding: 4em 5em 4em 5em;
+  margin: 1em auto 1em auto;
+  max-width: 54em;
+  text-align: left;
+}
+
+.post-title {
+  font-size: 2em;
+}
+
+.post-published-at {
+  font-size: 1em;
+  color: #79828b;
+  margin-bottom: 1em;
+}
+
+.post-body p {
+  font-size: 1.3em;
+  line-height: 150%;
+}

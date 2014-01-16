@@ -1,17 +1,30 @@
+#app-name {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  color: #283746;
+  background: #f9fbfd;
+  border-bottom: 1px solid #dee5ec;
+  font-size: 1.2em;
+  padding: 1em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 #app { 
   position: relative; 
   text-align: center;
-  margin: auto;
+  margin: 5em auto auto auto;
   box-sizing: border-box;
   padding-bottom: 2em;
 }
 
-#app-name {
+#app-name a {
   color: #283746;
-  background: #f9fbfd;
-  border-bottom: 1px solid #dee5ec;
-  font-size: 1.8em;
-  padding: 1em;
-  text-transform: uppercase;
-  text-align: center;
+}
+
+#app-name a:hover {
+  text-decoration: none;
+  color: #1668b9;
 }

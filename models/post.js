@@ -3,10 +3,5 @@ App.Post = DS.Model.extend({
   body:           DS.attr('string'),
   createdAt:      DS.attr('date'),
   updatedAt:      DS.attr('date'),
-  publishedAt:    DS.attr('date'),
-
-  publishedAtReadable: function() {
-    return '12/1/13';
-    //return this.get('publishedAt');
-  }.property('publishedAt')
+  publishedAt:    DS.attr('date')
 });

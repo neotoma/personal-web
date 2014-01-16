@@ -1,0 +1,43 @@
+<div id="bio">
+  <h1>About</h1>
+  <p>I am a product designer and developer from San Francisco, CA with an extensive history of working on web and mobile applications.</p>
+  <p>My most recent work includes <a href="http://asheville.io">Asheville</a> and <a href="http://getkite.co">KITE</a>.</p>
+  <p>I've also designed for <a href="http://lift.do">Lift</a>, led the team that built <a href="http://plancast.com">Plancast</a> and worked for <a href="http://techcrunch.com/">TechCrunch</a> as a writer, designer, and product manager.</p>
+  <p>I strive to create products that delight people and permanently improve their lives.</p>
+</div>
+
+<div id="profiles">
+  <h1>Find me on</h1>
+  <ul>
+    <li><a href="https://about.me/mark">About.me</a></li>
+    <li><a href="http://amzn.com/w/1ON8LLEQMTWIA">Amazon</a></li>
+    <li><a href="https://angel.co/mhendric">AngelList</a></li>
+    <li><a href="https://www.airbnb.com/users/show/4509964">Airbnb</a></li>
+    <li><a href="https://www.behance.net/mhendric">Behance</a></li>
+    <li><a href="http://dribbble.com/mhendric">Dribbble</a></li>
+    <li><a href="https://news.ycombinator.com/user?id=mhendric">Hacker News</a></li>
+    <li><a href="http://instagram.com/mhendric">Instagram</a></li>
+    <li><a href="http://facebook.com/markmhendrickson">Facebook</a></li>
+    <li><a href="https://foursquare.com/markymark">Foursquare</a></li>
+    <li><a href="http://github.com/markmhx">GitHub</a></li>
+    <li><a href="https://plus.google.com/+MarkHendrickson">Google+</a></li>
+    <li><a href="http://www.linkedin.com/in/markmhendrickson">LinkedIn</a></li>
+    <li><a href="https://medium.com/@markymark">Medium</a></li>
+    <li><a href="http://www.pinterest.com/mhendric/">Pinterest</a></li>
+    <li><a href="http://www.quora.com/Mark-Hendrickson">Quora</a></li>
+    <li><a href="http://www.rdio.com/#/people/mhendric/">Rdio</a></li>
+    <li><a href="http://twitter.com/markymark">Twitter</a></li>
+    <li><a href="http://markmhendrickson.yelp.com/">Yelp</a></li>
+  </ul>
+</div>
+
+<div id="posts">
+  <h1>Posts I've written ({{posts.length}})</h1>
+  <ul>
+    {{#each post in posts}}
+      <li>{{post.publishedAtReadable}}<br />{{#link-to 'post' post}}{{post.title}}{{/link-to}}</li>
+    {{/each}}
+  </ul>
+</div>
+
+<div style="clear: both;"></div>

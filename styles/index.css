@@ -1,0 +1,50 @@
+#bio, #profiles, #posts {
+  background: #f9fbfd;
+  border-bottom: 1px solid #dee5ec;
+  border-left: 0;
+  border-right: 0;
+  padding: 2em;
+  margin: 1em auto 1em auto;
+  vertical-align: top;
+  max-width: 42em;
+}
+
+#bio h1, #profiles h1, #posts h1 {
+  text-align: center;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #79828b;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+#bio p {
+  font-size: 1.1em;
+}
+
+#profiles, #posts {
+  text-align: center;
+}
+
+#posts {
+  color: #c2cad2;
+}
+
+#posts li {
+  margin-bottom: 0.6em;
+  font-size: 1.1em;
+}
+
+#profiles li {
+  margin-bottom: 0.2em;
+  display: inline-block;
+}
+
+#profiles li:after {
+  content: " \00b7 ";
+}
+
+#profiles li:last-child:after {
+  content: "";
+}

@@ -1,0 +1,49 @@
+body { 
+  background: #f2f4f6;
+  color: #303030; 
+  text-align: center; 
+  font-family: "adobe-garamond-pro-1", serif;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+
+::selection {
+  background: transparent;
+}
+
+::-moz-selection { 
+  background: transparent;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+p { 
+  line-height: 160%; 
+  margin: 0 0 15px 0; 
+}
+
+em { 
+  font-style: italic; 
+}
+
+strong { 
+  font-weight: bold; 
+}
+
+a { 
+  color: #1668b9; 
+  text-decoration: none; 
+}
+
+a:hover { 
+  text-decoration: underline; 
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

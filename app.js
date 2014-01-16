@@ -25,7 +25,7 @@ App.Router.map(function() {
 
 var ApplicationAdapterNameSpace = 'data';
 
-if (location.hostname == 'http://markmhx.github.io/') {
+if (location.hostname == 'markmhx.github.io') {
   ApplicationAdapterNameSpace = 'markmhendrickson/data'
 }
 

@@ -23,8 +23,14 @@ App.Router.map(function() {
   this.resource('post', { path: '/post/:post_id' });
 });
 
+var ApplicationAdapterNameSpace = 'data';
+
+if (location.hostname == 'http://markmhx.github.io/') {
+  ApplicationAdapterNameSpace = 'markmhendrickson/data'
+}
+
 App.ApplicationAdapter = DS.RESTAdapter.extend({
-  namespace: 'data',
+  namespace: ApplicationAdapterNameSpace,
 
   buildURL: function(type, id) {
     var url = this._super(type, id);

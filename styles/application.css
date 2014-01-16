@@ -10,6 +10,7 @@
   padding: 1em;
   text-transform: uppercase;
   text-align: center;
+  transition: font-size 0.1s;
 }
 
 #app { 

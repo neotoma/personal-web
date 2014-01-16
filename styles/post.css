@@ -7,17 +7,17 @@
   text-align: left;
 }
 
-.post-title {
+.post .post-title {
   font-size: 2em;
 }
 
-.post-published-at {
+.post .post-published-at {
   font-size: 1em;
   color: #79828b;
   margin-bottom: 1em;
 }
 
-.post-body p {
+.post .post-body p {
   font-size: 1.3em;
   line-height: 150%;
 }

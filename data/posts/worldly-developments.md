@@ -1,0 +1,11 @@
+<img src="/images/rev.jpg" class="shot2" />
+
+<p>I'm happy to announce some exciting news regarding my startup. I've officially incorporated as <a href="http://worldlydevelopments.com/">Worldly Developments</a> (yay for Delaware). Just a teaser of a website currently, but something I can print on my new business cards.</p>
+
+<p>The reason for incorporation? I've raised some (micro-)seed funding from <a href="http://developers.facebook.com/fbFund.php">fbFund</a>. Since that requires a legit corporate bank account and the filing of other important paperwork, my mom has also assumed the role of Chief Financial Officer (employee #1! thanks Mom). </p>
+
+<p>FbFund isn't just an investment vehicle; starting this summer, it's also an incubation program in Palo Alto. So while I planned on moving to San Francisco earlier this month, that's been put off until the end of summer so I can enjoy the office space they've provided for us just off University Ave. It's one of the old Facebook offices, and all of the participating startups (~20) started moving their stuff in there just a few days ago.</p>
+
+<p>From now until mid-August I'll be participating in the fbFund program, which basically means hacking away at my application as I would anyway, except with additional support/mentorship/resources provided by Facebook and others. I've already met a fair number of the participants and organizers, and I must say, it's a refreshing change of pace to work around like-minded people again instead of coding solo in my bedroom or at the cafe.</p>
+
+<p>I also just got back from a quick trip to Japan and China as part of <a href="http://geeksonaplane.com/">GeeksOnAPlane</a>. Thanks to <a href="http://500hats.com">Dave McClure</a> for bringing me along as a media partner of sorts (I relayed what we learned as a return guest writer for TechCrunch; see <a href="http://www.techcrunch.com/2009/06/14/geeksaplane-briefing-on-the-chinese-tech-industry-at-startonomics-beijing/">these</a> <a href="http://www.techcrunch.com/2009/06/10/geeksonaplane-learnings-from-tokyo/">posts</a> in particular). The people in the traveling group were amazing, both personally and professionally, as were the people we met along the way. If you haven't visited East Asia, I highly encourage you to do so.</p>

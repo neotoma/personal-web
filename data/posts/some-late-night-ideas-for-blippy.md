@@ -1,0 +1,14 @@
+<img src="/images/blippy.png" class="shot2" />
+
+<p>I feel a certain kinship towards the founders of <a href="http://blippy.com/">Blippy</a>. Not because I know them well (I've met Philip Kaplan aka Pud only once) but because they're pushing the limits of what people are willing to share about themselves online. While we at <a href="http://plancast.com/">Plancast</a> are encouraging folks to be more open about their future whereabouts, the team behind Blippy is hoping that people are ready to share their purchases with the world.</p>
+
+<p>Both of our services are also very new, and as to be expected with new web services, there's still lots of work to be done on both. In the spirit of tech camaraderie, I thought I'd offer up a few (unsolicited) suggestions for Blippy.</p>
+
+<ol>
+  <li><strong>Give us digests</strong>. The current user experience is primary centered around a mostly reverse chronological, FriendFeed-like stream of purchases. This is okay but I'd prefer to check Blippy as often as I check Mint (which is to say, once a month). And when I do, I'd like to see an overview of sorts that breaks my friends' spending habits down. Tell me what their biggest and smallest purchases were; their strangest purchases; their spending habits (have they been splurging on clothes? buying a lot of airline tickets?); and overlap in their spending (who's buying the same things? what are the trends among my friends?). Pretty graphs might help. Maybe incorporate some maps so I see where about town people are spending their money. Who knows, I might visit once a day if the data updates constantly with new trends.</li>
+<li><strong>Provide more info about the purchases</strong>. Right now each purchased item is displayed in tiny blue type. Blow that up if it's available and give me context (a URL to where I can buy/view more info), an image, and a description. Show me who else I care about has also bought it.</li>
+<li><strong>Let us condense/hide comments</strong>. I realize that much of the interaction onsite right now is around the comments people make on purchases. But I'd personally rather locate an interesting purchase <span style="font-style:italic">then</span> choose to view the comments around it.</li>
+<li><strong>Add a "Want" button</strong>. The "like" button is a step in the right direction, but perhaps a "I Want This" button would be more valuable. It signals a higher level of interest in the purchase, leaving simple "oh that's cool" expressions for the comments. You could have profiles list not only purchases users have made but the items of their friends they want. Analyze this data in aggregate to see who starts purchasing trends (fashion being an obvious area).</li>
+</ol>
+
+<p>My 2 cents.</p>

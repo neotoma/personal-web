@@ -21,3 +21,7 @@
   font-size: 1.3em;
   line-height: 150%;
 }
+
+.post .post-body img {
+  max-width: 100%;
+}

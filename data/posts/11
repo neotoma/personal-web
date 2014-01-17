@@ -10,17 +10,17 @@
   }
 }
 
-<p>Since my last post, I've narrowed the scope of my project down a great deal. The main reason was to make it more accessible to first-time users who would probably otherwise be overwhelmed by the number of things you could do on the site. There are related problems associated with trying to bite off too much from the very beginning:</p>
+Since my last post, I've narrowed the scope of my project down a great deal. The main reason was to make it more accessible to first-time users who would probably otherwise be overwhelmed by the number of things you could do on the site. There are related problems associated with trying to bite off too much from the very beginning:\n\n
 
 <ul>
 <li>It's hard to communicate the immediate value to users, especially ones that join the site before any of their friends</li>
 <li>It's extremely difficult to predict what kind of service users are going to respond to, and which features in particular are necessary. Better to release something straightforward, see how users like it, and evolve by coupling user feedback with theory</li>
-<li>When there's only one developer (me), it can feel overwhelming to build out a complicated system all at once. After awhile, there's a strong desire to launch <em>something</em> so it feels like you're making tangible progress. Milestones are key when you're the only one laying out your priorities</li>
+<li>When there's only one developer (me), it can feel overwhelming to build out a complicated system all at once. After awhile, there's a strong desire to launch *something* so it feels like you're making tangible progress. Milestones are key when you're the only one laying out your priorities</li>
 <li>Once you've released something - even if it's only a smaller part of your broader vision - it's easier to explain to other people what you're building. It's no longer just about pie in the sky ideas - you can send them a link, have them see what it does, and then explain where you plan to take it.</li>
 <li>There's an intrinsic value to building something simple. Users don't want to think too hard about how to use applications, and if your application only does one thing - and it does it well - they're more likely to come back.</li>
 <li>When you release a web app these days, you need to market it effectively, otherwise you'll get drowned out by all the other options people have online. One effective way to market is to make your site compatible with the places people already visit, namely social networks like Twitter and Facebook (at least in my case). It's easiest to piggyback off of these sites if you create something particular that enhances them; then you can go from there and develop something more sophisticated that stands on its own.</li>
 </ul>
 
-<p>Last week I launched the narrowed site into private beta, inviting only a dozen or so people. I've already received a laundry list of features/change requests, and I'll start opening the site up more broadly when I feel as though I've addressed them adequately.</p>
+Last week I launched the narrowed site into private beta, inviting only a dozen or so people. I've already received a laundry list of features/change requests, and I'll start opening the site up more broadly when I feel as though I've addressed them adequately.\n\n
 
-<p>I'm also happy to report that I've been chosen as a finalist for fbFund, which affords me some money to advertise on Facebook. More details and a list of the other finalists <a href="http://www.techcrunch.com/2009/05/18/facebooks-fbfund-09-names-first-batch-of-winners/">here</a>.</p>
+I'm also happy to report that I've been chosen as a finalist for fbFund, which affords me some money to advertise on Facebook. More details and a list of the other finalists <a href="http://www.techcrunch.com/2009/05/18/facebooks-fbfund-09-names-first-batch-of-winners/">here</a>.\n\n

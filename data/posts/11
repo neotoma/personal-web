@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 11,
+    "title": "Narrowing Scope",
+    "createdAt": "2011-06-16 22:38:48",
+    "updatedAt": "2011-06-18 00:04:38",
+    "publishedAt": "2009-05-18 00:00:00",
+    "slug": "narrowing-scope",
+    "body": ""
+  }
+}
+
 <p>Since my last post, I've narrowed the scope of my project down a great deal. The main reason was to make it more accessible to first-time users who would probably otherwise be overwhelmed by the number of things you could do on the site. There are related problems associated with trying to bite off too much from the very beginning:</p>
 
 <ul>

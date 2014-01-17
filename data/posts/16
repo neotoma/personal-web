@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 16,
+    "title": "Homesteading on the indie web",
+    "createdAt": "2011-07-26 01:46:21",
+    "updatedAt": "2011-07-30 00:03:21",
+    "publishedAt": "2011-07-30 00:01:01",
+    "slug": "homesteading-on-the-indie-web",
+    "body": ""
+  }
+}
+
 <p>I had the pleasure of attending <a href="http://indiewebcamp.com/">IndieWebCamp</a> in Portland last month, a BarCamp-style conference where techies get together to brainstorm ideas about how they can help people own and control their online identities.</p>
 
 <p>The so-called indie web movement, a spiritual cousin to the open source and standards movements, is rooted in a desire for digital freedom, primarily from monopolies that threaten to restrict and violate the common Internet user's online existence. It calls for practical means to protect this existence by preventing or disrupting the control that any one company has over a person's online identity, either from a functionality or data point of view.</p>

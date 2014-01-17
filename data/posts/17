@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 17,
+    "title": "Share frequency",
+    "createdAt": "2011-08-10 23:36:13",
+    "updatedAt": "2011-08-12 21:35:05",
+    "publishedAt": "2011-08-12 18:01:55",
+    "slug": "share-frequency",
+    "body": ""
+  }
+}
+
 <p>When designing a <a href="http://markmhendrickson.com/three-pillars">social network</a> that depends on users to contribute <a href="http://markmhendrickson.com/content">content</a> from which they'll collectively derive value, one must consider certain qualities of its supported content types to determine whether those types can provide enough ongoing value to keep users engaged.</p>
 
 <p>Among these important qualities is the frequency with which people are compelled to create and share a given type of content. People are interested in sharing some types on a seemingly continual basis, spacing out contributions mere hours, minutes or even seconds apart. Conversely, there are types that make sense to share only occasionally when unique opportunities or needs arise.</p>

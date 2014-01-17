@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 3,
+    "title": "Three pillars",
+    "createdAt": "2011-05-01 21:44:54",
+    "updatedAt": "2011-07-07 20:34:22",
+    "publishedAt": "2011-05-02 00:00:00",
+    "slug": "three-pillars",
+    "body": ""
+  }
+}
+
 <p>Social networking is a precondition for new modes of information exchange, not an end in and of itself.</p>
 
 <p>By definition, a social network is simply a set of connections between different people represented by a computer system. These representations wouldn't provide value to anyone if they didn't enable the exchange of information in novel ways. When you friend someone on Facebook, connect with them on LinkedIn, or follow them on Twitter, you aren't doing it for academic purposes; you're doing it to communicate. You don't care about the improved integrity of the social network; you care about the ways in which you can use it to interact with people you care about.</p>

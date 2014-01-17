@@ -25,3 +25,8 @@
 .post .post-body img {
   max-width: 100%;
 }
+
+.post .post-body ol li {
+  list-style: decimal;
+  margin-left: 1.5em;
+}

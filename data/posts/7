@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 7,
+    "title": "Facebook's social graph",
+    "createdAt": "2011-06-16 22:25:36",
+    "updatedAt": "2011-06-18 04:05:15",
+    "publishedAt": "2009-07-31 00:00:00",
+    "slug": "facebooks-social-graph",
+    "body": ""
+  }
+}
+
 <p>The social graph on Facebook has been the company's biggest asset, but over time it has become perhaps its biggest liability as well.</p>
 
 <p>When users want to find their friends online, they think of Facebook first. For many users, "Facebook" is nearly synonymous with "social networking". They wouldn't think of using any other "social" service because, after all, their friends are all on Facebook. As far as the social networking industry is concerned, this dedication constitutes a massive customer lock-in, because no matter how much better you can make a social application, you'll start off not only without the preestablished connections enjoyed by Facebook; you'll also be fighting against the reluctance of Facebook users to try an application outside of the Facebook ecosystem in uncharted territory where most of their friends do not exist.</p>

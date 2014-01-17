@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 14,
+    "title": "Plancast in public beta",
+    "createdAt": "2011-06-16 22:44:19",
+    "updatedAt": "2011-06-19 22:04:08",
+    "publishedAt": "2009-11-15 00:00:00",
+    "slug": "plancast-in-public-beta",
+    "body": ""
+  }
+}
+
 <a href="http://plancast.com/"><img src="/images/plancast.png" class="shot2" style="width: 300px" /></a>
 
 <p>I'm happy to announce that the site I've been working on for the past half year or so - <a href="http://plancast.com/">Plancast</a> - is now available in public beta. If you haven't tried it out yet, please give it a whirl and <a href="http://plancast.com/contact">send us your thoughts</a>. I suggest you get started by posting a few plans that may be tucked away in your personal calendar. Share them on Plancast and you'll be surprised by how positively other people respond after hearing about them.</p>

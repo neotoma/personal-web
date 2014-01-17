@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 12,
+    "title": "The web needs its own App Store",
+    "createdAt": "2011-06-16 22:39:46",
+    "updatedAt": "2011-06-19 22:08:57",
+    "publishedAt": "2009-05-19 00:00:00",
+    "slug": "the-web-needs-its-own-app-store",
+    "body": ""
+  }
+}
+
 <img src="/images/redlaser.png" class="shot2" />
 
 <p>I've been thinking a bit about the Apple App Store recently, perhaps because I'm starting to think more about developing a mobile application that will complement my site.</p>

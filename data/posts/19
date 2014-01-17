@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 19,
+    "title": "Does your product provide instant gratification?",
+    "createdAt": "2012-11-27 02:25:53",
+    "updatedAt": "2012-12-06 00:03:52",
+    "publishedAt": "2012-11-27 02:38:30",
+    "slug": "does-your-product-provide-instant-gratification",
+    "body": ""
+  }
+}
+
 <p>Over the past year, and mostly as a result of my <a href="http://markmhendrickson.com/a-postmortem-for-plancast">Plancast post-mortem</a>, I've spoken  with dozens of entrepreneurs who are working on events-related internet products.</p>
 
 <p>I had a call with another such entrepreneur today who has actually built and released a considerably robust offering, at least from a feature standpoint. The service makes it possible to interact with event data in myriad ways, from personal sharing of plans among close friends to impersonal broadcasting of events to a wide audience. It consists of not only a website but a mobile client and calendar client synchronization to boot.</p>

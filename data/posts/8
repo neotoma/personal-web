@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 8,
+    "title": "My first week as an entrepreneur",
+    "createdAt": "2011-06-16 22:33:45",
+    "updatedAt": "2011-06-19 22:15:49",
+    "publishedAt": "2009-03-22 00:00:00",
+    "slug": "my-first-week-as-an-entrepreneur",
+    "body": ""
+  }
+}
+
 <img src="/images/ye.png" class="shot2" />
 
 <p>Today marks the completion of my first week working on <a href="/getting-the-lay-of-the-land">my first startup</a>. So, I thought it would be a good time to share some of the things I've learned already about what it's like to build your own web service from the ground up and as a full-time job. </p>

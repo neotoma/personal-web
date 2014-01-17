@@ -1,14 +1,26 @@
+{
+  "post": {
+    "id": 9,
+    "title": "Getting the lay of the land",
+    "createdAt": "2011-06-16 22:35:14",
+    "updatedAt": "2011-06-19 22:13:44",
+    "publishedAt": "2009-03-17 00:00:00",
+    "slug": "",
+    "body": ""
+  }
+}
+
 <img src="http://markmhendrickson.com/images/surveyor.jpg" />
 
 As Erick Schonfeld was kind enough to announce in <a href="http://www.techcrunch.com/2009/03/10/hendrickson-were-gonna-miss-you/">a post on TechCrunch</a> last week, I've left my position at TechCrunch to build and run my own startup.
 
 In many ways, this is what I intended to do all along, at least ever since I graduated from college almost two years ago. After joining TechCrunch in 2007 (as an intern anticipating that I'd only be there for a couple of months), I quickly realized that it would be a great place to lay the groundwork for my own venture. Working there keeps you in constant connection with the consumer internet technology scene, since you're always reading news and analysis (especially as a writer) and meeting people from all parts of the industry (PR, management, investment, development, etc.). Of course, it doesn't hurt to work for a brand that has great name recognition in the Valley, especially when you're returning from four years in Maine - basically Siberia, as far as people around here are concerned.
 
-I learned <em>a lot</em> about new media, internet technology, the culture around internet technology, and the inner workings of a startup during my time at TechCrunch - lessons that perhaps I'll explore in a later post. But now my sights are set on building a viable web service (and later, a profitable business) in a down economy...something that with any luck won't fall to <a href="http://www.techcrunch.com/tag/deadpool/">the wayside</a> like so many of the startups I witnessed at TechCrunch. It's not going to be easy; in fact, I'm sure it's going to be one of the toughest things I ever try to pull off. The reassurance is that even if I fail, I will have learned and experienced much along the way.
+I learned *a lot* about new media, internet technology, the culture around internet technology, and the inner workings of a startup during my time at TechCrunch - lessons that perhaps I'll explore in a later post. But now my sights are set on building a viable web service (and later, a profitable business) in a down economy...something that with any luck won't fall to <a href="http://www.techcrunch.com/tag/deadpool/">the wayside</a> like so many of the startups I witnessed at TechCrunch. It's not going to be easy; in fact, I'm sure it's going to be one of the toughest things I ever try to pull off. The reassurance is that even if I fail, I will have learned and experienced much along the way.
 
 Ok, so enough sappy reflection and introspection. What am I actually trying to build? Or as my friends and family keep asking, "What's your website about?"
 
-Let me start to answer that question with a description of how <em>the idea</em> for my startup came about. When I moved back to the Bay Area after living in a tightly knit community at Bowdoin, I had a new set of needs - most of them social. And like many needs, they could only be fulfilled by gathering information, not just once but on a continual basis. For example, I wanted to know:
+Let me start to answer that question with a description of how *the idea* for my startup came about. When I moved back to the Bay Area after living in a tightly knit community at Bowdoin, I had a new set of needs - most of them social. And like many needs, they could only be fulfilled by gathering information, not just once but on a continual basis. For example, I wanted to know:
 
 - Which of my friends now live in the Bay Area, and where exactly do they live and work? Do any of them live together?
 - Who do my friends know in the area that I might like to know? Do they live near me, and what kind of people are they looking to meet?
@@ -16,7 +28,7 @@ Let me start to answer that question with a description of how <em>the idea</em>
 - What kind of plans do my friends and their friends have coming up in the near future? Are they thinking about going somewhere fun in San Francisco, or do any of them plan to go running around Palo Alto?
 - Are any of my friends actively involved in particular interest groups? Maybe a few get together with others to, say, play tennis or hit up the farmers market every weekend?
 
-Questions like these are just begging to be answered by web services - especially by the type of those we've seen sprouting up in the past few years - because they all call for social information. Unfortunately, no web service adequately answered them in 2007, and still none does today. Sure, we have a plethora of sites intended to help you figure out what to do and where to go in your area. But those with the most data are not personal enough (i.e. they don't help you see the world through your existing connections), and those that <em>are</em> personal lack data, and the proper architecture for that data.
+Questions like these are just begging to be answered by web services - especially by the type of those we've seen sprouting up in the past few years - because they all call for social information. Unfortunately, no web service adequately answered them in 2007, and still none does today. Sure, we have a plethora of sites intended to help you figure out what to do and where to go in your area. But those with the most data are not personal enough (i.e. they don't help you see the world through your existing connections), and those that *are* personal lack data, and the proper architecture for that data.
 
 So, on a high level, I've set out to build a service that will answer the questions above and many others, a service that will help you engage more actively in your community. Call it a city or location-based social network if you want, but hopefully you'll see that those terms tend to misrepresent what I have in mind. I'm not looking to set up a site where you simply post a profile for others around you to view and write things on. I'm looking to set up a site that makes it easy for you to share information about who and what you know, and what you do, around the area in which you live. And conversely, a site that makes it uber-easy to digest useful local information shared by others.
 

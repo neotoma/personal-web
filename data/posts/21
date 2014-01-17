@@ -1,3 +1,15 @@
+{
+  "post": {
+    "id": 21,
+    "title": "Three types of design",
+    "createdAt": "2012-11-28 23:10:00",
+    "updatedAt": "2012-12-06 18:51:00",
+    "publishedAt": "2012-11-29 00:22:29",
+    "slug": "three-types-of-design",
+    "body": ""
+  }
+}
+
 <p>People tend to use the word "design" very loosely when talking about product, but it's actually quite important to distinguish between the types of design (and their respective designers) when seeking to understand what someone means by the term in any given context, as well as how they apply to the overall product development process.</p>
 
 <p>I tend to divide design into three main types: <strong>product</strong>, <strong>interface</strong>, and <strong>visual</strong>.</p>

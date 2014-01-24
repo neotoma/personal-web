@@ -139,7 +139,7 @@ module.exports = function(grunt) {
 	      options: {
 	        commitMessage: 'Push'
 	      },
-	      src: 'github-pages'
+	      src: 'public'
 	    }
 	  }
 	});
@@ -152,6 +152,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-github-pages');
 
 	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy', 'connect', 'watch']);
 	grunt.registerTask('release', ['uglify', 'cssmin', 'clean', 'copy']);

@@ -1,5 +1,7 @@
 .DS_Store
-debug/
+debug/*
+!debug/index.html
+public/*
+!public/index.html
 node_modules/*
-public/
 npm-debug.log

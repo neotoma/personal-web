@@ -1,22 +1,4 @@
-/* Ember Init */
-
 App = Ember.Application.create();
-
-App.TemplateNames = [
-  'application',
-  'index',
-  'post'
-];
-
-for (var i = 0; i < App.TemplateNames.length; i++) {
-  $.ajax({
-    url: 'templates/' + App.TemplateNames[i] + '.hbs',         
-    async: false,
-    success: function (response) {
-      Ember.TEMPLATES[App.TemplateNames[i]] = Ember.Handlebars.compile(response);
-    }
-  });
-}
 
 App.Router.map(function() {
   this.route('index', { path: '/' });
@@ -25,6 +7,7 @@ App.Router.map(function() {
 
 var ApplicationAdapterNameSpace = 'data';
 
+// GitHub Pages hosts places app under a directory so it needs a different namespace
 if (location.hostname == 'markmhx.github.io') {
   ApplicationAdapterNameSpace = 'markmhendrickson/data'
 }
@@ -32,6 +15,7 @@ if (location.hostname == 'markmhx.github.io') {
 App.ApplicationAdapter = DS.RESTAdapter.extend({
   namespace: ApplicationAdapterNameSpace,
 
+  // Modify buildURL to support querying of collections from file
   buildURL: function(type, id) {
     var url = this._super(type, id);
 

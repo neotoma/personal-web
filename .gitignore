@@ -3,5 +3,5 @@ debug/*
 !debug/index.html
 public/*
 !public/index.html
-node_modules/*
+node_modules/
 npm-debug.log

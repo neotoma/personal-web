@@ -133,7 +133,15 @@ module.exports = function(grunt) {
 					base: 'public'
 				}
 			}
-		}
+		},
+		githubPages: {
+	    target: {
+	      options: {
+	        commitMessage: 'Push'
+	      },
+	      src: 'github-pages'
+	    }
+	  }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -147,4 +155,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy', 'connect', 'watch']);
 	grunt.registerTask('release', ['uglify', 'cssmin', 'clean', 'copy']);
+	grunt.registerTask('deploy', ['githubPages:target']);
 };

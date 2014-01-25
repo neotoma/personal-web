@@ -5,3 +5,4 @@ public/*
 !public/index.html
 node_modules/
 npm-debug.log
+data/*

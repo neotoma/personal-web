@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		clean: ["debug/images/", "public/images/", "debug/data/", "public/data/"],
+		clean: ["debug/images/", "public/images/"],
 		copy: {
 			main: {
 				files: [{
@@ -65,20 +65,14 @@ module.exports = function(grunt) {
 					cwd: 'app/images/',
 					src: ['**'],
 					dest: 'public/images/'
-				},
-				{
-					expand: true,
-					cwd: 'app/data/',
-					src: ['**'],
-					dest: 'debug/data/'
-				},
-				{
-					expand: true,
-					cwd: 'app/data/',
-					src: ['**'],
-					dest: 'public/data/'
 				}]
 			}
+		},
+		symlink: {
+		  explicit: {
+	    	src: 'data',
+	    	dest: 'debug/data'
+	    }
 		},
 		uglify: {
 			build: {
@@ -99,7 +93,7 @@ module.exports = function(grunt) {
 					'app/index.html',
 					'app/library/*.js', 
 					'app/*.js', 
-					'app/data/**/*',
+					'~/posts/**/*',
 					'app/models/*.js', 
 					'app/controllers/*.js', 
 					'app/views/*.js', 
@@ -153,9 +147,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-symlink');
 	grunt.loadNpmTasks('grunt-github-pages');
 
-	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy', 'connect', 'watch']);
-	grunt.registerTask('release', ['uglify', 'cssmin', 'clean', 'copy']);
+	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy', 'symlink', 'connect', 'watch']);
+	grunt.registerTask('release', ['uglify', 'cssmin', 'clean', 'copy', 'symlink']);
 	grunt.registerTask('deploy', ['githubPages:target']);
 };

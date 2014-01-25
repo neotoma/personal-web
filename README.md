@@ -9,3 +9,45 @@ Then run [Grunt](https://github.com/gruntjs/grunt):
 - For *debugging*, simply run `grunt` from within the root directory. That will compile the code and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
 
 - For *release*, simply run `grunt release`. That will compile fully minified code and styling that you can then push to a server.
+
+## Loading data
+
+All content on which the app depends should be placed inside the `data` directory. Alternatively, symbolic links can be added to that folder that point to data stored elsewhere.
+
+The app currently looks for the following resources under `data` to function:
+
+### posts-all
+
+A collection of available posts. Example:
+
+	{
+	  "posts": [
+	    {
+	      "id": 24,
+	      "title": "First Post",
+	      "publishedAt": "2013-12-06 00:00:00"
+	    },
+	    {
+	      "id": 23,
+	      "title": "Second Post",
+	      "publishedAt": "2012-12-11 07:50:07"
+	    },
+	    ...
+	  ]
+	}
+
+### posts/[id]
+
+Content for individual posts. Example:
+
+    {
+        "post": {
+        "id": 8,
+        "title": "Example Post",
+        "createdAt": "2011-06-16 22:33:45",
+        "updatedAt": "2011-06-19 22:15:49",
+        "publishedAt": "2009-03-22 00:00:00",
+        "slug": "example-post",
+        "body": "The content of this post goes here."
+      }
+    }

@@ -4,7 +4,10 @@ App.PostRoute = Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-    model.reload();
+    if (!model.get('body')) {
+      model.reload();
+    }
+    
     controller.set('model', model);
   }
 });

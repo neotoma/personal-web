@@ -41,7 +41,7 @@ A collection of available posts. Example:
 Content for individual posts. Example:
 
     {
-        "post": {
+      "post": {
         "id": 8,
         "title": "Example Post",
         "createdAt": "2011-06-16 22:33:45",

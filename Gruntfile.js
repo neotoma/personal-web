@@ -69,10 +69,16 @@ module.exports = function(grunt) {
 			}
 		},
 		symlink: {
-		  explicit: {
-	    	src: 'data',
-	    	dest: 'debug/data'
-	    }
+			expanded: {
+    		files: [{
+		    	src: 'data',
+		    	dest: 'debug/data'
+		    },
+		    {
+		    	src: 'data',
+		    	dest: 'public/data'
+		    }]
+		  }
 		},
 		uglify: {
 			build: {

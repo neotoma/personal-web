@@ -52,7 +52,7 @@
   <ul>
     {{#each post in model}}
       <li>
-        <div class="post-published-at">{{post.publishedAt}}</div>
+        <div class="post-published-at">{{formatDate post.publishedAt '%B %-d, %Y'}}</div>
         {{#link-to 'post' post}}{{post.title}}{{/link-to}}
       </li>
     {{/each}}

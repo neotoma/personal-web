@@ -7,6 +7,7 @@ module.exports = function(grunt) {
 				src: [
 					'app/library/jquery-1.10.2.js',
 					'app/library/handlebars-1.0.0.js',
+					'app/library/swag-1.0.0.js',
 					'app/library/ember-1.3.2+pre.25108e91.js',
 					'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
 					'app/library/markdown.js',
@@ -17,11 +18,11 @@ module.exports = function(grunt) {
 			app: {
 				src: [
 					'app/app.js',
-					'app/helpers.js',
 					'app/models/*.js', 
 					'app/controllers/*.js', 
 					'app/views/*.js', 
-					'app/routes/*.js'
+					'app/routes/*.js',
+					'app/helpers.js'
 				],
 				dest:'debug/app.js'
 			},

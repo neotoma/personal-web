@@ -1,4 +1,9 @@
-<div id="app-header">{{#link-to 'index'}}Mark Hendrickson{{/link-to}}</div>
+<div id="app-header">
+  <div id="app-title">{{title}}</div>
+  {{#if subtitle}}
+    <div id="app-subtitle">{{formatDate subtitle '%B %-d, %Y'}} &#183; {{#link-to 'index'}}Mark Hendrickson{{/link-to}}</div>
+  {{/if}}
+</div>
 <div id="app">
   <div id="content">
     {{outlet}}

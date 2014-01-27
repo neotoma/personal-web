@@ -1,3 +1,7 @@
+.index #app-title {
+  text-transform: uppercase;
+}
+
 .index #bio, #profiles, #posts {
   background: #f9fbfd;
   border-bottom: 1px solid #dee5ec;

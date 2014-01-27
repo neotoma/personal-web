@@ -8,9 +8,10 @@ App.PostRoute = Ember.Route.extend({
       model.reload();
     }
 
-    document.title = model.get('title');
-    
     controller.set('model', model);
-    controller.set('title', model.title);
+    controller.get('controllers.application').setTitle(
+      model.get('title'), 
+      new Date(model.get('publishedAt'))
+    );
   }
 });

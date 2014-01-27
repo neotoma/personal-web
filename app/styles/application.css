@@ -7,9 +7,7 @@
   background: #f9fbfd;
   background: rgba(249, 251, 253, 0.9);
   border-bottom: 1px solid #dee5ec;
-  font-size: 1em;
   padding: 1em;
-  text-transform: uppercase;
   text-align: center;
   transition: font-size 0.1s;
 }
@@ -29,4 +27,13 @@
 #app-header a:hover {
   background: none;
   color: #1668b9;
+}
+
+#app-title {
+}
+
+#app-subtitle {
+  font-size: 0.8em;
+  opacity: 0.5;
+  margin-top: 0.3em;
 }

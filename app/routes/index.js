@@ -1,5 +1,4 @@
 App.IndexRoute = Ember.Route.extend({
-  title: 'Mark Hendrickson',
   model: function() {
     return this.store.find('post').then(function(posts) {
       return posts
@@ -8,6 +7,6 @@ App.IndexRoute = Ember.Route.extend({
 
   setupController: function(controller, model) {
     controller.set('model', model);
-    document.title = 'Mark Hendrickson';
+    controller.get('controllers.application').setTitle('Mark Hendrickson');
   }
 });

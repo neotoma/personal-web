@@ -26,3 +26,22 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
     return url;
   }
 });
+
+// Reopen route to add class name that indicates current route to body tag
+Ember.Route.reopen({
+  activate: function() {
+    var cssClass = this.toCssClass();
+    
+    if (cssClass != 'application') {
+      Ember.$('body').addClass(cssClass);
+    }
+  },
+
+  deactivate: function() {
+    Ember.$('body').removeClass(this.toCssClass());
+  },
+
+  toCssClass: function() {
+    return this.routeName.replace(/\./g, '-').dasherize();
+  }
+});

@@ -1,4 +1,4 @@
-.post {
+.post #content {
   background: #f9fbfd;
   border-bottom: 1px solid #dee5ec;
   padding: 4em 5em 4em 5em;
@@ -24,6 +24,11 @@
 
 .post .post-body img {
   max-width: 100%;
+}
+
+.post .post-body img:nth-of-type(1) {
+  float: right;
+  margin: 0 0 2em 2em;
 }
 
 .post .post-body ol li {

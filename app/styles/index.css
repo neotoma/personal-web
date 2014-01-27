@@ -1,4 +1,4 @@
-#bio, #profiles, #posts {
+.index #bio, #profiles, #posts {
   background: #f9fbfd;
   border-bottom: 1px solid #dee5ec;
   padding: 2em;
@@ -6,7 +6,7 @@
   max-width: 42em;
 }
 
-#bio h1, #profiles h1, #posts h1 {
+.index #bio h1, .index #profiles h1, .index #posts h1 {
   text-align: center;
   font-size: 0.9em;
   text-transform: uppercase;
@@ -16,33 +16,46 @@
   padding: 0;
 }
 
-#bio p {
+.index #bio p {
   font-size: 1.1em;
 }
 
-#profiles, #posts {
+.index #profiles, .index #posts {
   text-align: center;
 }
 
-#posts li {
+.index #posts li {
   margin-bottom: 0.6em;
   font-size: 1.1em;
 }
 
-#posts li .post-published-at {
+.index #posts li .post-published-at {
   color: #c2cad2;
   font-size: 0.9em;
 }
 
-#profiles li {
+.index #profiles li {
   margin-bottom: 0.2em;
   display: inline-block;
 }
 
-#profiles li:after {
+.index #profiles li:after {
   content: " \00b7 ";
 }
 
-#profiles li:last-child:after {
+.index #profiles li:last-child:after {
   content: "";
+}
+
+.index #app-name {
+  font-size: 1.8em;
+}
+
+.index #app-name a:hover {
+  cursor: default;
+  color: #283746;
+}
+
+.index #app { 
+  margin-top: 7.5em;
 }

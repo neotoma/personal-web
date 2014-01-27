@@ -52,3 +52,27 @@
   list-style: decimal;
   margin-left: 1.5em;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .post #app-title {
+    font-size: 1.5em;
+  }
+
+  .post #app-subtitle {
+    font-size: 1em;
+  }
+
+  .post #app {
+    margin-top: 0;
+  }
+
+  .post #content {
+    padding: 1.5em;
+  }
+
+  .post .post-body img:nth-of-type(1) {
+    float: none;
+    display: block;
+    margin: 0;
+  }
+}

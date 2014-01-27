@@ -1,5 +1,15 @@
-.index #app-title {
+.index #app-header {
   text-transform: uppercase;
+  font-size: 1.8em;
+}
+
+.index #app-header a:hover {
+  cursor: default;
+  color: #283746;
+}
+
+.index #app { 
+  margin-top: 7.5em;
 }
 
 .index #bio, #profiles, #posts {
@@ -16,7 +26,7 @@
   text-transform: uppercase;
   font-weight: normal;
   color: #79828b;
-  margin: 0 0 1em 0;
+  margin: 0 0 0.5em 0;
   padding: 0;
 }
 
@@ -51,15 +61,20 @@
   content: "";
 }
 
-.index #app-header {
-  font-size: 1.8em;
-}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .index #app-header {
+    font-size: 1.3em;
+  }
 
-.index #app-header a:hover {
-  cursor: default;
-  color: #283746;
-}
+  .index #app { 
+    margin-top: 0;
+  }
 
-.index #app { 
-  margin-top: 7.5em;
+  .index #profiles li {
+    font-size: 1.1em;
+  }
+
+  .index #bio, #profiles, #posts {
+    padding: 1em;
+  }
 }

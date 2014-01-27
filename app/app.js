@@ -30,6 +30,8 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
 // Reopen route to add class name that indicates current route to body tag
 Ember.Route.reopen({
   activate: function() {
+    this._super();
+
     var cssClass = this.toCssClass();
     
     if (cssClass != 'application') {

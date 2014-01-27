@@ -7,7 +7,10 @@ App.PostRoute = Ember.Route.extend({
     if (!model.get('body')) {
       model.reload();
     }
+
+    document.title = model.get('title');
     
     controller.set('model', model);
+    controller.set('title', model.title);
   }
 });

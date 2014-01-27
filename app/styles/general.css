@@ -39,7 +39,8 @@ a {
 }
 
 a:hover { 
-  text-decoration: underline; 
+  text-decoration: none;
+  background: #eaf1f7;
 }
 
 ul, ol, li {

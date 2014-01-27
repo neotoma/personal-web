@@ -47,11 +47,11 @@
   content: "";
 }
 
-.index #app-name {
+.index #app-header {
   font-size: 1.8em;
 }
 
-.index #app-name a:hover {
+.index #app-header a:hover {
   cursor: default;
   color: #283746;
 }

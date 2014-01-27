@@ -1,10 +1,11 @@
-#app-name {
+#app-header {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
   color: #283746;
   background: #f9fbfd;
+  background: rgba(249, 251, 253, 0.9);
   border-bottom: 1px solid #dee5ec;
   font-size: 1em;
   padding: 1em;
@@ -21,11 +22,11 @@
   padding-bottom: 2em;
 }
 
-#app-name a {
+#app-header a {
   color: #283746;
 }
 
-#app-name a:hover {
-  text-decoration: none;
+#app-header a:hover {
+  background: none;
   color: #1668b9;
 }

@@ -7,8 +7,13 @@
   text-align: left;
 }
 
+.post .post-meta {
+  border-bottom: 1px solid #e0e5ea;
+  margin-bottom: 2em;
+}
+
 .post .post-title {
-  font-size: 2em;
+  font-size: 2.2em;
 }
 
 .post .post-published-at {
@@ -17,9 +22,24 @@
   margin-bottom: 1em;
 }
 
-.post .post-body p {
+.post .post-body p, .post .post-body li {
   font-size: 1.3em;
   line-height: 150%;
+}
+
+.post .post-body h1 {
+  font-size: 1.6em;
+  font-weight: normal;
+  margin-top: 1.5em;
+}
+
+.post .post-body li p {
+  font-size: 1em;
+}
+
+.post .post-body li {
+  margin: 1em;
+  list-style: disc;
 }
 
 .post .post-body img {

@@ -52,3 +52,16 @@ Ember.Route.reopen({
     window.scrollTo(0, 0);
   }
 });
+
+App.Router.reopen({ 
+  didTransition: function(params) {
+    this._super(params);
+
+    // Google Analytics pageview tracking
+    if (window._gaq !== undefined) { 
+      Ember.run.next(function(){
+        _gaq.push(['_trackPageview', window.location.hash.substr(1)]);
+      });
+    }
+  }
+});

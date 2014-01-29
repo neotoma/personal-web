@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 			app: {
 				src: [
 					'app/app.js',
+					'app/google-analytics.js',
 					'app/models/*.js', 
 					'app/controllers/*.js', 
 					'app/views/*.js', 

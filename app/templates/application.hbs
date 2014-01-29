@@ -1,7 +1,11 @@
 <div id="app-header">
   <div id="app-title">{{title}}</div>
   {{#if subtitle}}
-    <div id="app-subtitle">{{formatDate subtitle '%B %-d, %Y'}} &#183; {{#link-to 'index'}}Mark Hendrickson{{/link-to}}</div>
+    <div id="app-subtitle">
+      {{#link-to 'index'}}Mark Hendrickson{{/link-to}}
+      &#183;
+      {{formatDate subtitle '%B %-d, %Y'}} 
+    </div>
   {{/if}}
 </div>
 <div id="app">

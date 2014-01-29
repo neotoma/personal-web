@@ -4,11 +4,13 @@ This is the web application that powers my personal website.
 
 The application code is stored in the `app` directory. To build it for either debugging or release purposes, first install [Node](http://nodejs.org/) and run `node install` in the root directory to install Grunt and other node modules on which it depends.
 
-Then run [Grunt](https://github.com/gruntjs/grunt):
+Then run [Grunt](https://github.com/gruntjs/grunt) depending on what you want to do:
 
-- For *debugging*, simply run `grunt` from within the root directory. That will compile the code and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
+- **Debugging**: run `grunt debug` from within the root directory to compile the code and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
 
-- For *release*, simply run `grunt release`. That will compile fully minified code and styling that you can then push to a server.
+-  **Deployment Dry Run**: run `grunt public` to compile fully minified code and styling that can be pushed to a server manually or simply checked for accuracy before deployment below.
+
+-  **Deployment**: run `grunt deploy` to compile, commit and push everything in the `public` directory to the `gh-pages` branch for hosting on GitHub Pages.
 
 ## Loading data
 

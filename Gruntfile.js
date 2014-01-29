@@ -67,7 +67,7 @@ module.exports = function(grunt) {
 					src: 'app/404.html',
 					dest: 'public/404.html'
 				},
-				files: [{
+				{
 					src: 'app/favicon.ico',
 					dest: 'debug/favicon.ico'
 				},{

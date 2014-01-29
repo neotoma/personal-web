@@ -3,7 +3,9 @@
     Copyright 2012 Elving Rodriguez <http://elving.me/>
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 
-    IMPORTANT: Modified by Mark Hendrickson to add non-padded date formatting support ("-d")
+    IMPORTANT: Modified by Mark Hendrickson to:
+    - add non-padded date formatting support ("-d") 
+    - fix date string parsing bug in Safari
 */
 
 
@@ -918,7 +920,7 @@
     if (!Utils.isUndefined(date)) {
       date = Utils.result(date);
       format = Utils.result(format);
-      date = new Date(date);
+      date = new Date(date.replace(/-/g, "/")); // edited to fix for Safari per http://stackoverflow.com/questions/4310953/invalid-date-in-safari
       return Dates.format(date, format);
     } else {
       return Utils.err('{{formatDate}} takes two arguments (string|number|date, string).');

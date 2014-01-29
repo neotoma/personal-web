@@ -57,6 +57,13 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [{
+					src: 'app/404.html',
+					dest: 'debug/404.html'
+				},{
+					src: 'app/404.html',
+					dest: 'public/404.html'
+				},
+				{
 					expand: true,
 					cwd: 'app/images/',
 					src: ['**'],
@@ -99,6 +106,7 @@ module.exports = function(grunt) {
 			scripts: {
 				files: [
 					'app/index.html',
+					'app/404.html',
 					'app/library/*.js', 
 					'app/*.js', 
 					'~/posts/**/*',

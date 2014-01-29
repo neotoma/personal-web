@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 				src: [
 					'app/library/jquery-1.10.2.js',
 					'app/library/handlebars-1.0.0.js',
-					'app/library/swag-1.0.0.js',
+					'app/library/swag-0.5.1-modified.js',
 					'app/library/ember-1.3.2+pre.25108e91.js',
 					'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
 					'app/library/markdown.js',
@@ -53,9 +53,14 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		clean: ["debug/images/", "public/images/"],
+		clean: [
+			'debug/images/',
+			'public/images/',
+			//'debug/data',
+			//'public/data'
+		],
 		copy: {
-			main: {
+			assets: {
 				files: [{
 					src: 'app/404.html',
 					dest: 'debug/404.html'
@@ -75,6 +80,14 @@ module.exports = function(grunt) {
 					src: ['**'],
 					dest: 'public/images/'
 				}]
+			},
+			data: {
+				files: [{
+					expand: true,
+					cwd: 'data',
+					src: ['**'],
+					dest: 'public/data/'
+				}]
 			}
 		},
 		symlink: {
@@ -82,10 +95,6 @@ module.exports = function(grunt) {
     		files: [{
 		    	src: 'data',
 		    	dest: 'debug/data'
-		    },
-		    {
-		    	src: 'data',
-		    	dest: 'public/data'
 		    }]
 		  }
 		},
@@ -146,7 +155,7 @@ module.exports = function(grunt) {
 			}
 		},
 		githubPages: {
-	    target: {
+	    main: {
 	      options: {
 	        commitMessage: 'Push'
 	      },
@@ -166,7 +175,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-symlink');
 	grunt.loadNpmTasks('grunt-github-pages');
 
-	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy', 'symlink', 'connect', 'watch']);
-	grunt.registerTask('release', ['uglify', 'cssmin', 'clean', 'copy', 'symlink']);
-	grunt.registerTask('deploy', ['githubPages:target']);
+	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy:assets', 'symlink']);
+	grunt.registerTask('debug', ['default', 'connect', 'watch']);
+	grunt.registerTask('public', ['default', 'copy:data', 'uglify', 'cssmin']);
+	grunt.registerTask('deploy', ['public', 'githubPages']);
 };

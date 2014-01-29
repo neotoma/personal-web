@@ -3,6 +3,7 @@ debug/*
 !debug/index.html
 public/*
 !public/index.html
+!public/CNAME
 node_modules/
 npm-debug.log
 data/*

@@ -56,9 +56,7 @@ module.exports = function(grunt) {
 		},
 		clean: [
 			'debug/images/',
-			'public/images/',
-			//'debug/data',
-			//'public/data'
+			'public/images/'
 		],
 		copy: {
 			assets: {
@@ -68,6 +66,13 @@ module.exports = function(grunt) {
 				},{
 					src: 'app/404.html',
 					dest: 'public/404.html'
+				},
+				files: [{
+					src: 'app/favicon.ico',
+					dest: 'debug/favicon.ico'
+				},{
+					src: 'app/favicon.ico',
+					dest: 'public/favicon.io'
 				},
 				{
 					expand: true,

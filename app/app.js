@@ -45,5 +45,10 @@ Ember.Route.reopen({
 
   toCssClass: function() {
     return this.routeName.replace(/\./g, '-').dasherize();
+  },
+
+  afterModel: function() {
+    // Always scroll to top of window after route transition
+    window.scrollTo(0, 0);
   }
 });

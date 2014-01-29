@@ -920,7 +920,12 @@
     if (!Utils.isUndefined(date)) {
       date = Utils.result(date);
       format = Utils.result(format);
-      date = new Date(date.replace(/-/g, "/")); // edited to fix for Safari per http://stackoverflow.com/questions/4310953/invalid-date-in-safari
+
+      if (typeof date == 'string') {
+        // Fix for Safari per http://stackoverflow.com/questions/4310953/invalid-date-in-safari
+        date = new Date(date.replace(/-/g, "/"));
+      }
+
       return Dates.format(date, format);
     } else {
       return Utils.err('{{formatDate}} takes two arguments (string|number|date, string).');

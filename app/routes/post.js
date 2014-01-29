@@ -11,7 +11,7 @@ App.PostRoute = Ember.Route.extend({
     controller.set('model', model);
     controller.get('controllers.application').setTitle(
       model.get('title'), 
-      new Date(model.get('publishedAt'))
+      new Date(model.get('publishedAt').replace(/-/g, "/")) // with Safari fix per http://stackoverflow.com/questions/4310953/invalid-date-in-safari
     );
   }
 });

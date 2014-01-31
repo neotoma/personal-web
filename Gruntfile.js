@@ -24,8 +24,8 @@ var styleFiles = [
 ];
 
 var templateFiles = [
-	"app/templates/*.hbs",
-	"app/templates/components/*.hbs"
+	'app/templates/*.hbs',
+	'app/templates/components/*.hbs'
 ];
 
 module.exports = function(grunt) {
@@ -54,8 +54,8 @@ module.exports = function(grunt) {
 		ember_handlebars: {
 			options: {
 				processName: function(fileName) {
-					var arr = fileName.split("."),
-						path = arr[arr.length - 2].split("/"),
+					var arr = fileName.split('.'),
+						path = arr[arr.length - 2].split('/'),
 						name = path[path.length - 1],
 						isComponents = path.indexOf('components') > -1;
 					if(isComponents) {
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				files: {
-					"dev/templates.js": templateFiles
+					'dev/templates.js': templateFiles
 				}
 			},
 			deploy: {

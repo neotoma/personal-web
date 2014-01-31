@@ -1,6 +1,6 @@
 .DS_Store
-debug/*
-!debug/index.html
+dev/*
+!dev/index.html
 public/*
 !public/index.html
 !public/CNAME

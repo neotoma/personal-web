@@ -6,9 +6,11 @@ The application code is stored in the `app` directory. To build it for either de
 
 Then run [Grunt](https://github.com/gruntjs/grunt) depending on what you want to do:
 
-- **Debugging**: run `grunt debug` from within the root directory to compile the code and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
+- **Development Dry Run**: run `grunt dev-dry` to compile the code for development.
 
--  **Deployment Dry Run**: run `grunt public` to compile fully minified code and styling that can be pushed to a server manually or simply checked for accuracy before deployment below.
+- **Development**: run `grunt dev` to compile the code for development and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
+
+-  **Deployment Dry Run**: run `grunt deploy-dry` to compile fully minified code and styling that can be pushed to a server manually or simply checked for accuracy before deployment below.
 
 -  **Deployment**: run `grunt deploy` to compile, commit and push everything in the `public` directory to the `gh-pages` branch for hosting on GitHub Pages.
 

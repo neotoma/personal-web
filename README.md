@@ -2,7 +2,7 @@ This is the web application that powers my personal website.
 
 ## Building with Grunt
 
-The application code is stored in the `app` directory. To build it for either debugging or release purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends.
+The application code is stored in the `app` directory. To build it for either development or deployment purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends.
 
 Then run [Grunt](https://github.com/gruntjs/grunt) depending on what you want to do:
 

@@ -1,0 +1,267 @@
+#app-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  color: #283746;
+  background: #f9fbfd;
+  background: rgba(249, 251, 253, 0.9);
+  border-bottom: 1px solid #dee5ec;
+  padding: 1em;
+  text-align: center;
+  transition: font-size 0.1s;
+}
+
+#app { 
+  position: relative; 
+  text-align: center;
+  margin: 5em auto auto auto;
+  box-sizing: border-box;
+  padding-bottom: 2em;
+}
+
+#app-header a {
+  color: #283746;
+}
+
+#app-header a:hover {
+  background: none;
+  color: #1668b9;
+}
+
+#app-title {
+}
+
+#app-subtitle {
+  font-size: 0.8em;
+  color: #79828b;
+  margin-top: 0.3em;
+}
+
+#app-subtitle a {
+  color: #79828b;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  #app-header {
+    position: relative;
+  }
+
+  #app {
+    margin: auto;
+  }
+}
+body { 
+  background: #f2f4f6;
+  color: #303030; 
+  text-align: center; 
+  font-family: "AGaramondPro-Regular", "adobe-garamond-pro-1", serif;
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+
+::selection {
+  background: transparent;
+}
+
+::-moz-selection { 
+  background: transparent;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+p { 
+  line-height: 160%; 
+  margin: 0 0 15px 0; 
+}
+
+em { 
+  font-style: italic; 
+}
+
+strong { 
+  font-weight: bold; 
+}
+
+a { 
+  color: #1668b9; 
+  text-decoration: none; 
+}
+
+a:hover { 
+  text-decoration: none;
+  background: #eaf1f7;
+}
+
+ul, ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  font-style: italic;
+  margin-bottom: 2em;
+  color: #838383;
+}
+.index #app-header {
+  text-transform: uppercase;
+  font-size: 1.8em;
+}
+
+.index #app-header a:hover {
+  cursor: default;
+  color: #283746;
+}
+
+.index #app { 
+  margin-top: 7.5em;
+}
+
+.index #bio, #profiles, #posts {
+  background: #f9fbfd;
+  border-bottom: 1px solid #dee5ec;
+  padding: 2em;
+  margin: 1em auto 1em auto;
+  max-width: 42em;
+}
+
+.index #bio h1, .index #profiles h1, .index #posts h1 {
+  text-align: center;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #79828b;
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+
+.index #bio p {
+  font-size: 1.1em;
+}
+
+.index #profiles, .index #posts {
+  text-align: center;
+}
+
+.index #posts li {
+  margin-bottom: 0.6em;
+  font-size: 1.1em;
+}
+
+.index #posts li .post-published-at {
+  color: #c2cad2;
+  font-size: 0.9em;
+}
+
+.index #profiles li {
+  margin-bottom: 0.2em;
+  display: inline-block;
+}
+
+.index #profiles li:after {
+  content: " \00b7 ";
+}
+
+.index #profiles li:last-child:after {
+  content: "";
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .index #app-header {
+    font-size: 1.3em;
+  }
+
+  .index #app { 
+    margin-top: 0;
+  }
+
+  .index #profiles li {
+    font-size: 1.1em;
+  }
+
+  .index #bio, #profiles, #posts {
+    padding: 1em;
+  }
+}
+.post #app-title {
+  font-size: 1.7em;
+}
+
+.post #app-subtitle {
+  font-size: 1.1em;
+}
+
+.post #app {
+  margin-top: 7em;
+}
+
+.post #content {
+  background: #f9fbfd;
+  border-bottom: 1px solid #dee5ec;
+  padding: 4em 5em 4em 5em;
+  margin: 1em auto 1em auto;
+  max-width: 54em;
+  text-align: left;
+}
+
+.post .post-body p, .post .post-body li {
+  font-size: 1.3em;
+  line-height: 150%;
+}
+
+.post .post-body h1 {
+  font-size: 1.6em;
+  font-weight: normal;
+  margin-top: 1.5em;
+}
+
+.post .post-body li p {
+  font-size: 1em;
+}
+
+.post .post-body li {
+  margin: 1em;
+  list-style: disc;
+}
+
+.post .post-body img {
+  max-width: 100%;
+}
+
+.post .post-body img:nth-of-type(1) {
+  float: right;
+  margin: 0 0 2em 2em;
+}
+
+.post .post-body ol li {
+  list-style: decimal;
+  margin-left: 1.5em;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .post #app-title {
+    font-size: 1.5em;
+  }
+
+  .post #app-subtitle {
+    font-size: 1em;
+  }
+
+  .post #app {
+    margin-top: 0;
+  }
+
+  .post #content {
+    padding: 1.5em;
+  }
+
+  .post .post-body img:nth-of-type(1) {
+    float: none;
+    display: block;
+    margin: 0;
+  }
+}

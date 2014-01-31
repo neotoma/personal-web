@@ -48,3 +48,9 @@ ul, ol, li {
   margin: 0;
   padding: 0;
 }
+
+blockquote {
+  font-style: italic;
+  margin-bottom: 2em;
+  color: #838383;
+}

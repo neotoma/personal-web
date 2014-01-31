@@ -1,94 +1,129 @@
+var libFiles = [
+	'app/library/jquery-1.10.2.js',
+	'app/library/handlebars-1.0.0.js',
+	'app/library/swag-0.5.1-modified.js',
+	'app/library/ember-1.3.2+pre.25108e91.js',
+	'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
+	'app/library/markdown.js',
+	'app/library/typekit.js',
+	'app/library/*.js'
+];
+
+var appFiles = [
+	'app/app.js',
+	'app/google-analytics.js',
+	'app/models/*.js', 
+	'app/controllers/*.js', 
+	'app/views/*.js', 
+	'app/routes/*.js',
+	'app/helpers.js'
+];
+
+var styleFiles = [
+	'app/styles/*'
+];
+
+var templateFiles = [
+	"app/templates/*.hbs",
+	"app/templates/components/*.hbs"
+];
+
 module.exports = function(grunt) {
 	'use strict';
 
 	grunt.initConfig({
-		concat: {
-			vendor: {
-				src: [
-					'app/library/jquery-1.10.2.js',
-					'app/library/handlebars-1.0.0.js',
-					'app/library/swag-0.5.1-modified.js',
-					'app/library/ember-1.3.2+pre.25108e91.js',
-					'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
-					'app/library/markdown.js',
-					'app/library/typekit.js',
-					'app/library/*.js'
-				],
-				dest:'debug/lib.js'
-			},
-			app: {
-				src: [
-					'app/app.js',
-					'app/google-analytics.js',
-					'app/models/*.js', 
-					'app/controllers/*.js', 
-					'app/views/*.js', 
-					'app/routes/*.js',
-					'app/helpers.js'
-				],
-				dest:'debug/app.js'
-			},
-			styles: {
-				src: 'app/styles/*',
-				dest: 'debug/app.css'
-			}
+		clean: {
+			dev: [
+				'dev/images/',
+				'dev/*.css',
+				'dev/*.js',
+				'dev/404.html',
+				'dev/*.ico'
+			],
+			deployPre: [
+				'public/images/',
+				'public/*.css',
+				'public/*.js',
+				'public/404.html',
+				'public/favicon.ico'
+			],
+			deployPost: [
+				'public/templates.js'
+			]
 		},
 		ember_handlebars: {
-			compile: {
-				options: {
-					processName: function(fileName) {
-						var arr = fileName.split("."),
-							path = arr[arr.length - 2].split("/"),
-							name = path[path.length - 1],
-							isComponents = path.indexOf('components') > -1;
-						if(isComponents) {
-							return 'components/' + name;
-						}
-						else {
-							return name;
-						}
+			options: {
+				processName: function(fileName) {
+					var arr = fileName.split("."),
+						path = arr[arr.length - 2].split("/"),
+						name = path[path.length - 1],
+						isComponents = path.indexOf('components') > -1;
+					if(isComponents) {
+						return 'components/' + name;
 					}
-				},
+					else {
+						return name;
+					}
+				}
+			},
+			dev: {
 				files: {
-					"debug/templates.js": ["app/templates/*.hbs","app/templates/components/*.hbs"]
+					"dev/templates.js": templateFiles
+				}
+			},
+			deploy: {
+				files: {
+					'public/templates.js': templateFiles
 				}
 			}
 		},
-		clean: [
-			'debug/images/',
-			'public/images/'
-		],
+		concat: {
+			devLib: {
+				src: libFiles,
+				dest:'dev/lib.js'
+			},
+			devApp: {
+				src: appFiles,
+				dest:'dev/app.js'
+			},
+			devStyles: {
+				src: styleFiles,
+				dest: 'dev/app.css'
+			}
+		},
 		copy: {
-			assets: {
+			dev: {
 				files: [{
+					expand: true,
+					cwd: 'app/images/',
+					src: ['**'],
+					dest: 'dev/images/'
+				},
+				{
 					src: 'app/404.html',
-					dest: 'debug/404.html'
-				},{
+					dest: 'dev/404.html'
+				},
+				{
+					src: 'app/favicon.ico',
+					dest: 'dev/favicon.ico'
+				}]
+			},
+			deploy: {
+				files: [{
+					expand: true,
+					cwd: 'app/images/',
+					src: ['**'],
+					dest: 'public/images/'
+				},
+				{
 					src: 'app/404.html',
 					dest: 'public/404.html'
 				},
 				{
 					src: 'app/favicon.ico',
-					dest: 'debug/favicon.ico'
-				},{
-					src: 'app/favicon.ico',
-					dest: 'public/favicon.io'
+					dest: 'public/favicon.ico'
 				},
 				{
-					expand: true,
-					cwd: 'app/images/',
-					src: ['**'],
-					dest: 'debug/images/'
-				}, 
-				{
-					expand: true,
-					cwd: 'app/images/',
-					src: ['**'],
-					dest: 'public/images/'
-				}]
-			},
-			data: {
-				files: [{
 					expand: true,
 					cwd: 'data',
 					src: ['**'],
@@ -97,71 +132,79 @@ module.exports = function(grunt) {
 			}
 		},
 		symlink: {
-			expanded: {
+			dev: {
     		files: [{
 		    	src: 'data',
-		    	dest: 'debug/data'
+		    	dest: 'dev/data'
 		    }]
 		  }
 		},
 		uglify: {
-			build: {
-				src: ['debug/lib.js', 'debug/app.js', 'debug/templates.js'],
+			deploy: {
+				src: [
+					libFiles, 
+					appFiles, 
+					'public/templates.js'
+				],
 				dest: 'public/app.js'
 			}
 		},
 		cssmin: {
-			compress: {
+			deploy: {
 				files: {
-					"public/app.css": ["debug/app.css"]
-				}
-			}
-		},
-		watch: {
-			scripts: {
-				files: [
-					'app/index.html',
-					'app/404.html',
-					'app/library/*.js', 
-					'app/*.js', 
-					'~/posts/**/*',
-					'app/models/*.js', 
-					'app/controllers/*.js', 
-					'app/views/*.js', 
-					'app/routes/*.js',
-					'app/styles/*.css', 
-					'app/templates/**/*.hbs', 
-					'app/tests/*.js'
-				],
-				tasks: ['ember_handlebars','concat','copy'],
-				options: {
-					debounceDelay: 100
-				}
-			},
-			images: {
-				files: ['app/images/*'],
-				tasks: ['clean', 'copy'],
-				options: {
-					debounceDelay: 100
+					'public/app.css': styleFiles
 				}
 			}
 		},
 		connect: {
-			debug: {
+			dev: {
 				options: {
 					port: 9090,
-					base: 'debug'
+					base: 'dev'
 				}
 			},
-			release: {
+			deploy: {
 				options: {
 					port: 9091,
 					base: 'public'
 				}
 			}
 		},
+		watch: {
+			options: {
+				debounceDelay: 100
+			},
+			scripts: {
+				files: [
+					appFiles,
+					libFiles,
+					styleFiles,
+					templateFiles
+				],
+				tasks: [
+					'ember_handlebars:dev', 
+					'concat:devLib',
+					'concat:devApp',
+					'concat:devStyles',
+					'copy:dev'
+				]
+			},
+			images: {
+				files: ['app/images/*'],
+				tasks: ['clean:dev', 'copy:dev']
+			},
+			other: {
+				files: ['app/404.html', 'app/favicon.ico'],
+				tasks: ['clean:dev', 'copy:dev']
+			},
+			// Hack: doesn't do anything but keep connect server alive
+			deploy: {
+				files: ['app/images/*'],
+				tasks: []
+			}
+		},
 		githubPages: {
-	    main: {
+	    deploy: {
 	      options: {
 	        commitMessage: 'Push'
 	      },
@@ -181,8 +224,45 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-symlink');
 	grunt.loadNpmTasks('grunt-github-pages');
 
-	grunt.registerTask('default', ['ember_handlebars', 'concat', 'clean', 'copy:assets', 'symlink']);
-	grunt.registerTask('debug', ['default', 'connect', 'watch']);
-	grunt.registerTask('public', ['default', 'copy:data', 'uglify', 'cssmin']);
-	grunt.registerTask('deploy', ['public', 'githubPages']);
+	// Generate files for development
+	grunt.registerTask('dev-dry', [
+		'clean:dev',
+		'ember_handlebars:dev',
+		'concat:devLib',
+		'concat:devApp',
+		'concat:devStyles',
+		'copy:dev',
+		'symlink:dev'
+	]);
+
+	// Run local web server for development
+	grunt.registerTask('dev', [
+		'dev-dry', 
+		'connect:dev', 
+		'watch'
+	]);
+
+	// Generate files for deployment
+	grunt.registerTask('deploy-dry', [
+		'clean:deployPre', 
+		'ember_handlebars:deploy',
+		'copy:deploy',
+		'uglify:deploy',
+		'cssmin:deploy',
+		'copy:deploy',
+		'clean:deployPost'
+	]);
+
+	// Run local web server for pre-deployment testing
+	grunt.registerTask('deploy-test', [
+		'deploy-dry',
+		'connect:deploy',
+		'watch:deploy'
+	]);
+
+	// Deploy to GitHub Pages
+	grunt.registerTask('deploy', [
+		'deploy-dry',
+		'githubPages:deploy'
+	]);
 };

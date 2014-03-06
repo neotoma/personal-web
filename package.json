@@ -11,7 +11,13 @@
     "grunt-contrib-connect": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-github-pages": "0.0.4",
-    "grunt-contrib-symlink": "~0.2.0"
+    "grunt-contrib-symlink": "~0.2.0",
+    "grunt-rsync": "~0.4.0",
+    "grunt-ssh": "~0.10.0"
+  },
+  "dependencies": {
+    "express": "~4.0.0-rc2",
+    "ejs": "~0.8.5",
+    "rsync": "~0.3.0"
   }
 }

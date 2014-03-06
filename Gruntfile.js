@@ -196,21 +196,37 @@ module.exports = function(grunt) {
 			other: {
 				files: ['app/404.html', 'app/favicon.ico'],
 				tasks: ['clean:dev', 'copy:dev']
-			},
-			// Hack: doesn't do anything but keep connect server alive
-			deploy: {
-				files: ['app/images/*'],
-				tasks: []
 			}
 		},
-		githubPages: {
+		rsync: {
 	    deploy: {
 	      options: {
-	        commitMessage: 'Push'
-	      },
-	      src: 'public'
+	        exclude: [
+	        	".DS_Store",
+	        	".git*",
+	        	"node_modules",
+	        	"app",
+	        	"dev",
+	        	"node_modules"
+	        ],
+	        recursive: true,
+	        src: './',
+	        dest: '/var/www/markmhendrickson',
+	        host: 'markmhendrickson'
+	      }
 	    }
-	  }
+	  },
+	  sshexec: {
+		  npmInstall: {
+		    command: 'cd /var/www/markmhendrickson; npm install --production',
+		    options: {
+		    	host: '107.170.225.13',
+		    	port: 22,
+         	username: 'root',
+         	agent: process.env.SSH_AUTH_SOCK
+        }
+		  }
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -222,7 +238,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-symlink');
-	grunt.loadNpmTasks('grunt-github-pages');
+	grunt.loadNpmTasks('grunt-rsync');
+	grunt.loadNpmTasks('grunt-ssh');
 
 	// Generate files for development
 	grunt.registerTask('dev-dry', [
@@ -256,13 +273,13 @@ module.exports = function(grunt) {
 	// Run local web server for pre-deployment testing
 	grunt.registerTask('deploy-test', [
 		'deploy-dry',
-		'connect:deploy',
-		'watch:deploy'
+		'connect:deploy'
 	]);
 
-	// Deploy to GitHub Pages
+	// Deploy to host
 	grunt.registerTask('deploy', [
 		'deploy-dry',
-		'githubPages:deploy'
+		'rsync:deploy',
+		'sshexec:npmInstall'
 	]);
 };

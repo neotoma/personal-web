@@ -54,6 +54,8 @@ Ember.Route.reopen({
 });
 
 App.Router.reopen({ 
+  location: 'history',
+  
   didTransition: function(params) {
     this._super(params);
 

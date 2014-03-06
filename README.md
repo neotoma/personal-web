@@ -4,7 +4,11 @@ This is the web application that powers my personal website.
 
 The application code is stored in the `app` directory. To build it for either development or deployment purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends.
 
-Then run [Grunt](https://github.com/gruntjs/grunt) depending on what you want to do:
+Then install the [Grunt](https://github.com/gruntjs/grunt) command line interface:
+
+`sudo npm install -g grunt-cli`
+
+And depending on what you want to do:
 
 - **Development Dry Run**: run `grunt dev-dry` to compile the code for development purposes. This compiled code can be found in the `dev` directory.
 

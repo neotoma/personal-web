@@ -1,9 +1,5 @@
 .DS_Store
-dev/*
-!dev/index.html
-public/*
-!public/index.html
-!public/CNAME
+public/
 node_modules/
 npm-debug.log
 data/*

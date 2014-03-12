@@ -13,11 +13,16 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-symlink": "~0.2.0",
     "grunt-rsync": "~0.4.0",
-    "grunt-ssh": "~0.10.0"
+    "grunt-ssh": "~0.10.0",
+    "grunt-express": "~1.2.1",
+    "grunt-env": "~0.4.1"
   },
   "dependencies": {
     "express": "~4.0.0-rc2",
     "ejs": "~0.8.5",
-    "rsync": "~0.3.0"
+    "rsync": "~0.3.0",
+    "forever": "~0.10.11",
+    "prerender": "~2.1.6",
+    "prerender-node": "~0.1.18"
   }
 }

@@ -1,0 +1,2 @@
+var APP_CONFIG = {
+}

@@ -1,4 +1,4 @@
-App = Ember.Application.create();
+App = Ember.Application.create(APP_CONFIG);
 
 App.Router.map(function() {
   this.route('index', { path: '/' });
@@ -23,7 +23,7 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
       url = url + '-all';
     }
 
-    return url;
+    return '/static' + url;
   }
 });
 

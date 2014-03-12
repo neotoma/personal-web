@@ -3,21 +3,25 @@
   <head>
     <title>Mark Hendrickson</title>
     <meta charset="utf-8">
-    
+    <meta name="fragment" content="!">
+
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="/app.css" />
+    <link rel="stylesheet" type="text/css" href="/static/app.css" />
 
     <!-- iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
 
     <!-- Me -->
     <link rel="me" href="http://github.com/markmhx" />
     <link rel="me" href="https://github.com/markmhx" />
+
+    <!-- JavaScript -->
+    <% javascriptFiles.forEach(function(javascriptFile) { %>
+      <script type="text/javascript" src="/static/<%= javascriptFile %>"></script>
+    <% }) %>
   </head>
-  <body>
-    <script type="text/javascript" src="/app.js"></script>
-  </body>
+  <body></body>
 </html>

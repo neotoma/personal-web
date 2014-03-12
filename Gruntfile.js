@@ -9,6 +9,10 @@ var libFiles = [
 	'app/library/*.js'
 ];
 
+var configFiles = [
+	'app/config/*'
+];
+
 var appFiles = [
 	'app/app.js',
 	'app/google-analytics.js',
@@ -32,22 +36,24 @@ module.exports = function(grunt) {
 	'use strict';
 
 	grunt.initConfig({
+		env: {
+			dev: {
+				NODE_ENV: 'development'
+			},
+			deploy: {
+				NODE_ENV: 'production-test'
+			}
+		},
 		clean: {
-			dev: [
-				'dev/images/',
-				'dev/*.css',
-				'dev/*.js',
-				'dev/404.html',
-				'dev/*.ico'
-			],
-			deployPre: [
+			pre: [
 				'public/images/',
 				'public/*.css',
 				'public/*.js',
+				'public/*.ejs',
 				'public/404.html',
 				'public/favicon.ico'
 			],
-			deployPost: [
+			post: [
 				'public/templates.js'
 			]
 		},
@@ -66,11 +72,6 @@ module.exports = function(grunt) {
 					}
 				}
 			},
-			dev: {
-				files: {
-					'dev/templates.js': templateFiles
-				}
-			},
 			deploy: {
 				files: {
 					'public/templates.js': templateFiles
@@ -78,42 +79,30 @@ module.exports = function(grunt) {
 			}
 		},
 		concat: {
-			devLib: {
+			lib: {
 				src: libFiles,
-				dest:'dev/lib.js'
+				dest:'public/lib.js'
 			},
-			devApp: {
-				src: appFiles,
-				dest:'dev/app.js'
+			app: {
+				src: ['app/config/dev.js', appFiles],
+				dest:'public/app.js'
 			},
-			devStyles: {
+			styles: {
 				src: styleFiles,
-				dest: 'dev/app.css'
+				dest: 'public/app.css'
 			}
 		},
 		copy: {
-			dev: {
-				files: [{
-					expand: true,
-					cwd: 'app/images/',
-					src: ['**'],
-					dest: 'dev/images/'
-				},
-				{
-					src: 'app/404.html',
-					dest: 'dev/404.html'
-				},
-				{
-					src: 'app/favicon.ico',
-					dest: 'dev/favicon.ico'
-				}]
-			},
-			deploy: {
+			main: {
 				files: [{
 					expand: true,
 					cwd: 'app/images/',
 					src: ['**'],
 					dest: 'public/images/'
+				},
+				{
+					src: 'app/index.ejs',
+					dest: 'public/index.ejs'
 				},
 				{
 					src: 'app/404.html',
@@ -132,17 +121,18 @@ module.exports = function(grunt) {
 			}
 		},
 		symlink: {
-			dev: {
+			main: {
     		files: [{
 		    	src: 'data',
-		    	dest: 'dev/data'
+		    	dest: 'public/data'
 		    }]
 		  }
 		},
 		uglify: {
-			deploy: {
+			main: {
 				src: [
-					libFiles, 
+					libFiles,
+					'app/config/prod.js',
 					appFiles, 
 					'public/templates.js'
 				],
@@ -150,24 +140,20 @@ module.exports = function(grunt) {
 			}
 		},
 		cssmin: {
-			deploy: {
+			main: {
 				files: {
 					'public/app.css': styleFiles
 				}
 			}
 		},
-		connect: {
-			dev: {
-				options: {
-					port: 9090,
-					base: 'dev'
-				}
+		express: {
+			options: {
+				hostname: 'localhost',
+				port: 9090,
+				server: 'app-server.js'
 			},
-			deploy: {
-				options: {
-					port: 9091,
-					base: 'public'
-				}
+			main: {
+				bases: 'public'
 			}
 		},
 		watch: {
@@ -176,38 +162,35 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: [
+					configFiles,
 					appFiles,
 					libFiles,
 					styleFiles,
 					templateFiles
 				],
 				tasks: [
-					'ember_handlebars:dev', 
-					'concat:devLib',
-					'concat:devApp',
-					'concat:devStyles',
-					'copy:dev'
+					'ember_handlebars', 
+					'concat',
+					'copy'
 				]
 			},
 			images: {
 				files: ['app/images/*'],
-				tasks: ['clean:dev', 'copy:dev']
+				tasks: ['clean', 'copy']
 			},
 			other: {
 				files: ['app/404.html', 'app/favicon.ico'],
-				tasks: ['clean:dev', 'copy:dev']
+				tasks: ['clean', 'copy']
 			}
 		},
 		rsync: {
-	    deploy: {
+	    main: {
 	      options: {
 	        exclude: [
 	        	".DS_Store",
 	        	".git*",
 	        	"node_modules",
-	        	"app",
-	        	"dev",
-	        	"node_modules"
+	        	"app"
 	        ],
 	        recursive: true,
 	        src: './',
@@ -217,24 +200,28 @@ module.exports = function(grunt) {
 	    }
 	  },
 	  sshexec: {
+	  	options: {
+	    	host: '107.170.225.13',
+	    	port: 22,
+       	username: 'root',
+       	agent: process.env.SSH_AUTH_SOCK
+      },
 		  npmInstall: {
-		    command: 'cd /var/www/markmhendrickson; npm install --production',
-		    options: {
-		    	host: '107.170.225.13',
-		    	port: 22,
-         	username: 'root',
-         	agent: process.env.SSH_AUTH_SOCK
-        }
+		    command: 'cd /var/www/markmhendrickson; npm install --production'
+		   },
+		  foreverRestartAll: {
+		  	command: 'cd /var/www/markmhendrickson; forever restartall'
 		  }
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-env');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-ember-handlebars');
-	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-express');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-symlink');
@@ -243,43 +230,45 @@ module.exports = function(grunt) {
 
 	// Generate files for development
 	grunt.registerTask('dev-dry', [
-		'clean:dev',
-		'ember_handlebars:dev',
-		'concat:devLib',
-		'concat:devApp',
-		'concat:devStyles',
-		'copy:dev',
-		'symlink:dev'
+		'env:dev',
+		'clean:pre',
+		'ember_handlebars',
+		'concat',
+		'copy',
+		'symlink'
 	]);
 
 	// Run local web server for development
 	grunt.registerTask('dev', [
 		'dev-dry', 
-		'connect:dev', 
+		'express',
 		'watch'
 	]);
 
 	// Generate files for deployment
 	grunt.registerTask('deploy-dry', [
-		'clean:deployPre', 
-		'ember_handlebars:deploy',
-		'copy:deploy',
-		'uglify:deploy',
-		'cssmin:deploy',
-		'copy:deploy',
-		'clean:deployPost'
+		'clean:pre', 
+		'ember_handlebars',
+		'copy',
+		'uglify',
+		'cssmin',
+		'copy',
+		'clean:post'
 	]);
 
 	// Run local web server for pre-deployment testing
 	grunt.registerTask('deploy-test', [
 		'deploy-dry',
-		'connect:deploy'
+		'env:deploy',
+		'express',
+		'express-keepalive'
 	]);
 
 	// Deploy to host
 	grunt.registerTask('deploy', [
 		'deploy-dry',
-		'rsync:deploy',
-		'sshexec:npmInstall'
+		'rsync',
+		'sshexec:npmInstall',
+		'sshexec:foreverRestartAll'
 	]);
 };

@@ -1,33 +1,61 @@
+.post #app-header {
+  padding: 5em 4em 4em 4em;
+}
+
 .post #app-title {
-  font-size: 1.7em;
+  font-size: 2.4em;
 }
 
 .post #app-subtitle {
-  font-size: 1.1em;
-}
-
-.post #app {
-  margin-top: 7em;
+  font-size: 1.3em;
 }
 
 .post #content {
   background: #f9fbfd;
   border-bottom: 1px solid #dee5ec;
-  padding: 4em 5em 4em 5em;
   margin: 1em auto 1em auto;
   max-width: 54em;
   text-align: left;
 }
 
+.post #content ::selection {
+  background: #f0f6fc;
+}
+
+.post #content ::-moz-selection { 
+  background: #f0f6fc;
+}
+
+.post .post-cover {
+  width: 100%;
+}
+
+.post .post-body {
+  padding: 4em;
+  overflow: hidden;
+}
+
 .post .post-body p, .post .post-body li {
-  font-size: 1.3em;
+  font-size: 1.2em;
   line-height: 150%;
 }
 
 .post .post-body h1 {
   font-size: 1.6em;
   font-weight: normal;
-  margin-top: 1.5em;
+  margin: 2em 0 1em 0;
+  padding-bottom: 0.5em;
+  text-align: center;
+  border-bottom: 1px solid #e2e9f0;
+  letter-spacing: 0.05em;
+  color: #4e5359;
+}
+
+.post .post-body hr {
+  height: 1px;
+  border: none;
+  background: #e2e9f0;
+  margin: 2em 0 2em 0;
 }
 
 .post .post-body li p {
@@ -43,6 +71,10 @@
   max-width: 100%;
 }
 
+.post .post-body-img.cover {
+  width: 150%;
+}
+
 .post .post-body img:nth-of-type(1) {
   float: right;
   margin: 0 0 2em 2em;
@@ -53,9 +85,15 @@
   margin-left: 1.5em;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+@media only screen and (max-device-width : 750px) {
+  .post #app-header {
+    padding: 2em;
+    border-bottom: 0;
+    background: #f9fbfd;
+  }
+
   .post #app-title {
-    font-size: 1.5em;
+    font-size: 1.8em;
   }
 
   .post #app-subtitle {
@@ -67,12 +105,18 @@
   }
 
   .post #content {
-    padding: 1.5em;
+    margin: auto;
   }
 
+  .post .post-body {
+    padding: 1em;
+  }  
+}
+
+@media only screen and (max-device-width : 350px) {
   .post .post-body img:nth-of-type(1) {
     float: none;
     display: block;
-    margin: 0;
+    margin: 0 0 1em 0;
   }
 }

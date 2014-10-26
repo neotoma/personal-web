@@ -1,21 +1,16 @@
 #app-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
   color: #283746;
   background: #f9fbfd;
   background: rgba(249, 251, 253, 0.9);
   border-bottom: 1px solid #dee5ec;
   padding: 1em;
   text-align: center;
-  transition: font-size 0.1s;
 }
 
 #app { 
   position: relative; 
   text-align: center;
-  margin: 5em auto auto auto;
+  margin: auto;
   box-sizing: border-box;
   padding-bottom: 2em;
 }
@@ -40,14 +35,4 @@
 
 #app-subtitle a {
   color: #79828b;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
-  #app-header {
-    position: relative;
-  }
-
-  #app {
-    margin: auto;
-  }
 }

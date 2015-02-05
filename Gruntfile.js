@@ -189,28 +189,29 @@ module.exports = function(grunt) {
 	        exclude: [
 	        	".DS_Store",
 	        	".git*",
+	        	"app",
 	        	"node_modules",
-	        	"app"
+	        	"*.sublime*"
 	        ],
 	        recursive: true,
 	        src: './',
-	        dest: '/var/www/markmhendrickson',
-	        host: 'markmhendrickson'
+	        dest: process.env.MARKMHENDRICKSON_HOST_DEST,
+	        host: process.env.MARKMHENDRICKSON_HOST_USERNAME + '@' + process.env.MARKMHENDRICKSON_HOST
 	      }
 	    }
 	  },
 	  sshexec: {
 	  	options: {
-	    	host: '107.170.225.13',
+	    	host: process.env.MARKMHENDRICKSON_HOST,
 	    	port: 22,
-       	username: 'root',
+       	username: process.env.MARKMHENDRICKSON_HOST_USERNAME,
        	agent: process.env.SSH_AUTH_SOCK
       },
 		  npmInstall: {
-		    command: 'cd /var/www/markmhendrickson; npm install --production'
+		    command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DEST + ' && npm install --production'
 		   },
 		  foreverRestartAll: {
-		  	command: 'cd /var/www/markmhendrickson; forever restartall'
+		  	command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DEST + ' && forever restartall'
 		  }
 		}
 	});

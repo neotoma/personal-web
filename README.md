@@ -18,7 +18,13 @@ And depending on what you want to do:
 
 - **Deployment Testing**: run `grunt deploy-test` to compile code for deployment and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
 
--  **Deployment**: run `grunt deploy` to compile code for deployment then commit and push it to the `gh-pages` branch for hosting on GitHub Pages.
+-  **Deployment**: run `grunt deploy` to compile code for deployment and deploy it to your host. The following environmental variables must be set on the deployment system:
+
+```
+export MARKMHENDRICKSON_HOST=<your host address>
+export MARKMHENDRICKSON_HOST_USERNAME=<username on host with which to connect>
+export MARKMHENDRICKSON_HOST_DEST=<destination directory on host for app>
+```
 
 ## Enabling Prerender.io
 
@@ -31,7 +37,6 @@ export S3_BUCKET_NAME=<your bucket name>
 export AWS_ACCESS_KEY_ID=<your aws access key>
 export AWS_SECRET_ACCESS_KEY=<your aws secret access key>
 ```
-
 
 ## Loading data
 

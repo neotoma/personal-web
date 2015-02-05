@@ -1,41 +1,36 @@
-var libFiles = [
-	'app/library/jquery-1.10.2.js',
-	'app/library/handlebars-1.0.0.js',
-	'app/library/swag-0.5.1-modified.js',
-	'app/library/ember-1.3.2+pre.25108e91.js',
-	'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
-	'app/library/markdown.js',
-	'app/library/typekit.js',
-	'app/library/*.js'
-];
-
-var configFiles = [
-	'app/config/*'
-];
-
-var appFiles = [
-	'app/app.js',
-	'app/google-analytics.js',
-	'app/models/*.js', 
-	'app/controllers/*.js', 
-	'app/views/*.js', 
-	'app/routes/*.js',
-	'app/helpers.js'
-];
-
-var styleFiles = [
-	'app/styles/*'
-];
-
-var templateFiles = [
-	'app/templates/*.hbs',
-	'app/templates/components/*.hbs'
-];
-
 module.exports = function(grunt) {
 	'use strict';
 
 	grunt.initConfig({
+		lib_files: [
+			'app/library/jquery-1.10.2.js',
+			'app/library/handlebars-1.0.0.js',
+			'app/library/swag-0.5.1-modified.js',
+			'app/library/ember-1.3.2+pre.25108e91.js',
+			'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
+			'app/library/markdown.js',
+			'app/library/typekit.js',
+			'app/library/*.js'
+		],
+		config_files: [
+			'app/config/*'
+		],
+		app_files: [
+			'app/app.js',
+			'app/google-analytics.js',
+			'app/models/*.js', 
+			'app/controllers/*.js', 
+			'app/views/*.js', 
+			'app/routes/*.js',
+			'app/helpers.js'
+		],
+		style_files: [
+			'app/styles/*'
+		],
+		template_files: [
+			'app/templates/*.hbs',
+			'app/templates/components/*.hbs'
+		],
 		env: {
 			dev: {
 				NODE_ENV: 'development'
@@ -74,21 +69,21 @@ module.exports = function(grunt) {
 			},
 			deploy: {
 				files: {
-					'public/templates.js': templateFiles
+					'public/templates.js': '<%= template_files %>'
 				}
 			}
 		},
 		concat: {
 			lib: {
-				src: libFiles,
+				src: '<%= lib_files %>',
 				dest:'public/lib.js'
 			},
 			app: {
-				src: ['app/config/dev.js', appFiles],
+				src: ['app/config/dev.js', '<%= app_files %>'],
 				dest:'public/app.js'
 			},
 			styles: {
-				src: styleFiles,
+				src: '<%= style_files %>',
 				dest: 'public/app.css'
 			}
 		},
@@ -131,9 +126,9 @@ module.exports = function(grunt) {
 		uglify: {
 			main: {
 				src: [
-					libFiles,
+					'<%= lib_files %>',
 					'app/config/prod.js',
-					appFiles, 
+					'<%= app_files %>', 
 					'public/templates.js'
 				],
 				dest: 'public/app.js'
@@ -142,7 +137,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			main: {
 				files: {
-					'public/app.css': styleFiles
+					'public/app.css': '<%= style_files %>'
 				}
 			}
 		},
@@ -162,11 +157,11 @@ module.exports = function(grunt) {
 			},
 			scripts: {
 				files: [
-					configFiles,
-					appFiles,
-					libFiles,
-					styleFiles,
-					templateFiles
+					'<%= config_files %>',
+					'<%= app_files %>',
+					'<%= lib_files %>',
+					'<%= style_files %>',
+					'<%= template_files %>'
 				],
 				tasks: [
 					'ember_handlebars', 
@@ -216,18 +211,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-env');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-ember-handlebars');
-	grunt.loadNpmTasks('grunt-express');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-symlink');
-	grunt.loadNpmTasks('grunt-rsync');
-	grunt.loadNpmTasks('grunt-ssh');
+	require('load-grunt-tasks')(grunt);
 
 	// Generate files for development
 	grunt.registerTask('dev-dry', [

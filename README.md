@@ -23,7 +23,7 @@ And depending on what you want to do:
 ```
 export MARKMHENDRICKSON_HOST=<your host address>
 export MARKMHENDRICKSON_HOST_USERNAME=<username on host with which to connect>
-export MARKMHENDRICKSON_HOST_DEST=<destination directory on host for app>
+export MARKMHENDRICKSON_HOST_DIR=<destination directory on host for app>
 ```
 
 ## Enabling Prerender.io

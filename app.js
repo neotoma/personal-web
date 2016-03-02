@@ -8,6 +8,7 @@ var port;
 var renderOptions;
 
 if (app.get('env') == 'development') {
+  port = 3000;
   renderOptions = { 
     javascriptFiles: [
       'lib.js',
@@ -15,16 +16,13 @@ if (app.get('env') == 'development') {
       'templates.js'
     ]
   };
-} else {
+} else if (app.get('env') === 'production') {
+  port = 80;
   renderOptions = { 
     javascriptFiles: [
       'app.js'
     ]
   };
-}
-
-if (app.get('env') == 'production') {
-  port = 80;
 }
 
 var server = app.listen(port);

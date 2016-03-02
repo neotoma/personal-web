@@ -2,13 +2,14 @@ App = Ember.Application.create(APP_CONFIG);
 
 App.Router.map(function() {
   this.route('index', { path: '/' });
+  this.route('contract', { path: '/contract' });
   this.resource('post', { path: '/post/:post_id' });
 });
 
 var ApplicationAdapterNameSpace = 'data';
 
 // GitHub Pages hosts places app under a directory so it needs a different namespace
-if (location.hostname == 'markmhx.github.io') {
+if (location.hostname === 'markmhx.github.io') {
   ApplicationAdapterNameSpace = 'markmhendrickson/data'
 }
 

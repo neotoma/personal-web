@@ -25,6 +25,7 @@ module.exports = function(grunt) {
 			'app/helpers.js'
 		],
 		style_files: [
+      'app/styles/reset.less',
 			'app/styles/*'
 		],
 		template_files: [
@@ -81,10 +82,6 @@ module.exports = function(grunt) {
 			app: {
 				src: ['app/config/dev.js', '<%= app_files %>'],
 				dest:'public/app.js'
-			},
-			styles: {
-				src: '<%= style_files %>',
-				dest: 'public/app.css'
 			}
 		},
 		copy: {
@@ -134,10 +131,17 @@ module.exports = function(grunt) {
 				dest: 'public/app.js'
 			}
 		},
-		cssmin: {
+		less: {
 			main: {
 				files: {
 					'public/app.css': '<%= style_files %>'
+				}
+			}
+		},
+		cssmin: {
+			main: {
+				files: {
+					'public/app.css': 'public/app.css'
 				}
 			}
 		},
@@ -145,7 +149,7 @@ module.exports = function(grunt) {
 			options: {
 				hostname: 'localhost',
 				port: 9090,
-				server: 'app-server.js'
+				server: 'app.js'
 			},
 			main: {
 				bases: 'public'
@@ -166,6 +170,7 @@ module.exports = function(grunt) {
 				tasks: [
 					'ember_handlebars', 
 					'concat',
+					'less',
 					'copy'
 				]
 			},
@@ -219,6 +224,7 @@ module.exports = function(grunt) {
 		'clean:pre',
 		'ember_handlebars',
 		'concat',
+		'less',
 		'copy',
 		'symlink'
 	]);

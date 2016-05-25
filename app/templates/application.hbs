@@ -1,12 +1,5 @@
-<div id="app-header">
-  <div id="app-title">{{title}}</div>
-  {{#if subtitle}}
-    <div id="app-subtitle">
-      {{#link-to 'index'}}Mark Hendrickson{{/link-to}}
-      &#183;
-      {{formatDate subtitle '%B %-d, %Y'}} 
-    </div>
-  {{/if}}
+<div id="app-header" {{bind-attr style=headerStyle}}>
+  <div {{bind-attr style=headerTitleStyle}}>Mark Hendrickson</div>
 </div>
 <div id="app">
   <div id="content">

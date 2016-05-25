@@ -165,7 +165,10 @@ module.exports = function(grunt) {
 					'<%= app_files %>',
 					'<%= lib_files %>',
 					'<%= style_files %>',
-					'<%= template_files %>'
+					'<%= template_files %>',
+					'app/images/**/*',
+					'app/404.html', 
+					'app/favicon.ico'
 				],
 				tasks: [
 					'ember_handlebars', 
@@ -173,14 +176,6 @@ module.exports = function(grunt) {
 					'less',
 					'copy'
 				]
-			},
-			images: {
-				files: ['app/images/*'],
-				tasks: ['clean', 'copy']
-			},
-			other: {
-				files: ['app/404.html', 'app/favicon.ico'],
-				tasks: ['clean', 'copy']
 			}
 		},
 		rsync: {

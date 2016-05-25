@@ -1,24 +1,22 @@
-@green-color: #00D1A4;
-@orange-color: #FF7F00;
-@subheader-color: #97A3AF;
+@import (reference) "config.less";
 
 body.contract {
-  #app-title {
-    font-family: Avenir-Light, sans-serif;
-    letter-spacing: 0.1em;
-    color: @subheader-color;
-    text-transform: uppercase;
-    padding: 1.2em;
-  }
-
   section {
     border-bottom: 1px solid #DEE5EC;
     background: white;
     margin-top: 1em;
     padding: 2em 0 2em 0;
 
+    &:first-of-type {
+      margin-top: 0;
+    }
+
     &#intro {
       padding: 3.7em 0 3.7em 0;
+
+      @media @mobile {
+        padding: 1em;
+      }
       
       >div {
         max-width: 50em;
@@ -27,18 +25,19 @@ body.contract {
       }
 
       h1 {
-        font-family: Avenir-Heavy, sans-serif;
+        font-family: @bold-font-family;
         font-size: 2em;
         line-height: 1.25em;
       }
 
       .subheader {
         @font-size: 1.2em;
-        font-family: Avenir-Light, sans-serif;
+        font-family: @regular-font-family;
         color: @subheader-color;
         font-size: @font-size;
         letter-spacing: 0.005em;
         margin-top: calc(1em / @font-size);
+        margin-bottom: calc(1em / @font-size);
       }
 
       p {
@@ -46,11 +45,11 @@ body.contract {
       }
 
       button {
-        font-family: Avenir-Light, sans-serif;
+        font-family: @regular-font-family;
         border-radius: 0.5em;
         border: 2px solid @green-color;
-        background: @green-color;
-        color: white;
+        background: white;
+        color: @green-color;
         font-size: 1em;
         padding: 0.75em 0.5em;
         width: 100%;
@@ -66,6 +65,11 @@ body.contract {
           text-align: center;
           max-width: 10em;
           margin-right: 4em;
+
+          @media @mobile {
+            margin-right: 1em;
+            max-width: 5em;
+          }
 
           img, svg {
             width: 100%;
@@ -90,7 +94,7 @@ body.contract {
             padding: 2em 0 2em 0;
 
             li {
-              border-top: 1px solid #E8E8E8;
+              border-top: 1px solid @border-color;
               padding: 1.25em 0 1.25em 0;
 
               &:first-of-type {
@@ -104,7 +108,7 @@ body.contract {
 
               div {
                 opacity: 0.5;
-                font-family: Avenir-Light, sans-serif;
+                font-family: @regular-font-family;
                 line-height: 1em;
               }
             }
@@ -122,7 +126,7 @@ body.contract {
     }
 
     &#engagement-types {
-      font-family: Avenir-Light, sans-serif;
+      font-family: @regular-font-family;
       overflow: hidden;
       text-align: center;
       min-height: 20em;
@@ -188,7 +192,7 @@ body.contract {
             font-size: 1.5em;
             width: 10em;
             margin: auto;
-            font-family: Avenir-Light, sans-serif;
+            font-family: @regular-font-family;
             line-height: 1.2em;
           }
 
@@ -209,7 +213,7 @@ body.contract {
         max-width: 60em;
         margin: auto;
         text-align: left;
-        font-family: Avenir-Light, sans-serif;
+        font-family: @regular-font-family;
         color: #79828B;
 
         tr {
@@ -229,34 +233,103 @@ body.contract {
     }
 
     &#experience {
-      font-family: Avenir-Light, sans-serif;
+      font-family: @regular-font-family;
 
       >ul {
         text-align: center;
         
         >li {
+          border-bottom: 1px solid @border-color;
           margin: auto;
-          max-width: 50em;
-          padding-left: calc(125em / 16 + 4em);
+          max-width: 55em;
+          padding: 2em 2em 0em 2em;
+          padding-left: calc(125em / 16 + 6em);
           position: relative;
           text-align: left;
+          min-height: calc(125em / 16 + 2em);
+
+          &:last-of-type {
+            border: none;
+          }
 
           img, svg {
-            left: 0;
+            left: 3em;
             max-height: calc(125em / 16);
             max-width: calc(125em / 16);
             position: absolute;
-            top: 0;
+            top: 2em;
           }
 
           .name {
-            font-family: Avenir-Heavy, sans-serif;
+            font-family: @bold-font-family;
             font-size: 2em;
           }
 
           .description {
+            @font-size: 1.2em;
             color: @subheader-color;
-            font-size: 1.2em;
+            font-size: @font-size;
+            margin-top: calc((1em / @font-size) / 2);
+          }
+
+          ul {
+            padding-top: 1em;
+
+            li {
+              margin-bottom: 1em;
+
+              div {
+                display: inline-block;
+
+                &:nth-of-type(1) {
+                  font-family: @bold-font-family;
+                }
+
+                &:nth-of-type(2) {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+
+          .expand {
+            @font-size: 1em;
+            font-size: @font-size;
+            margin-bottom: 2em / @font-size;
+          }
+        }
+      }
+    }
+
+    &#links {
+      background: none;
+      border: none;
+      margin-top: 4em;
+
+      ul {
+        max-width: 60em;
+        margin: auto;
+        padding: 1em 0 4em 0;
+
+        li {
+          @font-size: 1.2em;
+          font-size: @font-size;
+          display: inline-block;
+          margin-top: calc(1em / @font-size);
+
+          a:hover {
+            background: none;
+          }
+
+          &:after {
+            content: " \00b7";
+            opacity: 0.5;
+          }
+
+          &:last-of-type {
+            &:after {
+              content: none;
+            }
           }
         }
       }

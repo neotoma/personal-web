@@ -21,9 +21,13 @@
     "rsync": "~0.3.0"
   },
   "dependencies": {
-    "express": "~4.0.0-rc2",
     "ejs": "~0.8.5",
-    "prerender": "~2.1.6",
-    "prerender-node": "~0.1.18"
-  }
+    "express": "~4.0.0-rc2",
+    "prerender-node": "^2.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markmhx/markmhendrickson"
+  },
+  "license": "MIT"
 }

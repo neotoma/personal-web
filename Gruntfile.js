@@ -195,7 +195,7 @@ module.exports = function(grunt) {
 	        ],
 	        recursive: true,
 	        src: './',
-	        dest: process.env.MARKMHENDRICKSON_HOST_DEST,
+	        dest: process.env.MARKMHENDRICKSON_HOST_DIR,
 	        host: process.env.MARKMHENDRICKSON_HOST_USERNAME + '@' + process.env.MARKMHENDRICKSON_HOST
 	      }
 	    }
@@ -208,10 +208,10 @@ module.exports = function(grunt) {
        	agent: process.env.SSH_AUTH_SOCK
       },
 		  npmInstall: {
-		    command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DEST + ' && npm install --production'
+		    command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && npm install --production'
 		   },
 		  foreverRestartAll: {
-		  	command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DEST + ' && forever restartall'
+		  	command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && forever restartall'
 		  }
 		}
 	});

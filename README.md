@@ -1,8 +1,8 @@
-This is the web application that powers my personal website.
+This contains both the client and server that constitute my personal website.
 
 ## Building with Grunt
 
-The application code is stored in the `app` directory. To build it for either development or deployment purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends.
+To build the client for either development or deployment purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends. Then run `bower install` to install the Bower components on which it depends as well.
 
 Then install the [Grunt](https://github.com/gruntjs/grunt) command line interface:
 
@@ -10,15 +10,15 @@ Then install the [Grunt](https://github.com/gruntjs/grunt) command line interfac
 
 And depending on what you want to do:
 
-- **Development Dry Run**: run `grunt dev-dry` to compile the code for development purposes. This compiled code can be found in the `dev` directory.
+- **Development Dry Run**: run `grunt dev-dry` to compile the client for development purposes. The compiled client can be found in the `client-build` directory.
 
-- **Development**: run `grunt dev` to compile the code for development purposes and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
+- **Development**: run `grunt dev` to compile development code and run the server for local testing. See the Grunt output for the client address and port to use in the browser.
 
--  **Deployment Dry Run**: run `grunt deploy-dry` to compile code for deployment purposes that can be pushed to a server manually or simply checked for accuracy before deployment below. This compiled code can be found in the `public` directory.
+- **Deployment Dry Run**: run `grunt deploy-dry` to compile production code that can be pushed to a server manually or simply checked for accuracy before deployment.
 
-- **Deployment Testing**: run `grunt deploy-test` to compile code for deployment and start a web server to view it locally on your machine. See the grunt output for the address and port to use.
+- **Deployment Testing**: run `grunt deploy-test` to compile production code and run the servr for local testing. See the Grunt output for the client address and port to use in the browser.
 
--  **Deployment**: run `grunt deploy` to compile code for deployment and deploy it to your host. The following environmental variables must be set on the deployment system:
+-  **Deployment**: run `grunt deploy` to compile production code and deploy it to your host. The following environmental variables must be set on the production server:
 
 ```
 export MARKMHENDRICKSON_HOST=<your host address>

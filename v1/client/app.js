@@ -3,7 +3,7 @@ App = Ember.Application.create(APP_CONFIG);
 App.Router.map(function() {
   this.route('index', { path: '/' });
   this.route('contract', { path: '/contract' });
-  this.resource('post', { path: '/post/:post_id' });
+  this.route('post', { path: '/post/:post_id', resetNamespace: true });
 });
 
 var ApplicationAdapterNameSpace = 'data';

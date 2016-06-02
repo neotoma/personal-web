@@ -1,0 +1,23 @@
+{
+  "name": "markmhendrickson",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mark Hendrickson <markmhendrickson@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/markmhx/markmhendrickson",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember": "^2.5.1",
+    "ember-data": "^2.5.3",
+    "jquery": "^2.2.4",
+    "handlebars": "^4.0.5"
+  }
+}

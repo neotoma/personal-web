@@ -1,12 +1,4 @@
-.index #app-header {
-  text-transform: uppercase;
-  font-size: 1.8em;
-}
 
-.index #app-header a:hover {
-  cursor: default;
-  color: #283746;
-}
 
 .index #bio, #profiles, #posts {
   background: #f9fbfd;
@@ -58,10 +50,6 @@
 }
 
 @media only screen and (max-device-width : 750px) {
-  .index #app-header {
-    font-size: 1.8em;
-  }
-
   .index #app { 
     margin-top: 0;
   }

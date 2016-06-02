@@ -2,35 +2,41 @@ module.exports = function(grunt) {
 	'use strict';
 
 	grunt.initConfig({
-		lib_files: [
-			'app/library/jquery-1.10.2.js',
-			'app/library/handlebars-1.0.0.js',
-			'app/library/swag-0.5.1-modified.js',
-			'app/library/ember-1.3.2+pre.25108e91.js',
-			'app/library/ember-data-1.0.0-beta.6+canary.edbe6165.js',
-			'app/library/markdown.js',
-			'app/library/typekit.js',
-			'app/library/*.js'
+		dev_lib_files: [
+			'bower_components/jquery/dist/jquery.js',
+			'bower_components/handlebars/handlebars.js',
+			'node_modules/swag/lib/swag.js',
+			'bower_components/ember/ember.debug.js',
+			'bower_components/ember-data/ember-data.js',
+			'node_modules/markdown/lib/markdown.js'
+		],
+		prod_lib_files: [
+			'bower_components/jquery/dist/jquery.js',
+			'bower_components/handlebars/handlebars.js',
+			'node_modules/swag/lib/swag.js',
+			'bower_components/ember/ember.prod.js',
+			'bower_components/ember-data/ember-data.prod.js',
+			'node_modules/markdown/lib/markdown.js'
 		],
 		config_files: [
-			'app/config/*'
+			'client/config/*'
 		],
 		app_files: [
-			'app/app.js',
-			'app/google-analytics.js',
-			'app/models/*.js', 
-			'app/controllers/*.js', 
-			'app/views/*.js', 
-			'app/routes/*.js',
-			'app/helpers.js'
+			'client/app.js',
+			'client/google-analytics.js',
+			'client/models/*.js', 
+			'client/controllers/*.js', 
+			'client/views/*.js', 
+			'client/routes/*.js',
+			'client/helpers.js'
 		],
 		style_files: [
-      'app/styles/reset.less',
-			'app/styles/*'
+			'node_modules/normalize.css/normalize.css',
+			'client/styles/*'
 		],
 		template_files: [
-			'app/templates/*.hbs',
-			'app/templates/components/*.hbs'
+			'client/templates/*.hbs',
+			'client/templates/components/*.hbs'
 		],
 		env: {
 			dev: {
@@ -42,15 +48,10 @@ module.exports = function(grunt) {
 		},
 		clean: {
 			pre: [
-				'public/images/',
-				'public/*.css',
-				'public/*.js',
-				'public/*.ejs',
-				'public/404.html',
-				'public/favicon.ico'
+				'client-build/*'
 			],
 			post: [
-				'public/templates.js'
+				'client-build/templates.js'
 			]
 		},
 		ember_handlebars: {
@@ -70,45 +71,45 @@ module.exports = function(grunt) {
 			},
 			deploy: {
 				files: {
-					'public/templates.js': '<%= template_files %>'
+					'client-build/templates.js': '<%= template_files %>'
 				}
 			}
 		},
 		concat: {
-			lib: {
-				src: '<%= lib_files %>',
-				dest:'public/lib.js'
+			dev_lib: {
+				src: '<%= dev_lib_files %>',
+				dest:'client-build/lib.js'
 			},
 			app: {
-				src: ['app/config/dev.js', '<%= app_files %>'],
-				dest:'public/app.js'
+				src: ['client/config/dev.js', '<%= app_files %>'],
+				dest:'client-build/app.js'
 			}
 		},
 		copy: {
 			main: {
 				files: [{
 					expand: true,
-					cwd: 'app/images/',
+					cwd: 'client/images/',
 					src: ['**'],
-					dest: 'public/images/'
+					dest: 'client-build/images/'
 				},
 				{
-					src: 'app/index.ejs',
-					dest: 'public/index.ejs'
+					src: 'client/index.ejs',
+					dest: 'client-build/index.ejs'
 				},
 				{
-					src: 'app/404.html',
-					dest: 'public/404.html'
+					src: 'client/404.html',
+					dest: 'client-build/404.html'
 				},
 				{
-					src: 'app/favicon.ico',
-					dest: 'public/favicon.ico'
+					src: 'client/favicon.ico',
+					dest: 'client-build/favicon.ico'
 				},
 				{
 					expand: true,
 					cwd: 'data',
 					src: ['**'],
-					dest: 'public/data/'
+					dest: 'client-build/data/'
 				}]
 			}
 		},
@@ -116,32 +117,32 @@ module.exports = function(grunt) {
 			main: {
     		files: [{
 		    	src: 'data',
-		    	dest: 'public/data'
+		    	dest: 'client-build/data'
 		    }]
 		  }
 		},
 		uglify: {
 			main: {
 				src: [
-					'<%= lib_files %>',
-					'app/config/prod.js',
+					'<%= prod_lib_files %>',
+					'client/config/prod.js',
 					'<%= app_files %>', 
-					'public/templates.js'
+					'client-build/templates.js'
 				],
-				dest: 'public/app.js'
+				dest: 'client-build/app.js'
 			}
 		},
 		less: {
 			main: {
 				files: {
-					'public/app.css': '<%= style_files %>'
+					'client-build/app.css': '<%= style_files %>'
 				}
 			}
 		},
 		cssmin: {
 			main: {
 				files: {
-					'public/app.css': 'public/app.css'
+					'client-build/app.css': 'client-build/app.css'
 				}
 			}
 		},
@@ -149,10 +150,10 @@ module.exports = function(grunt) {
 			options: {
 				hostname: 'localhost',
 				port: 9090,
-				server: 'app.js'
+				server: 'server.js'
 			},
 			main: {
-				bases: 'public'
+				bases: 'client-build'
 			}
 		},
 		watch: {
@@ -163,12 +164,15 @@ module.exports = function(grunt) {
 				files: [
 					'<%= config_files %>',
 					'<%= app_files %>',
-					'<%= lib_files %>',
+					'<%= dev_lib_files %>',
+					'<%= prod_lib_files %>',
 					'<%= style_files %>',
 					'<%= template_files %>',
-					'app/images/**/*',
-					'app/404.html', 
-					'app/favicon.ico'
+					'bower_components/*',
+					'client/images/**/*',
+					'client/404.html', 
+					'client/favicon.ico',
+					'node_modules/*'
 				],
 				tasks: [
 					'ember_handlebars', 

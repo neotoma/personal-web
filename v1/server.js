@@ -1,5 +1,3 @@
-console.log('Starting app server');
-
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -28,9 +26,9 @@ if (app.get('env') == 'development') {
 var server = app.listen(port);
 
 app.use(require('prerender-node'));
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/client-build'));
 
-app.set('views', __dirname + '/public');
+app.set('views', __dirname + '/client-build');
 app.set('view engine', 'ejs');
 
 app.get('/11-reasons-why-i-wont-click-on-your-link-bait', function(req, res) {
@@ -126,5 +124,3 @@ app.get('*', function(req, res) {
 });
 
 module.exports = app;
-
-console.log('App server started in "%s" environment', app.get('env'));

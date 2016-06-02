@@ -1,8 +1,10 @@
+@import (reference) "config.less";
+
 body { 
-  background: #f2f4f6;
-  color: #303030; 
+  background: #ffffff;
+  color: rgba(0,0,0,0.75);
   text-align: center; 
-  font-family: "AGaramondPro-Regular", "adobe-garamond-pro-1", serif;
+  font-family: @standard-font-family;
   padding: 0;
   margin: 0;
   cursor: default;
@@ -19,11 +21,11 @@ body {
 header {
   color: #79828B;
   text-transform: uppercase;
-  font-family: "Avenir-Light", sans-serif;
+  font-family: @standard-font-family;
 }
 
 p { 
-  line-height: 160%; 
+  line-height: 1.6em; 
   margin: 0 0 15px 0; 
 }
 
@@ -35,7 +37,7 @@ strong {
   font-weight: bold; 
 }
 
-a { 
+.standard-link { 
   color: #1668b9; 
   text-decoration: none; 
   cursor: pointer;

@@ -1,6 +1,7 @@
 .DS_Store
 *.sublime-workspace
-public/
+bower_components/
+client-build/
 node_modules/
 data
 npm-debug.log

@@ -1,0 +1,33 @@
+nav.app {
+  .noselect;
+  background: #ffffff;
+  font-size: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+
+  a {
+    display: inline-block;
+    line-height: 1em;
+    font-size: 12px;
+    padding: 1.5em;
+    padding-left: (19em / 12);
+    padding-right: (19em / 12);
+    opacity: 0.25;
+    text-transform: uppercase;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+
+    &.active {
+      opacity: 0.75;
+    }
+  }
+}

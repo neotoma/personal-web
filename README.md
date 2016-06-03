@@ -1,69 +1,53 @@
-This contains both the client and server that constitute my personal website.
+# Markmhendrickson
 
-## Building with Grunt
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
-To build the client for either development or deployment purposes, first install [Node](http://nodejs.org/) and run `npm install` in the root directory to install Grunt and other node modules on which it depends. Then run `bower install` to install the Bower components on which it depends as well.
+## Prerequisites
 
-Then install the [Grunt](https://github.com/gruntjs/grunt) command line interface:
+You will need the following things properly installed on your computer.
 
-`sudo npm install -g grunt-cli`
+* [Git](http://git-scm.com/)
+* [Node.js](http://nodejs.org/) (with NPM)
+* [Bower](http://bower.io/)
+* [Ember CLI](http://ember-cli.com/)
+* [PhantomJS](http://phantomjs.org/)
 
-And depending on what you want to do:
+## Installation
 
-- **Development Dry Run**: run `grunt dev-dry` to compile the client for development purposes. The compiled client can be found in the `client-build` directory.
+* `git clone <repository-url>` this repository
+* change into the new directory
+* `npm install`
+* `bower install`
 
-- **Development**: run `grunt dev` to compile development code and run the server for local testing. See the Grunt output for the client address and port to use in the browser.
+## Running / Development
 
-- **Deployment Dry Run**: run `grunt deploy-dry` to compile production code that can be pushed to a server manually or simply checked for accuracy before deployment.
+* `ember server`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
-- **Deployment Testing**: run `grunt deploy-test` to compile production code and run the servr for local testing. See the Grunt output for the client address and port to use in the browser.
+### Code Generators
 
--  **Deployment**: run `grunt deploy` to compile production code and deploy it to your host. The following environmental variables must be set on the production server:
+Make use of the many generators for code, try `ember help generate` for more details
 
-```
-export MARKMHENDRICKSON_HOST=<your host address>
-export MARKMHENDRICKSON_HOST_USERNAME=<username on host with which to connect>
-export MARKMHENDRICKSON_HOST_DIR=<destination directory on host for app>
-```
+### Running Tests
 
-## Loading data
+* `ember test`
+* `ember test --server`
 
-All content on which the app depends should be placed inside the `data` directory. Alternatively, symbolic links can be added to that folder that point to data stored elsewhere.
+### Building
 
-The app currently looks for the following resources under `data` to function:
+* `ember build` (development)
+* `ember build --environment production` (production)
 
-### posts-all
+### Deploying
 
-A collection of available posts. Example:
+Specify what it takes to deploy your app.
 
-	{
-	  "posts": [
-	    {
-	      "id": 24,
-	      "title": "First Post",
-	      "publishedAt": "2013-12-06 00:00:00"
-	    },
-	    {
-	      "id": 23,
-	      "title": "Second Post",
-	      "publishedAt": "2012-12-11 07:50:07"
-	    },
-	    ...
-	  ]
-	}
+## Further Reading / Useful Links
 
-### posts/[id]
+* [ember.js](http://emberjs.com/)
+* [ember-cli](http://ember-cli.com/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
-Content for individual posts. Example:
-
-    {
-      "post": {
-        "id": 8,
-        "title": "Example Post",
-        "createdAt": "2011-06-16 22:33:45",
-        "updatedAt": "2011-06-19 22:15:49",
-        "publishedAt": "2009-03-22 00:00:00",
-        "slug": "example-post",
-        "body": "The content of this post goes here."
-      }
-    }

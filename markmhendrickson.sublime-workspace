@@ -1,0 +1,1079 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"plural",
+				"pluralContentTypeNames"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"inl",
+				"inline-block"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "nav#app-nav {\n  background: #ffffff;\n  left: 0;\n  padding: 1.125em;\n  position: fixed;\n  text-align: center;\n  top: 0;\n  width: 100%;\n\n  a {\n    font-size: 0.75em;\n    text-transform: uppercase;\n  }\n}",
+			"file": "app/styles/app-nav.less",
+			"file_size": 200,
+			"file_write_time": 1464872149000000,
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/templates/application.hbs",
+			"settings":
+			{
+				"buffer_size": 307,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/index.css",
+			"settings":
+			{
+				"buffer_size": 998,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/controllers/application.js",
+			"settings":
+			{
+				"buffer_size": 602,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/config.less",
+			"settings":
+			{
+				"buffer_size": 257,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/contract.less",
+			"settings":
+			{
+				"buffer_size": 6858,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/styles/application.less",
+			"settings":
+			{
+				"buffer_size": 857,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 992,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 2579,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/routes/index.js",
+			"settings":
+			{
+				"buffer_size": 438,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/routes/post.js",
+			"settings":
+			{
+				"buffer_size": 573,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app.js",
+			"settings":
+			{
+				"buffer_size": 1679,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/helpers.js",
+			"settings":
+			{
+				"buffer_size": 177,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "module.exports = function(grunt) {\n	'use strict';\n\n	grunt.initConfig({\n		dev_lib_files: [\n			'bower_components/jquery/dist/jquery.js',\n			'bower_components/handlebars/handlebars.js',\n			'node_modules/swag/lib/swag.js',\n			'bower_components/ember/ember.debug.js',\n			'bower_components/ember-data/ember-data.js',\n			'node_modules/markdown/lib/markdown.js'\n		],\n		prod_lib_files: [\n			'bower_components/jquery/dist/jquery.js',\n			'bower_components/handlebars/handlebars.js',\n			'node_modules/swag/lib/swag.js',\n			'bower_components/ember/ember.prod.js',\n			'bower_components/ember-data/ember-data.prod.js',\n			'node_modules/markdown/lib/markdown.js'\n		],\n		config_files: [\n			'client/config/*'\n		],\n		app_files: [\n			'client/app.js',\n			'client/google-analytics.js',\n			'client/models/*.js', \n			'client/controllers/*.js', \n			'client/views/*.js', \n			'client/routes/*.js',\n			'client/helpers.js'\n		],\n		style_files: [\n			'node_modules/normalize.css/normalize.css',\n			'client/styles/*'\n		],\n		template_files: [\n			'client/templates/*.hbs',\n			'client/templates/components/*.hbs'\n		],\n		env: {\n			dev: {\n				NODE_ENV: 'development'\n			},\n			deploy: {\n				NODE_ENV: 'production-test'\n			}\n		},\n		clean: {\n			pre: [\n				'client-build/*'\n			],\n			post: [\n				'client-build/templates.js'\n			]\n		},\n		ember_handlebars: {\n			options: {\n				processName: function(fileName) {\n					var arr = fileName.split('.'),\n						path = arr[arr.length - 2].split('/'),\n						name = path[path.length - 1],\n						isComponents = path.indexOf('components') > -1;\n					if(isComponents) {\n						return 'components/' + name;\n					}\n					else {\n						return name;\n					}\n				}\n			},\n			deploy: {\n				files: {\n					'client-build/templates.js': '<%= template_files %>'\n				}\n			}\n		},\n		concat: {\n			dev_lib: {\n				src: '<%= dev_lib_files %>',\n				dest:'client-build/lib.js'\n			},\n			app: {\n				src: ['client/config/dev.js', '<%= app_files %>'],\n				dest:'client-build/app.js'\n			}\n		},\n		copy: {\n			main: {\n				files: [{\n					expand: true,\n					cwd: 'client/images/',\n					src: ['**'],\n					dest: 'client-build/images/'\n				},\n				{\n					src: 'client/index.ejs',\n					dest: 'client-build/index.ejs'\n				},\n				{\n					src: 'client/404.html',\n					dest: 'client-build/404.html'\n				},\n				{\n					src: 'client/favicon.ico',\n					dest: 'client-build/favicon.ico'\n				},\n				{\n					expand: true,\n					cwd: 'data',\n					src: ['**'],\n					dest: 'client-build/data/'\n				}]\n			}\n		},\n		symlink: {\n			main: {\n    		files: [{\n		    	src: 'data',\n		    	dest: 'client-build/data'\n		    }]\n		  }\n		},\n		uglify: {\n			main: {\n				src: [\n					'<%= prod_lib_files %>',\n					'client/config/prod.js',\n					'<%= app_files %>', \n					'client-build/templates.js'\n				],\n				dest: 'client-build/app.js'\n			}\n		},\n		less: {\n			main: {\n				files: {\n					'client-build/app.css': '<%= style_files %>'\n				}\n			}\n		},\n		cssmin: {\n			main: {\n				files: {\n					'client-build/app.css': 'client-build/app.css'\n				}\n			}\n		},\n		express: {\n			options: {\n				hostname: 'localhost',\n				port: 9090,\n				server: 'server.js'\n			},\n			main: {\n				bases: 'client-build'\n			}\n		},\n		watch: {\n			options: {\n				debounceDelay: 100\n			},\n			scripts: {\n				files: [\n					'<%= config_files %>',\n					'<%= app_files %>',\n					'<%= dev_lib_files %>',\n					'<%= prod_lib_files %>',\n					'<%= style_files %>',\n					'<%= template_files %>',\n					'bower_components/*',\n					'client/images/**/*',\n					'client/404.html', \n					'client/favicon.ico',\n					'node_modules/*'\n				],\n				tasks: [\n					'ember_handlebars', \n					'concat',\n					'less',\n					'copy'\n				]\n			}\n		},\n		rsync: {\n	    main: {\n	      options: {\n	        exclude: [\n	        	\".DS_Store\",\n	        	\".git*\",\n	        	\"app\",\n	        	\"node_modules\",\n	        	\"*.sublime*\"\n	        ],\n	        recursive: true,\n	        src: './',\n	        dest: process.env.MARKMHENDRICKSON_HOST_DIR,\n	        host: process.env.MARKMHENDRICKSON_HOST_USERNAME + '@' + process.env.MARKMHENDRICKSON_HOST\n	      }\n	    }\n	  },\n	  sshexec: {\n	  	options: {\n	    	host: process.env.MARKMHENDRICKSON_HOST,\n	    	port: 22,\n       	username: process.env.MARKMHENDRICKSON_HOST_USERNAME,\n       	agent: process.env.SSH_AUTH_SOCK\n      },\n		  npmInstall: {\n		    command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && npm install --production'\n		   },\n		  foreverRestartAll: {\n		  	command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && forever restartall'\n		  }\n		}\n	});\n\n	require('load-grunt-tasks')(grunt);\n\n	// Generate files for development\n	grunt.registerTask('dev-dry', [\n		'env:dev',\n		'clean:pre',\n		'ember_handlebars',\n		'concat',\n		'less',\n		'copy',\n		'symlink'\n	]);\n\n	// Run local web server for development\n	grunt.registerTask('dev', [\n		'dev-dry', \n		'express',\n		'watch'\n	]);\n\n	// Generate files for deployment\n	grunt.registerTask('deploy-dry', [\n		'clean:pre', \n		'ember_handlebars',\n		'copy',\n		'uglify',\n		'cssmin',\n		'copy',\n		'clean:post'\n	]);\n\n	// Run local web server for pre-deployment testing\n	grunt.registerTask('deploy-test', [\n		'deploy-dry',\n		'env:deploy',\n		'express',\n		'express-keepalive'\n	]);\n\n	// Deploy to host\n	grunt.registerTask('deploy', [\n		'deploy-dry',\n		'rsync',\n		'sshexec:npmInstall',\n		'sshexec:foreverRestartAll'\n	]);\n};",
+			"file": "Gruntfile.js",
+			"file_size": 5239,
+			"file_write_time": 1464876236000000,
+			"settings":
+			{
+				"buffer_size": 5239,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"selected_items":
+		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Combyne",
+				"Set Syntax: Combyne"
+			],
+			[
+				"set syntax h",
+				"Set Syntax: HTML"
+			],
+			[
+				"markdown",
+				"Markdown HTML Preview"
+			],
+			[
+				"install ak",
+				"Package Control: Install Package"
+			],
+			[
+				"markdow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markd",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdw",
+				"Markdown Preview: Copy to Clipboard"
+			],
+			[
+				"coffee",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"ejs",
+				"Set Syntax: EJS (<% and %>)"
+			],
+			[
+				"hbs",
+				"Set Syntax: Handlebars"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/markhendrickson/Sites/markmhendrickson/client/routes/index.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/Gruntfile.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/server.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/markmhendrickson.sublime-project",
+		"/Users/markhendrickson/Sites/markmhendrickson/markmhendrickson.sublime-workspace",
+		"/Users/markhendrickson/Sites/markmhendrickson/.gitignore",
+		"/Users/markhendrickson/Sites/markmhendrickson/README.md",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/library/jquery-1.10.2.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/bower.json",
+		"/Users/markhendrickson/Sites/markmhendrickson/app.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/general.less",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/reset.less",
+		"/Users/markhendrickson/Sites/markmhendrickson/package.json",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/config.less",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/nav.less",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/index.ejs",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/templates/index.hbs",
+		"/Users/markhendrickson/.bash_profile",
+		"/Users/markhendrickson/Sites/markmhendrickson/prerender-server.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/controllers/contract.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/images/icons/personWithLaptop.svg",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/templates/contract.hbs",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/routes/contract.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/contract.less",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/controllers/post.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/images/icons/laptopWithTag.svg",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/images/icons/desktopWithGraph.svg",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/helpers.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/google-analytics.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/favicon.ico",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/app.js",
+		"/Users/markhendrickson/Sites/markmhendrickson/app/styles/general.css",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/app/app.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/Gruntfile.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/package.json",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/README.md",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/markmhendrickson.sublime-project",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/markmhendrickson/.gitignore",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/user-storage-auths/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/storages/dropbox.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/user-source-auths/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/sources/foursquare.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/README.md",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/sources/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/sync.sublime-project",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/app.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/.gitignore",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/io.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/logs/app (Copia en conflicto de iMac de Mark 2014-11-13).log",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/Gruntfile.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/package.json",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/sync.sublime-workspace",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/Gruntfile.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/animations.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/application.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/user.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/source.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/storage.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/user_storage_auth.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/content_type.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/models/storage_survey.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/routes/sync.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/source_content_type.hbs",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_content_type.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/web.sublime-project",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/helpers/general.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/routes/application.js",
+		"/Users/markhendrickson/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/asheville_web.sublime-project",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/web.sublime-workspace",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/.gitignore",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/asheville_web.sublime-workspace",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/sublime-project",
+		"/Users/markhendrickson/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/error.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/app.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/controllers/session.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/controllers/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/controllers/dashboard.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/controllers/application.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/application.hbs",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/index.hbs",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/index.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/styles.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/source.hbs",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/dashboard.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/dashboard.hbs",
+		"/Users/markhendrickson/Dropbox (Personal)/Notes/fitness.txt",
+		"/Users/markhendrickson/Dropbox (Personal)/Notes/exchange.numbers",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_auth_button.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_notify_button.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/breakpoints.less",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/foursquare.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/content_types/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/statuses/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/app (Copia en conflicto de iMac de Mark 2015-01-27).js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/statuses/index (Copia en conflicto de iMac de Mark 2015-01-27).js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/status (Copia en conflicto de iMac de Mark 2015-01-27).js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/models/item.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/models/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/lib/passport.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/public/images/logos/wordpress-glyph.svg",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/twitter.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/google_plus.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/facebook.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/tumblr.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/instagram.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/wordpress.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/public/images/logos/twitter-glyph.svg",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/public/images/logos/instagram-glyph.svg",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/socket_events/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/socket_events/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/events/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/lib/mongoose.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/sessions.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/sockets/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/sockets/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/statuses/index.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/models/user-source-auth.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/storages/dropbox.js",
+		"/Users/markhendrickson/.Trash/status.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/models/user-storage-auth.js",
+		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_sync_content_type_legend.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			"*",
+			"app-loading",
+			"*",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"setTitle",
+			"postsController = Ember.ArrayController.create",
+			"store.find",
+			".resource",
+			"Ember.Handlebars.registerBoundHelper",
+			"build",
+			"App server started",
+			"Web server started",
+			"App server",
+			"build",
+			"Showdown",
+			"app.js",
+			"app/",
+			"build",
+			"public",
+			"lib_files",
+			"library",
+			"public",
+			"build",
+			"regular-font-family",
+			"headerStyle",
+			"style_files",
+			"font-family",
+			"app-header",
+			"symlink",
+			"join",
+			"sym",
+			"symklink\nsymklink",
+			"symklink",
+			"PRERENDER_SERVICE",
+			"9999",
+			"999",
+			"phridge",
+			"forever",
+			"phridge",
+			"preren",
+			"MARKMHENDRICKSON_HOST_DEST",
+			"prerender",
+			"foreverRestartAll",
+			"forever",
+			"prerender",
+			"phantom",
+			"#97A3AF",
+			"experience",
+			"h1",
+			"@orange-color",
+			"FF7F00",
+			"@orange-color",
+			"00D1A4",
+			"class",
+			"id=",
+			"avenir",
+			"img",
+			"jQuery",
+			"section",
+			"family",
+			"engagement-types",
+			"header",
+			"reset",
+			"h1",
+			"E8E8E8",
+			"book",
+			"__dirname",
+			"concat",
+			"cssmin",
+			"style_files",
+			"app-server",
+			"build",
+			"style_files",
+			"less",
+			"airbnb",
+			"webkitIndexedDB",
+			"console.log",
+			"renderOptions",
+			"MARKMHENDRICKSON_HOST_DEST",
+			"%>",
+			"<%=",
+			"templateFiles",
+			"styleFiles",
+			"appFil",
+			"configFiles",
+			"libFil",
+			"appFiles",
+			"libFil",
+			"lib",
+			"lib_files",
+			"forever",
+			"sshexec",
+			"forever",
+			"ejs",
+			"forever",
+			"foreverRestartAll",
+			"MARKMHENDRICKSON_HOST",
+			"S3_BUCKET_NAME",
+			"page",
+			"gh-pages",
+			"env",
+			"rsync",
+			"build",
+			"sessions",
+			"userStorageAuths",
+			"app.",
+			"/sources",
+			"/sources/foursquare/auth-callback",
+			"authenticate",
+			"ASHEVILLE_SYNC_SOURCES_FOURSQUARE_CLIENT_SECRET",
+			"ASHEVILLE_SYNC_MONGODB_PORT",
+			"ASHEVILLE_SYNC_MONGODB_HOST",
+			"ASHEVILLE_SYNC_HOST",
+			"ASHEVILLE_WEB_ADAPTER_HOST",
+			"authFilter",
+			"survey",
+			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_SECRET",
+			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_KEY",
+			"secret",
+			"ASHEVILLE_SYNC_SESSIONS_SECRET",
+			"ASHEVILLE_SYNC_MONGODB_HOST",
+			"ASHEVILLE_SYNC_SESSIONS_SECRET",
+			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_KEY",
+			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_SECRET",
+			"ASHEVILLE_SYNC_SOURCES_FOURSQUARE_CLIENT_ID",
+			"ASHEVILLE_SYNC_SOURCES_FOURSQUARE_CLIENT_SECRET",
+			"ASHEVILLE_SYNC_SOURCES_FOURSQUARE_CALLBACK_URL",
+			"ASHEVILLE_SYNC_HOST_URL",
+			"require('io",
+			"data",
+			"animations",
+			"spin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"build",
+			"standard-font-family",
+			"MARKMHENDRICKSON_HOST_DIR",
+			"%>'",
+			"'<%=",
+			"statusSchema",
+			"statusSchema\nuserSourceContentTypeStatusSchema",
+			"userSourceContentTypeStatusSchema\nuserSourceContentTypeStatusSchema",
+			"statusSchema",
+			"~/\"Dropbox (Personal)\"",
+			"Source",
+			"app-loading-indicator",
+			"app-loading",
+			"h2",
+			"h3"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 13,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/styles/app-nav.less",
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								198,
+								198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/templates/application.hbs",
+					"settings":
+					{
+						"buffer_size": 307,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/styles/index.css",
+					"settings":
+					{
+						"buffer_size": 998,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/controllers/application.js",
+					"settings":
+					{
+						"buffer_size": 602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								277,
+								277
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/styles/config.less",
+					"settings":
+					{
+						"buffer_size": 257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								166,
+								166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/styles/contract.less",
+					"settings":
+					{
+						"buffer_size": 6858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/styles/application.less",
+					"settings":
+					{
+						"buffer_size": 857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "package.json",
+					"settings":
+					{
+						"buffer_size": 992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								323,
+								323
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 2579,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "client/routes/index.js",
+					"settings":
+					{
+						"buffer_size": 438,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								438,
+								438
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "client/routes/post.js",
+					"settings":
+					{
+						"buffer_size": 573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								94,
+								94
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "client/app.js",
+					"settings":
+					{
+						"buffer_size": 1679,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "client/helpers.js",
+					"settings":
+					{
+						"buffer_size": 177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								154,
+								154
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Gruntfile.js",
+					"settings":
+					{
+						"buffer_size": 5239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60,
+								60
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"item",
+				"models/item.js"
+			],
+			[
+				"styles",
+				"app/styles/styles.less"
+			],
+			[
+				"investor",
+				"app/views/shared/investors.ejs"
+			],
+			[
+				"splash",
+				"app/assets/stylesheets/shared/splash.less"
+			],
+			[
+				"requestinvite",
+				"public/js/requestInvite.js"
+			],
+			[
+				"how",
+				"app/views/about/how-it-works.ejs"
+			],
+			[
+				"splashto",
+				"app/views/shared/splashTop.ejs"
+			],
+			[
+				"signup.ejs",
+				"app/views/users/signup.ejs"
+			],
+			[
+				"howit",
+				"app/views/about/how-it-works.ejs"
+			],
+			[
+				"signup-head",
+				"app/assets/stylesheets/signup-header.less"
+			],
+			[
+				"signup",
+				"app/assets/stylesheets/users/signup.less"
+			],
+			[
+				"footer",
+				"app/views/shared/footer.ejs"
+			],
+			[
+				"contact",
+				"app/views/shared/contact.ejs"
+			],
+			[
+				"signup.less",
+				"app/assets/stylesheets/users/signup.less"
+			],
+			[
+				"contrib",
+				"grunt/contrib-concat.coffee"
+			],
+			[
+				"bankformtyp",
+				"app/assets/stylesheets/accounts/bankFormTypes.less"
+			],
+			[
+				"refer",
+				"app/assets/stylesheets/shared/refer.less"
+			],
+			[
+				"confirmacc",
+				"app/assets/stylesheets/confirmAccount.less"
+			],
+			[
+				"styles.less",
+				"app/assets/stylesheets/shared/styles.less"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true
+}

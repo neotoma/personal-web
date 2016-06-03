@@ -1,0 +1,57 @@
+section.intro {
+  .noselect;
+  background-image: url("/images/components/section/intro/cover.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  padding-bottom: (768% / 13.66);
+
+  >div {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 1em 1em rgba(0,0,0,0.1);
+    position: absolute;
+    top: 6em;
+    left: (155% / 13.66);
+    padding: 4em;
+    text-align: left;
+    width: 36em;
+
+    h1 {
+      line-height: 1em;
+    }
+
+    div.profession {
+      color: rgba(0,0,0,0.75);
+      font-size: 1.5em;
+      line-height: 1em;
+      margin-top: (1em / 1.5);
+    }
+
+    div.location {
+      color: rgba(0,0,0,0.5);
+      margin-top: 1em;
+    }
+
+    ul {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: 1.5em;
+      padding-top: 1.5em;
+
+      li {
+        color: rgba(0,0,0,0.5);
+        line-height: 1em;
+        margin-top: 1em;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        span {
+          color: rgba(0,0,0,0.75);
+          font-family: @standard-font-family-bold;
+        }
+      }
+    }
+  }
+}

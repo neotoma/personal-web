@@ -1,0 +1,30 @@
+section.photos {
+  .standard-container;
+  padding-left: 8em;
+  padding-right: 6em;
+
+  >div {
+    font-size: 0;
+    margin-top: 32px;
+
+    a {
+      background: rgba(22,104,185,0.5);
+      display: inline-block;
+      font-size: 16px;
+      margin: 0 2em 2em 0;
+      padding-bottom: ~"calc(100% / 3 - 2em)";
+      transition: background 0.25s;
+      vertical-align: top;
+      width: ~"calc(100% / 3 - 2em)";
+
+      &:hover {
+        background: rgba(22,104,185,0.75);
+      }
+    }
+  }
+
+  >a {
+    .standard-button;
+    margin-top: 2em;
+  }
+}

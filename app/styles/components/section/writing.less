@@ -5,15 +5,26 @@ section.writing {
     margin-bottom: 32px;
   }
 
-  div.featured {
-    font-size: 0;
-    padding-left: 128px;
-    padding-right: 128px;
+  a {
+    box-sizing: border-box;
+    padding: 1em;
+    transition: background 0.25s;
 
-    div.published-at {
-      color: rgba(0,0,0,0.5);
-      margin-top: 0.5em;
+    &:hover {
+      background: rgba(0,0,0,0.05);
     }
+  }
+
+  div.published-at {
+    color: rgba(0,0,0,0.5);
+    margin-top: 0.5em;
+  }
+
+  div.featured {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 7em;
+    padding-right: 7em;
 
     div.excerpt {
       margin-top: 0.5em;
@@ -21,11 +32,9 @@ section.writing {
 
     a.featured-post {
       display: inline-block;
-      font-size: 16px;
-      margin-right: 1.5em;
       text-align: left;
       vertical-align: top;
-      width: ~"calc(50% - 1.5em)";
+      width: ~"calc(50% - 1em)";
 
       div.image {
         background: rgba(22,104,185,0.5);
@@ -40,15 +49,13 @@ section.writing {
 
     div.featured-posts {
       display: inline-block;
-      font-size: 16px;
-      margin-left: 1.5em;
+      margin-left: 2em;
       text-align: left;
       width: ~"calc(50% - 1.5em)";
       vertical-align: top;
 
       a {
         display: block;
-        margin-top: 1em;
         position: relative;
 
         &:first-of-type {
@@ -77,10 +84,18 @@ section.writing {
 
   div.more-posts {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 3em;
+    padding: 0 8em;
 
     a {
       text-align: left;
       width: 50%;
+
+      div.published-at {
+        font-size: 0.875em;
+      }
     }
   }
 }

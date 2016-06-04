@@ -14,15 +14,19 @@ section.history {
     text-align: right;
     position: absolute;
     top: 10em;
-    width: ~"calc(50% - 13em)";
+    width: ~"calc(50% - 14em)";
 
     &:after {
-      border-top: 0.433em solid transparent;
-      border-bottom: 0.433em solid transparent;
-      border-left: 0.433em solid rgba(0,0,0,0.1);
+      border-top: 0.25em solid transparent;
+      border-bottom: 0.25em solid transparent;
+      border-left: 0.5em solid rgba(0, 0, 0, 0.1);
       content: "";
-      height: 0.5em;
-      width: 0.5em;
+      display: block;
+      height: 0;
+      position: absolute;
+      right: -.5em;
+      width: 0;
+      top: -0.25em;
     }
 
     div.birthday, div.today {
@@ -30,7 +34,7 @@ section.history {
       display: inline-block;
       font-family: @standard-font-family-bold;
       font-size: 0.75em;
-      margin-left: 4em;
+      margin: 0 2em 0 6em;
       padding-top: 1em;
       vertical-align: top;
 

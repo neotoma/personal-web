@@ -1,0 +1,86 @@
+section.writing {
+  .standard-container;
+
+  h2 {
+    margin-bottom: 32px;
+  }
+
+  div.featured {
+    font-size: 0;
+    padding-left: 128px;
+    padding-right: 128px;
+
+    div.published-at {
+      color: rgba(0,0,0,0.5);
+      margin-top: 0.5em;
+    }
+
+    div.excerpt {
+      margin-top: 0.5em;
+    }
+
+    a.featured-post {
+      display: inline-block;
+      font-size: 16px;
+      margin-right: 1.5em;
+      text-align: left;
+      vertical-align: top;
+      width: ~"calc(50% - 1.5em)";
+
+      div.image {
+        background: rgba(22,104,185,0.5);
+        padding-bottom: 56.25%;
+        width: 100%;
+      }
+
+      h3 {
+        margin-top: 32px;
+      }
+    }
+
+    div.featured-posts {
+      display: inline-block;
+      font-size: 16px;
+      margin-left: 1.5em;
+      text-align: left;
+      width: ~"calc(50% - 1.5em)";
+      vertical-align: top;
+
+      a {
+        display: block;
+        margin-top: 1em;
+        position: relative;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        div.image {
+          background: rgba(22,104,185,0.5);
+          display: inline-block;
+          margin-right: 2em;
+          padding-bottom: 14.0625%;
+          vertical-align: top;
+          width: 25%;
+        }
+
+        div.content {
+          display: inline-block;
+
+          div.published-at {
+            font-size: 0.875em;
+          }
+        }
+      }
+    }
+  }
+
+  div.more-posts {
+    display: flex;
+
+    a {
+      text-align: left;
+      width: 50%;
+    }
+  }
+}

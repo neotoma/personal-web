@@ -49,6 +49,17 @@
   cursor: pointer;
 }
 
+.standard-paragraph {
+  cursor: text;
+  line-height: 1.5em; 
+  margin: 0 0 15px 0;
+  user-select: text;
+
+  ::selection {
+    .standard-selection;
+  }
+}
+
 .standard-selection {
   background: rgba(22,104,185,0.25);
 }

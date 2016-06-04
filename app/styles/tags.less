@@ -3,6 +3,26 @@ a {
   text-decoration: none;
 }
 
+blockquote {
+  font-style: italic;
+  margin: 2em 0 2em 0;
+  padding: 2em;
+  font-size: 1.2em;
+  background: #f2f5f7;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+blockquote {
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
 body {
   background: #ffffff;
   color: #000000;
@@ -25,6 +45,14 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  color: rgba(0,0,0,0.75);
+  font-family: @standard-font-family-bold;
+  font-size: 2em;
+  font-weight: normal;
+  margin: 0;
+}
+
 header {
   color: #79828B;
   text-transform: uppercase;
@@ -32,7 +60,7 @@ header {
 }
 
 p { 
-  line-height: 1.6em; 
+  line-height: 1.5em; 
   margin: 0 0 15px 0; 
 }
 
@@ -50,20 +78,6 @@ ul, ol, li {
   padding: 0;
 }
 
-blockquote {
-  font-style: italic;
-  margin: 2em 0 2em 0;
-  padding: 2em;
-  font-size: 1.2em;
-  background: #f2f5f7;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-blockquote:first-of-type {
-  margin-top: 0;
-}
-
-blockquote p:last-of-type {
-  margin-bottom: 0;
+section {
+  position: relative;
 }

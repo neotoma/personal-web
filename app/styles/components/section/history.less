@@ -1,0 +1,68 @@
+section.history {
+  .standard-container;
+
+  h2 {
+    display: inline-block;
+    line-height: 1em;
+    text-align: left;
+    vertical-align: top;
+    width: 288px;
+  }
+
+  div.timeline {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    text-align: right;
+    position: absolute;
+    top: 10em;
+    width: ~"calc(50% - 13em)";
+
+    &:after {
+      border-top: 0.433em solid transparent;
+      border-bottom: 0.433em solid transparent;
+      border-left: 0.433em solid rgba(0,0,0,0.1);
+      content: "";
+      height: 0.5em;
+      width: 0.5em;
+    }
+
+    div.birthday, div.today {
+      color: rgba(0,0,0,0.25);
+      display: inline-block;
+      font-family: @standard-font-family-bold;
+      font-size: 0.75em;
+      margin-left: 4em;
+      padding-top: 1em;
+      vertical-align: top;
+
+      &:before {
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height:9px;
+        position: absolute;
+        left: ~"calc(50% - 0.25em)";
+        top: -5px;
+        width: 9px;
+      }
+    }
+
+    div.birthday:before {
+      background: #005fff;
+    }
+
+    div.today:before {
+      background: #ff2000;
+    }
+  }
+
+  div.content {
+    display: inline-block;
+    text-align: left;
+    max-width: 38em;
+    vertical-align: top;
+
+    p {
+      font-size: 1.125em;
+    }
+  }
+}

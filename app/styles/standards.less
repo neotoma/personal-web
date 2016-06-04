@@ -17,17 +17,20 @@
 
 /* Mixins */
 
+.standard-container {
+  background: linear-gradient(rgba(0,0,0,0.025), transparent);
+  background-size: 100% 4em;
+  background-position: top left;
+  background-repeat: repeat-x;
+  padding: 6em 0 6em 0;
+}
+
 .standard-link { 
   color: #1668b9; 
   text-decoration: none; 
   cursor: pointer;
 }
 
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
-}
+/* Widths */
+
+@standard-container-max-width: 58em;

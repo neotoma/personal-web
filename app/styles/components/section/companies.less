@@ -5,20 +5,28 @@ section.companies {
     .standard-max-container;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 2em;
+    margin-top: 1em;
+    max-width: 62em;
 
     >li {
+      align-items: flex-start;
       display: flex;
-      margin-bottom: 4em;
+      margin-bottom: 1em;
+      padding: 2em;
       width: 50%;
 
-      img {
+      div.logo {
         margin-right: 3em;
-        width: 6em;
+        width: 25%;
+
+        img {
+          width: 100%;
+        }
       }
 
-      >div {
+      div.info {
         text-align: left;
+        width: 75%;
 
         h4 {
           font-size: 1.5em;
@@ -27,21 +35,24 @@ section.companies {
 
         div.slogan {
           color: rgba(0,0,0,0.50);
-          margin-top: 0.5em;
+          line-height: 1.2em;
+          margin-top: 0.4em;
         }
 
         ul.roles {
-          margin-top: 1em;
+          li {
+            margin-top: 1em;
 
-          div.description {
-            color: rgba(0,0,0,0.75);
-            font-family: @standard-font-family-bold;
-            margin-bottom: 0.5em;
-          }
+            div.description {
+              color: rgba(0,0,0,0.75);
+              font-family: @standard-font-family-bold;
+              margin-bottom: 0.5em;
+            }
 
-          div.timespan {
-            font-size: 0.875em;
-            color: rgba(0,0,0,0.50);
+            div.timespan {
+              font-size: 0.875em;
+              color: rgba(0,0,0,0.50);
+            }
           }
         }
       }

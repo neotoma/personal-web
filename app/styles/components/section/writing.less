@@ -5,19 +5,19 @@ section.writing {
     margin-bottom: 32px;
   }
 
-  a {
-    box-sizing: border-box;
-    padding: 1em;
-    transition: background 0.25s;
-
-    &:hover {
-      background: rgba(0,0,0,0.05);
-    }
-  }
-
   div.published-at {
     color: rgba(0,0,0,0.5);
     margin-top: 0.5em;
+  }
+
+  a {
+    box-sizing: border-box;
+    padding: 1em;
+    transition: transform 0.25s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   div.featured {
@@ -31,7 +31,7 @@ section.writing {
     }
 
     a.featured-post {
-      display: inline-block;
+      border-radius: 0.25em;
       text-align: left;
       vertical-align: top;
       width: ~"calc(50% - 1em)";

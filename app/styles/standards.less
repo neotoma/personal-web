@@ -4,7 +4,7 @@
 @orange-color: #FF7F00;
 @subheader-color: #97A3AF;
 @border-color: #E8E8E8;
-@standard-color-link: #1668b9;
+@standard-color-link: rgba(1,73,255,0.75);
 
 /* Fonts */
 
@@ -49,9 +49,32 @@
 }
 
 .standard-link { 
-  color: @standard-color-link; 
-  text-decoration: none; 
+  color: @standard-color-link;
   cursor: pointer;
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    color: @standard-color-link;
+  }
+
+  &:before {
+    background-color: rgba(1,73,255,0.5);
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.25s ease-in-out;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
 }
 
 .standard-paragraph {

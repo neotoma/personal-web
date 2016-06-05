@@ -12,9 +12,13 @@ section.photos {
       background: rgba(22,104,185,0.5);
       margin: 0 2em 2em 0;
       padding-bottom: ~"calc(100% / 3 - 2em)";
-      transition: background 0.25s;
+      transition: background 0.25s, transform 0.25s;
       vertical-align: top;
       width: ~"calc(100% / 3 - 2em)";
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       &:hover {
         background: rgba(22,104,185,0.75);

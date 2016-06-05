@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"standard-c",
+				"standard-color-link"
+			],
+			[
 				"standard-lin",
 				"standard-color-link"
 			],
@@ -136,18 +144,28 @@
 	},
 	"file_history":
 	[
-		"/Users/markmhendrickson/Sites/markmhendrickson/app/initializers/modernizr.js",
-		"/Users/markmhendrickson/Sites/markmhendrickson/ember-cli-build.js",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/templates/index.hbs",
-		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/writing.less",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/photos.less",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/nav/app.less",
-		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/tags.less",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/standards.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/companies.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/writing.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/links.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/tags.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/v1/client/templates/index.hbs",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/app.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/skills.less",
+		"/Users/markmhendrickson/Sites/markmhendrickson/ember-cli-build.js",
+		"/Users/markmhendrickson/Sites/markmhendrickson/package.json",
+		"/Users/markmhendrickson/Sites/markmhendrickson/bower.json",
+		"/Users/markmhendrickson/Sites/markmhendrickson/bower_components/modernizr/readme.md",
+		"/Users/markmhendrickson/Sites/markmhendrickson/bower_components/modernizr/lib/build.js",
+		"/Users/markmhendrickson/Sites/markmhendrickson/tests/unit/initializers/modernizr-test.js",
+		"/Users/markmhendrickson/Sites/markmhendrickson/.bowerrc",
+		"/Users/markmhendrickson/Sites/markmhendrickson/app/initializers/modernizr.js",
+		"/Users/markmhendrickson/Sites/markmhendrickson/.watchmanconfig",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/history.less",
 		"/Users/markmhendrickson/Sites/markmhendrickson/app/styles/components/section/intro.less",
-		"/Users/markmhendrickson/Sites/markmhendrickson/package.json",
 		"/Users/markmhendrickson/Sites/markmhendrickson/README.md",
 		"/Users/markmhendrickson/Sites/markmhendrickson/.gitignore",
 		"/Users/markmhendrickson/Sites/markmhendrickson/client/helpers.js",
@@ -253,17 +271,7 @@
 		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/dashboard.less",
 		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/templates/dashboard.hbs",
 		"/Users/markhendrickson/Dropbox (Personal)/Notes/fitness.txt",
-		"/Users/markhendrickson/Dropbox (Personal)/Notes/exchange.numbers",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_auth_button.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/views/source_notify_button.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/web/app/styles/breakpoints.less",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/sources/foursquare.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/content_types/index.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/statuses/index.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/app (Copia en conflicto de iMac de Mark 2015-01-27).js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/routes/statuses/index (Copia en conflicto de iMac de Mark 2015-01-27).js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/status.js",
-		"/Users/markhendrickson/Dropbox (Personal)/Sites/asheville/sync/controllers/status (Copia en conflicto de iMac de Mark 2015-01-27).js"
+		"/Users/markhendrickson/Dropbox (Personal)/Notes/exchange.numbers"
 	],
 	"find":
 	{
@@ -285,6 +293,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"li",
+			"h4",
+			"li",
+			"@standard-container-max-width",
+			"drop",
+			"modernizr",
+			"backdrop",
+			"modernizr",
+			"filter",
+			"backdrop",
+			"backdropfilter",
+			"backdrop",
 			"1em",
 			"px",
 			"font-size: 0;",
@@ -400,19 +420,7 @@
 			"build",
 			"sessions",
 			"userStorageAuths",
-			"app.",
-			"/sources",
-			"/sources/foursquare/auth-callback",
-			"authenticate",
-			"ASHEVILLE_SYNC_SOURCES_FOURSQUARE_CLIENT_SECRET",
-			"ASHEVILLE_SYNC_MONGODB_PORT",
-			"ASHEVILLE_SYNC_MONGODB_HOST",
-			"ASHEVILLE_SYNC_HOST",
-			"ASHEVILLE_WEB_ADAPTER_HOST",
-			"authFilter",
-			"survey",
-			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_SECRET",
-			"ASHEVILLE_SYNC_STORAGES_DROPBOX_APP_KEY"
+			"app."
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -496,6 +504,22 @@
 			[
 				"photos",
 				"app/styles/components/section/photos.less"
+			],
+			[
+				"tags",
+				"app/styles/tags.less"
+			],
+			[
+				"s",
+				"app/styles/standards.less"
+			],
+			[
+				"nav.les",
+				"app/styles/components/nav/app.less"
+			],
+			[
+				"nav",
+				"app/styles/components/nav/app.less"
 			],
 			[
 				"histor",

@@ -1,35 +1,50 @@
 section.photos {
   .standard-container;
-  padding-left: 8em;
-  padding-right: 6em;
+  
+  @media (min-width: 56em) {
+    padding-left: 8em;
+    padding-right: 6em;
+  }
 
   >div {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 32px;
+    margin-top: 2em;
 
     a {
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
-      margin: 0 2em 2em 0;
-      padding-bottom: ~"calc(100% / 3 - 2em)";
+      margin: 0 1em 1em 0;
+      padding-bottom: ~"calc(100% / 3 - (2em / 3))";
       transition: background 0.25s, transform 0.25s;
       vertical-align: top;
-      width: ~"calc(100% / 3 - 2em)";
+      width: ~"calc(100% / 3 - (2em / 3))";
 
-      &:hover {
-        transform: scale(1.05);
+      @media (pointer: fine) {
+        &:hover {
+          transform: scale(1.05);
+        }
       }
 
-      &:hover {
-        background: rgba(22,104,185,0.75);
+      &:nth-of-type(3n+3) {
+        margin-right: 0;
+      }
+
+      @media (min-width: 56em) {
+        margin: 0 2em 2em 0;
+        padding-bottom: ~"calc(100% / 3 - 2em)";
+        width: ~"calc(100% / 3 - 2em)";
       }
     }
   }
 
   >a {
     .standard-button;
-    margin-top: 2em;
+    margin-top: 1em;
+
+    @media (min-width: 56em) {
+      margin-top: 2em;
+    }
   }
 }

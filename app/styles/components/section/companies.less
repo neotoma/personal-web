@@ -9,15 +9,23 @@ section.companies {
     max-width: 62em;
 
     >li {
-      align-items: flex-start;
       display: flex;
-      margin-bottom: 1em;
-      padding: 2em;
-      width: 50%;
+      padding: 2em 2em 1em 2em;
+      width: 100%;
+
+      @media (min-width: 40em) {
+        margin-bottom: 1em;
+        padding: 2em;
+        width: 50%;
+      }
 
       div.logo {
-        margin-right: 3em;
+        margin-right: 2em;
         width: 25%;
+
+        @media (min-width: 40em) {
+          margin-right: 3em;
+        }
 
         img {
           width: 100%;

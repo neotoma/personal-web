@@ -1,15 +1,19 @@
 nav.app {
   background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
+  display: none;
   left: 0;
   position: fixed;
   text-align: center;
   top: 0;
   user-select: none;
-  width: 100%;
   z-index: 1;
+
+  @media (min-width: 37em) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
   a {
     .standard-link;

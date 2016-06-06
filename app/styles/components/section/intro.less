@@ -1,21 +1,51 @@
 section.intro {
   user-select: none;
   background-image: url("/images/components/section/intro/cover.jpg");
-  background-position: center bottom;
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  padding-bottom: (768% / 13.66);
+  padding-top: 80.58761805%;
+  transition: background 0.25s;
+
+  @media (min-width: 45em) {
+    background-position: center -11em;
+    padding-top: ~"calc(80.58761805% - 11em)";
+  }
+
+  @media (min-width: 975px) {
+    background-position: center bottom;
+    padding-top: (768% / 13.66);
+  }
 
   >div {
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(1px);
-    box-shadow: 0 1em 1em rgba(0,0,0,0.1);
-    position: absolute;
-    top: 6em;
-    left: (155% / 13.66);
-    padding: 4em;
-    text-align: left;
-    width: 36em;
+    padding: 3em 2em;
+    transition: left 0.25s, top 0.25s;
+
+    @media (min-width: 40em) {
+      padding: 4em 3em;
+    }
+
+    @media (min-width: 975px) {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(1px);
+      box-shadow: 0 1em 1em rgba(0,0,0,0.1);
+      left: 0em;
+      position: absolute;
+      text-align: left;
+      top: 3em;
+      width: 36em;
+    }
+
+    @media (min-width: 1050px) {
+      left: (155% / 27.32);
+      padding: 4em;
+      top: 4em;
+    }
+
+    @media (min-width: 1150px) {
+      left: (155% / 13.66);
+      top: 6em;
+    }
 
     h1 {
       line-height: 1em;
@@ -23,9 +53,13 @@ section.intro {
 
     div.profession {
       color: rgba(0,0,0,0.75);
-      font-size: 1.5em;
+      font-size: 1.25em;
       line-height: 1em;
       margin-top: (1em / 1.5);
+
+      @media (min-width: 40em) {
+        font-size: 1.5em;
+      }
     }
 
     div.location {
@@ -47,9 +81,19 @@ section.intro {
           margin-top: 0;
         }
 
+        &.weather span {
+          text-transform: capitalize;
+        }
+
         span {
           color: rgba(0,0,0,0.75);
+          display: block;
           font-family: @standard-font-family-bold;
+          margin-top: 0.5em;
+
+          @media (min-width: 40em) {
+            display: inline-block;
+          }
         }
       }
     }

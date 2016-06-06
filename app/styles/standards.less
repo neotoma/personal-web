@@ -19,12 +19,17 @@
 /* Mixins */
 
 .standard-container {
-  background: linear-gradient(rgba(0,0,0,0.025), transparent);
+  background: linear-gradient(rgba(0,0,0,0.05), transparent);
   background-size: 100% 4em;
   background-position: top left;
   background-repeat: repeat-x;
-  padding: 6em 0 6em 0;
+  padding: 4em 0 4em 0;
   user-select: none;
+
+  @media (min-width: 40em) {
+    background: linear-gradient(rgba(0,0,0,0.025), transparent);
+    padding: 6em 0 6em 0;
+  }
 }
 
 .standard-max-container {
@@ -55,10 +60,6 @@
   text-decoration: none;
   transition: color 0.25s;
 
-  &:hover {
-    color: rgba(1,73,255,1);
-  }
-
   &:before {
     background-color: rgba(1,73,255,0.75);
     bottom: 0;
@@ -72,9 +73,26 @@
     transition: all 0.25s ease-in-out;
   }
 
-  &:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
+  @media (pointer: fine) {
+    &:hover {
+      color: rgba(1,73,255,1);
+    }
+
+    &:hover:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+
+  @media (pointer: none) {
+    &:focus {
+      color: rgba(1,73,255,1);
+    }
+
+    &:focus:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -86,6 +104,10 @@
 
   ::selection {
     .standard-selection;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
 

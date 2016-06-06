@@ -2,7 +2,11 @@ section.writing {
   .standard-container;
 
   h2 {
-    margin-bottom: 32px;
+    margin-bottom: 1em;
+
+    @media (min-width: 40em) {
+      margin-bottom: 2em;
+    }
   }
 
   div.published-at {
@@ -11,69 +15,123 @@ section.writing {
   }
 
   a {
-    box-sizing: border-box;
-    padding: 1em;
     transition: transform 0.25s;
 
-    &:hover {
-      transform: scale(1.05);
+    @media (pointer: fine) {
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (min-width: 40em) {
+      box-sizing: border-box;
+      padding: 1em;
     }
   }
 
   div.featured {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 7em;
-    padding-right: 7em;
+    @media (min-width: 40em) {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 7em;
+      padding-right: 7em;
+    }
 
     div.excerpt {
       margin-top: 0.5em;
+      padding: 0 2em;
+
+      @media (min-width: 40em) {
+        padding: 0;
+      }
     }
 
     a.featured-post {
-      border-radius: 0.25em;
+      display: block;
       text-align: left;
-      vertical-align: top;
-      width: ~"calc(50% - 1em)";
+
+      @media (min-width: 40em) {
+        width: ~"calc(50% - 1em)";
+        vertical-align: top;
+      }
 
       div.image {
-        background: rgba(22,104,185,0.5);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
         padding-bottom: 56.25%;
         width: 100%;
       }
 
       h3 {
-        margin-top: 32px;
+        padding: 32px 32px 0 32px;
+
+        @media (min-width: 40em) {
+          margin-top: 2em;
+          padding: 0;
+        }
+      }
+
+      div.published-at {
+        padding: 0 2em;
+
+        @media (min-width: 40em) {
+          padding: 0;
+        }
       }
     }
 
     div.featured-posts {
-      display: inline-block;
-      margin-left: 2em;
+      margin-top: 4em;
       text-align: left;
-      width: ~"calc(50% - 1.5em)";
-      vertical-align: top;
+
+      @media (min-width: 40em) {
+        display: inline-block;
+        margin-left: 2em;
+        margin-top: 0;
+        width: ~"calc(50% - 1.5em)";
+        vertical-align: top;
+      }
 
       a {
-        display: block;
+        display: flex;
+        margin-top: 1em;
         position: relative;
+
+        @media (min-width: 40em) {
+          margin-top: 0;
+        }
 
         &:first-of-type {
           margin-top: 0;
         }
 
         div.image {
-          background: rgba(22,104,185,0.5);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
           display: inline-block;
-          margin-right: 2em;
-          padding-bottom: 14.0625%;
+          height: 5.625em;
+          margin-right: 1.5em;
           vertical-align: top;
-          width: 25%;
+          width: 10em;
+
+          @media (min-width: 40em) {
+            margin-right: 2em;
+            padding-bottom: 14.0625%;
+            width: 25%;
+          }
         }
 
         div.content {
-          display: inline-block;
+          padding-right: 2em;
+          width: ~"calc(100% - 10em)";
 
+          @media (min-width: 40em) {
+            padding-right: 0;
+            width: 75%;
+          }
+          
           div.published-at {
             font-size: 0.875em;
           }
@@ -84,14 +142,25 @@ section.writing {
 
   div.more-posts {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     margin-top: 3em;
-    padding: 0 8em;
+
+    @media (min-width: 40em) {
+      padding: 0 8em;
+    }
 
     a {
+      margin: 1em 2em 0 2em;
       text-align: left;
-      width: 50%;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      @media (min-width: 40em) {
+        margin: 0;
+        width: 50%;
+      }
 
       div.published-at {
         font-size: 0.875em;

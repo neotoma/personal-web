@@ -1,20 +1,37 @@
 section.history {
   .standard-container;
 
+  @media (min-width: 65em) {
+    display: flex;
+    justify-content: center;
+  }
+
   h2 {
     display: inline-block;
     line-height: 1em;
-    text-align: left;
     vertical-align: top;
-    width: 288px;
+
+    @media (min-width: 65em) {
+      text-align: right;
+      margin-right: 2em;
+      max-width: 18em;
+    }
   }
 
   div.timeline {
     border-top: 1px solid rgba(0,0,0,0.1);
-    text-align: right;
-    position: absolute;
-    top: 10em;
-    width: ~"calc(50% - 14em)";
+    margin: 2em 3em 0 0;
+    padding-left: 2em;
+    
+    @media (min-width: 65em) {
+      left: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      text-align: right;
+      top: 10em;
+      width: ~"calc(50% - 14em)";
+    }
 
     &:after {
       border-top: 0.25em solid transparent;
@@ -34,9 +51,13 @@ section.history {
       display: inline-block;
       font-family: @standard-font-family-bold;
       font-size: 0.75em;
-      margin: 0 2em 0 6em;
+      margin: 0 3em;
       padding-top: 1em;
       vertical-align: top;
+
+      @media (min-width: 65em) {
+        margin: 0 2em 0 4em;
+      }
 
       &:before {
         border-radius: 50%;
@@ -60,10 +81,17 @@ section.history {
   }
 
   div.content {
-    display: inline-block;
     text-align: left;
-    max-width: 38em;
+    margin: auto;
+    max-width: 50em;
+    padding: 2em 1em 0 1em;
     vertical-align: top;
+
+    @media (min-width: 65em) {
+      margin: inherit;
+      max-width: 38em;
+      padding: 0;
+    }
 
     p {
       font-size: 1.125em;

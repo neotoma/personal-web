@@ -1,10 +1,39 @@
+@max-width: 70em;
+
+.hover-headline-underline {
+  @media (pointer: fine) {
+    &:hover h3:before, &:hover h4:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+
+  h3, h4 {
+    display: inline-block;
+    position: relative;
+
+    &:before {
+      background-color: rgba(1,73,255,0.25);
+      bottom: 0;
+      content: "";
+      height: 2px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.25s ease-in-out;
+    }
+  }
+}
+
 section.writing {
   .standard-container;
 
   h2 {
     margin-bottom: 1em;
 
-    @media (min-width: 40em) {
+    @media (min-width: 56em) {
       margin-bottom: 2em;
     }
   }
@@ -15,6 +44,7 @@ section.writing {
   }
 
   a {
+    box-sizing: border-box;
     transition: transform 0.25s;
 
     @media (pointer: fine) {
@@ -22,36 +52,29 @@ section.writing {
         transform: scale(1.05);
       }
     }
-
-    @media (min-width: 40em) {
-      box-sizing: border-box;
-      padding: 1em;
-    }
   }
 
   div.featured {
-    @media (min-width: 40em) {
+    margin: auto;
+    max-width: @max-width;
+
+    @media (min-width: 56em) {
       display: flex;
       flex-wrap: wrap;
-      padding-left: 7em;
-      padding-right: 7em;
+      padding: 0 2em;
     }
 
     div.excerpt {
       margin-top: 0.5em;
-      padding: 0 2em;
-
-      @media (min-width: 40em) {
-        padding: 0;
-      }
     }
 
     a.featured-post {
+      .hover-headline-underline;
       display: block;
       text-align: left;
 
-      @media (min-width: 40em) {
-        width: ~"calc(50% - 1em)";
+      @media (min-width: 56em) {
+        width: 55%;
         vertical-align: top;
       }
 
@@ -64,42 +87,64 @@ section.writing {
       }
 
       h3 {
-        padding: 32px 32px 0 32px;
-
-        @media (min-width: 40em) {
-          margin-top: 2em;
-          padding: 0;
-        }
+        margin-top: 32px;
       }
 
-      div.published-at {
-        padding: 0 2em;
+      h3, div.published-at, div.excerpt {
+        padding: 0 32px;
 
-        @media (min-width: 40em) {
+        @media (min-width: 56em) {
           padding: 0;
         }
       }
     }
 
     div.featured-posts {
-      margin-top: 4em;
+      margin-top: 3em;
       text-align: left;
 
+      @media (min-width: 30em) {
+        padding: 0 2em;
+      }
+
       @media (min-width: 40em) {
-        display: inline-block;
-        margin-left: 2em;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      @media (min-width: 56em) {
+        display: block;
         margin-top: 0;
-        width: ~"calc(50% - 1.5em)";
-        vertical-align: top;
+        padding-right: 0;
+        width: 45%;
+      }
+
+      @media (min-width: 70em) {
+        padding-left: 4em;
       }
 
       a {
+        .hover-headline-underline;
         display: flex;
         margin-top: 1em;
         position: relative;
 
         @media (min-width: 40em) {
           margin-top: 0;
+          margin-bottom: 1em;
+          width: 50%;
+
+          &:nth-child(even) {
+            div.content {
+              padding-right: 0;
+            }
+          }
+        }
+
+        @media (min-width: 56em) {
+          margin-bottom: 0;
+          margin-top: 2em;
+          width: 100%;
         }
 
         &:first-of-type {
@@ -110,26 +155,27 @@ section.writing {
           background-position: center center;
           background-repeat: no-repeat;
           background-size: cover;
-          display: inline-block;
           height: 5.625em;
           margin-right: 1.5em;
-          vertical-align: top;
           width: 10em;
 
           @media (min-width: 40em) {
+            height: 4.5em;
+            width: 8em;
+          }
+
+          @media (min-width: 56em) {
             margin-right: 2em;
-            padding-bottom: 14.0625%;
-            width: 25%;
+            height: 5.625em;
+            width: 10em;
           }
         }
 
         div.content {
           padding-right: 2em;
-          width: ~"calc(100% - 10em)";
 
-          @media (min-width: 40em) {
+          @media (min-width: 56em) {
             padding-right: 0;
-            width: 75%;
           }
           
           div.published-at {
@@ -141,25 +187,30 @@ section.writing {
   }
 
   div.more-posts {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 3em;
+    display: block;
+    margin: 2em auto 0 auto;
+    max-width: @max-width;
+    text-align: left;
 
-    @media (min-width: 40em) {
-      padding: 0 8em;
+    @media (min-width: 35em) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 3em;
     }
 
     a {
-      margin: 1em 2em 0 2em;
+      .hover-headline-underline;
+      display: block;
+      padding: 1em 2em;
       text-align: left;
 
-      &:first-of-type {
-        margin-top: 0;
-      }
-
-      @media (min-width: 40em) {
+      @media (min-width: 35em) {
         margin: 0;
         width: 50%;
+      }
+
+      @media (min-width: 56em) {
+        width: calc(100% / 3);
       }
 
       div.published-at {

@@ -1,7 +1,7 @@
 section.history {
   .standard-container;
 
-  @media (min-width: 65em) {
+  @media (min-width: 70em) {
     display: flex;
     justify-content: center;
   }
@@ -11,7 +11,7 @@ section.history {
     line-height: 1em;
     vertical-align: top;
 
-    @media (min-width: 65em) {
+    @media (min-width: 70em) {
       text-align: right;
       margin-right: 2em;
       max-width: 18em;
@@ -20,10 +20,13 @@ section.history {
 
   div.timeline {
     border-top: 1px solid rgba(0,0,0,0.1);
-    margin: 2em 3em 0 0;
-    padding-left: 2em;
+    margin: 2em 3em 1em 0;
+
+    @media (min-width: 30em) {
+      margin: 3em 3em 2em 0;
+    }
     
-    @media (min-width: 65em) {
+    @media (min-width: 70em) {
       left: 0;
       margin: 0;
       padding: 0;
@@ -46,16 +49,25 @@ section.history {
       top: -0.25em;
     }
 
+    div.birthday {
+      left: 15%;
+    }
+
+    div.today {
+      right: ~"calc(15% - 3em)";
+    }
+
     div.birthday, div.today {
       color: rgba(0,0,0,0.25);
       display: inline-block;
       font-family: @standard-font-family-bold;
       font-size: 0.75em;
-      margin: 0 3em;
       padding-top: 1em;
-      vertical-align: top;
+      position: absolute;
+      text-align: center;
+      top: 0;
 
-      @media (min-width: 65em) {
+      @media (min-width: 70em) {
         margin: 0 2em 0 4em;
       }
 
@@ -87,7 +99,7 @@ section.history {
     padding: 2em 1em 0 1em;
     vertical-align: top;
 
-    @media (min-width: 65em) {
+    @media (min-width: 70em) {
       margin: inherit;
       max-width: 38em;
       padding: 0;

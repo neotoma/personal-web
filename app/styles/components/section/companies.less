@@ -2,64 +2,74 @@ section.companies {
   .standard-container;
 
   >ul {
-    .standard-max-container;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: 1em;
-    max-width: 62em;
 
     >li {
+      align-items: top;
+      border-bottom: 0.5em solid rgba(0,0,0,0.05);
       display: flex;
-      padding: 2em 2em 1em 2em;
+      justify-content: center;
+      padding: 3em 2em;
       width: 100%;
 
-      @media (min-width: 40em) {
-        margin-bottom: 1em;
-        padding: 2em;
-        width: 50%;
+      &:last-child {
+        border-bottom: none;
       }
 
-      div.logo {
-        margin-right: 2em;
-        width: 25%;
-
-        @media (min-width: 40em) {
-          margin-right: 3em;
-        }
-
-        img {
-          width: 100%;
-        }
+      @media (min-width: 64em) {
+        background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.02));
+        border-bottom: none;
+        margin: 1em;
+        max-width: 30em;
       }
 
-      div.info {
-        text-align: left;
-        width: 75%;
+      >div {
+        flex-grow: 1;
 
-        h4 {
-          font-size: 1.5em;
-          line-height: 1em;
+        div.logo {
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+          height: 6em;
+          padding-bottom: 2em;
+          position: relative;
+
+          img {
+            height: 100%;
+            max-width: 12em;
+          }
         }
 
-        div.slogan {
-          color: rgba(0,0,0,0.50);
-          line-height: 1.2em;
-          margin-top: 0.4em;
-        }
+        div.info {
+          .standard-selection;
+          margin-top: 2em;
 
-        ul.roles {
-          li {
-            margin-top: 1em;
+          h4 {
+            font-size: 1.5em;
+            line-height: 1em;
+          }
 
-            div.description {
-              color: rgba(0,0,0,0.75);
-              font-family: @standard-font-family-bold;
-              margin-bottom: 0.5em;
-            }
+          div.slogan {
+            color: rgba(0,0,0,0.50);
+            line-height: 1.2em;
+            margin-top: 0.4em;
+          }
 
-            div.timespan {
-              font-size: 0.875em;
-              color: rgba(0,0,0,0.50);
+          ul.roles {
+            li {
+              margin-top: 1em;
+
+              div.description {
+                color: rgba(0,0,0,0.75);
+                font-family: @standard-font-family-bold;
+                margin-bottom: 0.5em;
+              }
+
+              div.timespan {
+                font-size: 0.875em;
+                color: rgba(0,0,0,0.50);
+              }
             }
           }
         }

@@ -5,6 +5,11 @@ section.skills {
     .standard-max-container;
     display: flex;
     flex-wrap: wrap;
+    max-width: 40em;
+    
+    @media (min-width: 60em) {
+      max-width: @standard-container-max-width;
+    }
 
     li {
       background-position: top center;
@@ -17,9 +22,8 @@ section.skills {
       text-align: center;
       width: 50%;
 
-      @media (min-width: 40em) {
+      @media (min-width: 60em) {
         font-size: 1em;
-        margin-top: 0;
         width: 25%;
       }
     }
@@ -49,6 +53,7 @@ section.skills {
       }
 
       div {
+        .standard-selection;
         line-height: 1.2em;
         margin-top: 0.5em;
 
@@ -60,6 +65,7 @@ section.skills {
         }
 
         small {
+          .standard-selection;
           display: block;
           line-height: 1em;
           margin-top: 0.5em;

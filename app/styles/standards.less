@@ -28,6 +28,9 @@
 
   @media (min-width: 40em) {
     background: linear-gradient(rgba(0,0,0,0.025), transparent);
+    background-size: 100% 4em;
+    background-position: top left;
+    background-repeat: repeat-x;
     padding: 6em 0 6em 0;
   }
 }
@@ -97,14 +100,9 @@
 }
 
 .standard-paragraph {
-  cursor: text;
+  .standard-selection;
   line-height: 1.5em; 
-  margin: 0 0 15px 0;
-  user-select: text;
-
-  ::selection {
-    .standard-selection;
-  }
+  margin: 0 0 1em 0;
 
   &:last-of-type {
     margin-bottom: 0;
@@ -112,7 +110,12 @@
 }
 
 .standard-selection {
-  background: rgba(22,104,185,0.25);
+  cursor: text;
+  user-select: text;
+
+  &::selection {
+    background: rgba(22,104,185,0.25);
+  }
 }
 
 /* Widths */

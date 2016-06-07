@@ -53,117 +53,30 @@
   <h2>Writing</h2>
   <div class="featured">
     <a href="#" class="featured-post">
-      <div class="image" style="background-image: url(/images/components/section/writing/1.png)"></div>
-      <h3>Applying for the Spanish non-lucrative residence visa</h3>
-      <div class="published-at">October 24, 2014</div>
-      <div class="excerpt">Just over a year ago, I moved to Barcelona in Spain to live abroad for the first time. I booked a flight from San Francisco with little else in terms of preparation, an intentionally rash decision to experience what it would be like to land in a new country and improvise the establishment of a life there.</div>
+      <div class="image" style="background-image: url({{featuredPost.image}})"></div>
+      <h3>{{featuredPost.title}}</h3>
+      <div class="published-at">{{post.publishedAt}}</div> <!-- {{formatDate post.publishedAt '%B %-d, %Y'}} -->
+      <div class="excerpt">{{featuredPost.excerpt}}</div>
     </a>
     <div class="featured-posts">
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/2.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/3.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/4.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/5.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/6.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
-      <a href="#">
-        <div class="image" style="background-image: url(/images/components/section/writing/7.png)"></div>
-        <div class="content">
-          <h4>Bringing it all back home</h4>
-          <div class="published-at">October 24, 2014</div>
-        </div>
-      </a>
+      {{#each featuredPosts as |post|}}
+        {{#link-to 'post' post}}
+          <div class="image" style="background-image: url({{post.image}})"></div>
+          <div class="content">
+            <h4>{{post.title}}</h4>
+            <div class="published-at">{{post.publishedAt}}</div>
+          </div>
+        {{/link-to}}
+      {{/each}}
     </div>
   </div>
   <div class="more-posts">
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
-    <a href="#">
-      <h4>Bringing it all back home</h4>
-      <div class="published-at">October 24, 2014</div>
-    </a>
+    {{#each morePosts as |post|}}
+      {{#link-to 'post' post}}
+        <h4>{{post.title}}</h4>
+        <div class="published-at">{{post.publishedAt}}</div>
+      {{/link-to}}
+    {{/each}}
   </div>
 </section>
 

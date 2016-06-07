@@ -3,5 +3,3 @@ App.MarkdownHelper = Ember.Helper.helper(function (content) {
     return new Handlebars.SafeString(markdown.toHTML(content));
   }
 });
-
-//Swag.registerHelpers();

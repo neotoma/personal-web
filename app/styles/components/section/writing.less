@@ -173,9 +173,15 @@ section.writing {
 
         div.content {
           padding-right: 2em;
+          width: ~"calc(100% - 10em)";
+
+          @media (min-width: 40em) {
+            width: ~"calc(100% - 8em)";
+          }
 
           @media (min-width: 56em) {
             padding-right: 0;
+            width: ~"calc(100% - 10em)";
           }
           
           div.published-at {

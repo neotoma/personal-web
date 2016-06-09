@@ -21,9 +21,9 @@ And depending on what you want to do:
 -  **Deployment**: run `grunt deploy` to compile production code and deploy it to your host. The following environmental variables must be set on the production server:
 
 ```
-export MARKMHENDRICKSON_HOST=<your host address>
-export MARKMHENDRICKSON_HOST_USERNAME=<username on host with which to connect>
-export MARKMHENDRICKSON_HOST_DIR=<destination directory on host for app>
+export WEB_HOST=<your host address>
+export WEB_HOST_USERNAME=<username on host with which to connect>
+export WEB_HOST_DIR=<destination directory on host for app>
 ```
 
 ## Loading data

@@ -1,7 +1,6 @@
 {
-  "name": "markmhendrickson",
-  "version": "0.0.0",
-  "description": "Small description for markmhendrickson goes here",
+  "name": "web",
+  "version": "1.0.0",
   "private": true,
   "directories": {
     "doc": "doc",

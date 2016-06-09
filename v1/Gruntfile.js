@@ -194,23 +194,23 @@ module.exports = function(grunt) {
 	        ],
 	        recursive: true,
 	        src: './',
-	        dest: process.env.MARKMHENDRICKSON_HOST_DIR,
-	        host: process.env.MARKMHENDRICKSON_HOST_USERNAME + '@' + process.env.MARKMHENDRICKSON_HOST
+	        dest: process.env.WEB_HOST_DIR,
+	        host: process.env.WEB_HOST_USERNAME + '@' + process.env.WEB_HOST
 	      }
 	    }
 	  },
 	  sshexec: {
 	  	options: {
-	    	host: process.env.MARKMHENDRICKSON_HOST,
+	    	host: process.env.WEB_HOST,
 	    	port: 22,
-       	username: process.env.MARKMHENDRICKSON_HOST_USERNAME,
+       	username: process.env.WEB_HOST_USERNAME,
        	agent: process.env.SSH_AUTH_SOCK
       },
 		  npmInstall: {
-		    command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && npm install --production'
+		    command: 'cd ' + process.env.WEB_HOST_DIR + ' && npm install --production'
 		   },
 		  foreverRestartAll: {
-		  	command: 'cd ' + process.env.MARKMHENDRICKSON_HOST_DIR + ' && forever restartall'
+		  	command: 'cd ' + process.env.WEB_HOST_DIR + ' && forever restartall'
 		  }
 		}
 	});

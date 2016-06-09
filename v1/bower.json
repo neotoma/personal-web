@@ -1,12 +1,12 @@
 {
-  "name": "markmhendrickson",
+  "name": "web",
   "description": "",
   "main": "",
   "authors": [
     "Mark Hendrickson <markmhendrickson@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/markmhx/markmhendrickson",
+  "homepage": "https://github.com/markmhx/web",
   "ignore": [
     "**/.*",
     "node_modules",

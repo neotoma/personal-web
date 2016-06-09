@@ -8,11 +8,6 @@ App.Router.map(function() {
 
 var ApplicationAdapterNameSpace = 'data';
 
-// GitHub Pages hosts places app under a directory so it needs a different namespace
-if (location.hostname === 'markmhx.github.io') {
-  ApplicationAdapterNameSpace = 'markmhendrickson/data'
-}
-
 App.ApplicationAdapter = DS.RESTAdapter.extend({
   namespace: ApplicationAdapterNameSpace,
 

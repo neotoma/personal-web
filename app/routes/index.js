@@ -3,12 +3,31 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
+      attributes: this.store.findAll('attribute'),
+      checkins: this.store.findAll('checkin'),
+      geolocations: this.store.findAll('geolocation'),
       links: this.store.findAll('link'),
-      posts: this.store.findAll('post')
+      posts: this.store.findAll('post'),
+      photos: this.store.findAll('photo'),
+      weatherExperiences: this.store.findAll('weatherExperience')
     });
   },
 
   setupController(controller, model) {
+    controller.set('coverImageUrl', model.attributes.findBy('id', 'coverImageUrl').get('value'));
+    controller.set('fullName', model.attributes.findBy('id', 'fullName').get('value'));
+    controller.set('profession', model.attributes.findBy('id', 'profession').get('value'));
+    controller.set('homeLocation', model.attributes.findBy('id', 'homeLocation').get('value'));
+    controller.set('history', model.attributes.findBy('id', 'history').get('value'));
+    controller.set('birthday', model.attributes.findBy('id', 'birthday').get('value'));
+
+    controller.set('today', Date());
+
+    controller.set('lastCheckin', model.checkins.shiftObject());
+    controller.set('lastWeatherExperience', model.weatherExperiences.shiftObject());
+    controller.set('lastGeolocation', model.geolocations.shiftObject());
+
+    controller.set('photos', model.photos);
     controller.set('links', model.links);
     controller.set('featuredPost', model.posts.shiftObject());
     controller.set('featuredPosts', model.posts.slice(0,6));

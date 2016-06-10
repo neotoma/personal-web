@@ -1,12 +1,12 @@
-<section class="intro">
+<section class="intro" style="background-image: url({{coverImageUrl}});">
   <div>
-    <h1>Mark Hendrickson</h1>
-    <div class="profession">Application and website creator</div>
-    <div class="location">Barcelona, Spain</div>
+    <h1>{{fullName}}</h1>
+    <div class="profession">{{profession}}</div>
+    <div class="location">{{homeLocation}}</div>
     <ul>
-      <li class="current-location">Currently in <span>Dreta de L'Eixample</span></li>
-      <li class="last-checkin">Checked in 1 hour ago at <span>True Artisan Cafe</span></li>
-      <li class="weather">Experiencing <span>warm weather and clear skies</span></li>
+      <li class="geolocation">Currently in <span>{{lastGeolocation.neighborhood}}</span></li>
+      <li class="last-checkin">Checked in 1 hour ago at <span>{{lastCheckin.name}}</span></li>
+      <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
       <li class="last-published">Last published <span>Avinguda 4th Avenue</span></li>
     </ul>
   </div>
@@ -15,36 +15,20 @@
 <section class="history">
   <h2>A little history</h2>
   <div class="timeline">
-    <div class="birthday">June 8, 1985</div>
-    <div class="today">June 4, 2016</div>
+    <div class="birthday">{{formatDate birthday day="numeric" month="long" year="numeric"}}</div>
+    <div class="today">{{formatDate today day="numeric" month="long" year="numeric"}}</div>
   </div>
   <div class="content">
-    <p>I grew up in an idyllic town called Menlo Park, just south of San Francisco in Northern California and at the heart of Silicon Valley.</p>
-
-    <p>Long before it was known as the home of Facebook’s headquarters, I played roller hockey in its streets and paintballed in its backyards, having little care in the world beyond getting my homework done and fitting in at school.</p>
-
-    <p>Somewhere in my early teenage years, I became intrigued by some of the earliest WYSIWYG website creators, such as by Netscape in the mid-nineties. And soon I convinced my parents to enlist me in a summer programming course, where I struggled to understand the concept of variables as demonstrated by a set of cups and marbles. The combination of these experiences formed my introduction to both web design and programming, two passions I’ve pursued continuously ever since, carrying them into my adult life as a profession.</p>
-
-    <p>Despite my early interest in technology, I studied liberal arts at Bowdoin College, majoring in government and economics and developing a particular interest in the philosophy of Friedrich Nietzsche. However, upon graduation I returned to the Bay Area to work for TechCrunch, wherein I caught the bug to found my first consumer tech startup, a social events application called Plancast, for which I was CEO until its sale to ACTIVE Network. I then parlayed that invaluable experience into a series of contributing roles at other early-stage startups, variably as product director, designer or developer as projects and teams have required.</p>
-
-    <p>While my job title varies, I prefer to work across the entire stack of software projects since I believe the highest quality work comes from a thorough – yet generalized – proficiency in all parts.</p>
-
-    <p>After developing a healthy concern that the familiarity and comfort of Silicon Valley would stunt my personal growth, I moved away, first to New York City for a spell then abroad to Barcelona, Spain where I live today and from where I work remotely on projects with collaborators across the world.</p>
+    {{markdown-to-html markdown=history}}
   </div>
 </section>
 
 <section class="photos">
   <h2>Photos</h2>
   <div>
-    <a href="#" style="background-image: url(/images/components/section/photos/1.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/2.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/3.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/4.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/5.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/6.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/7.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/8.png)"></a>
-    <a href="#" style="background-image: url(/images/components/section/photos/9.png)"></a>
+    {{#each photos as |photo|}}
+      <a href="#" style="background-image: url({{photo.imageUrl}})"></a>
+    {{/each}}
   </div>
   <a href="#">View all photos</a>
 </section>

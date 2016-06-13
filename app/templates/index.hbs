@@ -67,189 +67,49 @@
 <section class="skills">
   <h2>Skills</h2>
   <ul class="featured">
-    <li style="background-image: url(/images/components/section/skills/laptop-code.svg)">Web&nbsp;design &amp; development</li>
-    <li style="background-image: url(/images/components/section/skills/mobile-devices.svg)">Mobile&nbsp;design &amp; development</li>
-    <li style="background-image: url(/images/components/section/skills/layers.svg)">Platform &amp; API&nbsp;design</li>
-    <li style="background-image: url(/images/components/section/skills/desktop-graph.svg)">Product &amp; marketing&nbsp;analytics</li>
+    {{#each featuredSkills as |skill|}}
+      <li style="background-image: url({{skill.imageUrl}})">{{skill.name}}</li>
+    {{/each}}
   </ul>
   <ul class="main">
-    <li>
-      <h5>Programming Languages</h5>
-      <div>JavaScript, CoffeeScript, Ruby, PHP, Objective-C</div>
-    </li>
-    <li>
-      <h5>Markup Languages</h5>
-      <div>HTML, CSS, LESS</div>
-    </li>
-    <li>
-      <h5>Frameworks</h5>
-      <div>Express, Ember.js, Rails, Symfony</div>
-    </li>
-    <li>
-      <h5>Runtime Environments</h5>
-      <div>Node.js</div>
-    </li>
-    <li>
-      <h5>Creative Tools</h5>
-      <div>Sublime Text, Sketch, Photoshop, Litmus</div>
-    </li>
-    <li>
-      <h5>Collaboration Tools</h5>
-      <div>GitHub, Codeship, Pivotal Tracker, Trello, Asana, Slack, Google Hangouts, Skype </div>
-    </li>
-    <li>
-      <h5>Preferred Methodology</h5>
-      <div>Kanban</div>
-    </li>
-    <li>
-      <h5>User Management Services</h5>
-      <div>Mixpanel, Intercom</div>
-    </li>
-    <li>
-      <h5>Languages</h5>
-      <div>English, Spanish</div>
-    </li>
-    <li>
-      <h5>Formal Education</h5>
-      <div>
-        Bowdoin College ´07
-        <small>Economics &amp; Government and Legal Studies</small>
-        <small>Concentration in Political Theory, summa&nbsp;cum&nbsp;laude</small>
-      </div>
-    </li>
+    {{#each skills as |skill|}}
+      <li>
+        <h5>{{skill.name}}</h5>
+        <div>
+          {{skill.description}}
+          {{#each skill.details as |detail|}}
+            <small>{{detail}}</small>
+          {{/each}}
+        </div>
+      </li>
+    {{/each}}
   </ul>
 </section>
 
 <section class="companies">
   <h2>Companies</h2>
   <ul>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/first-opinion.svg" />
+    {{#each companies as |company|}}
+      <li>
+        <div>
+          <div class="logo">
+            <img src="{{company.logoUrl}}" />
+          </div>
+          <div class="info">
+            <h4>{{company.name}}</h4>
+            <div class="tagline">{{company.tagline}}</div>
+            <ul class="roles">
+              {{#each company.positions as |position|}}
+                <li>
+                  <div class="description">{{position.description}}</div>
+                  <div class="timespan">{{position.timespan}}</div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
         </div>
-        <div class="info">
-          <h4>First Opinion</h4>
-          <div class="slogan">The free way to talk with a doctor</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Designer &amp; developer</div>
-              <div class="timespan">Spring 2016</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/kite.svg" />
-        </div>
-        <div class="info">
-          <h4>KITE Solutions</h4>
-          <div class="slogan">The emerging technology solutions marketplace</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Co-founder &amp; board member</div>
-              <div class="timespan">2012&ndash;Present</div>
-            </li>
-            <li>
-              <div class="description">Product director</div>
-              <div class="timespan">2012&ndash;2015</div>
-            </li>
-            <li>
-              <div class="description">Designer &amp; developer</div>
-              <div class="timespan">2012&ndash;2014</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/digit.svg" />
-        </div>
-        <div class="info">
-          <h4>Hello Digit, Inc.</h4>
-          <div class="slogan">Save money, without thinking about it</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Designer &amp; developer</div>
-              <div class="timespan">2013&ndash;2016</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/live-ultimate.svg" />
-        </div>
-        <div class="info">
-          <h4>Live Ultimate</h4>
-          <div class="slogan">Whole skin care</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Designer &amp; developer</div>
-              <div class="timespan">Spring 2016</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/plancast.svg" />
-        </div>
-        <div class="info">
-          <h4>Plancast</h4>
-          <div class="slogan">The best way to discover events and share plans with friends</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Founder, CEO &amp; board member</div>
-              <div class="timespan">2009&ndash;2011</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/lift.svg" />
-        </div>
-        <div class="info">
-          <h4>Lift</h4>
-          <div class="slogan">Unlock your potential</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Head of product</div>
-              <div class="timespan">2011&ndash;2012</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div>
-        <div class="logo">
-          <img src="/images/components/section/companies/techcrunch.svg" />
-        </div>
-        <div class="info">
-          <h4>TechCrunch</h4>
-          <div class="slogan">The latest technology news and information on startups</div>
-          <ul class="roles">
-            <li>
-              <div class="description">Writer, product manager &amp; designer</div>
-              <div class="timespan">2007&ndash;2009</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </li>
+      </li>
+    {{/each}}
   </ul>
 </section>
 

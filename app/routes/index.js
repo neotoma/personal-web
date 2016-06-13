@@ -5,10 +5,13 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       attributes: this.store.findAll('attribute'),
       checkins: this.store.findAll('checkin'),
+      companies: this.store.findAll('company'),
       geolocations: this.store.findAll('geolocation'),
       links: this.store.findAll('link'),
       posts: this.store.findAll('post'),
+      positions: this.store.findAll('position'),
       photos: this.store.findAll('photo'),
+      skills: this.store.findAll('skill'),
       weatherExperiences: this.store.findAll('weatherExperience')
     });
   },
@@ -27,10 +30,13 @@ export default Ember.Route.extend({
     controller.set('lastWeatherExperience', model.weatherExperiences.shiftObject());
     controller.set('lastGeolocation', model.geolocations.shiftObject());
 
+    controller.set('companies', model.companies);
     controller.set('photos', model.photos);
     controller.set('links', model.links);
     controller.set('featuredPost', model.posts.shiftObject());
     controller.set('featuredPosts', model.posts.slice(0,6));
     controller.set('morePosts', model.posts.slice(6,30));
+    controller.set('featuredSkills', model.skills.filter(s => s.get('imageUrl')));
+    controller.set('skills', model.skills.filter(s => !s.get('imageUrl')));
   }
 });

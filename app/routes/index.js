@@ -12,6 +12,7 @@ export default Ember.Route.extend({
       positions: this.store.findAll('position'),
       photos: this.store.findAll('photo'),
       skills: this.store.findAll('skill'),
+      updates: this.store.findAll('update'),
       weatherExperiences: this.store.findAll('weatherExperience')
     });
   },
@@ -29,6 +30,7 @@ export default Ember.Route.extend({
     controller.set('lastCheckin', model.checkins.shiftObject());
     controller.set('lastWeatherExperience', model.weatherExperiences.shiftObject());
     controller.set('lastGeolocation', model.geolocations.shiftObject());
+    controller.set('lastUpdate', model.updates.shiftObject());
 
     controller.set('companies', model.companies);
     controller.set('photos', model.photos);

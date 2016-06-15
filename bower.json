@@ -6,6 +6,7 @@
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
     "normalize.less": "^1.0.0",
-    "showdown": "^1.4.1"
+    "showdown": "^1.4.1",
+    "photoswipe": "^4.1.1"
   }
 }

@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import PhotoSwipeMixin from '../mixins/photoswipe';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(PhotoSwipeMixin, {
   model() {
     return Ember.RSVP.hash({
       attributes: this.store.findAll('attribute'),

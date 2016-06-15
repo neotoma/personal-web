@@ -1,13 +1,25 @@
 <section class="intro" style="background-image: url({{coverImageUrl}});">
   <div>
     <h1>{{fullName}}</h1>
-    <div class="profession">{{profession}}</div>
-    <div class="location">{{homeLocation}}</div>
+    {{#if profession}}
+      <div class="profession">{{profession}}</div>
+    {{/if}}
+    {{#if homeLocation}}
+      <div class="location">{{homeLocation}}</div>
+    {{/if}}
     <ul>
-      <li class="geolocation">Currently in <span>{{lastGeolocation.neighborhood}}</span></li>
-      <li class="last-checkin">Checked in 1 hour ago at <span>{{lastCheckin.name}}</span></li>
-      <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
-      <li class="last-published">Last published <span>{{describe-update lastUpdate}}</span></li>
+      {{#if lastGeolocation}}
+        <li class="geolocation">Currently in <span>{{lastGeolocation.neighborhood}}</span></li>
+      {{/if}}
+      {{#if lastWeatherExperience}}
+        <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
+      {{/if}}
+      {{#if lastCheckin}}
+        <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at <span>{{lastCheckin.name}}</span></li>
+      {{/if}}
+      {{#if lastUpdate}}
+        <li class="last-published">Last published <span>{{describe-update lastUpdate}}</span></li>
+      {{/if}}
     </ul>
   </div>
 </section>
@@ -27,10 +39,10 @@
   <h2>Photos</h2>
   <div>
     {{#each photos as |photo|}}
-      <a href="#" style="background-image: url({{photo.imageUrl}})"></a>
+      <a href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
     {{/each}}
   </div>
-  <a href="#">View all photos</a>
+  {{#link-to "photos"}}View all photos{{/link-to}}
 </section>
 
 <section class="writing">
@@ -44,7 +56,7 @@
     </a>
     <div class="featured-posts">
       {{#each featuredPosts as |post|}}
-        {{#link-to 'post' post}}
+        {{#link-to "post" post}}
           <div class="image" style="background-image: url({{post.image}})"></div>
           <div class="content">
             <h4>{{post.title}}</h4>
@@ -121,3 +133,5 @@
     {{/each}}
   </ul>
 </section>
+
+{{photoswipe-viewer}}

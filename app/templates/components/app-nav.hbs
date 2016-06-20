@@ -1,0 +1,13 @@
+<nav class="app">
+  {{#if options}}
+    {{#each options as |option|}}
+      {{#if (compare option.name "===" activeOption)}}
+        {{#scroll-to href=option.anchor class="active"}}{{option.name}}{{/scroll-to}}
+      {{else}}
+        {{#scroll-to href=option.anchor}}{{option.name}}{{/scroll-to}}
+      {{/if}}
+    {{/each}}
+  {{else}}
+    {{#link-to "index"}}{{fullName}}{{/link-to}}
+  {{/if}}
+</nav>

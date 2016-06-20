@@ -10,4 +10,13 @@ Router.map(function() {
   this.route('photos');
 });
 
+Ember.Route.reopen({
+  appNav: Ember.inject.service(),
+  activate: function() {
+    this._super();
+    this.get('appNav').set('options', this.get('appNavOptions'));
+    window.scrollTo(0,0);
+  }
+});
+
 export default Router;

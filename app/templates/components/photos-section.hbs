@@ -1,0 +1,15 @@
+{{#if photos.length}}
+
+  <section id="photos" class="photos">
+    <h2>Photos</h2>
+    <div class="thumbs">
+      {{#each photos as |photo|}}
+        <a href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
+      {{/each}}
+    </div>
+    {{#link-to "photos"}}View all photos{{/link-to}}
+  </section>
+
+{{/if}}
+
+{{photoswipe-viewer}}

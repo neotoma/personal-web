@@ -1,0 +1,26 @@
+<section id="companies" class="companies">
+  <h2>Companies</h2>
+  <ul>
+    {{#each companies as |company|}}
+      <li>
+        <div>
+          <div class="logo">
+            <img src="{{company.logoUrl}}" />
+          </div>
+          <div class="info">
+            <h4>{{company.name}}</h4>
+            <div class="tagline">{{company.tagline}}</div>
+            <ul class="roles">
+              {{#each company.positions as |position|}}
+                <li>
+                  <div class="description">{{position.description}}</div>
+                  <div class="timespan">{{position.timespan}}</div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>

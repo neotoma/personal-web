@@ -1,0 +1,21 @@
+<section id="skills" class="skills">
+  <h2>Skills</h2>
+  <ul class="featured">
+    {{#each featuredSkills as |skill|}}
+      <li style="background-image: url({{skill.imageUrl}})">{{skill.name}}</li>
+    {{/each}}
+  </ul>
+  <ul class="main">
+    {{#each skills as |skill|}}
+      <li>
+        <h5>{{skill.name}}</h5>
+        <div>
+          {{skill.description}}
+          {{#each skill.details as |detail|}}
+            <small>{{detail}}</small>
+          {{/each}}
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>

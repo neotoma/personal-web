@@ -1,0 +1,25 @@
+<section id="intro" class="intro" style="background-image: url({{coverImageUrl}});">
+  <div>
+    <h1>{{fullName}}</h1>
+    {{#if profession}}
+      <div class="profession">{{profession}}</div>
+    {{/if}}
+    {{#if homeLocation}}
+      <div class="location">{{homeLocation}}</div>
+    {{/if}}
+    <ul>
+      {{#if lastGeolocation}}
+        <li class="geolocation">Currently in <span>{{lastGeolocation.neighborhood}}</span></li>
+      {{/if}}
+      {{#if lastWeatherExperience}}
+        <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
+      {{/if}}
+      {{#if lastCheckin}}
+        <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at <span>{{lastCheckin.name}}</span></li>
+      {{/if}}
+      {{#if lastUpdate}}
+        <li class="last-published">Last published <span>{{describe-update lastUpdate}}</span></li>
+      {{/if}}
+    </ul>
+  </div>
+</section>

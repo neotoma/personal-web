@@ -20,11 +20,11 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('fullName', model.attributes.findBy('id', 'fullName').get('value'));
       self.set('profession', model.attributes.findBy('id', 'profession').get('value'));
       self.set('homeLocation', model.attributes.findBy('id', 'homeLocation').get('value'));
-      
-      self.set('lastCheckin', model.checkins.shiftObject());
-      self.set('lastGeolocation', model.geolocations.shiftObject());
-      self.set('lastUpdate', model.updates.shiftObject());
-      self.set('lastWeatherExperience', model.weatherExperiences.shiftObject());
+
+      self.set('lastCheckin', model.checkins.objectAt(0));
+      self.set('lastGeolocation', model.geolocations.objectAt(0));
+      self.set('lastUpdate', model.updates.objectAt(0));
+      self.set('lastWeatherExperience', model.weatherExperiences.objectAt(0));
     });
   }
 });

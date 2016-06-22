@@ -4,10 +4,12 @@
     <h2>Photos</h2>
     <div class="thumbs">
       {{#each photos as |photo|}}
-        <a href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
+        <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
       {{/each}}
     </div>
-    {{#link-to "photos"}}View all photos{{/link-to}}
+    {{#if viewAll}}
+      {{#link-to "photos"}}View all photos{{/link-to}}
+    {{/if}}
   </section>
 
 {{/if}}

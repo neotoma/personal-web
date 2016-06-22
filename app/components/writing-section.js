@@ -10,8 +10,8 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
     var self = this;
 
     this.get('store').findAll('post').then(function(posts) {
-      self.set('featuredPost', posts.shiftObject());
-      self.set('featuredPosts', posts.slice(0,6));
+      self.set('featuredPost', posts.objectAt(0));
+      self.set('featuredPosts', posts.slice(1,6));
       self.set('morePosts', posts.slice(6,30));
     });
   }

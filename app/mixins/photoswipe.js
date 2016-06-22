@@ -66,7 +66,7 @@ export default Ember.Mixin.create({
   },
 
   viewPhoto(photo) {
-    this.viewPhotoByLink($('section.photos div.thumbs a[href="' + photo.get('imageUrl') + '"]')[0]);
+    this.viewPhotoByLink($('#photo-' + photo.get('id'))[0]);
   },
 
   viewPhotoByIndex(index, animationDuration) {

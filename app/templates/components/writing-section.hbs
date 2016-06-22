@@ -1,30 +1,28 @@
-<section id="writing" class="writing">
-  <h2>Writing</h2>
-  <div class="featured">
-    <a href="#" class="featured-post">
-      <div class="image" style="background-image: url({{featuredPost.image}})"></div>
-      <h3>{{featuredPost.title}}</h3>
-      <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
-      <div class="excerpt">{{featuredPost.excerpt}}</div>
-    </a>
-    <div class="featured-posts">
-      {{#each featuredPosts as |post|}}
-        {{#link-to "post" post}}
-          <div class="image" style="background-image: url({{post.image}})"></div>
-          <div class="content">
-            <h4>{{post.title}}</h4>
-            <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-          </div>
-        {{/link-to}}
-      {{/each}}
-    </div>
-  </div>
-  <div class="more-posts">
-    {{#each morePosts as |post|}}
-      {{#link-to 'post' post}}
-        <h4>{{post.title}}</h4>
-        <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+<h2>Writing</h2>
+<div class="featured">
+  <a href="#" class="featured-post">
+    <div class="image" style="background-image: url({{featuredPost.image}})"></div>
+    <h3>{{featuredPost.title}}</h3>
+    <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
+    <div class="excerpt">{{featuredPost.excerpt}}</div>
+  </a>
+  <div class="featured-posts">
+    {{#each featuredPosts as |post|}}
+      {{#link-to "post" post}}
+        <div class="image" style="background-image: url({{post.image}})"></div>
+        <div class="content">
+          <h4>{{post.title}}</h4>
+          <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+        </div>
       {{/link-to}}
     {{/each}}
   </div>
-</section>
+</div>
+<div class="more-posts">
+  {{#each morePosts as |post|}}
+    {{#link-to 'post' post}}
+      <h4>{{post.title}}</h4>
+      <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+    {{/link-to}}
+  {{/each}}
+</div>

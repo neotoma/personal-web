@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: 'nav',
+  classNames: ['app'],
+  classNameBindings: ['shown'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
 
@@ -10,6 +13,7 @@ export default Ember.Component.extend({
     var self = this;
     this.get('store').findAll('attribute').then(function(attributes) {
       self.set('fullName', attributes.findBy('id', 'fullName').get('value'));
+      self.set('shown', true);
     });
   },
 

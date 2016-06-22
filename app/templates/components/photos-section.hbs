@@ -1,16 +1,14 @@
 {{#if photos.length}}
 
-  <section id="photos" class="photos">
-    <h2>Photos</h2>
-    <div class="thumbs">
-      {{#each photos as |photo|}}
-        <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
-      {{/each}}
-    </div>
-    {{#if viewAll}}
-      {{#link-to "photos"}}View all photos{{/link-to}}
-    {{/if}}
-  </section>
+  <h2>Photos</h2>
+  <div class="thumbs">
+    {{#each photos as |photo|}}
+      <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
+    {{/each}}
+  </div>
+  {{#if viewAll}}
+    {{#link-to "photos"}}View all photos{{/link-to}}
+  {{/if}}
 
 {{/if}}
 

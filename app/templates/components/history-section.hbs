@@ -1,10 +1,8 @@
-<section id="history" class="history">
-  <h2>A little history</h2>
-  <div class="timeline">
-    <div class="birthday">{{formatDate birthday day="numeric" month="long" year="numeric"}}</div>
-    <div class="today">{{formatDate today day="numeric" month="long" year="numeric"}}</div>
-  </div>
-  <div class="content">
-    {{markdown-to-html markdown=history}}
-  </div>
-</section>
+<h2>A little history</h2>
+<div class="timeline">
+  <div class="birthday">{{formatDate birthday day="numeric" month="long" year="numeric"}}</div>
+  <div class="today">{{formatDate today day="numeric" month="long" year="numeric"}}</div>
+</div>
+<div class="content">
+  {{markdown-to-html markdown=history}}
+</div>

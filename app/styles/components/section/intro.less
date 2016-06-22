@@ -1,4 +1,5 @@
 section.intro {
+  .shown-opacity;
   user-select: none;
   background-position: center top;
   background-repeat: no-repeat;
@@ -7,12 +8,13 @@ section.intro {
 
   @media (min-width: 45em) {
     background-position: center -11em;
+    margin-top: -3em;
     padding-top: ~"calc(80.58761805% - 11em)";
   }
 
   @media (min-width: 975px) {
     background-position: center bottom;
-    padding-top: (768% / 13.66);
+    padding-top: (768% / 12);
   }
 
   >div {
@@ -20,7 +22,7 @@ section.intro {
     transition: left 0.25s, top 0.25s;
 
     @media (min-width: 40em) {
-      padding: 4em 3em;
+      padding: 4em 3em 4em 3em;
     }
 
     @media (min-width: 975px) {
@@ -30,19 +32,19 @@ section.intro {
       left: 0em;
       position: absolute;
       text-align: left;
-      top: 3em;
+      top: 6em;
       width: 36em;
     }
 
     @media (min-width: 1050px) {
       left: (155% / 27.32);
       padding: 4em;
-      top: 4em;
+      top: 7em;
     }
 
     @media (min-width: 1150px) {
       left: (155% / 13.66);
-      top: 6em;
+      top: 9em;
     }
 
     h1 {

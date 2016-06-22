@@ -6,7 +6,8 @@ nav.app {
   left: 0;
   position: fixed;
   text-align: center;
-  top: 0;
+  top: -4em;
+  transition: top 1s;
   user-select: none;
   z-index: 1;
 
@@ -14,6 +15,10 @@ nav.app {
     display: flex;
     justify-content: center;
     width: 100%;
+  }
+
+  &.shown {
+    top: 0;
   }
 
   a {

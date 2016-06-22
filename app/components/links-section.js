@@ -3,6 +3,11 @@ import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
 
 export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   appNavOption: 'Links',
+  tagName: 'section',
+  classNames: ['links'],
+  classNameBindings: ['shown'],
+  attributeBindings: ['id'],
+  id: 'links',
   store: Ember.inject.service(),
 
   init() {
@@ -11,6 +16,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
 
     this.get('store').findAll('link').then(function(links) {
       self.set('links', links);
+      self.set('shown', true);
     });
   }
 });

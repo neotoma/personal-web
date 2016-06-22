@@ -3,6 +3,11 @@ import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
 
 export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   appNavOption: 'Writing',
+  tagName: 'section',
+  classNames: ['writing'],
+  classNameBindings: ['shown'],
+  attributeBindings: ['id'],
+  id: 'writing',
   store: Ember.inject.service(),
 
   init() {
@@ -13,6 +18,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('featuredPost', posts.objectAt(0));
       self.set('featuredPosts', posts.slice(1,6));
       self.set('morePosts', posts.slice(6,30));
+      self.set('shown', true);
     });
   }
 });

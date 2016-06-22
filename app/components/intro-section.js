@@ -2,7 +2,12 @@ import Ember from 'ember';
 import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
 
 export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
+  tagName: 'section',
+  classNames: ['intro'],
+  classNameBindings: ['shown'],
+  attributeBindings: ['style', 'id'],
   appNavOption: 'Intro',
+  id: 'intro',
   store: Ember.inject.service(),
 
   init() {
@@ -25,6 +30,12 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('lastGeolocation', model.geolocations.objectAt(0));
       self.set('lastUpdate', model.updates.objectAt(0));
       self.set('lastWeatherExperience', model.weatherExperiences.objectAt(0));
+
+      self.set('shown', true);
     });
-  }
+  },
+
+  style: Ember.computed('coverImageUrl', function() {
+    return 'background-image: url(' + this.get('coverImageUrl') + ');';
+  })
 });

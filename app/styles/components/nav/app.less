@@ -1,13 +1,12 @@
 nav.app {
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,1);
-  box-shadow: 0 0 1em rgba(0,0,0,0.1);
   display: none;
+  height: 3em;
   left: 0;
   position: fixed;
   text-align: center;
   top: -4em;
-  transition: top 1s;
+  transition: top 1s, box-shadow 1s, background-color 1s;
   user-select: none;
   z-index: 1;
 
@@ -18,7 +17,12 @@ nav.app {
   }
 
   &.shown {
+    background-color: #ffffff;
     top: 0;
+  }
+
+  &.scrolled {
+    box-shadow: 0 0 1em rgba(0,0,0,0.1);
   }
 
   a {

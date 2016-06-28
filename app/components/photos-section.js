@@ -22,6 +22,6 @@ export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin
   },
 
   empty: Ember.computed('photos.length', function() {
-    return (this.get('photos.length') == 0);
+    return (this.get('photos.length') === 0);
   })
 });

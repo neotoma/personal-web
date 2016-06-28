@@ -1,15 +1,15 @@
 <h2>Writing</h2>
 <div class="featured">
-  <a href="#" class="featured-post">
-    <div class="image" style="background-image: url({{featuredPost.image}})"></div>
+  {{#link-to "post" featuredPost class="featured-post"}}
+    <div class="image" style={{backgroundImageStyle featuredPost.imageUrl}}></div>
     <h3>{{featuredPost.title}}</h3>
     <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
     <div class="excerpt">{{featuredPost.excerpt}}</div>
-  </a>
+  {{/link-to}}
   <div class="featured-posts">
     {{#each featuredPosts as |post|}}
       {{#link-to "post" post}}
-        <div class="image" style="background-image: url({{post.image}})"></div>
+        <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
         <div class="content">
           <h4>{{post.title}}</h4>
           <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>

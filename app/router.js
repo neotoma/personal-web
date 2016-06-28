@@ -15,7 +15,6 @@ Ember.Route.reopen({
   activate: function() {
     this._super();
     this.get('appNav').set('options', this.get('appNavOptions'));
-    //window.scrollTo(0,0);
   }
 });
 

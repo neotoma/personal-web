@@ -3,7 +3,7 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   slug:           attr('string'),
-  image:          attr('string'),
+  imageUrl:       attr('string'),
   title:          attr('string'),
   excerpt:        attr('string'),
   body:           attr('string'),

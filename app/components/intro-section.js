@@ -5,10 +5,16 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   tagName: 'section',
   classNames: ['intro'],
   classNameBindings: ['shown'],
-  attributeBindings: ['style', 'id'],
+  attributeBindings: ['id', 'style'],
   appNavOption: 'Intro',
   id: 'intro',
   store: Ember.inject.service(),
+
+  style: Ember.computed('coverImageUrl', function() {
+    if (this.get('coverImageUrl')) {
+      return Ember.String.htmlSafe('background-image: url(' + this.get('coverImageUrl') + ')');
+    }
+  }),
 
   init() {
     this._super(...arguments);
@@ -33,9 +39,5 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
 
       self.set('shown', true);
     });
-  },
-
-  style: Ember.computed('coverImageUrl', function() {
-    return 'background-image: url(' + this.get('coverImageUrl') + ');';
-  })
+  }
 });

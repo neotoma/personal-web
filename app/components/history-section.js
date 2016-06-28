@@ -7,7 +7,6 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   classNames: ['history'],
   classNameBindings: ['shown'],
   attributeBindings: ['id'],
-  appNavOption: 'Intro',
   id: 'history',
   store: Ember.inject.service(),
 

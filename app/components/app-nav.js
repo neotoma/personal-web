@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import ScrollingMixin from '../mixins/scrolling';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ScrollingMixin, {
   tagName: 'nav',
   classNames: ['app'],
-  classNameBindings: ['shown'],
+  classNameBindings: ['shown', 'scrolled'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
 
@@ -23,5 +24,13 @@ export default Ember.Component.extend({
 
   activeOption: function() {
     return this.get('appNav.activeOption');
-  }.property('appNav.activeOption')
+  }.property('appNav.activeOption'),
+
+  onScroll() {
+    this.set('scrolled', ($(document).scrollTop() > 0));
+  },
+
+  didInsertElement() {
+    this.bindScrolling();
+  }
 });

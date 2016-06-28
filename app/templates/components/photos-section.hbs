@@ -1,11 +1,13 @@
 {{#if photos.length}}
 
   <h2>Photos</h2>
+  
   <div class="thumbs">
     {{#each photos as |photo|}}
-      <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style="background-image: url({{photo.imageUrl}})" {{action "viewPhoto" photo}}></a>
+      <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style={{backgroundImageStyle photo.imageUrl}} {{action "viewPhoto" photo}}></a>
     {{/each}}
   </div>
+
   {{#if viewAll}}
     {{#link-to "photos"}}View all photos{{/link-to}}
   {{/if}}

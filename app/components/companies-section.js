@@ -16,7 +16,10 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
 
     this.get('store').findAll('company').then(function(companies) {
       self.set('companies', companies);
-      self.set('shown', true);
+      
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
   }
 });

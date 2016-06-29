@@ -17,7 +17,10 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
     this.get('store').findAll('skill').then(function(skills) {
       self.set('featuredSkills', skills.filter(s => s.get('imageUrl')));
       self.set('skills', skills.filter(s => !s.get('imageUrl')));
-      self.set('shown', true);
+      
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
   }
 });

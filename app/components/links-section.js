@@ -16,7 +16,10 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
 
     this.get('store').findAll('link').then(function(links) {
       self.set('links', links);
-      self.set('shown', true);
+      
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
   }
 });

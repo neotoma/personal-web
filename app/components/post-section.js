@@ -9,8 +9,8 @@ export default Ember.Component.extend({
   didInsertElement() {
     var self = this;
 
-    setTimeout(function() {
+    Ember.run.next(function() {
       self.set('shown', true);
-    }, 0);
+    });
   }
 });

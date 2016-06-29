@@ -14,9 +14,16 @@ export default Ember.Component.extend(ScrollingMixin, {
     var self = this;
     this.get('store').findAll('attribute').then(function(attributes) {
       self.set('fullName', attributes.findBy('id', 'fullName').get('value'));
-      self.set('shown', true);
+      
+      Ember.run.next(function() {
+        self.get('appNav').set('shown', true);
+      });
     });
   },
+
+  shown: function() {
+    return this.get('appNav.shown');
+  }.property('appNav.shown'),
 
   options: function() {
     return this.get('appNav.options');

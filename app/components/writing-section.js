@@ -9,16 +9,37 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   attributeBindings: ['id'],
   id: 'writing',
   store: Ember.inject.service(),
+  sortedPostProperties: ['createdAt:desc'],
+  sortedPosts: Ember.computed.sort('posts', 'sortedPostProperties'),
 
   init() {
     this._super(...arguments);
     var self = this;
 
     this.get('store').findAll('post').then(function(posts) {
-      self.set('featuredPost', posts.objectAt(0));
-      self.set('featuredPosts', posts.slice(1,6));
-      self.set('morePosts', posts.slice(6,30));
-      self.set('shown', true);
+      self.set('posts', posts);
+      
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
-  }
+  },
+
+  featuredPost: function() {
+    if (this.get('sortedPosts.length')) {
+      return this.get('sortedPosts').objectAt(0);
+    }
+  }.property('sortedPosts.length'),
+
+  featuredPosts: function() {
+    if (this.get('sortedPosts.length')) {
+      return this.get('sortedPosts').slice(1,6);
+    }
+  }.property('sortedPosts.length'),
+
+  morePosts: function() {
+    if (this.get('sortedPosts.length')) {
+      return this.get('sortedPosts').slice(6,30);
+    }
+  }.property('sortedPosts.length')
 });

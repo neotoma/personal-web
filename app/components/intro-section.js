@@ -37,7 +37,9 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('lastUpdate', model.updates.objectAt(0));
       self.set('lastWeatherExperience', model.weatherExperiences.objectAt(0));
 
-      self.set('shown', true);
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
   }
 });

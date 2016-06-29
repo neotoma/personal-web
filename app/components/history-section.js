@@ -18,7 +18,10 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('history', attributes.findBy('id', 'history').get('value'));
       self.set('birthday', attributes.findBy('id', 'birthday').get('value'));
       self.set('today', Date());
-      self.set('shown', true);
+      
+      Ember.run.next(function() {
+        self.set('shown', true);
+      });
     });
   }
 });

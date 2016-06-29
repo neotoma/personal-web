@@ -7,5 +7,6 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     controller.set('post', model);
+    this.set('id', this.paramsFor('post').post_id);
   }
 });

@@ -2,6 +2,10 @@ section.post {
   .shown-opacity;
   .standard-container;
 
+  @media (min-width: 40em) {
+    background: none;
+  }
+
   >div {
     margin: auto;
     max-width: 50em;
@@ -9,7 +13,7 @@ section.post {
     h1 {
       .standard-selection;
       font-family: @standard-font-family-bold;
-      font-size: 2em;
+      font-size: 2.5em;
     }
 
     div.published-at {
@@ -34,6 +38,7 @@ section.post {
 
       a {
         .standard-link;
+        display: inline-block;
       }
 
       blockquote {
@@ -62,7 +67,7 @@ section.post {
       h1 {
         border-top: 1px solid @border-color;
         font-family: @standard-body-font-family;
-        font-size: 1.8em;
+        font-size: 1.6em;
         margin: 2em -1em 2em -1em;
         padding: 2em 1em 0 1em;
         text-align: center;
@@ -73,8 +78,8 @@ section.post {
 
         &:first-of-type::first-letter {
           float: left;
-          font-size: 4.5em;
-          margin: 0.3em 0.15em 0.25em 0;
+          font-size: 6em;
+          margin: 0.28em 0.15em 0.25em 0;
         }
       }
 

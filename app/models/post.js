@@ -7,7 +7,8 @@ export default Model.extend({
   title:          attr('string'),
   excerpt:        attr('string'),
   body:           attr('string'),
-  createdAt:      attr('string'),
-  updatedAt:      attr('string'),
+  author:         attr('string'),
+  createdAt:      attr('date'),
+  updatedAt:      attr('date'),
   publishedAt:    attr('date')
 });

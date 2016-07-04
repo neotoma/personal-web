@@ -18,10 +18,10 @@ export default Ember.Route.extend({
       controller.set('post', model.get('firstObject'));
     } else {
       controller.set('post', model);
+    }
 
-      if (model.get('slug')) {
-        this.set('headData.canonicalUrl', window.location.origin + this.router.generate('post', model.get('slug')));
-      }
+    if (controller.get('post.slug')) {
+      this.set('headData.canonicalUrl', window.location.origin + this.router.generate('post', model.get('slug')));
     }
 
     this.set('id', this.paramsFor('post').post_id);

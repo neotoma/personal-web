@@ -9,8 +9,8 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
   attributeBindings: ['id'],
   id: 'writing',
   store: Ember.inject.service(),
-  sortedPostProperties: ['createdAt:desc'],
-  sortedPosts: Ember.computed.sort('posts', 'sortedPostProperties'),
+  sortedPostsProperties: ['publishedAt:desc'],
+  sortedPosts: Ember.computed.sort('posts', 'sortedPostsProperties'),
 
   init() {
     this._super(...arguments);

@@ -4,7 +4,7 @@ export default Ember.Mixin.create({
   animationDuration: 250,
 
   items() {
-    return this.get('controller.photos').map(function(photo) {
+    return this.get('controller.sortedPhotos').map(function(photo) {
       return {
         src: photo.get('imageUrl'),
         msrc: photo.get('imageUrl'),
@@ -70,7 +70,6 @@ export default Ember.Mixin.create({
   },
 
   viewPhotoByIndex(index, animationDuration) {
-    console.log('index', index, $('section.photos div.thumbs a').length);
     var link = $('section.photos div.thumbs a')[index - 1];
 
     if (link && $(link).attr('href')) {

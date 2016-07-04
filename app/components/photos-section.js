@@ -10,6 +10,8 @@ export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin
   id: 'photos',
   appNavOption: 'Photos',
   store: Ember.inject.service(),
+  sortedPhotosProperties: ['publishedAt:desc'],
+  sortedPhotos: Ember.computed.sort('photos', 'sortedPhotosProperties'),
 
   init: function() {
     this._super(...arguments);

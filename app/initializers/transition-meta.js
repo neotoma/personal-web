@@ -7,6 +7,7 @@ export function initialize(/* application */) {
 
       this.set('headData.type', null);
       this.set('headData.imageUrl', null);
+      this.set('headData.canonicalUrl', null);
       this.set('headData.description', null);
       this.set('headData.articlePublishedTime', null);
       this.set('headData.articleModifiedTime', null);

@@ -50,3 +50,7 @@
 {{#if model.profileGender}}
   <meta property="og:profile:gender" content={{model.profileGender}} />
 {{/if}}
+
+{{#if model.canonicalUrl}}
+  <link rel="canonical" href={{model.canonicalUrl}} />
+{{/if}}

@@ -10,5 +10,9 @@ export default Model.extend({
   author:         attr('string'),
   createdAt:      attr('date'),
   updatedAt:      attr('date'),
-  publishedAt:    attr('date')
+  publishedAt:    attr('date'),
+
+  canonicalId: function() {
+    return this.get('slug') ? this.get('slug') : this.get('id');
+  }.property('id', 'slug')
 });

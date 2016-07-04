@@ -1,6 +1,6 @@
 <h2>Writing</h2>
 <div class="featured">
-  {{#link-to "post" featuredPost class="featured-post"}}
+  {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
     <div class="image" style={{backgroundImageStyle featuredPost.imageUrl}}></div>
     <h3>{{featuredPost.title}}</h3>
     <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
@@ -8,7 +8,7 @@
   {{/link-to}}
   <div class="featured-posts">
     {{#each featuredPosts as |post|}}
-      {{#link-to "post" post}}
+      {{#link-to "post" post.canonicalId}}
         <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
         <div class="content">
           <h4>{{post.title}}</h4>
@@ -20,7 +20,7 @@
 </div>
 <div class="more-posts">
   {{#each morePosts as |post|}}
-    {{#link-to 'post' post}}
+    {{#link-to 'post' post.canonicalId}}
       <h4>{{post.title}}</h4>
       <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
     {{/link-to}}

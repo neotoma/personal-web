@@ -120,6 +120,24 @@
   }
 }
 
+.standard-inline-link {
+  .standard-link;
+  border-bottom: 2px solid rgba(1,73,255,0.1);
+  color: rgba(1,73,255,0.85);
+  display: inline;
+  transition: border-color 0.25s;
+
+  @media (pointer: fine) {
+    &:hover {
+      border-bottom-color: rgba(1,73,255,1);
+    }
+
+    &:hover:before {
+      visibility: hidden;
+    }
+  }
+}
+
 .standard-paragraph {
   .standard-selection;
   font-family: @standard-body-font-family;

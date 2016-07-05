@@ -14,9 +14,13 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     var self = this;
 
-    if (model.firstObject) {
+    if (!model) {
+      return;
+    }
+
+    if (model.query.filter && model.get('firstObject')) {
       controller.set('post', model.get('firstObject'));
-    } else {
+    } else if (model.get('id')) {
       controller.set('post', model);
     }
 
@@ -36,5 +40,13 @@ export default Ember.Route.extend({
     Ember.run.next(function() {
       self.set('headData.url', window.location.href);
     });
+  },
+
+  actions: {
+    error(error, transition) {
+      if (error) {
+        this.intermediateTransitionTo('not-found', error);
+      }
+    }
   }
 });

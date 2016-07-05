@@ -1,4 +1,4 @@
-body.not-found {
+body.application_error {
 
   @media (min-width: 40em) {
     padding-top: 3em;
@@ -8,6 +8,7 @@ body.not-found {
     .shown-opacity;
     .standard-container;
     .standard-max-container;
+    max-width: 50em;
 
     @media (min-width: 40em) {
       background: none;
@@ -15,7 +16,7 @@ body.not-found {
 
     &:before {
       .standard-http-status-code-before;
-      content: "404";
+      content: "500";
     }
 
     h1 {

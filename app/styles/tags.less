@@ -3,6 +3,29 @@ a {
   text-decoration: none;
 }
 
+blockquote {
+  color: rgba(0,0,0,0.75);
+  font-style: italic;
+  margin: 2em -2em 3em -2em;
+  padding: 2em;
+  background: linear-gradient(rgba(0,0,0,0.0125), rgba(0,0,0,0.025));
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  p {
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 body {
   background: #ffffff;
   color: #000000;

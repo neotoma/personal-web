@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('post', { path: '/post/:post_id' });
   this.route('photos');
   this.route('not-found', { path: '*path'});
+  this.route('application-error');
 });
 
 Ember.Route.reopen({

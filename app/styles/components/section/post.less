@@ -8,12 +8,25 @@ section.post {
 
   >div {
     margin: auto;
-    max-width: 50em;
+    max-width: 60em;
   
     h1 {
+      @font-size: 2em;
       .standard-selection;
+      box-sizing: border-box;
       font-family: @standard-font-family-bold;
-      font-size: 2.5em;
+      font-size: @font-size;
+      margin: auto;
+      max-width: (50 / @font-size);
+      padding: 0 (1 / @font-size);
+
+      @media (min-width: 40em) {
+        @font-size: 2.5em;
+        background: none;
+        font-size: @font-size;
+        max-width: (50 / @font-size);
+        padding: 0 (1 / @font-size);
+      }
     }
 
     div.published-at {
@@ -26,14 +39,29 @@ section.post {
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
+      margin: auto;
       margin-top: 3em;
+      max-width: 60em;
       padding-bottom: 56.25%;
     }
 
     div.body {
-      font-size: 1.375em;
-      margin-top: 3em;
+      @font-size: 1.25em;
+      box-sizing: border-box;
+      font-size: @font-size;
+      margin: auto;
+      margin-top: 1em;
+      max-width: (50 / @font-size);
+      padding: 0 (1 / @font-size);
       text-align: left;
+
+      @media (min-width: 40em) {
+        @font-size: 1.375em;
+        font-size: @font-size;
+        margin-top: (4 / @font-size);
+        max-width: (50 / @font-size);
+        padding: 0 (1 / @font-size);
+      }
 
       a {
         .standard-inline-link;
@@ -50,20 +78,26 @@ section.post {
 
       p {
         .standard-paragraph;
-
-        &:first-of-type::first-letter {
-          float: left;
-          font-size: 6em;
-          margin: 0.28em 0.15em 0.25em 0;
-        }
       }
 
-      ul {
-        margin-bottom: 3em;
-        padding-left: 2em;
+      >p:first-of-type::first-letter {
+        float: left;
+        font-size: 6em;
+        margin: 0.28em 0.15em 0.25em 0;
+      }
+
+      ul, ol {
+        font-family: @standard-body-font-family;
+        margin-bottom: 2em;
+        padding: 0 1em 0 1em;
+
+        @media (min-width: 40em) {
+          margin-bottom: 3em;
+          padding: 0 2em 0 2em;
+        }
 
         li {
-          line-height: 1.5em;
+          line-height: 1.45em;
           list-style: square;
           margin-top: 1.5em;
         }

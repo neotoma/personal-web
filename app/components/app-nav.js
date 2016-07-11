@@ -1,29 +1,26 @@
 import Ember from 'ember';
 import ScrollingMixin from '../mixins/scrolling';
 
-export default Ember.Component.extend(ScrollingMixin, {
+export default Ember.Component.extend(ScrollingMixin, Ember.Evented, {
   tagName: 'nav',
   classNames: ['app'],
   classNameBindings: ['shown', 'scrolled'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
 
-  init: function() {
+  init() {
     this._super(...arguments);
 
     var self = this;
+
+    this.get('appNav').on('show', function() {
+      self.set('shown', true);
+    });
+
     this.get('store').findAll('attribute').then(function(attributes) {
       self.set('fullName', attributes.findBy('id', 'fullName').get('value'));
-      
-      Ember.run.next(function() {
-        self.get('appNav').set('shown', true);
-      });
     });
   },
-
-  shown: function() {
-    return this.get('appNav.shown');
-  }.property('appNav.shown'),
 
   options: function() {
     return this.get('appNav.options');

@@ -5,11 +5,14 @@ export default Ember.Component.extend({
   classNames: ['post'],
   classNameBindings: ['shown'],
   store: Ember.inject.service(),
+  bodyShown: false,
 
-  didInsertElement() {
+  didReceiveAttrs() {
     var self = this;
+    this.set('bodyShown', false); // hack to force component rerender 
 
     Ember.run.next(function() {
+      self.set('bodyShown', true);
       self.set('shown', true);
     });
   }

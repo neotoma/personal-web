@@ -1,21 +1,20 @@
 nav.app {
   background-color: #ffffff;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 4em rgba(0,0,0,0.075);
-  display: none;
+  display: flex;
   height: 3em;
+  justify-content: center;
   left: 0;
-  position: fixed;
   text-align: center;
   top: -4em;
   transition: top 1s, box-shadow 1s;
   user-select: none;
   z-index: 1;
+  width: 100%;
 
   @media (min-width: 37em) {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 4em rgba(0,0,0,0.075);
+    position: fixed;
   }
 
   &.shown {

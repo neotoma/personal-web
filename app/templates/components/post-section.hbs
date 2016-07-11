@@ -1,8 +1,10 @@
 <div>
   <h1>{{post.title}}</h1>
   <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-  {{#if post.imageUrl}}
-    <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
+  {{#if post.photo}}
+    <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
   {{/if}}
-  <div class="body">{{markdown-to-html markdown=post.body}}</div>
+  {{#if bodyShown}}
+    <div class="body" id="post-{{post.id}}">{{component 'compiled-markdown' markdown=post.body}}</div>
+  {{/if}}
 </div>

@@ -2,16 +2,24 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   transitionDelay: 500,
+  componentEvents: Ember.inject.service(),
   appNav: Ember.inject.service(),
 
   activate: function() {
-    this._super.apply(this, arguments);
     var self = this;
 
     Ember.run.next(this, function() {
       Ember.$(window).scrollTop(self.getLastScroll());
-      this.get('appNav').set('shown', true);
+      this.get('appNav').show();
     });
+  },
+
+  afterModel: function() {
+    var self = this;
+
+    Ember.run.later(this, function() {
+      Ember.$(window).scrollTop(self.getLastScroll());
+    }, 50);
   },
 
   getLastScroll: function() {
@@ -38,7 +46,7 @@ export default Ember.Mixin.create({
       this._super.apply(this, arguments);
       var self = this;
 
-      if (this.get('routeName') == 'application') {
+      if (this.get('routeName') === 'application') {
         return true;
       }
 
@@ -49,9 +57,8 @@ export default Ember.Mixin.create({
         transition.abort();
         this.set('transitionDelayed', true);
         this.setLastScroll('lastScroll', Ember.$(window).scrollTop());
-        
-        $('section.shown').removeClass('shown');
-        this.get('appNav').set('shown', false);
+
+        this.get('componentEvents').hideAll();
 
         Ember.run.later(transition, function() {
           transition.retry();

@@ -47,8 +47,9 @@ export default Ember.Mixin.create({
       index: $(link).parent().find('a').index(link),
       showAnimationDuration: animationDuration,
       hideAnimationDuration: animationDuration,
-      bgOpacity: 0.8,
+      bgOpacity: 0.9,
       preload: [2,2],
+      showHideOpacity: true,
       getThumbBoundsFn: function() {
         var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
         var rect = link.getBoundingClientRect();

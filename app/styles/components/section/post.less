@@ -10,7 +10,7 @@ section.post {
     margin: auto;
     max-width: 60em;
   
-    h1 {
+    >h1 {
       @font-size: 2em;
       .standard-selection;
       box-sizing: border-box;
@@ -71,7 +71,7 @@ section.post {
         border-top: 1px solid @border-color;
         font-family: @standard-body-font-family;
         font-size: 1.6em;
-        margin: 2em -1em 2em -1em;
+        margin: 2em 0;
         padding: 2em 1em 0 1em;
         text-align: center;
       }
@@ -88,7 +88,7 @@ section.post {
 
       ul, ol {
         font-family: @standard-body-font-family;
-        margin-bottom: 2em;
+        margin: 2em 0;
         padding: 0 1em 0 1em;
 
         @media (min-width: 40em) {
@@ -99,7 +99,7 @@ section.post {
         li {
           line-height: 1.45em;
           list-style: square;
-          margin-top: 1.5em;
+          margin-top: 1em;
         }
       }
     }

@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('photos');
   this.route('not-found', { path: '*path'});
   this.route('application-error');
+  this.route('application-loading');
 });
 
 Ember.Route.reopen({

@@ -1,24 +1,52 @@
 section.intro {
-  .shown-opacity;
+  .standard-fadein;
+  .standard-loading-effect;
   user-select: none;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-color: rgba(210,224,235,1);
   padding-top: 80.58761805%;
 
   @media (min-width: 45em) {
-    background-position: center -11em;
     padding-top: ~"calc(80.58761805% - 11em)";
   }
 
   @media (min-width: 975px) {
-    background-position: center bottom;
     padding-top: (768% / 12);
   }
 
-  >div {
+  &:not(.shown) {
+    div.info, div.image {
+      opacity: 0;
+    }
+  }
+
+  div.image, div.info {
+    transition: opacity 1s;
+  }
+
+  div.image {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    z-index: 1;
+
+    @media (min-width: 45em) {
+      background-position: center -11em;
+    }
+
+    @media (min-width: 975px) {
+      background-position: center bottom;
+    }
+  }
+
+  div.info {
+    background: #ffffff;
     padding: 3em 2em;
-    transition: left 0.25s, top 0.25s;
+    z-index: 2;
 
     @media (min-width: 40em) {
       padding: 4em 3em 4em 3em;

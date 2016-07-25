@@ -103,6 +103,16 @@ header {
 
 p {
   .standard-paragraph;
+
+  &.placeholder {
+    background: rgba(0,0,0,0.1);
+    height: 1em;
+    position: relative;
+
+    &:nth-of-type(3) {
+      margin-top: 2em;
+    }
+  }
 }
 
 em { 

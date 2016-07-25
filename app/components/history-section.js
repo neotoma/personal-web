@@ -23,5 +23,9 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
         self.set('shown', true);
       });
     });
-  }
+  },
+
+  hasDates: Ember.computed('birthday', 'today', function() {
+    return (this.get('birthday') && this.get('today'));
+  })
 });

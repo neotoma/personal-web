@@ -1,5 +1,6 @@
 section.history {
-  .shown-opacity;
+  .standard-fadein;
+  .standard-loading-effect;
   .standard-container;
 
   @media (min-width: 70em) {
@@ -100,14 +101,38 @@ section.history {
     text-align: left;
     vertical-align: top;
 
+    p {
+      font-size: 1.125em;
+
+      &.placeholder {
+        width: 100%;
+
+        &:nth-of-type(2) {
+          width: 60%;
+        }
+
+        &:nth-of-type(5) {
+          width: 80%;
+        }
+      }
+    }
+
     @media (min-width: 70em) {
       margin: inherit;
       max-width: 38em;
       padding: 0;
-    }
 
-    p {
-      font-size: 1.125em;
+      p.placeholder {
+        width: 38em;
+
+        &:nth-of-type(2) {
+          width: 25em;
+        }
+
+        &:nth-of-type(5) {
+          width: 15em;
+        }
+      }
     }
   }
 }

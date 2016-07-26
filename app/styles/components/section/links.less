@@ -1,6 +1,12 @@
 section.links {
-  .shown-opacity;
+  .standard-fadein;
+  .standard-loading-effect;
   .standard-container;
+  background: #ffffff;
+
+  @media (min-width: 40em) {
+    background: #ffffff;
+  }
 
   ul {
     .standard-max-container;
@@ -24,6 +30,17 @@ section.links {
       a {
         .standard-link;
         font-size: 1.25em;
+      }
+
+      &.placeholder {
+        background-color: rgba(0,0,0,0.1);
+        height: 1.5em;
+        margin: 0.5em 1em;
+        width: ~"calc(50% - 2em)";
+
+        @media (min-width: 40em) {
+          width: ~"calc(25% - 2em)";
+        }
       }
     }
   }

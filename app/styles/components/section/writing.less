@@ -28,7 +28,8 @@
 }
 
 section.writing {
-  .shown-opacity;
+  .standard-fadein;
+  .standard-loading-effect;
   .standard-container;
 
   h2 {
@@ -62,7 +63,7 @@ section.writing {
     @media (min-width: 56em) {
       display: flex;
       flex-wrap: wrap;
-      padding: 0 2em;
+      padding: 0 1em;
     }
 
     div.excerpt {
@@ -70,22 +71,32 @@ section.writing {
       margin-top: 0.5em;
     }
 
+    div.featured-post-placeholder {
+
+    }
+
+    a.featured-post, div.featured-post-placeholder {
+      @media (min-width: 56em) {
+        width: 55%;
+        vertical-align: top;
+      }
+    }
+
+    a.featured-post div.image, div.featured-post-placeholder div.image {
+      background-color: rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      padding-bottom: 56.25%;
+    }
+
     a.featured-post {
       .hover-headline-underline;
       display: block;
       text-align: left;
 
-      @media (min-width: 56em) {
-        width: 55%;
-        vertical-align: top;
-      }
-
       div.image {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        margin-bottom: 24px;
-        padding-bottom: 56.25%;
         width: 100%;
       }
 
@@ -126,8 +137,12 @@ section.writing {
         padding-left: 4em;
       }
 
-      a {
-        .hover-headline-underline;
+      div.featured-posts-placeholder {
+        background-color: rgba(0,0,0,0.1);
+        height: 3em;
+      }
+
+      a, div.featured-posts-placeholder {
         display: flex;
         padding: 1em;
         position: relative;
@@ -153,7 +168,11 @@ section.writing {
         &:first-of-type {
           margin-top: 0;
         }
+      }
 
+      a {
+        .hover-headline-underline;
+        
         div.image {
           background-position: center center;
           background-repeat: no-repeat;
@@ -208,11 +227,8 @@ section.writing {
       margin: 2em auto 0 auto;
     }
 
-    a {
-      .hover-headline-underline;
-      display: block;
+    a, div.more-posts-placeholder {
       padding: 1em;
-      text-align: left;
 
       @media (min-width: 35em) {
         margin: 0;
@@ -222,9 +238,22 @@ section.writing {
       @media (min-width: 56em) {
         width: calc(100% / 3);
       }
+    }
+
+    a {
+      .hover-headline-underline;
+      display: block;
+      text-align: left;
 
       div.published-at {
         font-size: 0.875em;
+      }
+    }
+
+    div.more-posts-placeholder {
+      div {
+        background-color: rgba(0,0,0,0.1);
+        height: 3em;
       }
     }
   }

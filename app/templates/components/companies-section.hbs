@@ -1,8 +1,8 @@
 <h2>Companies</h2>
 <ul>
-  {{#each companies as |company|}}
-    <li>
-      <div>
+  {{#if companies}}
+    {{#each companies as |company|}}
+      <li>
         <div class="logo">
           <img src="{{company.logoUrl}}" />
         </div>
@@ -18,7 +18,11 @@
             {{/each}}
           </ul>
         </div>
-      </div>
-    </li>
-  {{/each}}
+      </li>
+    {{/each}}
+  {{else}}
+    <li class="placeholder"></li>
+    <li class="placeholder"></li>
+    <li class="placeholder"></li>
+  {{/if}}
 </ul>

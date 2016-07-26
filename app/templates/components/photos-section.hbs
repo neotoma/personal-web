@@ -1,17 +1,27 @@
-{{#if sortedPhotos.length}}
+<h2>Photos</h2>
 
-  <h2>Photos</h2>
-  
-  <div class="thumbs">
+<div class="thumbs">
+  {{#if sortedPhotos.length}}
     {{#each sortedPhotos as |photo|}}
       <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style={{backgroundImageStyle photo.imageUrl}} {{action "viewPhoto" photo}}></a>
     {{/each}}
-  </div>
+  {{else}}
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+  {{/if}}
+</div>
 
+{{#if sortedPhotos.length}}
   {{#if viewAll}}
     {{#link-to "photos"}}View all photos{{/link-to}}
   {{/if}}
-
 {{/if}}
 
 {{photoswipe-viewer}}

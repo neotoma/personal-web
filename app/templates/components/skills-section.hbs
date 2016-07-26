@@ -1,19 +1,33 @@
 <h2>Skills</h2>
 <ul class="featured">
-  {{#each featuredSkills as |skill|}}
-    <li style={{backgroundImageStyle skill.imageUrl}}>{{skill.name}}</li>
-  {{/each}}
+  {{#if featuredSkills}}
+    {{#each featuredSkills as |skill|}}
+      <li style={{backgroundImageStyle skill.imageUrl}}>{{skill.name}}</li>
+    {{/each}}
+  {{else}}
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+  {{/if}}
 </ul>
 <ul class="main">
-  {{#each skills as |skill|}}
-    <li>
-      <h5>{{skill.name}}</h5>
-      <div>
-        {{skill.description}}
-        {{#each skill.details as |detail|}}
-          <small>{{detail}}</small>
-        {{/each}}
-      </div>
-    </li>
-  {{/each}}
+  {{#if featuredSkills}}
+    {{#each skills as |skill|}}
+      <li>
+        <h5>{{skill.name}}</h5>
+        <div class="description">
+          {{skill.description}}
+          {{#each skill.details as |detail|}}
+            <small>{{detail}}</small>
+          {{/each}}
+        </div>
+      </li>
+    {{/each}}
+  {{else}}
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+    <li class="placeholder"><div></div></li>
+  {{/if}}
 </ul>

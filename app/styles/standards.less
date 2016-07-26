@@ -45,22 +45,23 @@
 }
 
 .standard-loading-effect {
-  &:before, p.placeholder:before {
+  &:before {
     animation: shimmer 0.75s infinite linear;
     animation-fill-mode: forwards;
     background: linear-gradient(120deg, rgba(255,255,255,0.25), transparent, rgba(255,255,255,0.25), transparent, rgba(255,255,255,0.25));
     background-size: 200% 200%;
     content: '';
+    display: none;
     height: 100%;
-    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1;
   }
 
   &:not(.shown):before, &:not(.shown) p.placeholder:before {
-    opacity: 1;
+    display: block;
   }
 }
 

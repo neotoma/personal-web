@@ -1,32 +1,60 @@
 <h2>Writing</h2>
 <div class="featured">
-  {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
-    {{#if featuredPost.photo}}
-      <div class="image" style={{backgroundImageStyle featuredPost.photo.imageUrl}}></div>
-    {{/if}}
-    <h3>{{featuredPost.title}}</h3>
-    <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
-    <div class="excerpt">{{featuredPost.excerpt}}</div>
-  {{/link-to}}
+  {{#if featuredPost}}
+    {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
+      {{#if featuredPost.photo}}
+        <div class="image" style={{backgroundImageStyle featuredPost.photo.imageUrl}}></div>
+      {{/if}}
+      <h3>{{featuredPost.title}}</h3>
+      <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
+      <div class="excerpt">{{featuredPost.excerpt}}</div>
+    {{/link-to}}
+  {{else}}
+    <div class="featured-post-placeholder">
+      <div class="image"></div>
+      <p class="placeholder"></p>
+      <p class="placeholder"></p>
+      <p class="placeholder"></p>
+      <p class="placeholder"></p>
+    </div>
+  {{/if}}
   <div class="featured-posts">
-    {{#each featuredPosts as |post|}}
-      {{#link-to "post" post.canonicalId}}
-        {{#if post.photo}}
-          <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
-        {{/if}}
-        <div class="content">
-          <h4>{{post.title}}</h4>
-          <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-        </div>
-      {{/link-to}}
-    {{/each}}
+    {{#if featuredPosts}}
+      {{#each featuredPosts as |post|}}
+        {{#link-to "post" post.canonicalId}}
+          {{#if post.photo}}
+            <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
+          {{/if}}
+          <div class="content">
+            <h4>{{post.title}}</h4>
+            <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    {{else}}
+      <div class="featured-posts-placeholder"></div>
+      <div class="featured-posts-placeholder"></div>
+      <div class="featured-posts-placeholder"></div>
+      <div class="featured-posts-placeholder"></div>
+      <div class="featured-posts-placeholder"></div>
+      <div class="featured-posts-placeholder"></div>
+    {{/if}}
   </div>
 </div>
 <div class="more-posts">
-  {{#each morePosts as |post|}}
-    {{#link-to 'post' post.canonicalId}}
-      <h4>{{post.title}}</h4>
-      <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-    {{/link-to}}
-  {{/each}}
+  {{#if morePosts}}
+    {{#each morePosts as |post|}}
+      {{#link-to 'post' post.canonicalId}}
+        <h4>{{post.title}}</h4>
+        <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+      {{/link-to}}
+    {{/each}}
+  {{else}}
+    <div class="more-posts-placeholder"><div></div></div>
+    <div class="more-posts-placeholder"><div></div></div>
+    <div class="more-posts-placeholder"><div></div></div>
+    <div class="more-posts-placeholder"><div></div></div>
+    <div class="more-posts-placeholder"><div></div></div>
+    <div class="more-posts-placeholder"><div></div></div>
+  {{/if}}
 </div>

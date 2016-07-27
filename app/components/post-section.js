@@ -13,7 +13,14 @@ export default Ember.Component.extend({
 
     Ember.run.next(function() {
       self.set('bodyShown', true);
-      self.set('shown', true);
+
+      if (self.get('post')) {
+        self.set('shown', true);
+      }
     });
-  }
+  },
+
+  showPostBody: Ember.computed('bodyShown', 'post', function() {
+    return (this.get('bodyShown') && this.get('post'));
+  })
 });

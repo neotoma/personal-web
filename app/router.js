@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('not-found', { path: '*path'});
   this.route('application-error');
   this.route('application-loading');
+  this.route('post-loading');
 });
 
 Ember.Route.reopen({

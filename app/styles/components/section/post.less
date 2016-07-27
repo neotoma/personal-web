@@ -1,5 +1,6 @@
 section.post {
-  .shown-opacity;
+  .standard-fadein;
+  .standard-loading-effect;
   .standard-container;
 
   @media (min-width: 40em) {
@@ -27,12 +28,32 @@ section.post {
         max-width: (50 / @font-size);
         padding: 0 (1 / @font-size);
       }
+
+      &:empty {
+        background: rgba(0,0,0,0.1);
+        height: 1em;
+        margin-left: 2em;
+        margin-right: 2em;
+
+        @media (min-width: 40em) {
+          margin-left: 4em;
+          margin-right: 4em;
+        }
+      }
     }
 
     div.published-at {
       .standard-selection;
       color: rgba(0,0,0,0.5);
       margin-top: 2em;
+
+      &:empty {
+        background: rgba(0,0,0,0.1);
+        height: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10em;
+      }
     }
 
     div.image {
@@ -43,6 +64,10 @@ section.post {
       margin-top: 3em;
       max-width: 60em;
       padding-bottom: 56.25%;
+
+      &.empty {
+        background: rgba(0,0,0,0.1);
+      }
     }
 
     div.body {
@@ -61,6 +86,48 @@ section.post {
         margin-top: (4 / @font-size);
         max-width: (50 / @font-size);
         padding: 0 (1 / @font-size);
+      }
+
+      &:empty {
+        background: repeating-linear-gradient(
+          180deg,
+          rgba(0,0,0,0.1),
+          rgba(0,0,0,0.1) 1em,
+          transparent 1em,
+          transparent 3em,
+          rgba(0,0,0,0.1) 3em,
+          rgba(0,0,0,0.1) 4em,
+          transparent 4em,
+          transparent 5em);
+        height: 12em;
+        margin: 2em 1em 1em 1em;
+
+        &:after {
+          background: #ffffff;
+          content: '';
+          position: absolute;
+          top: 9em;
+          right: 0;
+          height: 3em;
+          width: 18em;
+        }
+
+        &:before {
+          background: #ffffff;
+          content: '';
+          position: absolute;
+          top: 4em;
+          right: 0;
+          height: 3em;
+          width: 10em;
+        }
+
+        @media (min-width: 64em) {
+          height: 12em;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 3em;
+        }
       }
 
       a {

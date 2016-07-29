@@ -5,7 +5,7 @@ nav.app {
   justify-content: center;
   left: 0;
   text-align: center;
-  top: -4em;
+  top: 0;
   transition: top 1s, box-shadow 1s;
   user-select: none;
   z-index: 99;
@@ -17,8 +17,8 @@ nav.app {
     position: fixed;
   }
 
-  &.loaded {
-    top: 0;
+  &.hidden {
+    top: -4em;
   }
 
   &.scrolled {
@@ -36,7 +36,7 @@ nav.app {
     padding-right: (19em / 12);
     text-transform: uppercase;
 
-    &.active {
+    &.active:not(.never-active) {
       border-bottom: 2px solid rgba(0,0,0,0.50);
       color: rgba(0,0,0,0.75);
       cursor: default;

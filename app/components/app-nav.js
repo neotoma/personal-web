@@ -4,7 +4,7 @@ import ScrollingMixin from '../mixins/scrolling';
 export default Ember.Component.extend(ScrollingMixin, Ember.Evented, {
   tagName: 'nav',
   classNames: ['app'],
-  classNameBindings: ['shown', 'scrolled'],
+  classNameBindings: ['scrolled', 'loaded'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
 
@@ -14,7 +14,7 @@ export default Ember.Component.extend(ScrollingMixin, Ember.Evented, {
     var self = this;
 
     this.get('appNav').on('show', function() {
-      self.set('shown', true);
+      self.set('loaded', true);
     });
 
     this.get('store').findAll('attribute').then(function(attributes) {

@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
+import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
+export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   appNavOption: 'Writing',
   tagName: 'section',
   classNames: ['writing'],
-  classNameBindings: ['shown'],
   attributeBindings: ['id'],
   id: 'writing',
   store: Ember.inject.service(),
@@ -20,7 +20,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('posts', posts);
       
       Ember.run.next(function() {
-        self.set('shown', true);
+        self.set('loaded', true);
       });
     });
   },

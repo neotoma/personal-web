@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
+import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
+export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   appNavOption: 'History',
   tagName: 'section',
   classNames: ['history'],
-  classNameBindings: ['shown'],
   attributeBindings: ['id'],
   id: 'history',
   store: Ember.inject.service(),
@@ -20,7 +20,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('today', Date());
       
       Ember.run.next(function() {
-        self.set('shown', true);
+        self.set('loaded', true);
       });
     });
   },

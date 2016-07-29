@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
+import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
+export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   tagName: 'section',
   classNames: ['intro'],
-  classNameBindings: ['shown'],
   attributeBindings: ['id'],
   appNavOption: 'Intro',
   id: 'intro',
@@ -38,7 +38,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('lastWeatherExperience', model.weatherExperiences.objectAt(0));
 
       Ember.run.next(function() {
-        self.set('shown', true);
+        self.set('loaded', true);
       });
     });
   },

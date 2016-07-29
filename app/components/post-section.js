@@ -1,9 +1,9 @@
 import Ember from 'ember';
+import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(ComponentTransitionsMixin, {
   tagName: 'section',
   classNames: ['post'],
-  classNameBindings: ['shown'],
   store: Ember.inject.service(),
   bodyShown: false,
 
@@ -12,15 +12,21 @@ export default Ember.Component.extend({
     this.set('bodyShown', false); // hack to force component rerender 
 
     Ember.run.next(function() {
+      if (self.get('isDestroyed')) { return; }
+      
       self.set('bodyShown', true);
 
       if (self.get('post')) {
-        self.set('shown', true);
+        self.set('loaded', true);
       }
     });
   },
 
   showPostBody: Ember.computed('bodyShown', 'post', function() {
     return (this.get('bodyShown') && this.get('post'));
+  }),
+
+  notLoaded: Ember.computed('loaded', function() {
+    return !this.get('loaded');
   })
 });

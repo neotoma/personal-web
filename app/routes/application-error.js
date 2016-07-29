@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     this._super(...arguments);
 
     Ember.run.next(function() {
-      controller.set('shownClass', 'shown');
+      controller.set('loadedClass', 'loaded');
     });
   }
 });

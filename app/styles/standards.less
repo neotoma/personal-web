@@ -45,6 +45,8 @@
 }
 
 .standard-loading-effect {
+  transition: opacity 0.5s;
+
   &:before {
     animation: shimmer 0.75s infinite linear;
     animation-fill-mode: forwards;
@@ -60,8 +62,18 @@
     z-index: 1;
   }
 
-  &:not(.shown):before, &:not(.shown) p.placeholder:before {
+  &:not(.loaded):before, &:not(.loaded) p.placeholder:before {
     display: block;
+  }
+
+  &.hidden {
+    opacity: 0;
+    transition: opacity 0.5s;
+
+    &>* {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
   }
 }
 
@@ -70,11 +82,11 @@
   max-width: @standard-container-max-width;
 }
 
-.shown-opacity {
+.loaded-opacity {
   opacity: 0;
   transition: opacity 0.5s;
 
-  &.shown {
+  &.loaded {
     opacity: 1;
   }
 }
@@ -182,7 +194,7 @@
   cursor: text;
   user-select: text;
 
-  &::selection {
+  &::selection, *::selection {
     background: rgba(22,104,185,0.25);
   }
 }

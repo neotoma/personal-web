@@ -3,8 +3,8 @@
   <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
   {{#if post.photo}}
     <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
-  {{else}}
-    <div class="image empty"></div>
+  {{else if notLoaded}}
+    <div class="image"></div>
   {{/if}}
   {{#if showPostBody}}
     <div class="body" id="post-{{post.id}}">{{component 'compiled-markdown' markdown=post.body}}</div>

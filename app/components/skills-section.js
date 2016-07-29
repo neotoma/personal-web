@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
+import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
+export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   appNavOption: 'Skills',
   tagName: 'section',
   classNames: ['skills'],
-  classNameBindings: ['shown'],
   attributeBindings: ['id'],
   id: 'skills',
   store: Ember.inject.service(),
@@ -19,7 +19,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, {
       self.set('skills', skills.filter(s => !s.get('imageUrl')));
       
       Ember.run.next(function() {
-        self.set('shown', true);
+        self.set('loaded', true);
       });
     });
   }

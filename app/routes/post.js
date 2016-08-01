@@ -45,6 +45,7 @@ export default Ember.Route.extend({
   actions: {
     error(error, transition) {
       if (error) {
+        console.error(error);
         this.intermediateTransitionTo('not-found', error);
       }
     }

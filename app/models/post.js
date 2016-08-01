@@ -12,8 +12,19 @@ export default Model.extend({
   updatedAt:      attr('date'),
   publishedAt:    attr('date'),
   photo:          belongsTo('photo'),
+  image:          belongsTo('image'),
 
   canonicalId: function() {
     return this.get('slug') ? this.get('slug') : this.get('id');
-  }.property('id', 'slug')
+  }.property('id', 'slug'),
+
+  imageUrl: Ember.computed('photo.imageUrl', 'image.assetUrl', function() {
+    if (this.get('photo.imageUrl')) {
+      return this.get('photo.imageUrl');
+    } else if (this.get('image.assetUrl')) {
+      return this.get('image.assetUrl');
+    } else {
+      return null;
+    }
+  })
 });

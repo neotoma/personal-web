@@ -5,7 +5,7 @@ export default Ember.Component.extend({
 
   layout: Ember.computed('markdown', function() {
     var converter = new showdown.Converter();
-    var regex = /\$([a-z]+?)-([a-z0-9]+?)/gi;
+    var regex = /\$([a-z]+?)-([a-z0-9]+)?/gi;
     var match;
 
     while ((match = regex.exec(this.get('markdown'))) !== null) {

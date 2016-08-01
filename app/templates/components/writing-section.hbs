@@ -2,8 +2,8 @@
 <div class="featured">
   {{#if featuredPost}}
     {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
-      {{#if featuredPost.photo}}
-        <div class="image" style={{backgroundImageStyle featuredPost.photo.imageUrl}}></div>
+      {{#if featuredPost.imageUrl}}
+        <div class="image" style={{backgroundImageStyle featuredPost.imageUrl}}></div>
       {{/if}}
       <h3>{{featuredPost.title}}</h3>
       <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
@@ -22,8 +22,8 @@
     {{#if featuredPosts}}
       {{#each featuredPosts as |post|}}
         {{#link-to "post" post.canonicalId}}
-          {{#if post.photo}}
-            <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
+          {{#if post.imageUrl}}
+            <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
           {{/if}}
           <div class="content">
             <h4>{{post.title}}</h4>

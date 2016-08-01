@@ -1,8 +1,8 @@
 <div>
   <h1>{{post.title}}</h1>
   <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-  {{#if post.photo}}
-    <div class="image" style={{backgroundImageStyle post.photo.imageUrl}}></div>
+  {{#if post.imageUrl}}
+    <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
   {{else if notLoaded}}
     <div class="image"></div>
   {{/if}}

@@ -54,3 +54,7 @@
 {{#if model.canonicalUrl}}
   <link rel="canonical" href={{model.canonicalUrl}} />
 {{/if}}
+
+{{#if model.faviconUrlAttribute}}
+  <link rel="icon" href={{model.faviconUrlAttribute.value}}>
+{{/if}}

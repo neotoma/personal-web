@@ -15,10 +15,15 @@ export default Ember.Route.extend({
 
   setupController(controller, model) {
     var fullNameAttribute = model.findBy('id', 'fullName');
+    var faviconUrlAttribute = model.findBy('id', 'faviconUrl');
 
     controller.set('fullNameAttribute', fullNameAttribute);
     this.set('headData.siteNameAttribute', fullNameAttribute);
     this.set('headData.locale', this.get('locale'));
+
+    if (faviconUrlAttribute) {
+      this.set('headData.faviconUrlAttribute', faviconUrlAttribute);
+    }
   },
 
   title: function(tokens) {

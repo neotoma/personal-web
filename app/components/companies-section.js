@@ -20,6 +20,12 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
       Ember.run.next(function() {
         self.set('loaded', true);
       });
+    }).catch(function(error) {
+      self.handleError(error);
     });
-  }
+  },
+
+  empty: Ember.computed('companies.length', function() {
+    return (this.get('companies.length') === 0);
+  })
 });

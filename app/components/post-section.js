@@ -24,9 +24,5 @@ export default Ember.Component.extend(ComponentTransitionsMixin, {
 
   showPostBody: Ember.computed('bodyShown', 'post', function() {
     return (this.get('bodyShown') && this.get('post'));
-  }),
-
-  notLoaded: Ember.computed('loaded', function() {
-    return !this.get('loaded');
   })
 });

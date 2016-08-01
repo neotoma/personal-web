@@ -1,12 +1,15 @@
-section.links {
-  .standard-fadein;
-  .standard-loading-effect;
-  .standard-container;
+section.companies:not(.empty) + section.links {
   background: #ffffff;
 
   @media (min-width: 40em) {
     background: #ffffff;
   }
+}
+
+section.links {
+  .standard-fadein;
+  .standard-transition-states;
+  .standard-container;
 
   ul {
     .standard-max-container;

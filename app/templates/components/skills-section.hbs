@@ -4,7 +4,7 @@
     {{#each featuredSkills as |skill|}}
       <li style={{backgroundImageStyle skill.imageUrl}}>{{skill.name}}</li>
     {{/each}}
-  {{else}}
+  {{else if notLoaded}}
     <li class="placeholder"><div></div></li>
     <li class="placeholder"><div></div></li>
     <li class="placeholder"><div></div></li>
@@ -12,7 +12,7 @@
   {{/if}}
 </ul>
 <ul class="main">
-  {{#if featuredSkills}}
+  {{#if skills}}
     {{#each skills as |skill|}}
       <li>
         <h5>{{skill.name}}</h5>
@@ -24,7 +24,7 @@
         </div>
       </li>
     {{/each}}
-  {{else}}
+  {{else if notLoaded}}
     <li class="placeholder"><div></div></li>
     <li class="placeholder"><div></div></li>
     <li class="placeholder"><div></div></li>

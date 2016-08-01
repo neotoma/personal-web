@@ -22,24 +22,30 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
       Ember.run.next(function() {
         self.set('loaded', true);
       });
+    }).catch(function(error) {
+      self.handleError(error);
     });
   },
 
-  featuredPost: function() {
+  featuredPost: Ember.computed('sortedPosts.length', function() {
     if (this.get('sortedPosts.length')) {
       return this.get('sortedPosts').objectAt(0);
     }
-  }.property('sortedPosts.length'),
+  }),
 
-  featuredPosts: function() {
+  featuredPosts: Ember.computed('sortedPosts.length', function() {
     if (this.get('sortedPosts.length')) {
       return this.get('sortedPosts').slice(1,6);
     }
-  }.property('sortedPosts.length'),
+  }),
 
-  morePosts: function() {
+  morePosts: Ember.computed('sortedPosts.length', function() {
     if (this.get('sortedPosts.length')) {
       return this.get('sortedPosts').slice(6,30);
     }
-  }.property('sortedPosts.length')
+  }),
+
+  empty: Ember.computed('posts.length', function() {
+    return (this.get('posts.length') === 0);
+  })
 });

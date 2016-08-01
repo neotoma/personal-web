@@ -1,35 +1,25 @@
 @max-width: 70em;
 
 .hover-headline-underline {
-  @media (pointer: fine) {
-    &:hover h3:before, &:hover h4:before {
-      visibility: visible;
-      transform: scaleX(1);
-    }
+  h3, h4 {
+    border-bottom: 2px solid #ffffff;
+    display: inline;
+    transition: border-color 0.25s;
   }
 
-  h3, h4 {
-    display: inline-block;
-    position: relative;
+  &:hover {
+    h3, h4 {
+      @media (pointer: fine) {
+        border-color: rgba(1,73,255,0.75);
 
-    &:before {
-      background-color: rgba(1,73,255,0.25);
-      bottom: 0;
-      content: "";
-      height: 2px;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.25s ease-in-out;
+      }
     }
   }
 }
 
 section.writing {
   .standard-fadein;
-  .standard-loading-effect;
+  .standard-transition-states;
   .standard-container;
 
   h2 {
@@ -69,10 +59,6 @@ section.writing {
     div.excerpt {
       font-family: @standard-body-font-family;
       margin-top: 0.5em;
-    }
-
-    div.featured-post-placeholder {
-
     }
 
     a.featured-post, div.featured-post-placeholder {

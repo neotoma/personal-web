@@ -20,7 +20,7 @@
       {{#if lastCheckin}}
         <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at <span>{{lastCheckin.name}}</span></li>
       {{/if}}
-      {{#if lastUpdate}}
+      {{#if lastUpdate.description}}
         <li class="last-published">Last published <span>{{lastUpdate.description}}</span></li>
       {{/if}}
     </ul>

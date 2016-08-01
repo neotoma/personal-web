@@ -9,7 +9,7 @@
       <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
       <div class="excerpt">{{featuredPost.excerpt}}</div>
     {{/link-to}}
-  {{else}}
+  {{else if notLoaded}}
     <div class="featured-post-placeholder">
       <div class="image"></div>
       <p class="placeholder"></p>
@@ -31,7 +31,7 @@
           </div>
         {{/link-to}}
       {{/each}}
-    {{else}}
+    {{else if notLoaded}}
       <div class="featured-posts-placeholder"></div>
       <div class="featured-posts-placeholder"></div>
       <div class="featured-posts-placeholder"></div>
@@ -49,7 +49,7 @@
         <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
       {{/link-to}}
     {{/each}}
-  {{else}}
+  {{else if notLoaded}}
     <div class="more-posts-placeholder"><div></div></div>
     <div class="more-posts-placeholder"><div></div></div>
     <div class="more-posts-placeholder"><div></div></div>

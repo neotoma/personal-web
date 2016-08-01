@@ -6,7 +6,6 @@ import ComponentTransitionsMixin from '../mixins/component-transitions';
 export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   tagName: 'section',
   classNames: ['photos'],
-  classNameBindings: ['empty'],
   attributeBindings: ['id'],
   id: 'photos',
   appNavOption: 'Photos',
@@ -24,6 +23,8 @@ export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin
       Ember.run.next(function() {
         self.set('loaded', true);
       });
+    }).catch(function(error) {
+      self.handleError(error);
     });
   },
 

@@ -44,7 +44,7 @@
   opacity: 1;
 }
 
-.standard-loading-effect {
+.standard-transition-states {
   transition: opacity 0.5s;
 
   &:before {
@@ -74,6 +74,10 @@
       opacity: 0;
       transition: opacity 0.5s;
     }
+  }
+
+  &.empty, &.error {
+    display: none;
   }
 }
 

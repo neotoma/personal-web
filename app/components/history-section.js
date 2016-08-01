@@ -15,13 +15,26 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
     var self = this;
 
     this.get('store').findAll('attribute').then(function(attributes) {
-      self.set('history', attributes.findBy('id', 'history').get('value'));
-      self.set('birthday', attributes.findBy('id', 'birthday').get('value'));
+      var history = attributes.findBy('id', 'history');
+      var birthday = attributes.findBy('id', 'birthday');
+
+      if (history && history.get('value')) {
+        self.set('history', history.get('value'));
+      } else {
+        self.handleError(new Error('No history property available'));
+      }
+
+      if (birthday) {
+        self.set('birthday', birthday.get('value'));
+      }
+
       self.set('today', Date());
       
       Ember.run.next(function() {
         self.set('loaded', true);
       });
+    }).catch(function(error) {
+      self.handleError(error);
     });
   },
 

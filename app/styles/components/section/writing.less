@@ -3,15 +3,17 @@
 .hover-headline-underline {
   h3, h4 {
     border-bottom: 2px solid #ffffff;
-    display: inline;
     transition: border-color 0.25s;
+
+    @media (min-width: 56em) {
+      display: inline;
+    }
   }
 
   &:hover {
     h3, h4 {
       @media (pointer: fine) {
         border-color: rgba(1,73,255,0.75);
-
       }
     }
   }
@@ -106,21 +108,17 @@ section.writing {
       text-align: left;
 
       @media (min-width: 40em) {
-        border-top: none;
         display: flex;
         flex-wrap: wrap;
-        padding-top: 0;
       }
 
       @media (min-width: 56em) {
+        border-top: none;
         display: block;
         margin-top: 0;
         padding-right: 0;
+        padding-top: 0;
         width: 45%;
-      }
-
-      @media (min-width: 70em) {
-        padding-left: 4em;
       }
 
       div.featured-posts-placeholder {
@@ -135,7 +133,7 @@ section.writing {
 
         @media (min-width: 40em) {
           margin-top: 0;
-          margin-bottom: 1em;
+          padding: 1em;
           width: 50%;
 
           &:nth-child(even) {
@@ -148,7 +146,12 @@ section.writing {
         @media (min-width: 56em) {
           margin-bottom: 0;
           margin-top: 2em;
+          padding: 0 0 0 2em;
           width: 100%;
+        }
+
+        @media (min-width: 70em) {
+          padding-left: 4em;
         }
 
         &:first-of-type {
@@ -169,6 +172,7 @@ section.writing {
 
           @media (min-width: 40em) {
             height: 4.5em;
+            margin-bottom: 1em;
             width: 8em;
           }
 
@@ -210,6 +214,9 @@ section.writing {
     @media (min-width: 35em) {
       display: flex;
       flex-wrap: wrap;
+    }
+
+    @media (min-width: 56em) {
       margin: 2em auto 0 auto;
     }
 

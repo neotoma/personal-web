@@ -18,7 +18,7 @@ export default Ember.Route.extend({
       return;
     }
 
-    if (model.query.filter && model.get('firstObject')) {
+    if (model.query && model.query.filter && model.get('firstObject')) {
       controller.set('post', model.get('firstObject'));
     } else if (model.get('id')) {
       controller.set('post', model);

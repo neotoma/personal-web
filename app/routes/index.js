@@ -28,9 +28,6 @@ export default Ember.Route.extend({
     'name': 'History',
     'anchor': '#history'
   }, {
-    'name': 'Photos',
-    'anchor': '#photos'
-  }, {
     'name': 'Writing',
     'anchor': '#writing'
   }, {

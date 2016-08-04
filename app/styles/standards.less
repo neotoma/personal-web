@@ -8,9 +8,20 @@
 
 /* Fonts */
 
-@standard-font-family: Avenir-Light, sans-serif;
-@standard-font-family-bold: Avenir-Medium, sans-serif;
-@standard-body-font-family: Charter, serif;
+.standard-font-family {
+  font-family: "Avenir Light", Avenir-Light, sans-serif;
+  font-weight: 100;
+}
+
+.standard-font-family-bold { 
+  font-family: "Avenir Medium", Avenir-Medium, sans-serif;
+  font-weight: 500;
+}
+
+.standard-body-font-family {
+  font-family: "Charter", Charter, serif;
+  font-weight: 100;
+}
 
 /* Media queries */
 
@@ -185,7 +196,7 @@
 
 .standard-paragraph {
   .standard-selection;
-  font-family: @standard-body-font-family;
+  .standard-body-font-family;
   line-height: 1.45em; 
   margin: 0 0 1em 0;
 

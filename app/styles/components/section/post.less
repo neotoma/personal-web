@@ -12,10 +12,10 @@ section.post {
     max-width: 60em;
   
     >h1 {
-      @font-size: 2em;
+      .standard-font-family-bold;
       .standard-selection;
+      @font-size: 2em;
       box-sizing: border-box;
-      font-family: @standard-font-family-bold;
       font-size: @font-size;
       margin: auto;
       max-width: (50 / @font-size);
@@ -132,8 +132,8 @@ section.post {
       }
 
       h1 {
+        .standard-body-font-family;
         border-top: 1px solid @border-color;
-        font-family: @standard-body-font-family;
         font-size: 1.6em;
         margin: 2em 0;
         padding: 2em 1em 0 1em;
@@ -155,7 +155,7 @@ section.post {
       }
 
       ul, ol {
-        font-family: @standard-body-font-family;
+        .standard-body-font-family;
         margin: 2em 0;
         padding: 0 1em 0 1em;
 

@@ -101,8 +101,8 @@ section.intro {
 
       li {
         color: rgba(0,0,0,0.5);
-        line-height: 1em;
-        margin-top: 1.5em;
+        line-height: 1.2em;
+        margin-top: 1.3em;
 
         &:first-of-type {
           margin-top: 0;
@@ -112,6 +112,12 @@ section.intro {
           text-transform: capitalize;
         }
 
+        a {
+          .standard-inline-link;
+          border: none;
+          color: inherit;
+        }
+
         span {
           .standard-font-family-bold;
           color: rgba(0,0,0,0.75);
@@ -119,7 +125,7 @@ section.intro {
           margin-top: 0.5em;
 
           @media (min-width: 40em) {
-            display: inline-block;
+            display: inline;
             margin-top: 0;
           }
         }

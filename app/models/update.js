@@ -3,10 +3,13 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   photo: belongsTo('photo'),
+  post: belongsTo('post'),
 
-  description: function() {
-    if (this.get('photo')) {
+  description: Ember.computed('photo.description', 'post.title', function() {
+    if (this.get('photo.description')) {
       return this.get('photo.description');
+    } else if (this.get('post.title')) {
+      return this.get('post.title');
     }
-  }.property('photo.description')
+  })
 });

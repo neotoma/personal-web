@@ -13,6 +13,7 @@ export default Model.extend({
   publishedAt:    attr('date'),
   photo:          belongsTo('photo'),
   image:          belongsTo('image'),
+  updates:        hasMany('update'),
 
   canonicalId: function() {
     return this.get('slug') ? this.get('slug') : this.get('id');

@@ -12,6 +12,7 @@ export default Model.extend({
   updatedAt:      attr('date'),
   publishedAt:    attr('date'),
   posts:          hasMany('post'),
+  updates:        hasMany('update'),
 
   dimensions: Ember.computed('firstName', 'lastName', function() {
     if (this.get('width') && this.get('height')) {

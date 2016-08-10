@@ -10,10 +10,12 @@
     }
   }
 
-  &:hover {
-    h3, h4 {
-      @media (pointer: fine) {
-        border-color: rgba(1,73,255,0.75);
+  @media (hover: hover) {
+    &:hover {
+      h3, h4 {
+        @media (hover: hover) {
+          border-color: rgba(1,73,255,0.75);
+        }
       }
     }
   }
@@ -41,7 +43,7 @@ section.writing {
     box-sizing: border-box;
     transition: transform 0.25s;
 
-    @media (pointer: fine) {
+    @media (hover: hover) {
       &:hover {
         transform: scale(1.05);
       }

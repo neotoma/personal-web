@@ -4,6 +4,14 @@ section.photos {
   .standard-container;
   margin: auto;
   max-width: 80em;
+
+  &:first-of-type {
+    padding-top: 2em;
+
+    @media (min-width: 40em) {
+      padding-top: 6em;
+    }
+  }
   
   @media (min-width: 80em) {
     padding-left: 7em;
@@ -38,7 +46,7 @@ section.photos {
       transition: background 0.25s, transform 0.25s;
       vertical-align: top;
 
-      @media (pointer: fine) {
+      @media (hover: hover) {
         &:hover {
           transform: scale(1.05);
         }

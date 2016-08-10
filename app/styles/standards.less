@@ -23,11 +23,6 @@
   font-weight: 100;
 }
 
-/* Media queries */
-
-@desktop: ~"(min-width: 571px)";
-@mobile: ~"(max-width: 570px)";
-
 /* Mixins */
 
 .standard-container {
@@ -109,20 +104,26 @@
 .standard-button {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 2em;
+  box-sizing: border-box;
   color: rgba(0,0,0,0.5);
   display: inline-block;
   padding: 1em 4em 1em 4em;
   position: relative;
   text-transform: uppercase;
-  transition: box-shadow 0.25s, color 0.25s, border 0.25s, transform 0.25s;
+  transition: box-shadow 0.25s, color 0.25s, border 0.25s, transform 0.25s, background 0.25s;
 
-  @media (pointer: fine) {
+  @media (hover: hover) {
     &:hover {
       border-color: rgba(1,73,255,0.3);
       box-shadow: 0 0.25em 0.25em rgba(1,73,255,0.05);
       color: rgba(1,73,255,0.75);
       transform: scale(1.05);
     }
+  }
+
+  &:active {
+    background: rgba(1,73,255,0.75);
+    color: #ffffff !important;
   }
 }
 
@@ -138,7 +139,7 @@
   cursor: pointer;
   position: relative;
   text-decoration: none;
-  transition: color 0.25s;
+  transition: all 0.25s ease-in-out;
 
   &:before {
     background-color: rgba(1,73,255,0.75);
@@ -153,43 +154,44 @@
     transition: all 0.25s ease-in-out;
   }
 
-  @media (pointer: fine) {
-    &:hover {
-      color: rgba(1,73,255,1);
-    }
+  .highlight {
+    color: rgba(1,73,255,1);
+    outline: none;
 
-    &:hover:before {
+    &:before {
       visibility: visible;
       transform: scaleX(1);
     }
   }
 
-  @media (pointer: none) {
-    &:focus {
-      color: rgba(1,73,255,1);
-    }
+  &:focus, &:active {
+    .highlight;
+  }
 
-    &:focus:before {
-      visibility: visible;
-      transform: scaleX(1);
+  @media (hover: hover) {
+    &:hover {
+      .highlight;
     }
   }
 }
 
 .standard-inline-link {
-  .standard-link;
   border-bottom: 2px solid rgba(1,73,255,0.1);
   color: rgba(1,73,255,0.85);
-  display: inline;
   transition: border-color 0.25s;
 
-  @media (pointer: fine) {
-    &:hover {
-      border-bottom-color: rgba(1,73,255,0.5);
-    }
+  .highlight {
+    border-bottom-color: rgba(1,73,255,1);
+    color: rgba(1,73,255,1);
+  }
 
-    &:hover:before {
-      visibility: hidden;
+  &:focus, &:active {
+    .highlight;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .highlight;
     }
   }
 }

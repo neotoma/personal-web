@@ -42,17 +42,29 @@ nav.app {
       color: rgba(0,0,0,0.75);
       cursor: default;
 
-      &:hover:before {
-        visibility: hidden;
+      @media (hover: hover) {
+        &:hover {
+          color: inherit;
+
+          &:before {
+            visibility: hidden;
+          }
+        }
       }
     }
 
     &.emphasis {
-      color: rgba(0,0,0,0.50);
+      color: rgba(0,0,0,0.5);
       letter-spacing: 0.1em;
 
-      &:hover {
+      &:active, &:focus {
         color: @standard-color-link;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: @standard-color-link;
+        }
       }
     }
   }

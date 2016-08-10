@@ -7,6 +7,20 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     modernizr: {
       shouldParseFiles: false
+    },
+    postcssOptions: {
+      compile: {
+        enabled: false
+      },
+      filter: {
+        enabled: true,
+        plugins: [{
+          module: require('mq4-hover-shim').postprocessorFor,
+          options: {
+            hoverSelectorPrefix: 'html.hover '
+          }
+        }]
+      }
     }
   });
 

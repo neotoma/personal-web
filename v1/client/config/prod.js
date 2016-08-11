@@ -1,2 +1,0 @@
-var APP_CONFIG = {
-}

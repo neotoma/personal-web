@@ -2,11 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   intl: Ember.inject.service(),
+  tracking: Ember.inject.service(),
   headData: Ember.inject.service(),
   locale: 'en-us',
 
   beforeModel() {
-    return this.get('intl').setLocale(this.get('locale'));
+    this.get('tracking').prepare('/bower_components/analytics/analytics.min.js');
+    this.get('intl').setLocale(this.get('locale'));
   },
 
   model() {

@@ -8,6 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {
       API_HOST: process.env.WEB_API_HOST,
+      GA_TRACKING_ID: process.env.WEB_GA_TRACKING_ID,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true

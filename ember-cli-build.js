@@ -21,6 +21,9 @@ module.exports = function(defaults) {
           }
         }]
       }
+    },
+    fingerprint: {
+      exclude: ['analytics.js', 'analytics.min.js']
     }
   });
 

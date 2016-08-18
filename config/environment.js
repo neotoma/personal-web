@@ -7,8 +7,6 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
-      API_HOST: process.env.WEB_API_HOST,
-      GA_TRACKING_ID: process.env.WEB_GA_TRACKING_ID,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
@@ -28,6 +26,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.EmberENV.API_HOST = process.env.WEB_DEV_API_HOST;
+    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_DEV_GA_TRACKING_ID;
   }
 
   if (environment === 'test') {
@@ -43,7 +43,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.EmberENV.API_HOST = process.env.WEB_PROD_API_HOST;
+    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_PROD_GA_TRACKING_ID;
   }
 
   return ENV;

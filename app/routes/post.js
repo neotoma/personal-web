@@ -11,16 +11,6 @@ export default Ember.Route.extend({
     }
   },
 
-  afterModel(model) {
-    if (model.query && model.query.filter && model.get('firstObject')) {
-      model = model.get('firstObject');
-    }
-
-    if (model && window.location.pathname !== model.get('slug')) {
-      this.replaceWith('post', model.get('slug'));
-    }
-  },
-
   setupController(controller, model) {
     var self = this;
 

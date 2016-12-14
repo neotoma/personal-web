@@ -4,7 +4,7 @@ This repository contains the source code for a web app that serves as a personal
 
 This app is initially intended to display data from [a personal web server](https://github.com/asheville/personal-server) but can be powered by any data server conforming to [the JSON API specification](http://jsonapi.org/).
 
-An real-world instance of this web app can be found at [markmhendrickson.com](http://markmhendrickson.com/).
+A real-world instance of this web app can be found at [markmhendrickson.com](http://markmhendrickson.com/).
 
 ## Setting up the environment
 
@@ -19,9 +19,9 @@ The code requires the following environment variables to run or deploy the serve
 
 If you intend to deploy the server to another system using scripts within the "Developing and deploying" section below, you can also create a `.env-deploy` file in the base directory, one that will be ignored by Git and used upon deployment to create an `.env` file remotely, thereby setting environment variables on the deployment server.
 
-## Data types
+## Expecting data from the server
 
-The app will query the data server for the following types of data:
+The app will expect the data server to fulfill requests for the following types of data:
 
 - `attribute`: Basic attributes about the individual, namely those with IDs `birthday`, `coverImageUrl`, `description`, `firstName`, `fullName`, `gender`,  `history`, `homeLocation`, `imageUrl`, `lastName`, and `profession`
 - `checkin`: Latest checkin to show on homepage within cover
@@ -35,7 +35,7 @@ The app will query the data server for the following types of data:
 
 ## Running the app
 
-Once the environment is ready per above, and [Node.js](http://nodejs.org/) with [NPM](https://www.npmjs.com/) is installed, simply execute the following commands to prepare and run the app:
+Once the environment is ready per above, and [Node.js](http://nodejs.org/) with [NPM](https://www.npmjs.com/), [Bower](https://bower.io/), and [Ember CLI](https://ember-cli.com/) are installed, simply execute the following commands to prepare and run the app:
 
 1. `npm install` to install NPM dependencies
 2. `bower install` to install Bower dependencies
@@ -44,7 +44,7 @@ Once the environment is ready per above, and [Node.js](http://nodejs.org/) with 
 
 ## Developing and deploying
 
-With [Grunt](gruntjs.com) installed in addition to establishing your environment and data accordingly per the instructions above, you can run any of the following scripts to help with development and deployment:
+With [Grunt](gruntjs.com) installed in addition to establishing your environment and executables per the instructions above, you can run any of the following scripts to help with development and deployment:
 
 - `ember serve`: Runs the app and automatically reloads it when code changes are made during development
 - `grunt deploy`: Deploys environment and certificate file dependencies, deploys the app, runs `npm install` remotely to ensure any new dependencies are installed

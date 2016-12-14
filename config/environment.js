@@ -1,3 +1,5 @@
+require('../lib/env');
+
 /* jshint node: true */
 
 module.exports = function(environment) {
@@ -13,22 +15,14 @@ module.exports = function(environment) {
       }
     },
 
-    APP: {},
-
     intl: {
       baseLocale: 'en-us' // default build-time locale 
-    }
+    },
+    APP: {}
   };
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.EmberENV.API_HOST = process.env.WEB_DEV_API_HOST;
-    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_DEV_GA_TRACKING_ID;
-  }
+  ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST;
+  ENV.EmberENV.GA_TRACKING_ID = process.env.PERSONAL_WEB_GA_TRACKING_ID;
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -40,11 +34,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-    ENV.EmberENV.API_HOST = process.env.WEB_PROD_API_HOST;
-    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_PROD_GA_TRACKING_ID;
   }
 
   return ENV;

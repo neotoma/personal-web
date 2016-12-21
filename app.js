@@ -8,12 +8,12 @@ if (!process.env.PERSONAL_WEB_PORT) {
   throw new Error('App failed to find port from environment');
 }
 
-var port =process.env.PERSONAL_WEB_PORT;
+var port = process.env.PERSONAL_WEB_PORT;
 var server = app.listen(port);
 
 app.use(require('prerender-node'));
 app.use('/assets', express.static(__dirname + '/dist/assets'));
-app.use('/bower_components', express.static(__dirname + '/dist/bower_components'));
+app.use('/components', express.static(__dirname + '/dist/components'));
 
 app.get('*', function(req, res) {
   res.sendFile(__dirname + '/dist/index.html');

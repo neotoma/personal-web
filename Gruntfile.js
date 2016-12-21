@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/bower/bin/bower install --allow-root'
       },
       build: {
-        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && node_modules/ember-cli/bin/ember build --env=production'
+        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/ember-cli/bin/ember build --env=production'
       },
       forever: {
         command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + '/server && forever restart app.js || forever start app.js'

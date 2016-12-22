@@ -5,9 +5,6 @@ var pickFiles = require('broccoli-static-compiler');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    modernizr: {
-      shouldParseFiles: false
-    },
     postcssOptions: {
       compile: {
         enabled: false
@@ -28,6 +25,7 @@ module.exports = function(defaults) {
   });
 
   app.import('bower_components/ember/ember-template-compiler.js');
+  app.import('vendor/modernizr.js');
 
   // PhotoSwipe
   

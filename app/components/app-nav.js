@@ -13,14 +13,12 @@ export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin,
   init() {
     this._super(...arguments);
 
-    var self = this;
-
-    this.get('appNav').on('show', function() {
-      self.set('hidden', false);
+    this.get('appNav').on('show', () => {
+      this.set('hidden', false);
     });
 
-    this.get('store').findAll('attribute').then(function(attributes) {
-      self.set('fullName', attributes.findBy('id', 'fullName').get('value'));
+    this.get('store').findAll('attribute').then((attributes) => {
+      this.set('fullName', attributes.findBy('id', 'fullName').get('value'));
     });
   },
 

@@ -6,11 +6,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('post', { path: '/post/:post_id' });
-  this.route('photos');
-  this.route('not-found', { path: '*path'});
   this.route('application-error');
   this.route('application-loading');
+  this.route('not-found', { path: '*path'});
+  this.route('photos');
+  this.route('plan', { path: '/plans/:plan_id' });
+  this.route('post', { path: '/post/:post_id' });
   this.route('post-loading');
 });
 

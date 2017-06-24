@@ -4,11 +4,12 @@ import ComponentTransitionsMixin from '../mixins/component-transitions';
 
 export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin, Ember.Evented, {
   tagName: 'nav',
-  classNames: ['app'],
+  classNames: ['app', 'vcard'],
   classNameBindings: ['scrolled', 'shown'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
   hidden: true,
+  origin: document.origin,
 
   init() {
     this._super(...arguments);
@@ -19,6 +20,7 @@ export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin,
 
     this.get('store').findAll('attribute').then((attributes) => {
       this.set('fullName', attributes.findBy('id', 'fullName').get('value'));
+      this.set('imageUrl', attributes.findBy('id', 'imageUrl').get('value'));
     });
   },
 

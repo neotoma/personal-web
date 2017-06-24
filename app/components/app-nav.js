@@ -4,7 +4,7 @@ import ComponentTransitionsMixin from '../mixins/component-transitions';
 
 export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin, Ember.Evented, {
   tagName: 'nav',
-  classNames: ['app', 'vcard'],
+  classNames: ['app'],
   classNameBindings: ['scrolled', 'shown'],
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),

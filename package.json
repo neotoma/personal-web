@@ -1,22 +1,4 @@
 {
-  "name": "web",
-  "version": "1.0.0",
-  "private": true,
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
-  "scripts": {
-    "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
-  },
-  "repository": "",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-static-compiler": "^0.2.2",
@@ -60,5 +42,14 @@
     "grunt": "^1.0.1",
     "grunt-ssh": "^0.12.9",
     "mq4-hover-shim": "^0.3.0"
+  },
+  "license": "MIT",
+  "name": "personal-web",
+  "version": "1.0.0",
+  "repository": "https://github.com/neotoma/personal-web",
+  "scripts": {
+    "build": "ember build",
+    "dev": "ember server",
+    "test": "ember test"
   }
 }

@@ -1,3 +1,5 @@
+require('./lib/env');
+
 module.exports = function(grunt) {
   'use strict';
 
@@ -6,59 +8,78 @@ module.exports = function(grunt) {
   grunt.initConfig({
     rsync: {
       options: {
-        host: process.env.WEB_DEPLOY_HOST_USERNAME + '@' + process.env.WEB_DEPLOY_HOST,
+        args: ['-v --rsync-path="mkdir -p ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && rsync"'],
+        host: process.env.PERSONAL_WEB_DEPLOY_USERNAME + '@' + process.env.PERSONAL_WEB_DEPLOY_HOST,
         recursive: true
+      },
+      env: {
+        options: {
+          src: '.env-deploy',
+          dest: process.env.PERSONAL_WEB_DEPLOY_DIR + '/.env',
+        }
       },
       app: {
         options: {
-          src: './dist/*',
-          dest: process.env.WEB_DEPLOY_HOST_DIR + '/app'
+          exclude: [
+            ".env*",
+            ".DS_Store",
+            ".git*",
+            "bower_components",
+            "node_modules",
+            "dist",
+            "*.sublime*"
+          ],
+          src: './',
+          dest: process.env.PERSONAL_WEB_DEPLOY_DIR
         }
-      },
-      server: {
-        options: {
-          src: './prod_server/*',
-          dest: process.env.WEB_DEPLOY_HOST_DIR
-        }
-      }
-    },
-    exec: {
-      build: {
-        command: 'ember build --env=production'
       }
     },
     sshexec: {
       options: {
-        host: process.env.WEB_DEPLOY_HOST,
-        port: 22,
-        username: process.env.WEB_DEPLOY_HOST_USERNAME,
-        agent: process.env.SSH_AUTH_SOCK
+        username: process.env.PERSONAL_WEB_DEPLOY_USERNAME,
+        host: process.env.PERSONAL_WEB_DEPLOY_HOST,
+        agent: process.env.SSH_AUTH_SOCK,
+        port: 22
       },
-      npmInstall: {
-        command: 'cd ' + process.env.WEB_DEPLOY_HOST_DIR + ' && npm install --production'
+      npm: {
+        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && npm install'
       },
-      foreverRestartAll: {
-        command: 'cd ' + process.env.WEB_DEPLOY_HOST_DIR + ' && forever restartall'
+      bower: {
+        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/bower/bin/bower install --allow-root'
+      },
+      build: {
+        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/ember-cli/bin/ember build --env=production'
+      },
+      forever: {
+        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + '/server && forever restart app.js || forever start app.js'
+      },
+      systemd: {
+        command: 'sudo systemctl restart personalweb || sudo systemctl start personalweb'
       }
     }
   });
 
-  grunt.registerTask('deploy', [
-    'exec:build',
+  grunt.registerTask('deploy-dependencies', 'Deploy dependencies', [
+    'rsync:env'
+  ]);
+
+  grunt.registerTask('deploy-app', 'Deploy app', [
     'rsync:app',
-    'rsync:server',
-    'sshexec:npmInstall',
-    'sshexec:foreverRestartAll'
+    'sshexec:npm',
+    'sshexec:bower',
+    'sshexec:build'
   ]);
 
-  grunt.registerTask('deploy-app', [
-    'exec:build',
-    'rsync:app'
+  grunt.registerTask('deploy', 'Deploy dependencies and app', [
+    'deploy-dependencies',
+    'deploy-app'
   ]);
 
-  grunt.registerTask('deploy-server', [
-    'rsync:server',
-    'sshexec:npmInstall',
-    'sshexec:foreverRestartAll'
+  grunt.registerTask('forever', 'Start or restart app remotely with forever', [
+    'sshexec:forever'
+  ]);
+
+  grunt.registerTask('systemd', 'Start or restart app remotely with systemd', [
+    'sshexec:systemd'
   ]);
 };

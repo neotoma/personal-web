@@ -5,18 +5,21 @@ export default Ember.Mixin.create(InViewportMixin, {
   appNav: Ember.inject.service(),
 
   didEnterViewport() {
-    this.get('appNav').set('activeOption', this.get('appNavOption'));
+    this.set('appNav.activeOption', this.get('appNavOption'));
+  },
+
+  didExitViewport() {
+    if (this.get('appNav.activeOption') === this.get('appNavOption')) {
+      this.set('appNav.activeOption', null);
+    }
   },
 
   viewportOptionsOverride: Ember.on('didInsertElement', function() {
     Ember.setProperties(this, {
-      viewportUseRAF            : true,
-      viewportSpy               : true,
-      viewportScrollSensitivity : 1,
-      viewportRefreshRate       : 150,
+      viewportSpy: true,
       viewportTolerance: {
         top    : 50,
-        bottom : 50,
+        bottom : 0,
         left   : 50,
         right  : 50
       }

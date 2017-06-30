@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "bower": "^1.8.0",
     "broccoli-asset-rev": "^2.4.2",
     "broccoli-static-compiler": "^0.2.2",
     "ember-ajax": "0.7.1",
@@ -16,7 +17,6 @@
     "ember-cli-inject-live-reload": "^1.4.0",
     "ember-cli-jshint": "^1.0.0",
     "ember-cli-less": "^1.5.3",
-    "ember-cli-modernizr": "0.1.0",
     "ember-cli-postcss": "3.0.4",
     "ember-cli-qunit": "^1.4.0",
     "ember-cli-release": "0.2.8",
@@ -25,7 +25,6 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.5.0",
     "ember-export-application-global": "^1.0.5",
-    "ember-in-viewport": "git+ssh://git@github.com/rhengeveld/ember-in-viewport.git#c5bffb972b5f2f5c7f7a0892c6e4f0f5a763ad21",
     "ember-intl": "2.11.2",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
@@ -38,10 +37,13 @@
     "loader.js": "^4.0.1"
   },
   "dependencies": {
+    "dotenv": "^2.0.0",
+    "ember-in-viewport": "DockYard/ember-in-viewport#0e31648",
     "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-ssh": "^0.12.9",
-    "mq4-hover-shim": "^0.3.0"
+    "mq4-hover-shim": "^0.3.0",
+    "prerender-node": "^2.5.0"
   },
   "license": "MIT",
   "name": "personal-web",

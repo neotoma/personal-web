@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   locale: 'en-us',
 
   beforeModel() {
-    this.get('tracking').prepare('/bower_components/analytics/analytics.min.js');
+    this.get('tracking').prepare('/components/analytics/analytics.min.js');
     this.get('intl').setLocale(this.get('locale'));
   },
 

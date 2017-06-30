@@ -1,0 +1,10 @@
+<h1>{{plan.name}}</h1>
+<div class="h-entry">
+	{{#if plan.rsvp}}
+		<span class="p-rsvp">{{plan.rsvp}}</span>
+	{{/if}}
+	
+	{{#if rsvpPrefix}}
+		<p>{{rsvpPrefix}} <a href="{{plan.eventUrl}}" class="u-in-reply-to">{{plan.name}}</a>.</p>
+	{{/if}}
+</div>

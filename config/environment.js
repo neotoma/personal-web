@@ -1,3 +1,5 @@
+require('../lib/env');
+
 /* jshint node: true */
 
 module.exports = function(environment) {
@@ -9,31 +11,21 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {}
     },
-
-    APP: {},
-
     intl: {
       baseLocale: 'en-us'
-    }
+    },
+    APP: {}
   };
 
-  if (environment === 'development') {
-    ENV.EmberENV.API_HOST = process.env.WEB_DEV_API_HOST;
-    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_DEV_GA_TRACKING_ID;
-  }
+  ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST;
+  ENV.EmberENV.GA_TRACKING_ID = process.env.PERSONAL_WEB_GA_TRACKING_ID;
 
   if (environment === 'test') {
     ENV.baseURL = '/';
     ENV.locationType = 'none';
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
-
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-    ENV.EmberENV.API_HOST = process.env.WEB_PROD_API_HOST;
-    ENV.EmberENV.GA_TRACKING_ID = process.env.WEB_PROD_GA_TRACKING_ID;
   }
 
   return ENV;

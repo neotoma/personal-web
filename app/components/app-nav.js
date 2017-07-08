@@ -9,7 +9,6 @@ export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin,
   appNav: Ember.inject.service(),
   store: Ember.inject.service(),
   hidden: true,
-  origin: document.origin,
 
   init() {
     this._super(...arguments);
@@ -21,6 +20,7 @@ export default Ember.Component.extend(ScrollingMixin, ComponentTransitionsMixin,
     this.get('store').findAll('attribute').then((attributes) => {
       this.set('fullName', attributes.findBy('id', 'fullName').get('value'));
       this.set('imageUrl', attributes.findBy('id', 'imageUrl').get('value'));
+      this.set('url', attributes.findBy('id', 'url').get('value'));
     });
   },
 

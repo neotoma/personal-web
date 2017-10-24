@@ -1,5 +1,6 @@
-import Model from 'ember-data/model';
 import { belongsTo } from 'ember-data/relationships';
+import Ember from 'ember';
+import Model from 'ember-data/model';
 
 export default Model.extend({
   photo: belongsTo('photo'),

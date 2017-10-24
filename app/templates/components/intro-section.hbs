@@ -21,7 +21,7 @@
         <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at <span>{{lastCheckin.name}}</span></li>
       {{/if}}
       {{#if lastUpdate.description}}
-        <li class="last-published">Last published 
+        <li class="last-published">Last published
         <span>
           {{#if lastUpdate.post}}
             {{#link-to 'post' lastUpdate.post.canonicalId}}{{lastUpdate.description}}{{/link-to}}

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import TransitionMetaInitializer from 'web/initializers/transition-meta';
+import TransitionMetaInitializer from 'personal-web/initializers/transition-meta';
 import { module, test } from 'qunit';
 
 let application;

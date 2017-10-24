@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ScrollingMixin from 'web/mixins/scrolling';
+import ScrollingMixin from 'personal-web/mixins/scrolling';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | scrolling');

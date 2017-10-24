@@ -16,16 +16,17 @@ export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin
   init: function() {
     this._super(...arguments);
 
-    var self = this;
-    this.get('store').query('photo', { limit: this.get('limit'), offset: this.get('offset') }).then(function(photos) {
-      self.set('photos', photos);
-      
-      Ember.run.next(function() {
-        self.set('loaded', true);
+    var query = this.get('store').query('photo', { limit: this.get('limit'), offset: this.get('offset') }).then((photos) => {
+      this.set('photos', photos);
+
+      Ember.run.next(() => {
+        this.set('loaded', true);
       });
-    }).catch(function(error) {
-      self.handleError(error);
+    }).catch((error) => {
+      this.handleError(error);
     });
+
+    this.deferRendering(query);
   },
 
   empty: Ember.computed('photos.length', function() {

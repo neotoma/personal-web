@@ -10,9 +10,8 @@ A real-world instance of this web app can be found at [markmhendrickson.com](htt
 
 The code requires the following environment variables to run or deploy the server. The following environment variables can be declared by adding a file named `.env` (in [INI format](https://en.wikipedia.org/wiki/INI_file)) to the base directory, assuming they're not declared elsewhere in the system already. Such a file will be ignored by Git.
 
-- `PERSONAL_WEB_PORT`: Port through which to run the app locally (required to run app)
 - `PERSONAL_WEB_API_HOST`: Host address for data server conforming to JSON API specification (required to run app)
-- `PERSONAL_WEB_GA_TRACKING_ID`: Google Analytics tracking ID (optional to run app)
+- `PERSONAL_WEB_SEGMENT_WRITE_KEY`: [Segment](http://segment.com) write key (optional to run app)
 - `PERSONAL_WEB_DEPLOY_USERNAME`: User name with which to SSH into remote deployment server (required to deploy app)
 - `PERSONAL_WEB_DEPLOY_HOST`: Host address for remote deployment server (required to deploy app)
 - `PERSONAL_WEB_DEPLOY_DIR`: Remote system path to app directory on deployment server (required to deploy app)
@@ -37,16 +36,15 @@ The app will expect the data server to fulfill requests for the following types 
 
 Once the environment is ready per above, and [Node.js](http://nodejs.org/) with [NPM](https://www.npmjs.com/), [Bower](https://bower.io/), and [Ember CLI](https://ember-cli.com/) are installed, simply execute the following commands to prepare and run the app:
 
-1. `npm install` to install NPM dependencies
-2. `bower install` to install Bower dependencies
-3. `ember build` to build the app
-4. `node app` to fire it up
+1. `npm run install-all` to install NPM and Bower dependencies
+2. `npm run build` to build the app
+3. `npm run start` to fire it up
 
 ## Developing and deploying
 
 With [Grunt](gruntjs.com) installed in addition to establishing your environment and executables per the instructions above, you can run any of the following scripts to help with development and deployment:
 
-- `ember serve`: Runs the app and automatically reloads it when code changes are made during development
+- `npm run start`: Runs the app and automatically reloads it when code changes are made
 - `grunt deploy`: Deploys environment and certificate file dependencies, deploys the app, runs `npm install` remotely to ensure any new dependencies are installed
 - `grunt deploy-dependencies`: Deploys environment and certificate file dependencies
 - `grunt deploy-app`: Deploys the app and runs `npm install` remotely to ensure any new dependencies are installed

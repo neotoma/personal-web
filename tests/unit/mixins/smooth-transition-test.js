@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SmoothTransitionMixin from 'web/mixins/smooth-transition';
+import SmoothTransitionMixin from 'personal-web/mixins/smooth-transition';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | smoooth transition');

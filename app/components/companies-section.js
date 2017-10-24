@@ -6,23 +6,27 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
   appNavOption: 'Companies',
   tagName: 'section',
   classNames: ['companies'],
+  companies: [],
   attributeBindings: ['id'],
   id: 'companies',
   store: Ember.inject.service(),
+  sortedCompaniesProperties: ['startedAt:desc'],
+  sortedCompanies: Ember.computed.sort('companies', 'sortedCompaniesProperties'),
 
   init() {
     this._super(...arguments);
-    var self = this;
 
-    this.get('store').findAll('company').then(function(companies) {
-      self.set('companies', companies);
-      
-      Ember.run.next(function() {
-        self.set('loaded', true);
+    var query = this.get('store').findAll('company').then((companies) => {
+      this.set('companies', companies);
+
+      Ember.run.next(() => {
+        this.set('loaded', true);
       });
     }).catch(function(error) {
-      self.handleError(error);
+      this.handleError(error);
     });
+
+    this.deferRendering(query);
   },
 
   empty: Ember.computed('companies.length', function() {

@@ -1,30 +1,29 @@
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
-import ComponentTransitionsMixin from '../mixins/component-transitions';
+import ScrollToUpdateAppNavMixin from 'personal-web/mixins/scroll-to-update-app-nav';
+import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
 
 export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
   appNavOption: 'Writing',
-  tagName: 'section',
-  classNames: ['writing'],
   attributeBindings: ['id'],
+  classNames: ['writing'],
   id: 'writing',
-  store: Ember.inject.service(),
+  posts: [],
   sortedPostsProperties: ['publishedAt:desc'],
   sortedPosts: Ember.computed.sort('posts', 'sortedPostsProperties'),
+  store: Ember.inject.service(),
+  tagName: 'section',
 
   init() {
     this._super(...arguments);
-    var self = this;
 
-    this.get('store').findAll('post').then(function(posts) {
-      self.set('posts', posts);
-      
-      Ember.run.next(function() {
-        self.set('loaded', true);
-      });
-    }).catch(function(error) {
-      self.handleError(error);
+    var query = this.get('store').findAll('post').then((posts) => {
+      this.set('posts', posts);
+      this.set('loaded', true);
+    }).catch((error) => {
+      this.handleError(error);
     });
+
+    this.deferRendering(query);
   },
 
   featuredPost: Ember.computed('sortedPosts.length', function() {
@@ -46,6 +45,6 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
   }),
 
   empty: Ember.computed('posts.length', function() {
-    return (this.get('posts.length') === 0);
+    return !(this.get('posts.length'));
   })
 });

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ComponentEventsMixin from 'web/mixins/component-events';
+import ComponentEventsMixin from 'personal-web/mixins/component-events';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | component events');

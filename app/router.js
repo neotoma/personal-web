@@ -1,5 +1,5 @@
+import config from 'personal-web/config/environment';
 import Ember from 'ember';
-import config from './config/environment';
 
 const Router = Ember.Router.extend({
   location: config.locationType
@@ -8,7 +8,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('application-error');
   this.route('application-loading');
-  this.route('not-found', { path: '*path'});
+  this.route('not-found', { path: '*path'});
   this.route('photos');
   this.route('plan', { path: '/plans/:plan_id' });
   this.route('post', { path: '/post/:post_id' });

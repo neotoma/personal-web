@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import PhotoswipeMixin from 'web/mixins/photoswipe';
+import PhotoswipeMixin from 'personal-web/mixins/photoswipe';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | photoswipe');

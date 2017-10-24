@@ -18,17 +18,17 @@ module.exports = function(defaults) {
           }
         }]
       }
-    },
-    fingerprint: {
-      exclude: ['analytics.js', 'analytics.min.js']
     }
   });
 
   app.import('bower_components/ember/ember-template-compiler.js');
-  app.import('vendor/modernizr.js');
+
+  if (process.env.EMBER_CLI_FASTBOOT !== 'true') {
+    //app.import('vendor/modernizr.js');
+  }
 
   // PhotoSwipe
-  
+
   app.import('bower_components/photoswipe/dist/photoswipe.css');
   app.import('bower_components/photoswipe/dist/photoswipe.js');
   app.import('bower_components/photoswipe/dist/photoswipe-ui-default.js');

@@ -6,8 +6,10 @@ export default Ember.Route.extend({
     controller.set('message', error.message);
     this._super(...arguments);
 
-    Ember.run.next(function() {
-      controller.set('loadedClass', 'loaded');
+    Ember.run.next(() => {
+      if (!this.get('isDestroyed')) {
+        controller.set('loadedClass', 'loaded');
+      }
     });
   }
 });

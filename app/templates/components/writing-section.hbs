@@ -3,10 +3,10 @@
   {{#if featuredPost}}
     {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
       {{#if featuredPost.imageUrl}}
-        <div class="image" style={{backgroundImageStyle featuredPost.imageUrl}}></div>
+        <div class="image" style={{background-image-style featuredPost.imageUrl}}></div>
       {{/if}}
       <h3>{{featuredPost.title}}</h3>
-      <div class="published-at">{{formatDate featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
+      <div class="published-at">{{format-date featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
       <div class="excerpt">{{featuredPost.excerpt}}</div>
     {{/link-to}}
   {{else if notLoaded}}
@@ -23,11 +23,11 @@
       {{#each featuredPosts as |post|}}
         {{#link-to "post" post.canonicalId}}
           {{#if post.imageUrl}}
-            <div class="image" style={{backgroundImageStyle post.imageUrl}}></div>
+            <div class="image" style={{background-image-style post.imageUrl}}></div>
           {{/if}}
           <div class="content">
             <h4>{{post.title}}</h4>
-            <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+            <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
           </div>
         {{/link-to}}
       {{/each}}
@@ -46,7 +46,7 @@
     {{#each morePosts as |post|}}
       {{#link-to 'post' post.canonicalId}}
         <h4>{{post.title}}</h4>
-        <div class="published-at">{{formatDate post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+        <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
       {{/link-to}}
     {{/each}}
   {{else if notLoaded}}

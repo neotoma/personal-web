@@ -6,5 +6,7 @@ export default Model.extend({
   name: attr('string'),
   tagline: attr('string'),
   logoUrl: attr('string'),
-  positions: hasMany('position')
+  positions: hasMany('position'),
+  startedAt: attr('date'),
+  url: attr('string')
 });

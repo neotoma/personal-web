@@ -2,17 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
   bindScrolling() {
-    var self = this;
-
-    var onScroll = function() {
-      return this.onScroll();
+    var onScrollDebounce = () => {
+      Ember.run.debounce(this, function() {
+        return this.onScroll();
+      }, 50);
     };
 
-    var onScrollDebounce = function() {
-      Ember.run.debounce(self, onScroll, 50);
-    };
+    if (typeof document !== 'undefined' && Ember.$(document).bind) {
+      Ember.$(document).bind('touchmove', onScrollDebounce);
+    }
 
-    $(document).bind('touchmove', onScrollDebounce);
-    $(window).bind('scroll', onScrollDebounce);
+    if (Ember.$ && window && Ember.$(window).bind) {
+      Ember.$(window).bind('scroll', onScrollDebounce);
+    }
   }
 });

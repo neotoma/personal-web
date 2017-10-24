@@ -1,8 +1,13 @@
-<title>{{model.title}}</title>
-<meta property="og:site_name" content={{model.siteNameAttribute.value}} />
+{{#if model.title}}
+  <title>{{model.title}}</title>
+{{/if}}
 
-{{#if model.tailTitleToken}}
-  <meta property="og:title" content={{model.tailTitleToken}} />
+{{#if model.fullName}}
+  <meta property="og:site_name" content={{model.fullName}} />
+{{/if}}
+
+{{#if model.title}}
+  <meta property="og:title" content={{model.title}} />
 {{/if}}
 
 {{#if model.type}}
@@ -18,8 +23,8 @@
   <meta property="og:image" content={{model.imageUrl}} />
 {{/if}}
 
-{{#if model.url}}
-  <meta property="og:url" content={{model.url}} />
+{{#if model.canonicalUrl}}
+  <meta property="og:url" content={{model.canonicalUrl}} />
 {{/if}}
 
 {{#if model.locale}}
@@ -27,34 +32,34 @@
 {{/if}}
 
 {{#if model.articleAuthor}}
-  <meta name="author" content={{model.description}} />
+  <meta name="author" content={{model.articleAuthor}} />
   <meta property="og:article:author" content={{model.articleAuthor}} />
-{{/if}}
-
-{{#if model.articlePublishedTime}}
-  <meta property="og:article:published_time" content={{to-iso-string model.articlePublishedTime}} />
 {{/if}}
 
 {{#if model.articleModifiedTime}}
   <meta property="og:article:modified_time" content={{to-iso-string model.articleModifiedTime}} />
 {{/if}}
 
-{{#if model.profileFirstName}}
-  <meta property="og:profile:first_name" content={{model.profileFirstName}} />
-{{/if}}
-
-{{#if model.profileLastName}}
-  <meta property="og:profile:last_name" content={{model.profileLastName}} />
-{{/if}}
-
-{{#if model.profileGender}}
-  <meta property="og:profile:gender" content={{model.profileGender}} />
+{{#if model.articlePublishedTime}}
+  <meta property="og:article:published_time" content={{to-iso-string model.articlePublishedTime}} />
 {{/if}}
 
 {{#if model.canonicalUrl}}
   <link rel="canonical" href={{model.canonicalUrl}} />
 {{/if}}
 
-{{#if model.faviconUrlAttribute}}
-  <link rel="icon" href={{model.faviconUrlAttribute.value}}>
+{{#if model.faviconUrl}}
+  <link rel="icon" href={{model.faviconUrl}}>
+{{/if}}
+
+{{#if model.firstName}}
+  <meta property="og:profile:first_name" content={{model.firstName}} />
+{{/if}}
+
+{{#if model.gender}}
+  <meta property="og:profile:gender" content={{model.gender}} />
+{{/if}}
+
+{{#if model.lastName}}
+  <meta property="og:profile:last_name" content={{model.lastName}} />
 {{/if}}

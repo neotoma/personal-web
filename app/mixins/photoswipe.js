@@ -16,6 +16,8 @@ export default Ember.Mixin.create({
   },
 
   parseHash() {
+    if (!window || !window.location) { return; }
+
     var hash = window.location.hash.substring(1),
     params = {};
 
@@ -28,10 +30,10 @@ export default Ember.Mixin.create({
       if(!vars[i]) {
         continue;
       }
-      var pair = vars[i].split('=');  
+      var pair = vars[i].split('=');
       if(pair.length < 2) {
         continue;
-      }           
+      }
       params[pair[0]] = pair[1];
     }
 
@@ -44,14 +46,22 @@ export default Ember.Mixin.create({
 
   viewPhotoByLink(link, animationDuration = this.get('animationDuration')) {
     var options = {
-      index: $(link).parent().find('a').index(link),
+      index: Ember.$(link).parent().find('a').index(link),
       showAnimationDuration: animationDuration,
       hideAnimationDuration: animationDuration,
       bgOpacity: 0.9,
       preload: [2,2],
       showHideOpacity: true,
       getThumbBoundsFn: function() {
-        var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+        var pageYScroll = 0;
+
+        if (window && window.pageYOffset) {
+          pageYScroll = window.pageYOffset;
+
+          if (typeof document !== 'undefined' && document.documentElement.scrollTop) {
+            window.pageYOffset = document.documentElement.scrollTop;
+          }
+        }
         var rect = link.getBoundingClientRect();
 
         return {
@@ -62,18 +72,18 @@ export default Ember.Mixin.create({
       }
     };
 
-    var gallery = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, this.items(), options);
+    var gallery = new PhotoSwipe(Ember.$('.pswp')[0], PhotoSwipeUI_Default, this.items(), options);
     gallery.init();
   },
 
   viewPhoto(photo) {
-    this.viewPhotoByLink($('#photo-' + photo.get('id'))[0]);
+    this.viewPhotoByLink(Ember.$('#photo-' + photo.get('id'))[0]);
   },
 
   viewPhotoByIndex(index, animationDuration) {
-    var link = $('section.photos div.thumbs a')[index - 1];
+    var link = Ember.$('section.photos div.thumbs a')[index - 1];
 
-    if (link && $(link).attr('href')) {
+    if (link && Ember.$(link).attr('href')) {
       this.viewPhotoByLink(link, animationDuration);
     }
   },

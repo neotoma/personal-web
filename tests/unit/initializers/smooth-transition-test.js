@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SmoothTransitionInitializer from 'web/initializers/smooth-transition';
+import SmoothTransitionInitializer from 'personal-web/initializers/smooth-transition';
 import { module, test } from 'qunit';
 
 let application;

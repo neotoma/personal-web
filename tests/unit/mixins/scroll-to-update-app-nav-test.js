@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from 'web/mixins/scroll-to-update-app-nav';
+import ScrollToUpdateAppNavMixin from 'personal-web/mixins/scroll-to-update-app-nav';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | scroll to update app nav');

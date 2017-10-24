@@ -1,25 +1,33 @@
+import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
 import Ember from 'ember';
-import ComponentTransitionsMixin from '../mixins/component-transitions';
 
 export default Ember.Component.extend(ComponentTransitionsMixin, {
-  tagName: 'section',
+  bodyShown: false,
   classNames: ['post'],
   store: Ember.inject.service(),
-  bodyShown: false,
+  tagName: 'section',
 
   didReceiveAttrs() {
-    var self = this;
-    this.set('bodyShown', false); // hack to force component rerender 
+    this.set('bodyShown', false); // hack to force component rerender
 
-    Ember.run.next(function() {
-      if (self.get('isDestroyed')) { return; }
-      
-      self.set('bodyShown', true);
+    var deferred = Ember.RSVP.defer();
 
-      if (self.get('post')) {
-        self.set('loaded', true);
+    Ember.run.next(() => {
+      if (this.get('isDestroyed')) {
+        deferred.resolve();
+        return;
       }
+
+      this.set('bodyShown', true);
+
+      if (this.get('post')) {
+        this.set('loaded', true);
+      }
+
+      deferred.resolve();
     });
+
+    this.deferRendering(deferred.promise);
   },
 
   showPostBody: Ember.computed('bodyShown', 'post', function() {

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Mq4HoverShimInitializer from 'web/initializers/mq4-hover-shim';
+import Mq4HoverShimInitializer from 'personal-web/initializers/mq4-hover-shim';
 import { module, test } from 'qunit';
 
 let application;

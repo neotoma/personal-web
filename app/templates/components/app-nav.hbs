@@ -3,14 +3,9 @@
     {{#if (compare option.name "===" activeOption)}}
       {{#scroll-to href=option.anchor class="active"}}{{option.name}}{{/scroll-to}}
     {{else}}
-      {{#scroll-to href=option.anchor}}{{option.name}}{{/scroll-to}}
+      {{#scroll-to href=option.anchor duration=400}}{{option.name}}{{/scroll-to}}
     {{/if}}
   {{/each}}
 {{else}}
   {{#link-to "index" class="emphasis never-active"}}{{fullName}}{{/link-to}}
 {{/if}}
-
-<div class="h-card">
-	<a rel="me" class="p-name u-url" href={{url}}>{{fullName}}</a>
-	<img class="u-photo" src={{imageUrl}} />
-</div>

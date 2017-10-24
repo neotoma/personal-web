@@ -5,19 +5,21 @@ export default Ember.Route.extend({
     return this.store.findAll('redirect');
   },
 
-  afterModel(model, transition) {
-    var self = this;
+  afterModel(model) {
+    if (!window || !window.location) { return; }
 
-    model.forEach(function(redirect) {
+    model.forEach((redirect) => {
       if (window.location.pathname === redirect.get('legacyPath')) {
-        self.replaceWith(redirect.get('resourceModel'), redirect.get('resourceId'));
+        this.replaceWith(redirect.get('resourceModel'), redirect.get('resourceId'));
       }
     });
   },
 
-  setupController: function(controller, model) {
-    Ember.run.next(function() {
-      controller.set('loadedClass', 'loaded');
+  setupController: function(controller) {
+    Ember.run.next(() => {
+      if (!this.get('isDestroyed')) {
+        controller.set('loadedClass', 'loaded');
+      }
     });
   }
 });

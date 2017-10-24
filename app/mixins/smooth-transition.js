@@ -6,19 +6,15 @@ export default Ember.Mixin.create({
   appNav: Ember.inject.service(),
 
   activate: function() {
-    var self = this;
-
-    Ember.run.next(this, function() {
-      Ember.$(window).scrollTop(self.getLastScroll());
+    Ember.run.next(this, () => {
+      Ember.$(window).scrollTop(this.getLastScroll());
       this.get('appNav').show();
     });
   },
 
   afterModel: function() {
-    var self = this;
-
-    Ember.run.later(this, function() {
-      Ember.$(window).scrollTop(self.getLastScroll());
+    Ember.run.later(this, () => {
+      Ember.$(window).scrollTop(this.getLastScroll());
     }, 50);
   },
 
@@ -44,7 +40,6 @@ export default Ember.Mixin.create({
   actions: {
     willTransition: function(transition) {
       this._super.apply(this, arguments);
-      var self = this;
 
       if (this.get('routeName') === 'application') {
         return true;
@@ -57,7 +52,6 @@ export default Ember.Mixin.create({
         transition.abort();
         this.set('transitionDelayed', true);
         this.setLastScroll('lastScroll', Ember.$(window).scrollTop());
-
         this.get('componentEvents').hideAll();
 
         Ember.run.later(transition, function() {

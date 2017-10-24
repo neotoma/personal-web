@@ -1,11 +1,13 @@
 import Ember from 'ember';
-import SmoothTransitionMixin from '../mixins/smooth-transition';
+import SmoothTransitionMixin from 'personal-web/mixins/smooth-transition';
 
 export function initialize(/* application */) {
-  Ember.Route.reopen(SmoothTransitionMixin);
+  if (Ember.$ && window && window.history) {
+    Ember.Route.reopen(SmoothTransitionMixin);
 
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
   }
 }
 

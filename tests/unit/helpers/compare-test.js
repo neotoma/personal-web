@@ -1,4 +1,4 @@
-import { compare } from 'web/helpers/compare';
+import { compare } from 'personal-web/helpers/compare';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | compare');

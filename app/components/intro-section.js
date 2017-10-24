@@ -1,69 +1,55 @@
+import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
+import computedFirstObject from 'personal-web/utils/computed-first-object';
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
-import ComponentTransitionsMixin from '../mixins/component-transitions';
+import ScrollToUpdateAppNavMixin from 'personal-web/mixins/scroll-to-update-app-nav';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
-  tagName: 'section',
-  classNames: ['intro'],
-  attributeBindings: ['id'],
+export default Ember.Component.extend(ComponentTransitionsMixin, ScrollToUpdateAppNavMixin, {
   appNavOption: 'Intro',
+  attributeBindings: ['id'],
+  classNames: ['intro'],
+  computedAttributes: ['coverImageUrl', 'fullName', 'homeLocation', 'profession'],
   id: 'intro',
+  lastCheckin: computedFirstObject('checkins'),
+  lastGeolocation: computedFirstObject('geolocations'),
+  lastUpdate: computedFirstObject('updates'),
+  lastWeatherExperience: computedFirstObject('weatherExperiences'),
   store: Ember.inject.service(),
+  tagName: 'section',
 
-  imageStyle: Ember.computed('coverImageUrl', function() {
-    if (this.get('coverImageUrl')) {
-      return Ember.String.htmlSafe('background-image: url(' + this.get('coverImageUrl') + ')');
+  hasLastObjects: Ember.computed('lastCheckin', 'lastGeolocation', 'lastUpdate', 'lastWeatherExperience', function() {
+    return (this.get('lastCheckin') || this.get('lastGeolocation') || this.get('lastUpdate') || this.get('lastWeatherExperience'));
+  }),
+
+  imageStyle: Ember.computed('attributes.@each.value', function() {
+    var coverImageUrl = this.get('coverImageUrl');
+
+    if (coverImageUrl) {
+      return Ember.String.htmlSafe(`background-image: url(${coverImageUrl}`);
     }
   }),
 
   init() {
     this._super(...arguments);
-    var self = this;
 
-    Ember.RSVP.hash({
-      attributes: this.get('store').findAll('attribute'),
-      checkins: this.get('store').findAll('checkin'),
-      geolocations: this.get('store').findAll('geolocation'),
-      updates: this.get('store').findAll('update'),
-      weatherExperiences: this.get('store').findAll('weatherExperience')
-    }).then(function(model) {
-      var coverImageUrl = model.attributes.findBy('id', 'coverImageUrl');
-      var fullName = model.attributes.findBy('id', 'fullName');
-      var profession = model.attributes.findBy('id', 'profession');
-      var homeLocation = model.attributes.findBy('id', 'homeLocation');
-
-      if (coverImageUrl && coverImageUrl.get('value')) {
-        self.set('coverImageUrl', coverImageUrl.get('value'));
-      }
-
-      if (fullName && fullName.get('value')) {
-        self.set('fullName', fullName.get('value'));
-      } else {
-        self.handleError(new Error('No fullName property available'));
-      }
-
-      if (profession && profession.get('value')) {
-        self.set('profession', profession.get('value'));
-      }
-
-      if (homeLocation && homeLocation.get('value')) {
-        self.set('homeLocation', homeLocation.get('value'));
-      }
-
-      self.set('lastCheckin', model.checkins.objectAt(0));
-      self.set('lastGeolocation', model.geolocations.objectAt(0));
-      self.set('lastUpdate', model.updates.objectAt(0));
-      self.set('lastWeatherExperience', model.weatherExperiences.objectAt(0));
-
-      Ember.run.next(function() {
-        self.set('loaded', true);
+    var query = this.get('store').findAllForNames([
+      'attribute',
+      'checkin',
+      'geolocation',
+      {
+        name: 'update',
+        include: 'post'
+      },
+      'weatherExperience'
+    ]).then((models) => {
+      Object.keys(models).forEach((key) => {
+        this.set(key, models[key]);
       });
-    }).catch(function(error) {
-      self.handleError(error);
-    });
-  },
 
-  hasLastObjects: Ember.computed('lastCheckin', 'lastGeolocation', 'lastUpdate', 'lastWeatherExperience', function() {
-    return (this.get('lastCheckin') || this.get('lastGeolocation') || this.get('lastUpdate') || this.get('lastWeatherExperience'));
-  })
+      this.set('loaded', true);
+    }).catch(function(error) {
+      this.handleError(error);
+    });
+
+    this.deferRendering(query);
+  }
 });

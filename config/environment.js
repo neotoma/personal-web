@@ -4,24 +4,27 @@ require('../lib/env');
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'web',
-    environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
+    APP: {},
+    rootUrl: '/',
     EmberENV: {
       FEATURES: {}
     },
+    environment: environment,
     intl: {
       baseLocale: 'en-us'
     },
-    APP: {}
+    locationType: 'auto',
+    modulePrefix: 'personal-web',
+    segment: {
+      defaultPageTrack: false,
+      WRITE_KEY: process.env.PERSONAL_WEB_SEGMENT_WRITE_KEY
+    }
   };
 
   ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST;
-  ENV.EmberENV.GA_TRACKING_ID = process.env.PERSONAL_WEB_GA_TRACKING_ID;
 
   if (environment === 'test') {
-    ENV.baseURL = '/';
+    ENV.rootUrl = '/';
     ENV.locationType = 'none';
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;

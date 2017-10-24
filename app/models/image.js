@@ -3,7 +3,7 @@ import attr from 'ember-data/attr';
 import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  description:    attr('string'),
-  assetUrl:       attr('string'),
-  posts:          hasMany('post')
+  description: attr('string'),
+  assetUrl: attr('string'),
+  posts: hasMany('post')
 });

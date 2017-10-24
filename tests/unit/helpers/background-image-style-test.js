@@ -1,4 +1,4 @@
-import { backgroundImageStyle } from 'web/helpers/background-image-style';
+import { backgroundImageStyle } from 'personal-web/helpers/background-image-style';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | background image style');

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import showdown from 'showdown';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
@@ -13,7 +14,7 @@ export default Ember.Component.extend({
     }
 
     var html = converter.makeHtml(this.get('markdown'));
-    
+
     return Ember.HTMLBars.compile(html);
   })
 });

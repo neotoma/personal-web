@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ComponentTransitionsMixin from 'web/mixins/component-transitions';
+import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | component transitions');

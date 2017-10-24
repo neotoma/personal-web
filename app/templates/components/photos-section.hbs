@@ -3,7 +3,7 @@
 <div class="thumbs">
   {{#if sortedPhotos.length}}
     {{#each sortedPhotos as |photo|}}
-      <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style={{backgroundImageStyle photo.imageUrl}} {{action "viewPhoto" photo}}></a>
+      <a id="photo-{{photo.id}}" href="{{photo.imageUrl}}" style={{background-image-style photo.imageUrl}} {{action "viewPhoto" photo}}></a>
     {{/each}}
   {{else}}
     <div class="placeholder"></div>

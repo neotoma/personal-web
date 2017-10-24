@@ -1,4 +1,4 @@
-import { toIsoString } from 'web/helpers/to-iso-string';
+import { toIsoString } from 'personal-web/helpers/to-iso-string';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | to iso string');

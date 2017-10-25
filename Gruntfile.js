@@ -49,12 +49,6 @@ module.exports = function(grunt) {
       },
       build: {
         command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/ember-cli/bin/ember build --env=production'
-      },
-      forever: {
-        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + '/server && forever restart app.js || forever start app.js'
-      },
-      systemd: {
-        command: 'sudo systemctl restart personalweb || sudo systemctl start personalweb'
       }
     }
   });
@@ -73,13 +67,5 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', 'Deploy dependencies and app', [
     'deploy-dependencies',
     'deploy-app'
-  ]);
-
-  grunt.registerTask('forever', 'Start or restart app remotely with forever', [
-    'sshexec:forever'
-  ]);
-
-  grunt.registerTask('systemd', 'Start or restart app remotely with systemd', [
-    'sshexec:systemd'
   ]);
 };

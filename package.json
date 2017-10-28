@@ -4,15 +4,16 @@
   "repository": "https://github.com/neotoma/personal-web",
   "scripts": {
     "build": "ember build",
+    "build-prod": "ember build --env=production",
     "debug": "node --debug-brk --inspect ./node_modules/.bin/ember server",
-    "deploy-app": "grunt deploy-app",
+    "deploy": "npm run build-prod && grunt deploy",
     "start": "ember server",
     "install-all": "npm install && bower install",
     "test": "ember test"
   },
   "name": "personal-web",
   "private": true,
-  "description": "App that serves as a personal website for an individual on the Web",
+  "description": "Ember-powered personal website app for the IndieWeb 🔥",
   "author": "Mark M. Hendrickson",
   "directories": {
     "doc": "doc",
@@ -67,12 +68,12 @@
     "loader.js": "^4.2.3"
   },
   "dependencies": {
-    "dotenv": "^4.0.0",
     "ember-in-viewport": "DockYard/ember-in-viewport#0e31648",
     "express": "^4.14.0",
     "grunt": "~1.0.1",
     "grunt-ssh": "^0.12.9",
     "mq4-hover-shim": "^0.3.0",
+    "park-ranger": "^1.0.11",
     "prerender-node": "^2.5.0"
   },
   "engines": {

@@ -1,4 +1,4 @@
-require('./lib/env');
+require('park-ranger')();
 
 module.exports = function(grunt) {
   'use strict';
@@ -12,60 +12,16 @@ module.exports = function(grunt) {
         host: process.env.PERSONAL_WEB_DEPLOY_USERNAME + '@' + process.env.PERSONAL_WEB_DEPLOY_HOST,
         recursive: true
       },
-      env: {
-        options: {
-          src: '.env-deploy',
-          dest: process.env.PERSONAL_WEB_DEPLOY_DIR + '/.env',
-        }
-      },
       app: {
         options: {
-          exclude: [
-            ".env*",
-            ".DS_Store",
-            ".git*",
-            "bower_components",
-            "node_modules",
-            "dist",
-            "*.sublime*"
-          ],
-          src: './',
+          src: './dist/',
           dest: process.env.PERSONAL_WEB_DEPLOY_DIR
         }
-      }
-    },
-    sshexec: {
-      options: {
-        username: process.env.PERSONAL_WEB_DEPLOY_USERNAME,
-        host: process.env.PERSONAL_WEB_DEPLOY_HOST,
-        agent: process.env.SSH_AUTH_SOCK,
-        port: 22
-      },
-      npm: {
-        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && npm install'
-      },
-      bower: {
-        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/bower/bin/bower install --allow-root'
-      },
-      build: {
-        command: 'cd ' + process.env.PERSONAL_WEB_DEPLOY_DIR + ' && ./node_modules/ember-cli/bin/ember build --env=production'
       }
     }
   });
 
-  grunt.registerTask('deploy-dependencies', 'Deploy dependencies', [
-    'rsync:env'
-  ]);
-
-  grunt.registerTask('deploy-app', 'Deploy app', [
-    'rsync:app',
-    'sshexec:npm',
-    'sshexec:bower',
-    'sshexec:build'
-  ]);
-
-  grunt.registerTask('deploy', 'Deploy dependencies and app', [
-    'deploy-dependencies',
-    'deploy-app'
+  grunt.registerTask('deploy', 'Deploy app', [
+    'rsync:app'
   ]);
 };

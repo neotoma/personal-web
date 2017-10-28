@@ -12,9 +12,12 @@ The code requires the following environment variables to run or deploy the serve
 
 - `PERSONAL_WEB_API_HOST`: Host address for data server conforming to JSON API specification (required to run app)
 - `PERSONAL_WEB_SEGMENT_WRITE_KEY`: [Segment](http://segment.com) write key (optional to run app)
+
 - `PERSONAL_WEB_DEPLOY_USERNAME`: User name with which to SSH into remote deployment server (required to deploy app)
 - `PERSONAL_WEB_DEPLOY_HOST`: Host address for remote deployment server (required to deploy app)
 - `PERSONAL_WEB_DEPLOY_DIR`: Remote system path to app directory on deployment server (required to deploy app)
+- `PERSONAL_WEB_PRODUCTION_API_HOST`: Host address for data server needed by remote deployment (required to deploy app)
+- `PERSONAL_WEB_PRODUCTION_SEGMENT_WRITE_KEY`: [Segment](http://segment.com) write key for remote deploymnet (optional to deploy app)
 
 If you intend to deploy the server to another system using scripts within the "Developing and deploying" section below, you can also create a `.env-deploy` file in the base directory, one that will be ignored by Git and used upon deployment to create an `.env` file remotely, thereby setting environment variables on the deployment server.
 
@@ -38,13 +41,13 @@ Once the environment is ready per above, and [Node.js](http://nodejs.org/) with 
 
 1. `npm run install-all` to install NPM and Bower dependencies
 2. `npm run build` to build the app
-3. `npm run start` to fire it up
+3. `npm start` to fire it up
 
 ## Developing and deploying
 
 With [Grunt](gruntjs.com) installed in addition to establishing your environment and executables per the instructions above, you can run any of the following scripts to help with development and deployment:
 
-- `npm run start`: Runs the app and automatically reloads it when code changes are made
+- `npm start`: Runs the app and automatically reloads it when code changes are made
 - `grunt deploy`: Deploys environment and certificate file dependencies, deploys the app, runs `npm install` remotely to ensure any new dependencies are installed
 - `grunt deploy-dependencies`: Deploys environment and certificate file dependencies
 - `grunt deploy-app`: Deploys the app and runs `npm install` remotely to ensure any new dependencies are installed

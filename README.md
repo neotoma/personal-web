@@ -1,6 +1,6 @@
 # Personal web
 
-This repository contains the source code for a web app that serves as a personal website for an individual on the Web.
+This repository contains the source code for a [Ember](https://www.emberjs.com/)-powered web app that serves as a personal website for an individual on the Web according to principles embodied by the [IndieWeb](https://indieweb.org/) community.
 
 This app is initially intended to display data from [a personal web server](https://github.com/asheville/personal-server) but can be powered by any data server conforming to [the JSON API specification](http://jsonapi.org/).
 

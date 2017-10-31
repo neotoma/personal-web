@@ -12,6 +12,7 @@ section.post {
     max-width: 60em;
 
     >h1 {
+      //.standard-route-header;
       .standard-font-family-bold;
       .standard-selection;
       @font-size: 2em;
@@ -20,26 +21,6 @@ section.post {
       margin: auto;
       max-width: (50 / @font-size);
       padding: 0 (1 / @font-size);
-
-      @media (min-width: 40em) {
-        @font-size: 2.5em;
-        background: none;
-        font-size: @font-size;
-        max-width: (50 / @font-size);
-        padding: 0 (1 / @font-size);
-      }
-
-      &:empty {
-        background: rgba(0,0,0,0.1);
-        height: 1.5em;
-        margin-left: 2em;
-        margin-right: 2em;
-
-        @media (min-width: 40em) {
-          margin-left: 4em;
-          margin-right: 4em;
-        }
-      }
     }
 
     div.published-at {

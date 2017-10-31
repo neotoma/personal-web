@@ -4,7 +4,8 @@ export default Ember.Mixin.create({
   tagName: 'div',
   classNameBindings: ['loaded', 'hidden', 'error', 'empty'],
 
-  handleError() {
+  handleError(error) {
+    console.error(error.message);
     this.set('error', true);
   },
 

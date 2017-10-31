@@ -18,17 +18,26 @@
         <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
       {{/if}}
       {{#if lastCheckin}}
-        <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at <span>{{lastCheckin.name}}</span></li>
+        <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at
+          <span>
+            {{#if lastCheckin.placeUrl}}
+              <a href="{{lastCheckin.placeUrl}}">{{lastCheckin.place}}</a>
+            {{else}}
+              {{lastCheckin.place}}
+            {{/if}}
+          </span>
+        </li>
       {{/if}}
       {{#if lastUpdate.description}}
         <li class="last-published">Last published
-        <span>
-          {{#if lastUpdate.post}}
-            {{#link-to 'post' lastUpdate.post.id}}{{lastUpdate.description}}{{/link-to}}
-          {{else}}
-            {{lastUpdate.description}}
-          {{/if}}
-        </span></li>
+          <span>
+            {{#if lastUpdate.post}}
+              {{#link-to 'post' lastUpdate.post.id}}{{lastUpdate.description}}{{/link-to}}
+            {{else}}
+              {{lastUpdate.description}}
+            {{/if}}
+          </span>
+        </li>
       {{/if}}
     </ul>
   {{/if}}

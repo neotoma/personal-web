@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('plan', { path: '/plans/:plan_id' });
   this.route('post', { path: '/post/:post_id' });
   this.route('post-loading');
+  this.route('checkins');
 });
 
 Ember.Route.reopen({

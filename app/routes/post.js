@@ -5,24 +5,9 @@ export default Ember.Route.extend({
   headData: Ember.inject.service(),
 
   model(params) {
-    var include = 'image,photo';
-    var queries = {
-      attributes: this.store.findAll('attribute')
-    };
-
-    if (!isNaN(params.post_id)) {
-      queries['post'] = this.store.findRecord('post', params.post_id, { include: include });
-    } else {
-      queries['posts'] = this.store.query('post', { filter: { slug: params.post_id }, include: include });
-    }
-
-    return Ember.RSVP.hash(queries).then((models) => {
-      if (models['posts']) {
-        models['post'] = models['posts'].get('firstObject');
-        delete models['posts'];
-      }
-
-      return models;
+    return Ember.RSVP.hash({
+      attributes: this.store.findAll('attribute'),
+      post: this.store.findRecord('post', params.post_id, { include: 'image,photo' })
     });
   },
 

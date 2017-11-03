@@ -85,10 +85,15 @@ section.writing {
       text-align: left;
 
       div.image {
+        background-color: white;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         width: 100%;
+
+        &.landscape {
+          background-size: contain;
+        }
       }
 
       h3, div.published-at, div.excerpt {
@@ -164,7 +169,7 @@ section.writing {
 
       a {
         .hover-headline-underline;
-        
+
         div.image {
           background-position: center center;
           background-repeat: no-repeat;
@@ -199,7 +204,7 @@ section.writing {
           }
         }
 
-        div.content {          
+        div.content {
           div.published-at {
             font-size: 0.875em;
           }

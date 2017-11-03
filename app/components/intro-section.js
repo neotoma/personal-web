@@ -46,7 +46,7 @@ export default Ember.Component.extend(ComponentTransitionsMixin, ScrollToUpdateA
       });
 
       this.set('loaded', true);
-    }).catch(function(error) {
+    }).catch((error) => {
       this.handleError(error);
     });
 

@@ -1,9 +1,9 @@
 <h2>Writing</h2>
 <div class="featured">
   {{#if featuredPost}}
-    {{#link-to "post" featuredPost.canonicalId class="featured-post"}}
+    {{#link-to "post" featuredPost.id class="featured-post"}}
       {{#if featuredPost.imageUrl}}
-        <div class="image" style={{background-image-style featuredPost.imageUrl}}></div>
+        <div class="image {{featuredPost.imageOrientation}}" style={{background-image-style featuredPost.imageUrl}}></div>
       {{/if}}
       <h3>{{featuredPost.title}}</h3>
       <div class="published-at">{{format-date featuredPost.publishedAt day="numeric" month="long" year="numeric"}}</div>
@@ -21,7 +21,7 @@
   <div class="featured-posts">
     {{#if featuredPosts}}
       {{#each featuredPosts as |post|}}
-        {{#link-to "post" post.canonicalId}}
+        {{#link-to "post" post.id}}
           {{#if post.imageUrl}}
             <div class="image" style={{background-image-style post.imageUrl}}></div>
           {{/if}}
@@ -44,7 +44,7 @@
 <div class="more-posts">
   {{#if morePosts}}
     {{#each morePosts as |post|}}
-      {{#link-to 'post' post.canonicalId}}
+      {{#link-to 'post' post.id}}
         <h4>{{post.title}}</h4>
         <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
       {{/link-to}}

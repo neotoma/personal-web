@@ -18,7 +18,7 @@ export default Ember.Route.extend({
     this.set('headData.articleAuthor', post.get('author'));
     this.set('headData.articleModifiedTime', post.get('updatedAt'));
     this.set('headData.articlePublishedTime', post.get('publishedAt'));
-    this.set('headData.canonicalUrl', attribute(models['attributes'], 'url') + this.router.generate('post', post.get('slug')));
+    this.set('headData.canonicalUrl', attribute(models['attributes'], 'url') + this.router.generate('post', post.get('id')));
     this.set('headData.description', post.get('excerpt'));
     this.set('headData.imageUrl', post.get('imageUrl'));
     this.set('headData.title', post.get('title'));

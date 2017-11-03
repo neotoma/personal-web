@@ -21,11 +21,7 @@ module.exports = function(defaults) {
     }
   });
 
-  app.import('bower_components/ember/ember-template-compiler.js');
-
-  if (process.env.EMBER_CLI_FASTBOOT !== 'true') {
-    //app.import('vendor/modernizr.js');
-  }
+  app.import('vendor/ember/ember-template-compiler.js');
 
   // PhotoSwipe
 

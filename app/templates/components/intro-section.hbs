@@ -24,7 +24,7 @@
         <li class="last-published">Last published
         <span>
           {{#if lastUpdate.post}}
-            {{#link-to 'post' lastUpdate.post.canonicalId}}{{lastUpdate.description}}{{/link-to}}
+            {{#link-to 'post' lastUpdate.post.id}}{{lastUpdate.description}}{{/link-to}}
           {{else}}
             {{lastUpdate.description}}
           {{/if}}

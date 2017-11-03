@@ -1,9 +1,13 @@
-import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { hasMany } from 'ember-data/relationships';
+import Model from 'ember-data/model';
+import orientation from 'personal-web/utils/orientation';
 
 export default Model.extend({
-  description: attr('string'),
   assetUrl: attr('string'),
-  posts: hasMany('post')
+  description: attr('string'),
+  height: attr('number'),
+  orientation: orientation,
+  posts: hasMany('post'),
+  width: attr('number')
 });

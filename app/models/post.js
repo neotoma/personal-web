@@ -11,20 +11,23 @@ export default Model.extend({
   image: belongsTo('image'),
   photo: belongsTo('photo'),
   publishedAt: attr('date'),
-  slug: attr('string'),
   title: attr('string'),
   updatedAt: attr('date'),
   updates: hasMany('update'),
-
-  canonicalId: Ember.computed('id', 'slug', function() {
-    return this.get('slug') ? this.get('slug') : this.get('id');
-  }),
 
   imageUrl: Ember.computed('photo.imageUrl', 'image.assetUrl', function() {
     if (this.get('photo.imageUrl')) {
       return this.get('photo.imageUrl');
     } else if (this.get('image.assetUrl')) {
       return this.get('image.assetUrl');
+    }
+  }),
+
+  imageOrientation: Ember.computed('photo.orientation', 'image.orientation', function() {
+    if (this.get('photo.orientation')) {
+      return this.get('photo.orientation');
+    } else if (this.get('image.orientation')) {
+      return this.get('image.orientation');
     }
   })
 });

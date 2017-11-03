@@ -22,7 +22,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
       Ember.run.next(() => {
         this.set('loaded', true);
       });
-    }).catch(function(error) {
+    }).catch((error) => {
       this.handleError(error);
     });
 

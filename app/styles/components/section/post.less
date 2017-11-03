@@ -10,7 +10,7 @@ section.post {
   >div {
     margin: auto;
     max-width: 60em;
-  
+
     >h1 {
       .standard-font-family-bold;
       .standard-selection;
@@ -57,7 +57,7 @@ section.post {
     }
 
     div.image {
-      background-color: rgba(0,0,0,0.1);
+      background-color: white;
       background-position: center center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -65,6 +65,10 @@ section.post {
       margin-top: 3em;
       max-width: 60em;
       padding-bottom: 56.25%;
+
+      &.landscape {
+        background-size: contain;
+      }
     }
 
     div.body {

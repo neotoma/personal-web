@@ -1,18 +1,20 @@
-import Ember from 'ember';
-import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import Ember from 'ember';
 import { hasMany } from 'ember-data/relationships';
+import Model from 'ember-data/model';
+import orientation from 'personal-web/utils/orientation';
 
 export default Model.extend({
-  description:    attr('string'),
-  imageUrl:       attr('string'),
-  width:          attr('number'),
-  height:         attr('number'),
-  createdAt:      attr('date'),
-  updatedAt:      attr('date'),
-  publishedAt:    attr('date'),
-  posts:          hasMany('post'),
-  updates:        hasMany('update'),
+  createdAt: attr('date'),
+  description: attr('string'),
+  imageUrl: attr('string'),
+  height: attr('number'),
+  orientation: orientation,
+  posts: hasMany('post'),
+  publishedAt: attr('date'),
+  updatedAt: attr('date'),
+  updates: hasMany('update'),
+  width: attr('number'),
 
   dimensions: Ember.computed('firstName', 'lastName', function() {
     if (this.get('width') && this.get('height')) {

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  transitionDelay: 500,
+  transitionDelay: 0,
   componentEvents: Ember.inject.service(),
   appNav: Ember.inject.service(),
 

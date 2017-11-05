@@ -13,6 +13,6 @@ export default Ember.Mixin.create(Ember.Evented, {
   },
 
   hide() {
-    this.set('hidden', true);
+    //this.set('hidden', true);
   }
 });

@@ -15,7 +15,10 @@ export default DS.Store.extend({
       if (typeof modelName === 'string') {
         recordsForTypes[pluralize(modelName)] = this.findAll(modelName);
       } else if (typeof modelName === 'object') {
-        recordsForTypes[pluralize(modelName['name'])] = this.query(modelName['name'], { include: modelName['include'] });
+        recordsForTypes[pluralize(modelName['name'])] = this.query(modelName['name'], {
+          include: modelName['include'],
+          limit: modelName['limit']
+        });
       }
     });
 

@@ -33,13 +33,22 @@ export default Ember.Component.extend(ComponentTransitionsMixin, ScrollToUpdateA
 
     var query = this.get('store').findAllForNames([
       'attribute',
-      'checkin',
-      'geolocation',
+      {
+        name: 'checkin',
+        limit: 1
+      },
+      {
+        name: 'geolocation',
+        limit: 1
+      },
       {
         name: 'update',
         include: 'post'
       },
-      'weatherExperience'
+      {
+        name: 'weatherExperience',
+        limit: 1
+      },
     ]).then((models) => {
       Object.keys(models).forEach((key) => {
         this.set(key, models[key]);

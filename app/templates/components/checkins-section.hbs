@@ -5,8 +5,8 @@
 {{/if}}
 
 <div class="checkins">
-  {{#if firstSortedCheckins.length}}
-    {{#each firstSortedCheckins as |checkin|}}
+  {{#if sortedCheckins.length}}
+    {{#each sortedCheckins as |checkin|}}
       <div class="checkin">
         <div class="place-name">
           {{#if checkin.placeUrl}}
@@ -38,7 +38,7 @@
   {{/if}}
 </div>
 
-{{#if firstSortedCheckins.length}}
+{{#if sortedCheckins.length}}
   {{#if viewAll}}
     {{#link-to "checkins"}}View all check-ins{{/link-to}}
   {{/if}}

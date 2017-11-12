@@ -30,5 +30,9 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
 
   empty: Ember.computed('checkins.length', function() {
     return (this.get('checkins.length') === 0);
+  }),
+
+  firstSortedCheckins: Ember.computed('sortedCheckins', function() {
+    return this.get('sortedCheckins').slice(0, 25);
   })
 });

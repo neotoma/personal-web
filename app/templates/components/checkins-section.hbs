@@ -5,18 +5,24 @@
 {{/if}}
 
 <div class="checkins">
-  {{#if sortedCheckins.length}}
-    {{#each sortedCheckins as |checkin|}}
+  {{#if firstSortedCheckins.length}}
+    {{#each firstSortedCheckins as |checkin|}}
       <div class="checkin">
-        <div class="placeName">
+        <div class="place-name">
           {{#if checkin.placeUrl}}
             <a href="{{checkin.placeUrl}}">{{checkin.placeName}}</a>
           {{else}}
             {{checkin.placeName}}
           {{/if}}
         </div>
-        <div class="createdAt">{{format-date checkin.createdAt day="numeric" month="long" year="numeric" hour="numeric"}}</div>
-        <div class="placeCity">{{checkin.placeCity}}</div>
+        <div class="created-at">{{format-date checkin.createdAt day="numeric" month="long" year="numeric" hour="numeric"}}</div>
+        <div class="place-city">{{checkin.placeCity}}</div>
+        {{#if checkin.photoUrl}}
+          <img src="{{checkin.photoUrl}}" />
+        {{/if}}
+        {{#if checkin.description}}
+          <div class="description">"{{checkin.description}}"</div>
+        {{/if}}
       </div>
     {{/each}}
   {{else}}
@@ -32,7 +38,7 @@
   {{/if}}
 </div>
 
-{{#if sortedCheckins.length}}
+{{#if firstSortedCheckins.length}}
   {{#if viewAll}}
     {{#link-to "checkins"}}View all check-ins{{/link-to}}
   {{/if}}

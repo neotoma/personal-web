@@ -21,7 +21,7 @@ module.exports = function(environment) {
     }
   };
 
-  ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST;
+  ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST ? process.env.PERSONAL_WEB_API_HOST : 'http://127.0.0.1:9100';
 
   if (environment === 'test') {
     ENV.rootUrl = '/';

@@ -21,9 +21,9 @@
         <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at
           <span>
             {{#if lastCheckin.placeUrl}}
-              <a href="{{lastCheckin.placeUrl}}">{{lastCheckin.place}}</a>
+              <a href="{{lastCheckin.placeUrl}}">{{lastCheckin.placeName}}</a>
             {{else}}
-              {{lastCheckin.place}}
+              {{lastCheckin.placeName}}
             {{/if}}
           </span>
         </li>

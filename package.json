@@ -35,7 +35,7 @@
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-document-title": "0.3.3",
     "ember-cli-eslint": "^4.0.0",
-    "ember-cli-fastboot": "^1.0.5",
+    "ember-cli-fastboot": "^1.1.0",
     "ember-cli-head": "^0.4.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "ember-in-viewport": "DockYard/ember-in-viewport#0e31648",
+    "ember-md5": "^1.0.1",
     "express": "^4.14.0",
     "grunt": "~1.0.1",
     "grunt-ssh": "^0.12.9",
@@ -78,5 +79,8 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
-  }
+  },
+  "fastbootDependencies": [
+    "blueimp-md5"
+  ]
 }

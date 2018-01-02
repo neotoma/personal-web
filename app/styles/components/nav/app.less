@@ -1,80 +1,56 @@
 nav.app {
   background-color: #ffffff;
-  display: flex;
-  height: 3em;
-  justify-content: center;
-  left: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  height: 4em;
+  justify-content: left;
   text-align: center;
-  top: 0;
-  transition: top 1s, box-shadow 1s;
   user-select: none;
   z-index: 99;
   width: 100%;
 
-  @media (min-width: 37em) {
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 4em rgba(0,0,0,0.075);
-    position: fixed;
+  @media (min-width: 40em) {
+    height: 6em;
+    padding: 0 96px;
   }
 
   &.hidden {
-    top: -4em;
-  }
-
-  &.scrolled {
-    box-shadow: 0 0 1em rgba(0,0,0,0.1);
-  }
-
-  a {
-    .standard-link;
-    color: rgba(0,0,0,0.25);
-    line-height: 1em;
-    font-size: 0.75em;
-    margin-bottom: -1px;
-    padding: 1.5em;
-    padding-left: (19em / 12);
-    padding-right: (19em / 12);
-    text-transform: uppercase;
-
-    &.active:not(.never-active) {
-      .standard-font-family-bold;
-      border-bottom: 2px solid rgba(0,0,0,0.50);
-      color: rgba(0,0,0,0.75);
-      cursor: default;
-
-      @media (hover: hover) {
-        &:hover {
-          color: inherit;
-
-          &:before {
-            visibility: hidden;
-          }
-        }
-      }
-    }
-
-    &.emphasis {
-      color: rgba(0,0,0,0.5);
-      letter-spacing: 0.1em;
-
-      &:active, &:focus {
-        color: @standard-color-link;
-      }
-
-      @media (hover: hover) {
-        &:hover {
-          color: @standard-color-link;
-        }
-      }
-    }
-  }
-
-  div.h-card {
     display: none;
   }
-}
 
-/* Modernizr expected to set this class depending on browser support */
-html.backdropfilter nav.app {
-  background: rgba(255,255,255,0.75);
+  a.image {
+    left: 24px;
+    position: fixed;
+    top: 24px;
+    z-index: 1000;
+
+    @media (max-width: 50em) {
+      display: none;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+    display: block;
+    height: 48px;
+    width: 48px;
+  }
+
+  a.full-name {
+    .standard-link;
+    .standard-font-family-bold;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.5);
+    display: inline-block;
+    font-size: 12px;
+    height: 100%;
+    letter-spacing: 1.6px;
+    padding: 26px;
+    text-transform: uppercase;
+    transition: color 0.25s, transform 0.25s;
+
+    @media (min-width: 40em) {
+      padding: 40px 16px;
+    }
+  }
 }

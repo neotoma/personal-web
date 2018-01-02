@@ -1,8 +1,6 @@
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
-import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
+export default Ember.Component.extend({
   appNavOption: 'Companies',
   tagName: 'section',
   classNames: ['companies'],
@@ -18,10 +16,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
 
     var query = this.get('store').findAll('company').then((companies) => {
       this.set('companies', companies);
-
-      Ember.run.next(() => {
-        this.set('loaded', true);
-      });
+      this.set('loaded', true);
     }).catch((error) => {
       this.handleError(error);
     });

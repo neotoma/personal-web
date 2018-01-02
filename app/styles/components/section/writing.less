@@ -1,42 +1,20 @@
 @max-width: 70em;
 
-.hover-headline-underline {
-  h3, h4 {
-    border-bottom: 2px solid #ffffff;
-    transition: border-color 0.25s;
-
-    @media (min-width: 56em) {
-      display: inline;
-    }
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      h3, h4 {
-        @media (hover: hover) {
-          border-color: rgba(1,73,255,0.75);
-        }
-      }
-    }
-  }
-}
-
 section.writing {
-  .standard-fadein;
-  .standard-transition-states;
   .standard-container;
 
   h2 {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+  }
 
-    @media (min-width: 56em) {
-      margin-bottom: 2em;
-    }
+  h3, h4 {
+    .standard-highlight;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   div.published-at {
     color: rgba(0,0,0,0.5);
-    margin-top: 0.5em;
   }
 
   a {
@@ -45,7 +23,9 @@ section.writing {
 
     @media (hover: hover) {
       &:hover {
-        transform: scale(1.05);
+        h2, h3, h4 {
+          .standard-highlight-hover;
+        }
       }
     }
   }
@@ -80,7 +60,6 @@ section.writing {
     }
 
     a.featured-post {
-      .hover-headline-underline;
       display: block;
       text-align: left;
 
@@ -93,14 +72,6 @@ section.writing {
 
         &.landscape {
           background-size: contain;
-        }
-      }
-
-      h3, div.published-at, div.excerpt {
-        padding: 0 16px;
-
-        @media (min-width: 56em) {
-          padding: 0;
         }
       }
 
@@ -168,8 +139,6 @@ section.writing {
       }
 
       a {
-        .hover-headline-underline;
-
         div.image {
           background-position: center center;
           background-repeat: no-repeat;
@@ -214,21 +183,12 @@ section.writing {
   }
 
   div.more-posts {
-    display: block;
-    max-width: @max-width;
-    text-align: left;
-
-    @media (min-width: 35em) {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    @media (min-width: 56em) {
-      margin: 2em auto 0 auto;
-    }
+    width: 100%;
 
     a, div.more-posts-placeholder {
-      padding: 1em;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 4em;
+      text-align: center;
 
       @media (min-width: 35em) {
         margin: 0;
@@ -236,14 +196,14 @@ section.writing {
       }
 
       @media (min-width: 56em) {
-        width: calc(100% / 3);
+        width: ~"calc(100% / 3 - 2em)";
       }
     }
 
     a {
-      .hover-headline-underline;
-      display: block;
-      text-align: left;
+      display: inline-block;
+      margin: 1em;
+      vertical-align: top;
 
       div.published-at {
         font-size: 0.875em;

@@ -1,14 +1,9 @@
-import Route from '@ember/routing/route';
+import Ember from 'ember';
 
-export default Route.extend({
+export default Ember.Route.extend({
   headData: Ember.inject.service(),
 
-  model() {
-    return this.store.findAll('checkin');
-  },
-
-  setupController(controller, model) {
-    controller.set('checkins', model);
+  setupController() {
     this.set('headData.title', 'Check-ins');
   }
 });

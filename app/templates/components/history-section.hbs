@@ -8,11 +8,6 @@
 <div class="content">
   {{#if history}}
     {{markdown-to-html markdown=history}}
-  {{else}}
-    <p class="placeholder"></p>
-    <p class="placeholder"></p>
-    <p class="placeholder"></p>
-    <p class="placeholder"></p>
-    <p class="placeholder"></p>
   {{/if}}
 </div>
+<button class="expand" {{action 'expand'}}>View all history</button>

@@ -1,18 +1,10 @@
-import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
-import computedFirstObject from 'personal-web/utils/computed-first-object';
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from 'personal-web/mixins/scroll-to-update-app-nav';
 
-export default Ember.Component.extend(ComponentTransitionsMixin, ScrollToUpdateAppNavMixin, {
-  appNavOption: 'Intro',
+export default Ember.Component.extend({
   attributeBindings: ['id'],
   classNames: ['intro'],
   computedAttributes: ['coverImageUrl', 'fullName', 'homeLocation', 'profession'],
   id: 'intro',
-  lastCheckin: computedFirstObject('checkins'),
-  lastGeolocation: computedFirstObject('geolocations'),
-  lastUpdate: computedFirstObject('updates'),
-  lastWeatherExperience: computedFirstObject('weatherExperiences'),
   store: Ember.inject.service(),
   tagName: 'section',
 
@@ -28,37 +20,7 @@ export default Ember.Component.extend(ComponentTransitionsMixin, ScrollToUpdateA
     }
   }),
 
-  init() {
-    this._super(...arguments);
-
-    var query = this.get('store').findAllForNames([
-      'attribute',
-      {
-        name: 'checkin',
-        limit: 1
-      },
-      {
-        name: 'geolocation',
-        limit: 1
-      },
-      {
-        name: 'update',
-        include: 'post'
-      },
-      {
-        name: 'weatherExperience',
-        limit: 1
-      },
-    ]).then((models) => {
-      Object.keys(models).forEach((key) => {
-        this.set(key, models[key]);
-      });
-
-      this.set('loaded', true);
-    }).catch((error) => {
-      this.handleError(error);
-    });
-
-    this.deferRendering(query);
-  }
+  subheader: Ember.computed('profession', 'homeLocation', function() {
+    return `${this.get('profession')} based in ${this.get('homeLocation')}`;
+  })
 });

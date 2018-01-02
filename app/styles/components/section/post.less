@@ -1,159 +1,91 @@
 section.post {
-  .standard-fadein;
-  .standard-transition-states;
-  .standard-container;
-
   @media (min-width: 40em) {
     background: none;
   }
 
-  >div {
+  h1 {
+    .standard-route-header;
+  }
+
+  div.published-at {
+    .standard-selection;
+    margin-top: 44px;
+  }
+
+  div.image {
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: auto;
-    max-width: 60em;
+    margin-top: 3em;
+    width: 100%;
+    padding-bottom: 56.25%;
 
-    >h1 {
-      //.standard-route-header;
-      .standard-font-family-bold;
-      .standard-selection;
-      @font-size: 2em;
-      box-sizing: border-box;
+    &.landscape {
+      background-size: contain;
+    }
+  }
+
+  div.body {
+    @font-size: 1.25em;
+    box-sizing: border-box;
+    font-size: @font-size;
+    margin: auto;
+    max-width: (50 / @font-size);
+    padding: 32px;
+    text-align: left;
+
+    @media (min-width: 40em) {
+      @font-size: 1.375em;
       font-size: @font-size;
-      margin: auto;
+      margin-top: 64px;
       max-width: (50 / @font-size);
-      padding: 0 (1 / @font-size);
+      padding: 0;
     }
 
-    div.published-at {
-      .standard-selection;
-      color: rgba(0,0,0,0.5);
-      margin-top: 2em;
-
-      &:empty {
-        background: rgba(0,0,0,0.1);
-        height: 1.5em;
-        margin-left: auto;
-        margin-right: auto;
-        width: 10em;
-      }
+    a {
+      .standard-inline-link;
     }
 
-    div.image {
-      background-color: white;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin: auto;
-      margin-top: 3em;
+    h1 {
+      .standard-body-font-family;
+      border-top: 1px solid @border-color;
+      font-size: 1.6em;
+      margin: 2em 0;
+      padding: 2em 1em 0 1em;
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      .standard-paragraph;
       max-width: 60em;
-      padding-bottom: 56.25%;
-
-      &.landscape {
-        background-size: contain;
-      }
     }
 
-    div.body {
-      @font-size: 1.25em;
-      box-sizing: border-box;
-      font-size: @font-size;
-      margin: auto;
-      margin-top: 2em;
-      max-width: (50 / @font-size);
-      padding: 0 (1 / @font-size);
-      text-align: left;
+    >p:first-of-type::first-letter {
+      float: left;
+      font-size: 6em;
+      margin: 0.28em 0.15em 0.25em 0;
+    }
+
+    ul, ol {
+      .standard-body-font-family;
+      margin: 2em 0;
+      padding: 0 1em 0 1em;
 
       @media (min-width: 40em) {
-        @font-size: 1.375em;
-        font-size: @font-size;
-        margin-top: (4 / @font-size);
-        max-width: (50 / @font-size);
-        padding: 0 (1 / @font-size);
+        margin-bottom: 3em;
+        padding: 0 2em 0 2em;
       }
 
-      &:empty {
-        background: repeating-linear-gradient(
-          180deg,
-          rgba(0,0,0,0.1),
-          rgba(0,0,0,0.1) 1em,
-          transparent 1em,
-          transparent 3em,
-          rgba(0,0,0,0.1) 3em,
-          rgba(0,0,0,0.1) 4em,
-          transparent 4em,
-          transparent 5em);
-        height: 12em;
-        margin: 2em 1em 1em 1em;
-
-        &:after {
-          background: #ffffff;
-          content: '';
-          position: absolute;
-          top: 9em;
-          right: 0;
-          height: 3em;
-          width: 18em;
-        }
-
-        &:before {
-          background: #ffffff;
-          content: '';
-          position: absolute;
-          top: 4em;
-          right: 0;
-          height: 3em;
-          width: 10em;
-        }
-
-        @media (min-width: 64em) {
-          height: 12em;
-          margin-left: auto;
-          margin-right: auto;
-          margin-top: 3em;
-        }
-      }
-
-      a {
-        .standard-inline-link;
-      }
-
-      h1 {
-        .standard-body-font-family;
-        border-top: 1px solid @border-color;
-        font-size: 1.6em;
-        margin: 2em 0;
-        padding: 2em 1em 0 1em;
-        text-align: center;
-      }
-
-      img {
-        width: 100%;
-      }
-
-      p {
-        .standard-paragraph;
-      }
-
-      >p:first-of-type::first-letter {
-        float: left;
-        font-size: 6em;
-        margin: 0.28em 0.15em 0.25em 0;
-      }
-
-      ul, ol {
-        .standard-body-font-family;
-        margin: 2em 0;
-        padding: 0 1em 0 1em;
-
-        @media (min-width: 40em) {
-          margin-bottom: 3em;
-          padding: 0 2em 0 2em;
-        }
-
-        li {
-          line-height: 1.45em;
-          list-style: square;
-          margin-top: 1em;
-        }
+      li {
+        line-height: 1.45em;
+        list-style: square;
+        margin-top: 1em;
       }
     }
   }

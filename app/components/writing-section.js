@@ -1,8 +1,6 @@
 import Ember from 'ember';
-import ScrollToUpdateAppNavMixin from 'personal-web/mixins/scroll-to-update-app-nav';
-import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
 
-export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
+export default Ember.Component.extend({
   appNavOption: 'Writing',
   attributeBindings: ['id'],
   classNames: ['writing'],
@@ -17,7 +15,7 @@ export default Ember.Component.extend(ScrollToUpdateAppNavMixin, ComponentTransi
     this._super(...arguments);
 
     var query = this.get('store').findAll('post').then((posts) => {
-      this.set('posts', posts);
+      this.set('posts', posts.filter((post) => (post.get('title'))));
       this.set('loaded', true);
     }).catch((error) => {
       this.handleError(error);

@@ -14,6 +14,10 @@ Router.map(function() {
   this.route('post', { path: '/post/:post_id' });
   this.route('post-loading');
   this.route('checkins');
+  this.route('companies');
+  this.route('posts');
+  this.route('skills');
+  this.route('links');
 });
 
 Ember.Route.reopen({

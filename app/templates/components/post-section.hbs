@@ -1,14 +1,8 @@
-<div>
-  <h1>{{post.title}}</h1>
-  <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
-  {{#if post.imageUrl}}
-    <div class="image {{post.imageOrientation}}" style={{background-image-style post.imageUrl}}></div>
-  {{else if notLoaded}}
-    <div class="image"></div>
-  {{/if}}
-  {{#if showPostBody}}
-    <div class="body" id="post-{{post.id}}">{{component 'compiled-markdown' markdown=post.body}}</div>
-  {{else}}
-    <div class="body"></div>
-  {{/if}}
-</div>
+<h1>{{post.title}}</h1>
+<div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+{{#if post.imageUrl}}
+  <div class="image {{post.imageOrientation}}" style={{background-image-style post.imageUrl}}></div>
+{{/if}}
+{{#if post.body}}
+  <div class="body" id="post-{{post.id}}">{{component 'compiled-markdown' markdown=post.body}}</div>
+{{/if}}

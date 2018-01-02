@@ -1,25 +1,29 @@
 section.companies {
-  .standard-fadein;
-  .standard-transition-states;
-  .standard-container;
-  background: rgba(0, 0, 0, 0.025);
-
-  @media (min-width: 35em) {
-    background: rgba(0, 0, 0, 0.025);
-  }
+  border-bottom: none;
+  padding-bottom: 0;
 
   >ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2em auto 0 auto;
+    margin: 3em auto 0 auto;
     max-width: 80em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.025);
+
+    @media (min-width: 35em) {
+      background: rgba(0, 0, 0, 0.025);
+    }
 
     a {
+      .standard-highlight;
+
       @media (hover: hover) {
         transition: box-shadow 0.5s, transform 0.5s;
 
         &:hover {
+          .standard-highlight-hover;
+          color: inherit;
           box-shadow: 0 0 4em rgba(0,0,0,0.075);
           transform: scale(1.05);
         }
@@ -36,21 +40,20 @@ section.companies {
       border-left: 1px solid rgba(0,0,0,0.03);
       border-top: 1px solid rgba(0,0,0,0.03);
       box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      display: inline-block;
       margin-bottom: 1em;
       padding: 4em 3em;
-      width: ~"calc(100% - 1.5em)";
+      width: 100%;
 
-      @media (min-width: 35em) {
+      @media (min-width: 60em) {
         margin: 0.5em;
         width: ~"calc(50% - 1.5em)";
       }
 
-      @media (min-width: 60em) {
+      @media (min-width: 90em) {
+        margin: 1em;
         padding: 4em;
-        width: ~"calc(100% / 3 - 1.5em)";
+        width: ~"calc(100% / 3 - 2.25em)";
       }
 
       &.placeholder {
@@ -61,19 +64,22 @@ section.companies {
 
       div.logo {
         display: block;
+        margin: 0;
+        padding: 3em 0;
+        position: relative;
         text-align: center;
         width: 100%;
 
         img {
           display: block;
+          height: 5em;
           margin: auto;
-          width: 75%;
+          max-width: 100%;
         }
       }
 
       div.info {
         border-top: 1px solid rgba(0,0,0,0.05);
-        margin-top: 2em;
         padding-top: 2em;
 
         h4 {

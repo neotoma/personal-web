@@ -1,9 +1,7 @@
 import Ember from 'ember';
 import PhotoSwipeMixin from '../mixins/photoswipe';
-import ScrollToUpdateAppNavMixin from '../mixins/scroll-to-update-app-nav';
-import ComponentTransitionsMixin from '../mixins/component-transitions';
 
-export default Ember.Component.extend(PhotoSwipeMixin, ScrollToUpdateAppNavMixin, ComponentTransitionsMixin, {
+export default Ember.Component.extend(PhotoSwipeMixin, {
   tagName: 'section',
   classNames: ['photos'],
   attributeBindings: ['id'],

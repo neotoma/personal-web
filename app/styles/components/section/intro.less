@@ -2,6 +2,10 @@ section.intro {
   border-bottom: none;
   padding-bottom: 0;
 
+  &.hidden {
+    visibility: hidden;
+  }
+
   h1 {
     line-height: 1em;
 
@@ -27,11 +31,17 @@ section.intro {
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 100% auto;
+    margin: auto;
+    max-width: 1400px;
     padding-bottom: 60%;
     z-index: 1;
 
     @media (max-width: 60em) {
       margin-top: 48px;
+    }
+
+    @media (min-width: 1600px) {
+      padding-bottom: 850px;
     }
   }
 
@@ -45,7 +55,8 @@ section.intro {
 
     a {
       .standard-link;
-      color: rgba(0,0,0,0.5);
+      .standard-font-family;
+      color: black;
       display: inline-block;
       font-size: 14px;
       padding: 32px;

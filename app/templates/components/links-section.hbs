@@ -1,21 +1,6 @@
 <h2>Also find me on...</h2>
 <ul>
-  {{#if sortedLinks}}
-    {{#each sortedLinks as |link|}}
-      <li><a href="{{link.url}}" rel="me">{{link.name}}</a></li>
-    {{/each}}
-  {{else if notLoaded}}
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-    <li class="placeholder"></li>
-  {{/if}}
+  {{#each sortedLinks as |link|}}
+    <li><a href="{{link.url}}" rel="me">{{link.name}}</a></li>
+  {{/each}}
 </ul>

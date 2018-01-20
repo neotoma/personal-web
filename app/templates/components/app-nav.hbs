@@ -1,3 +1,4 @@
-{{#link-to "index" class="image"}}<img src="{{imageUrl}}" />{{/link-to}}
-{{#link-to "index" class="full-name"}}{{fullName}}{{/link-to}}
-<div class="content-type">{{contentType}}</div>
+{{#if appNav.shown}}
+  {{#link-to "index" class="image"}}<img src="{{imageUrl}}" />{{/link-to}}
+  <div class="full-name">{{#link-to "index"}}{{fullName}}{{/link-to}}</div>
+{{/if}}

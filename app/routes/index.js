@@ -1,26 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  appNavOptions: [{
-    'name': 'Intro',
-    'anchor': '#intro'
-  }, {
-    'name': 'History',
-    'anchor': '#history'
-  }, {
-    'name': 'Writing',
-    'anchor': '#writing'
-  }, {
-    'name': 'Skills',
-    'anchor': '#skills'
-  }, {
-    'name': 'Companies',
-    'anchor': '#companies'
-  }, {
-    'name': 'Links',
-    'anchor': '#links'
-  }],
-
+  appNavHidden: true,
   headData: Ember.inject.service(),
 
   model() {

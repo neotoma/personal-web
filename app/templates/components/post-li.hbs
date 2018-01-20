@@ -1,0 +1,7 @@
+{{#if hasHeader}}
+  {{#link-to 'post' post.id}}
+    {{post-li-interior-div post=post}}
+  {{/link-to}}
+{{else}}
+  {{post-li-interior-div post=post}}
+{{/if}}

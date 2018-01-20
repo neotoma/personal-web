@@ -2,14 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
+  classNameBindings: ['hidden'],
   classNames: ['intro'],
   computedAttributes: ['coverImageUrl', 'fullName', 'homeLocation', 'profession'],
   id: 'intro',
-  store: Ember.inject.service(),
   tagName: 'section',
 
-  hasLastObjects: Ember.computed('lastCheckin', 'lastGeolocation', 'lastUpdate', 'lastWeatherExperience', function() {
-    return (this.get('lastCheckin') || this.get('lastGeolocation') || this.get('lastUpdate') || this.get('lastWeatherExperience'));
+  hidden: Ember.computed('tagName', 'fullName', 'subheader', function() {
+    return !(this.get('coverImageUrl') && this.get('fullName') && this.get('subheader'));
   }),
 
   imageStyle: Ember.computed('attributes.@each.value', function() {
@@ -21,6 +21,8 @@ export default Ember.Component.extend({
   }),
 
   subheader: Ember.computed('profession', 'homeLocation', function() {
-    return `${this.get('profession')} based in ${this.get('homeLocation')}`;
+    if (this.get('profession') && this.get('homeLocation')) {
+      return `${this.get('profession')} based in ${this.get('homeLocation')}`;
+    }
   })
 });

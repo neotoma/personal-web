@@ -7,14 +7,10 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('application-error');
-  this.route('application-loading');
   this.route('not-found', { path: '*path'});
-  this.route('photos');
-  this.route('plan', { path: '/plans/:plan_id' });
-  this.route('post', { path: '/post/:post_id' });
-  this.route('post-loading');
   this.route('checkins');
   this.route('companies');
+  this.route('post', { path: '/posts/:post_id' });
   this.route('posts');
   this.route('skills');
   this.route('links');
@@ -22,9 +18,10 @@ Router.map(function() {
 
 Ember.Route.reopen({
   appNav: Ember.inject.service(),
+
   activate: function() {
     this._super();
-    this.get('appNav').set('options', this.get('appNavOptions'));
+    this.get('appNav').set('hidden', this.get('appNavHidden'));
   }
 });
 

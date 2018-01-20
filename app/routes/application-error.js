@@ -1,15 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  setupController: function(controller, error) {
-    Ember.Logger.debug(error.message);
-    controller.set('message', error.message);
-    this._super(...arguments);
+  headData: Ember.inject.service(),
 
-    Ember.run.next(() => {
-      if (!this.get('isDestroyed')) {
-        controller.set('loadedClass', 'loaded');
-      }
-    });
+  setupController: function(controller, error) {
+    if (error) {
+      Ember.Logger.debug(error.message);
+      controller.set('error', error);
+    }
+
+    this.set('headData.title', 'Error');
   }
 });

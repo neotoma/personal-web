@@ -23,17 +23,5 @@ module.exports = function(defaults) {
 
   app.import('vendor/ember/ember-template-compiler.js');
 
-  // PhotoSwipe
-
-  app.import('bower_components/photoswipe/dist/photoswipe.css');
-  app.import('bower_components/photoswipe/dist/photoswipe.js');
-  app.import('bower_components/photoswipe/dist/photoswipe-ui-default.js');
-
-  var photoswipeImages = pickFiles('bower_components/photoswipe/dist/default-skin', {
-    srcDir: '/',
-    files: ['**/*.png', '**/*.gif'],
-    destDir: '/assets'
-  });
-
-  return app.toTree([photoswipeImages]);
+  return app.toTree([]);
 };

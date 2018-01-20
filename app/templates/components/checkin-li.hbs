@@ -1,0 +1,11 @@
+<div class="interior">
+  {{#if checkin.photoUrl}}
+    <div class="image" style={{background-image-style checkin.photoUrl}}></div>
+  {{/if}}
+  <div class="content">
+    <div>
+      <div class="header">{{checkin.placeName}}</div>
+      <div class="description">{{format-date checkin.createdAt day="numeric" month="long" year="numeric"}}</div>
+    </div>
+  </div>
+</div>

@@ -9,5 +9,9 @@ module.exports = {
     browser: true
   },
   rules: {
+    "eol-last": [
+      "warn",
+      "always"
+    ]
   }
 };

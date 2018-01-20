@@ -50,8 +50,8 @@ export default DS.Store.extend({
     });
   },
 
-  findAll(modelName) {
-    return this.queryShoebox(modelName);
+  findAll(modelName, query) {
+    return this.queryShoebox(modelName, query);
   },
 
   findRecord(modelName, id, query) {

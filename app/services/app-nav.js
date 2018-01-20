@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Service.extend(Ember.Evented, {
-  options: null,
+export default Ember.Service.extend({
+  hidden: false,
 
-  show() {
-    this.trigger('show');
-  }
+  shown: Ember.computed('hidden', function() {
+    return !this.get('hidden');
+  })
 });

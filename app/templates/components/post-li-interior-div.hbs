@@ -1,0 +1,13 @@
+{{#if post.imageUrl}}
+  <div class="image {{post.imageFrame}}" style={{background-image-style post.imageUrl}}></div>
+{{/if}}
+<div class="content">
+  <div>
+    {{#if post.title}}
+      <div class="header">{{post.title}}</div>
+    {{else}}
+      <div class="body">{{compiled-markdown markdown=post.body}}</div>
+    {{/if}}
+    <div class="description">{{#link-to 'post' post.id}}{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}{{/link-to}}</div>
+  </div>
+</div>

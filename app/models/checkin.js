@@ -19,10 +19,8 @@ export default Model.extend({
   photoUrl: attr('string'),
 
   placeUrl: Ember.computed('foursquareVenueId', function() {
-    if (!this.get('foursquareVenueId')) { return; }
+    if (!this.get('foursquareVenueId')) { return; }
 
     return `http://foursquare.com/v/${this.get('foursquareVenueId')}`;
   })
 });
-
-

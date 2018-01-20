@@ -10,6 +10,9 @@ module.exports = function(environment) {
       FEATURES: {}
     },
     environment: environment,
+    fastboot: {
+      hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/, process.env.PERSONAL_WEB_DEPLOY_HOST]
+    },
     intl: {
       baseLocale: 'en-us'
     },

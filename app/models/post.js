@@ -15,6 +15,14 @@ export default Model.extend({
   updatedAt: attr('date'),
   updates: hasMany('update'),
 
+  imageFrame: Ember.computed('photo.frame', 'image.frame', function() {
+    if (this.get('photo.frame')) {
+      return this.get('photo.frame');
+    } else if (this.get('image.frame')) {
+      return this.get('image.frame');
+    }
+  }),
+
   imageUrl: Ember.computed('photo.imageUrl', 'image.assetUrl', function() {
     if (this.get('photo.imageUrl')) {
       return this.get('photo.imageUrl');

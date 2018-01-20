@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function initialize(/* application */) {
+export function initialize() {
   Ember.Router.reopen({
     headData: Ember.inject.service(),
 

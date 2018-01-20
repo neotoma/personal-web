@@ -1,14 +1,11 @@
-import ComponentTransitionsMixin from 'personal-web/mixins/component-transitions';
 import Ember from 'ember';
 
-export default Ember.Component.extend(ComponentTransitionsMixin, {
-  bodyShown: false,
+export default Ember.Component.extend({
   classNames: ['post'],
-  store: Ember.inject.service(),
   tagName: 'section',
 
   didReceiveAttrs() {
-    this.set('bodyShown', false); // hack to force component rerender
+    this.set('bodyReady', false); // hack to force component rerender
 
     var deferred = Ember.RSVP.defer();
 
@@ -18,19 +15,14 @@ export default Ember.Component.extend(ComponentTransitionsMixin, {
         return;
       }
 
-      this.set('bodyShown', true);
-
-      if (this.get('post')) {
-        this.set('loaded', true);
-      }
-
+      this.set('bodyReady', true);
       deferred.resolve();
     });
 
     this.deferRendering(deferred.promise);
   },
 
-  showPostBody: Ember.computed('bodyShown', 'post', function() {
-    return (this.get('bodyShown') && this.get('post'));
+  bodyReady: Ember.computed('bodyReady', 'post', function() {
+    return (this.get('bodyReady') && this.get('post'));
   })
 });

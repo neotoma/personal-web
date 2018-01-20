@@ -1,8 +1,4 @@
 section.history {
-  .standard-fadein;
-  .standard-transition-states;
-  .standard-container;
-
   @media (min-width: 70em) {
     display: flex;
     justify-content: center;
@@ -15,19 +11,19 @@ section.history {
 
     @media (min-width: 70em) {
       text-align: right;
-      margin-right: 2em;
+      margin-right: 96px;
       max-width: 18em;
     }
   }
 
   div.timeline {
     border-top: 1px solid rgba(0,0,0,0.1);
-    margin: 2em 3em 1em 0;
+    margin: 2em 3em 3em 0;
 
     @media (min-width: 30em) {
-      margin: 3em 3em 2em 0;
+      margin: 3em 3em 4em 0;
     }
-    
+
     @media (min-width: 70em) {
       left: 0;
       margin: 0;
@@ -35,7 +31,7 @@ section.history {
       position: absolute;
       text-align: right;
       top: 12em;
-      width: ~"calc(50% - 14em)";
+      width: ~"calc(50% - 16em)";
     }
 
     &:after {
@@ -94,12 +90,37 @@ section.history {
     }
   }
 
+  button.expand {
+    .standard-button;
+    display: none;
+    margin: 32px auto 0 auto;
+    max-width: 400px;
+    width: 100%;
+    z-index: 1;
+
+    @media (max-width: 40em) {
+      margin: 32px 32px 0 32px;
+      max-width: none;
+      width: ~"calc(100% - 64px)";
+    }
+
+    @media (min-width: 70em) {
+      display: none;
+    }
+  }
+
   div.content {
-    margin: auto;
-    max-width: 50em;
-    padding: 2em 1em 0 1em;
+    position: relative;
     text-align: left;
     vertical-align: top;
+
+    @media (max-width: 50em) {
+      margin: 0 32px;
+    }
+
+    @media (min-width: 70em) {
+      max-width: 608px;
+    }
 
     p {
       font-size: 1.125em;
@@ -119,7 +140,7 @@ section.history {
 
     @media (min-width: 70em) {
       margin: inherit;
-      max-width: 38em;
+      max-width: 608px;
       padding: 0;
 
       p.placeholder {
@@ -131,6 +152,33 @@ section.history {
 
         &:nth-of-type(5) {
           width: 15em;
+        }
+      }
+    }
+  }
+
+  &:not(.expanded) {
+    @media (max-width: 70em) {
+      button.expand {
+        display: block;
+      }
+
+      div.content {
+        max-height: 28em;
+        overflow: hidden;
+
+        &:after {
+          background: linear-gradient(transparent, white);
+          bottom: 0;
+          content: "";
+          height: 8em;
+          left: 0;
+          position: absolute;
+          width: 100%;
+        }
+
+        div {
+          height: 28em;
         }
       }
     }

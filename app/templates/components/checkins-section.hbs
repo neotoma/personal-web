@@ -1,45 +1,16 @@
-{{#if standalone}}
-  <h1>Check-ins</h1>
-{{else}}
-  <h2>Check-ins</h2>
-{{/if}}
-
-<div class="checkins">
-  {{#if sortedCheckins.length}}
-    {{#each sortedCheckins as |checkin|}}
-      <div class="checkin">
-        <div class="place-name">
-          {{#if checkin.placeUrl}}
-            <a href="{{checkin.placeUrl}}">{{checkin.placeName}}</a>
-          {{else}}
-            {{checkin.placeName}}
-          {{/if}}
-        </div>
-        <div class="created-at">{{format-date checkin.createdAt day="numeric" month="long" year="numeric" hour="numeric"}}</div>
-        <div class="place-city">{{checkin.placeCity}}</div>
-        {{#if checkin.photoUrl}}
-          <img src="{{checkin.photoUrl}}" />
-        {{/if}}
-        {{#if checkin.description}}
-          <div class="description">"{{checkin.description}}"</div>
-        {{/if}}
-      </div>
-    {{/each}}
-  {{else}}
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-    <div class="placeholder"></div>
-  {{/if}}
+<h2>Check-ins</h2>
+<div>
+  <div>
+    <ul>
+      {{#if sortedCheckins}}
+        {{#each sortedCheckins as |checkin|}}
+          {{checkin-li checkin=checkin}}
+        {{/each}}
+      {{/if}}
+    </ul>
+  </div>
 </div>
 
-{{#if sortedCheckins.length}}
-  {{#if viewAll}}
-    {{#link-to "checkins"}}View all check-ins{{/link-to}}
-  {{/if}}
+{{#if limit}}
+  {{#link-to 'checkins' class="view-all"}}View all check-ins{{/link-to}}
 {{/if}}

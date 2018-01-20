@@ -1,11 +1,4 @@
-{{#if options}}
-  {{#each options as |option|}}
-    {{#if (compare option.name "===" activeOption)}}
-      {{#scroll-to href=option.anchor class="active"}}{{option.name}}{{/scroll-to}}
-    {{else}}
-      {{#scroll-to href=option.anchor duration=400}}{{option.name}}{{/scroll-to}}
-    {{/if}}
-  {{/each}}
-{{else}}
-  {{#link-to "index" class="emphasis never-active"}}{{fullName}}{{/link-to}}
+{{#if appNav.shown}}
+  {{#link-to "index" class="image"}}<img src="{{imageUrl}}" />{{/link-to}}
+  <div class="full-name">{{#link-to "index"}}{{fullName}}{{/link-to}}</div>
 {{/if}}

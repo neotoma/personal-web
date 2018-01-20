@@ -20,7 +20,7 @@ blockquote {
   }
 
   @media (min-width: 40em) {
-    background: linear-gradient(rgba(0,0,0,0.0125), rgba(0,0,0,0.025));
+    background: rgba(0,0,0,0.02);
     border: none;
     margin: 2em 0 3em 0;
     padding: 2em;
@@ -37,6 +37,7 @@ blockquote {
 
 body {
   .standard-font-family;
+  backface-visibility: hidden;
   background: #ffffff;
   color: #000000;
   text-align: center;
@@ -57,19 +58,20 @@ div {
 }
 
 h1 {
-  .standard-font-family;
-  font-size: 2em;
+  .standard-font-family-bold;
+  font-size: 32px;
   margin: 0;
 
-  @media (min-width: 40em) {
-    font-size: (46em / 16);
+  @media (min-width: 45em) {
+    font-size: 40px;
   }
 }
 
 h2 {
   .standard-font-family-bold;
   color: rgba(0,0,0,0.75);
-  font-size: 1.625em;
+  font-size: 26px;
+  line-height: 1.2em;
   margin: 0;
 
   @media (min-width: 40em) {
@@ -138,12 +140,36 @@ ul, ol, li {
 }
 
 section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 64px 0;
   position: relative;
+
+  &:first-of-type {
+    padding-top: 32px;
+  }
+
+  @media (min-width: 50em) {
+    padding: 96px;
+
+    &:first-of-type {
+      padding-top: 64px;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 small {
   color: rgba(0,0,0,0.5);
   font-size: 0.875em;
+}
+
+code {
+  .standard-monospace-font-family;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 pre {
@@ -154,9 +180,4 @@ pre {
   padding: 2em;
   overflow: auto;
   width: 100%;
-
-  code {
-    box-sizing: border-box;
-    width: 100%;
-  }
 }

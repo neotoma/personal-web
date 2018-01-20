@@ -1,44 +1,11 @@
+<h1>{{fullName}}</h1>
+<div class="subheader">{{subheader}}</div>
+<nav>
+  <a href="#history">History</a>
+  <a href="#posts">Posts</a>
+  <a href="#companies">Companies</a>
+  <a href="#checkins">Check-ins</a>
+  <a href="#skills">Skills</a>
+  <a href="#links">Links</a>
+</nav>
 <div class="image" style="{{imageStyle}}"></div>
-<div class="info">
-  {{#if fullName}}
-    <h1>{{fullName}}</h1>
-  {{/if}}
-  {{#if profession}}
-    <div class="profession">{{profession}}</div>
-  {{/if}}
-  {{#if homeLocation}}
-    <div class="location">{{homeLocation}}</div>
-  {{/if}}
-  {{#if hasLastObjects}}
-    <ul>
-      {{#if lastGeolocation}}
-        <li class="geolocation">Currently in <span>{{lastGeolocation.neighborhood}}</span></li>
-      {{/if}}
-      {{#if lastWeatherExperience}}
-        <li class="weather">Experiencing <span>{{lastWeatherExperience.description}}</span></li>
-      {{/if}}
-      {{#if lastCheckin}}
-        <li class="last-checkin">Checked in {{format-relative lastCheckin.createdAt}} at
-          <span>
-            {{#if lastCheckin.placeUrl}}
-              <a href="{{lastCheckin.placeUrl}}">{{lastCheckin.placeName}}</a>
-            {{else}}
-              {{lastCheckin.placeName}}
-            {{/if}}
-          </span>
-        </li>
-      {{/if}}
-      {{#if lastUpdate.description}}
-        <li class="last-published">Last published
-          <span>
-            {{#if lastUpdate.post}}
-              {{#link-to 'post' lastUpdate.post.id}}{{lastUpdate.description}}{{/link-to}}
-            {{else}}
-              {{lastUpdate.description}}
-            {{/if}}
-          </span>
-        </li>
-      {{/if}}
-    </ul>
-  {{/if}}
-</div>

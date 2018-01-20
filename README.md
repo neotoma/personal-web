@@ -33,14 +33,14 @@ If you intend to deploy the server to another system using scripts within the "D
 The app will expect the data server to fulfill requests for the following types of data:
 
 - `attribute`: Basic attributes about the individual, namely those with IDs `birthday`, `coverImageUrl`, `description`, `firstName`, `fullName`, `gender`,  `history`, `homeLocation`, `imageUrl`, `lastName`, and `profession`
-- `checkin`: Latest checkin to show on homepage within cover
+- `checkin`: Check-ins to list on homepage under "Check-ins"
 - `company`: Companies to list on homepage under "Companies"
-- `geolocation`: Latest geolocation to show on homepage within cover
+- `image`: Images to show in relation to posts
 - `link`: Links to list on homepage under "Links"
-- `post`: Posts to list on homepage under "Writing" and display individually on post pages
+- `photo`: Photos to show in relation to posts
+- `post`: Posts to list on homepage under "Posts" and display individually on post pages
+- `redirect`: Redirects to posts that previously had different IDs and therefore different URLs
 - `skill`: Skills to list on homepage under "Skills"
-- `update`: Latest update to show on homepage within cover
-- `weatherExperience`: Latest weather experience to show on homepage within cover
 
 ## Running the app
 

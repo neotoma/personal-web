@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
-  classNameBindings: ['limit:limited'],
+  classNameBindings: ['carousel', 'limit:limited'],
   classNames: ['companies'],
   id: 'companies',
   sortedCompaniesProperties: ['startedAt:desc'],
@@ -18,8 +18,6 @@ export default Ember.Component.extend({
       sort: '-startedAt'
     }).then((companies) => {
       this.set('companies', companies);
-    }).catch((error) => {
-      this.handleError(error);
     });
 
     this.deferRendering(query);

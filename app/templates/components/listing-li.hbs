@@ -1,0 +1,7 @@
+{{#if linkListings}}
+  {{#link-to modelName listing.id}}
+    {{listing-interior-div listing=listing modelName=modelName}}
+  {{/link-to}}
+{{else}}
+  {{listing-interior-div listing=listing modelName=modelName}}
+{{/if}}

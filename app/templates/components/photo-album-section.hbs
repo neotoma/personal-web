@@ -1,0 +1,4 @@
+<h1>{{photoAlbum.title}}</h1>
+<div class="description">{{photoAlbum.description}}</div>
+<div class="published-at">Published <span>{{format-date photoAlbum.publishedAt day="numeric" month="long" year="numeric"}}</span></div>
+{{listings-section format="image" header=undefined listings=photoAlbum.photos linkListings=true modelName="photo" sort="published-at"}}

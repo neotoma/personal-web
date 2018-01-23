@@ -13,10 +13,11 @@ module.exports = function(environment) {
     fastboot: {
       hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/, process.env.PERSONAL_WEB_DEPLOY_HOST]
     },
+    historySupportMiddleware: true,
     intl: {
       baseLocale: 'en-us'
     },
-    locationType: 'auto',
+    locationType: 'router-scroll',
     modulePrefix: 'personal-web',
     segment: {
       defaultPageTrack: false,

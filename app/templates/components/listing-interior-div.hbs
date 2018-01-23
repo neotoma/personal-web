@@ -1,0 +1,13 @@
+<div class="interior">
+  {{#if hasImage}}
+    <div class="image" style={{background-image-style listing.imageUrl}}></div>
+  {{/if}}
+  {{#if hasContent}}
+    <div class="content">
+      <div>
+        <div class="header">{{listing.name}}</div>
+        <div class="description">{{format-date date day="numeric" month="long" year="numeric"}}</div>
+      </div>
+    </div>
+  {{/if}}
+</div>

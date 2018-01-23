@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
-  classNameBindings: ['limit:limited'],
+  classNameBindings: ['carousel', 'limit:limited'],
   classNames: ['posts'],
   id: 'posts',
   sortedPostsProperties: ['publishedAt:desc'],
@@ -19,8 +19,8 @@ export default Ember.Component.extend({
       sort: '-publishedAt'
     }).then((posts) => {
       this.set('posts', posts);
-    }).catch((error) => {
-      this.handleError(error);
+    }).catch(function(error) {
+      Ember.Logger.debug(error.message);
     });
 
     this.deferRendering(query);

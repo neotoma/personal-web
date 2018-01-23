@@ -13,12 +13,15 @@ export default Model.extend({
   posts: hasMany('post'),
   publishedAt: attr('date'),
   updatedAt: attr('date'),
-  updates: hasMany('update'),
   width: attr('number'),
 
   dimensions: Ember.computed('firstName', 'lastName', function() {
     if (this.get('width') && this.get('height')) {
       return this.get('width') + 'x' + this.get('height');
     }
+  }),
+
+  name: Ember.computed('description', function() {
+    return this.get('description');
   })
 });

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
-  classNameBindings: ['limit:limited'],
+  classNameBindings: ['carousel', 'limit:limited'],
   classNames: ['checkins'],
   id: 'checkins',
   sortedCheckinsProperties: ['createdAt:desc'],
@@ -18,8 +18,6 @@ export default Ember.Component.extend({
       sort: '-created-at'
     }).then((checkins) => {
       this.set('checkins', checkins);
-    }).catch((error) => {
-      this.handleError(error);
     });
 
     this.deferRendering(query);

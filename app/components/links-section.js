@@ -14,8 +14,6 @@ export default Ember.Component.extend({
 
     var query = this.get('store').findAll('link').then((links) => {
       this.set('links', links);
-    }).catch((error) => {
-      this.handleError(error);
     });
 
     this.deferRendering(query);

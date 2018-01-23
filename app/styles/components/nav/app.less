@@ -12,7 +12,7 @@ nav.app {
     top: 24px;
     z-index: 1000;
 
-    @media (max-width: 50em) {
+    @media (max-width: 50em), (max-height: 400px) {
       display: none;
     }
   }
@@ -32,6 +32,10 @@ nav.app {
       height: 6em;
     }
 
+    @media (max-height: 400px) {
+      height: 3em;
+    }
+
     a {
       .standard-link;
       .standard-font-family;
@@ -47,6 +51,10 @@ nav.app {
 
       @media (min-width: 40em) {
         padding: 40px;
+      }
+
+      @media (max-height: 400px) {
+        padding: 18px;
       }
     }
   }

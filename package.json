@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/neotoma/personal-web",
   "scripts": {
     "build": "ember build",
@@ -55,6 +55,7 @@
     "ember-intl": "2.31.1",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
+    "ember-router-scroll": "^0.4.0",
     "ember-scroll-to": "0.5.3",
     "ember-source": "~2.16.0",
     "grunt-cli": "^1.2.0",

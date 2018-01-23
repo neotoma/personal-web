@@ -1,0 +1,45 @@
+section.photo-album {
+  div.description {
+    .standard-paragraph;
+    box-sizing: border-box;
+    cursor: default;
+    margin: 16px auto 16px auto;
+    padding: 0 16px;
+    max-width: 1000px;
+
+    @media (min-width: 40em) {
+      margin: 32px auto 0 auto;
+      margin-top: 32px;
+      padding: 0 32px;
+    }
+  }
+
+  div.published-at {
+    .standard-selection;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    cursor: default;
+    font-size: 14px;
+    margin-top: 32px;
+    opacity: 0.5;
+    padding-top: 24px;
+
+    @media (min-width: 40em) {
+      font-size: 16px;
+      margin-top: 32px;
+      padding-top: 32px;
+    }
+
+    span {
+      .standard-font-family-bold;
+    }
+  }
+
+  section.photos {
+    padding: 0;
+
+    @media (min-width: 50em) {
+      margin: -96px;
+      margin-top: 0;
+    }
+  }
+}

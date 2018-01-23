@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import isNumeric from 'personal-web/utils/is-numeric';
 import md5 from 'ember-md5';
-import {pluralize} from 'ember-inflector';
+import { pluralize } from 'ember-inflector';
 
 export default DS.Store.extend({
   boxes: [],
@@ -20,14 +21,14 @@ export default DS.Store.extend({
       shoebox = fastboot.get('shoebox'),
       store = this;
 
-    return new Ember.RSVP.Promise((resolve) => {
+    return new Ember.RSVP.Promise((resolve, reject) => {
       if (!fastboot.get('isFastBoot') && shoebox.retrieve(boxName) && store.get('boxes').indexOf(boxName) !== -1) {
         var payload = shoebox.retrieve(boxName);
 
         store.pushPayload(payload);
         store.get('boxes').splice(store.get('boxes').indexOf(boxName), 1);
 
-        Ember.RSVP.all(payload.data.map((resourceObject) => store.peekRecord(resourceObject.type, resourceObject.id))).then(resolve);
+        Ember.RSVP.all(payload.data.map((resourceObject) => store.peekRecord(resourceObject.type, resourceObject.id))).then(resolve).catch(reject);
       } else {
         store.query(modelName, query).then((records) => {
           if (fastboot.get('isFastBoot')) {
@@ -45,6 +46,18 @@ export default DS.Store.extend({
           } else {
             resolve(records);
           }
+        }).catch((error) => {
+          // If error, load empty hash into shoebox to prevent second request attempt upon app render
+
+          var boxes = shoebox.retrieve('boxes');
+
+          if (!boxes) { boxes = []; }
+
+          boxes.push(boxName);
+          shoebox.put('boxes', boxes);
+          shoebox.put(boxName, {});
+
+          reject(error);
         });
       }
     });
@@ -57,7 +70,7 @@ export default DS.Store.extend({
   findRecord(modelName, id, query) {
     if (!query) { query = {}; }
     if (!query.filter) { query.filter = {}; }
-    query.filter.id = id;
+    query.filter.id = isNumeric(id) ? parseInt(id) : id;
 
     return this.queryShoebox(modelName, query).then((records) => records ? records.get('firstObject') : undefined);
   },

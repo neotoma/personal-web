@@ -1,7 +1,7 @@
 import attr from 'ember-data/attr';
 import Ember from 'ember';
 import Model from 'ember-data/model';
-import { belongsTo, hasMany } from 'ember-data/relationships';
+import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   author: attr('string'),
@@ -13,7 +13,6 @@ export default Model.extend({
   publishedAt: attr('date'),
   title: attr('string'),
   updatedAt: attr('date'),
-  updates: hasMany('update'),
 
   imageFrame: Ember.computed('photo.frame', 'image.frame', function() {
     if (this.get('photo.frame')) {

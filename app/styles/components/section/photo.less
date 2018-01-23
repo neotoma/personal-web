@@ -1,0 +1,85 @@
+section.photo {
+  @media (min-width: 50em) {
+    padding-left: 128px;
+    padding-right: 128px;
+  }
+
+  div.image {
+    position: relative;
+
+    img {
+      height: auto;
+      width: 100%;
+
+      @media (min-width: 50em) {
+        max-height: 90vh; //~"calc(90vh - 224px)";
+        max-width: ~"calc(100% - 96px)";
+        width: auto;
+      }
+    }
+  }
+
+  &.panoramic div.image {
+    >div {
+      overflow-x: auto;
+      padding: 0 32px 32px 32px;
+
+      @media (min-width: 50em) {
+        padding: 0 64px 32px 64px;
+      }
+    }
+
+    img {
+      height: auto;
+      max-height: 70vh;
+      width: auto;
+
+      @media (min-width: 50em) {
+        max-width: none;
+        width: auto;
+      }
+    }
+
+    .gradient {
+      content: "";
+      position: absolute;
+      height: 100%;
+      top: 0;
+      width: 32px;
+      z-index: 10;
+
+      @media (min-width: 50em) {
+        width: 64px;
+      }
+    }
+
+    &:after {
+      .gradient;
+      background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.5));
+      right: 0;
+    }
+
+    &:before {
+      .gradient;
+      background: linear-gradient(to left, rgba(255,255,255,0), rgba(255,255,255,0.5));
+      left: 0;
+    }
+  }
+
+  div.description {
+    font-size: 20px;
+    margin-top: 32px;
+
+    @media (min-width: 40em) {
+      margin-top: 64px;
+    }
+  }
+
+  div.published-at {
+    margin-top: 24px;
+
+    @media (min-width: 40em) {
+      margin-top: 44px;
+    }
+  }
+}

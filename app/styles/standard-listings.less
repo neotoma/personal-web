@@ -2,6 +2,10 @@
   padding-left: 0;
   padding-right: 0;
 
+  &.hideNoListings.hasNoListings {
+    display: none;
+  }
+
   >div {
     background: rgba(0, 0, 0, 0.03);
     margin-top: 16px;
@@ -226,10 +230,24 @@
           margin-top: 24px;
         }
       }
+
+      &.image {
+        div.content {
+          display: none;
+        }
+
+        div.image {
+          padding-bottom: 100%;
+
+          @media (min-width: 40em) {
+            height: 100%;
+          }
+        }
+      }
     }
   }
 
-  &.limited {
+  &.carousel {
     >div >div {
       overflow-x: auto;
     }
@@ -282,6 +300,14 @@
           left: 0;
           position: absolute;
           width: 100%;
+        }
+
+        &.image {
+          >a, >div.interior {
+            @media (max-width: 40em) {
+              height: 279px;
+            }
+          }
         }
       }
     }

@@ -2,10 +2,30 @@
 <div class="subheader">{{subheader}}</div>
 <nav>
   <a href="#history">History</a>
-  <a href="#posts">Posts</a>
-  <a href="#companies">Companies</a>
-  <a href="#checkins">Check-ins</a>
-  <a href="#skills">Skills</a>
-  <a href="#links">Links</a>
+
+  {{#if hasPosts}}
+    <a href="#posts">Posts</a>
+  {{/if}}
+
+  {{#if hasPhotos}}
+    <a href="#photos">Photos</a>
+  {{/if}}
+
+  {{#if hasCheckins}}
+    <a href="#checkins">Check-ins</a>
+  {{/if}}
+
+  {{#if hasCompanies}}
+    <a href="#companies">Companies</a>
+  {{/if}}
+
+  {{#if hasSkills}}
+    <a href="#skills">Skills</a>
+  {{/if}}
+
+  {{#if hasLinks}}
+    <a href="#links">Links</a>
+  {{/if}}
+
 </nav>
 <div class="image" style="{{imageStyle}}"></div>

@@ -136,11 +136,16 @@
 .standard-paragraph {
   .standard-selection;
   .standard-font-family;
+  font-size: 17px;
   line-height: 1.5em;
   margin: 0 0 1em 0;
 
   &:last-of-type {
     margin-bottom: 0;
+  }
+
+  @media (min-width: 40em) {
+    font-size: 22px;
   }
 }
 

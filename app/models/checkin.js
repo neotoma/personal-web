@@ -22,5 +22,9 @@ export default Model.extend({
     if (!this.get('foursquareVenueId')) { return; }
 
     return `http://foursquare.com/v/${this.get('foursquareVenueId')}`;
+  }),
+
+  name: Ember.computed('placeName', function() {
+    return this.get('placeName');
   })
 });

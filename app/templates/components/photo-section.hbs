@@ -1,0 +1,11 @@
+<div class="image">
+  <div>
+    <img src="{{photo.imageUrl}}" />
+  </div>
+</div>
+
+{{#if photo.description}}
+  <div class="description">{{photo.description}}</div>
+{{/if}}
+
+<div class="published-at">{{format-date photo.publishedAt day="numeric" month="long" year="numeric"}}</div>

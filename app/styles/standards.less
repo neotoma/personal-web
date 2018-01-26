@@ -100,12 +100,8 @@
   text-decoration: none;
   transition: all 0.25s ease-in-out;
 
-  &:focus, &:active {
-    .standard-highlight-hover;
-  }
-
   @media (hover: hover) {
-    &:hover {
+    &:active, &:focus, &:hover {
       .standard-highlight-hover;
     }
   }
@@ -122,12 +118,8 @@
     outline: none;
   }
 
-  &:focus, &:active {
-    .highlight;
-  }
-
   @media (hover: hover) {
-    &:hover {
+    &:active, &:focus, &:hover {
       .highlight;
     }
   }

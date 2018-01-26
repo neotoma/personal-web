@@ -11,7 +11,7 @@ module.exports = function(environment) {
     },
     environment: environment,
     fastboot: {
-      hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/, process.env.PERSONAL_WEB_DEPLOY_HOST]
+      hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/, process.env.HOIST_DEST_HOST]
     },
     historySupportMiddleware: true,
     intl: {

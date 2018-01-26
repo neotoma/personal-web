@@ -17,14 +17,15 @@ The code requires the following environment variables to run or deploy the serve
 
 ## Required to deploy app
 
-- `PERSONAL_WEB_DEPLOY_USERNAME`: User name with which to SSH into remote deployment server
-- `PERSONAL_WEB_DEPLOY_HOST`: Host address for remote deployment server
-- `PERSONAL_WEB_DEPLOY_DIR`: Remote system path to app directory on deployment server
+- `HOIST_DEST_USER`: User name with which to SSH into remote deployment server
+- `HOIST_DEST_HOST`: Host address for remote deployment server
+- `HOIST_DEST_DIR`: Remote system path to app directory on deployment server
 - `PERSONAL_WEB_PRODUCTION_API_HOST`: Host address for data server needed by remote deployment
 
 ## Optional to deploy app
 
-- `PERSONAL_WEB_PRODUCTION_SEGMENT_WRITE_KEY`: [Segment](http://segment.com) write key for remote deploymnet
+- `PERSONAL_WEB_PRODUCTION_SEGMENT_WRITE_KEY`: [Segment](http://segment.com) write key for remote deployment
+- `HOIST_SYSTEMD_SERVICE`: 
 
 If you intend to deploy the server to another system using scripts within the "Developing and deploying" section below, you can also create a `.env-deploy` file in the base directory, one that will be ignored by Git and used upon deployment to create an `.env` file remotely, thereby setting environment variables on the deployment server.
 
@@ -48,17 +49,8 @@ Once the environment is ready per above, and [Node.js](http://nodejs.org/) with 
 
 1. `npm run install-all` to install NPM and Bower dependencies
 2. `npm run build` to build the app
-3. `npm start` to fire it up
+3. `npm start` to fire app up and automatically reloads it when code changes are made
 
-## Developing and deploying
+## Deploying the server
 
-With [Grunt](gruntjs.com) installed in addition to establishing your environment and executables per the instructions above, you can run any of the following scripts to help with development and deployment:
-
-- `npm start`: Runs the app and automatically reloads it when code changes are made
-- `grunt deploy`: Deploys environment and certificate file dependencies, deploys the app, runs `npm install` remotely to ensure any new dependencies are installed
-- `grunt deploy-dependencies`: Deploys environment and certificate file dependencies
-- `grunt deploy-app`: Deploys the app and runs `npm install` remotely to ensure any new dependencies are installed
-
-If you add `forever` to any of the deployment scripts (e.g. `grunt deploy forever`), [forever](https://github.com/foreverjs/forever) will be used to start or restart the app remotely post-deployment. Ensure that Node with NPM and forever are installed remotely before appending this script.
-
-If you add `systemd` to any of the deployment scripts (e.g. `grunt deploy systemd`), [systemd](https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal) will be used to start or restart the app remotely post-deployment. Ensure that Node and systemd with a service for the app called `personalweb` are installed remotely before running this script.
+Deployment scripts are available through [Hoist](https://github.com/markmhx/grunt-hoist).

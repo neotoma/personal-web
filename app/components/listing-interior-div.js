@@ -19,8 +19,8 @@ export default Ember.Component.extend({
     return (this.get('date'));
   }),
 
-  hasImage: Ember.computed('listing.imageUrl', function() {
-    return (this.get('listing.imageUrl'));
+  hasImage: Ember.computed('imageUrl', function() {
+    return (this.get('imageUrl'));
   }),
 
   hasHeader: Ember.computed('header', function() {
@@ -32,6 +32,14 @@ export default Ember.Component.extend({
       return this.get('listing.name');
     } else if (this.get('listing.title')) {
       return this.get('listing.title');
+    }
+  }),
+
+  imageUrl: Ember.computed('listing.imageUrl', 'listing.thumbImageUrl', function() {
+    if (this.get('listing.thumbImageUrl')) {
+      return this.get('listing.thumbImageUrl');
+    } else if (this.get('listing.imageUrl')) {
+      return this.get('listing.imageUrl');
     }
   })
 });

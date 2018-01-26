@@ -8,6 +8,8 @@ export default Model.extend({
   createdAt: attr('date'),
   description: attr('string'),
   imageUrl: attr('string'),
+  thumbImageUrl: attr('string'),
+  largeImageUrl: attr('string'),
   height: attr('number'),
   orientation: orientation,
   posts: hasMany('post'),

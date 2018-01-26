@@ -1,18 +1,17 @@
 {
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/neotoma/personal-web",
   "scripts": {
     "build": "ember build",
     "build-prod": "ember build --env=production",
     "debug": "node --debug-brk --inspect ./node_modules/.bin/ember server",
-    "deploy": "npm run build-prod && grunt deploy",
+    "deploy": "ember build --env=production && grunt deploy",
     "start": "ember server",
     "install-all": "npm install && bower install",
     "test": "ember test"
   },
   "name": "personal-web",
-  "private": true,
   "description": "Ember-powered personal website app for the IndieWeb 🔥",
   "author": "Mark M. Hendrickson",
   "directories": {
@@ -41,8 +40,6 @@
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-jshint": "^2.0.1",
     "ember-cli-less": "^1.5.3",
-    "ember-cli-mq4-hover-shim": "^1.0.0",
-    "ember-cli-postcss": "3.5.2",
     "ember-cli-qunit": "^4.2.1",
     "ember-cli-release": "1.0.0-beta.2",
     "ember-cli-segment": "^2.1.0",
@@ -60,6 +57,7 @@
     "ember-source": "~2.16.0",
     "grunt-cli": "^1.2.0",
     "grunt-exec": "^3.0.0",
+    "grunt-hoist": "^1.0.4",
     "grunt-rsync": "^2.0.1",
     "handlebars": "4.0.10",
     "load-grunt-tasks": "^3.5.2",
@@ -71,7 +69,6 @@
     "express": "^4.14.0",
     "grunt": "~1.0.1",
     "grunt-ssh": "^0.12.9",
-    "mq4-hover-shim": "^0.3.0",
     "park-ranger": "^1.0.11",
     "prerender-node": "^2.5.0"
   },

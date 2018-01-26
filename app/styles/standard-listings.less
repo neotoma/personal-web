@@ -66,9 +66,11 @@
         display: block;
         transition: transform 0.25s;
 
-        &:hover {
-          .standard-highlight-hover;
-          transform: scale(1.05);
+        @media (hover: hover) {
+          &:hover {
+            .standard-highlight-hover;
+            transform: scale(1.05);
+          }
         }
 
         >div.interior {

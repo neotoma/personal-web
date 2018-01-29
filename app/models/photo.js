@@ -10,6 +10,7 @@ export default Model.extend({
   imageUrl: attr('string'),
   thumbImageUrl: attr('string'),
   largeImageUrl: attr('string'),
+  panoramicImageUrl: attr('string'),
   height: attr('number'),
   orientation: orientation,
   posts: hasMany('post'),

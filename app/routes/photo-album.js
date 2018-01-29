@@ -6,8 +6,8 @@ export default Ember.Route.extend({
 
   model(params) {
     return Ember.RSVP.hash({
-      photoAlbum: this.store.findRecord('photoAlbum', params.photo_album_id, { include: 'photos' }),
       attributes: this.store.findAll('attribute'),
+      photoAlbum: this.store.findRecord('photoAlbum', params.photo_album_id, { include: 'photos' })
     });
   },
 

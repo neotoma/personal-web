@@ -7,7 +7,7 @@ export default Ember.Route.extend({
   model(params) {
     return Ember.RSVP.hash({
       attributes: this.store.findAll('attribute'),
-      photoAlbum: this.store.findRecord('photoAlbum', params.photo_album_id, { include: 'photos' })
+      photoAlbum: this.store.findRecord('photoAlbum', params.photo_album_id, { include: 'photos,coverPhoto' })
     });
   },
 
@@ -17,7 +17,7 @@ export default Ember.Route.extend({
 
     this.set('headData.canonicalUrl', attribute(models['attributes'], 'url') + this.router.generate('photo-album', photoAlbum.get('id')));
     this.set('headData.description', photoAlbum.get('description'));
-    //this.set('headData.imageUrl', photoAlbum.get('imageUrl'));
+    this.set('headData.imageUrl', photoAlbum.get('coverPhoto.largeImageUrl'));
     this.set('headData.title', photoAlbum.get('title'));
   },
 

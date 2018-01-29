@@ -17,6 +17,11 @@ export default Model.extend({
   placeLongitude: attr('number'),
   placeState: attr('string'),
   photoUrl: attr('string'),
+  thumbImageUrl: attr('string'),
+
+  imageUrl: Ember.computed('photoUrl', function() {
+    return this.get('photoUrl');
+  }),
 
   placeUrl: Ember.computed('foursquareVenueId', function() {
     if (!this.get('foursquareVenueId')) { return; }

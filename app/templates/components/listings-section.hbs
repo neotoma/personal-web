@@ -7,7 +7,7 @@
     <div>
       <ul>
         {{#each sortedListings as |listing|}}
-          {{listing-li format=format linkListings=linkListings listing=listing modelName=modelName}}
+          {{listing-li descriptionProperty=descriptionProperty format=format linkListings=linkListings listing=listing modelName=modelName}}
         {{/each}}
       </ul>
     </div>
@@ -16,6 +16,6 @@
   <div class="no-listings">No {{pluralModelName}}</div>
 {{/if}}
 
-{{#if limit}}
+{{#if showViewAll}}
   {{#link-to pluralModelName class="view-all"}}View all {{pluralModelName}}{{/link-to}}
 {{/if}}

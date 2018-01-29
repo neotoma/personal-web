@@ -6,9 +6,9 @@ import orientation from 'personal-web/utils/orientation';
 export default Model.extend({
   assetUrl: attr('string'),
   description: attr('string'),
-  frame: attr('string'),
   height: attr('number'),
   orientation: orientation,
   posts: hasMany('post'),
+  type: attr('string'),
   width: attr('number')
 });

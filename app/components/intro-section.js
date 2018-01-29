@@ -26,14 +26,6 @@ export default Ember.Component.extend({
     return !(this.get('coverImageUrl') && this.get('fullName') && this.get('subheader'));
   }),
 
-  imageStyle: Ember.computed('attributes.@each.value', function() {
-    var coverImageUrl = this.get('coverImageUrl');
-
-    if (coverImageUrl) {
-      return Ember.String.htmlSafe(`background-image: url(${coverImageUrl}`);
-    }
-  }),
-
   init() {
     this._super(...arguments);
 

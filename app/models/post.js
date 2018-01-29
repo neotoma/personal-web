@@ -14,11 +14,11 @@ export default Model.extend({
   title: attr('string'),
   updatedAt: attr('date'),
 
-  imageFrame: Ember.computed('photo.frame', 'image.frame', function() {
-    if (this.get('photo.frame')) {
-      return this.get('photo.frame');
-    } else if (this.get('image.frame')) {
-      return this.get('image.frame');
+  imageType: Ember.computed('photo.type', 'image.type', function() {
+    if (this.get('photo.type')) {
+      return this.get('photo.type');
+    } else if (this.get('image.type')) {
+      return this.get('image.type');
     }
   }),
 

@@ -27,13 +27,12 @@ section.intro {
     }
   }
 
-  div.image {
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
+  img {
+    max-height: 850px;
     margin: auto;
-    max-width: 1400px;
-    padding-bottom: 60%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
     z-index: 1;
 
     @media (max-width: 65em) {
@@ -41,7 +40,8 @@ section.intro {
     }
 
     @media (min-width: 1600px) {
-      padding-bottom: 850px;
+      height: 850px;
+      width: 1400px;
     }
   }
 

@@ -40,7 +40,7 @@
     flex: 1;
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 16px;
+    padding: 0 32px 16px 32px;
     position: relative;
 
     @media (min-width: 40em) {
@@ -89,32 +89,29 @@
         }
       }
 
-      div.image {
-        background-color: white;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
+      img {
+        box-sizing: border-box;
         height: 163px;
+        object-fit: cover;
         width: 100%;
 
         @media (min-width: 40em) {
           height: 224px;
         }
 
-        &.drop-shadow, &.transparent {
-          background-size: contain;
+        &.drop-shadow, &.transparent-border {
+          object-fit: contain;
           border: 16px solid white;
         }
 
-        img {
-          height: 70px;
-          left: 50%;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%) translateX(-50%);
+        &.logo {
+          height: 60px;
+          margin: ~"calc(25% - 30px)" 0;
+          object-fit: contain;
 
           @media (min-width: 40em) {
             height: 90px;
+            margin: ~"calc(25% - 50px)" 0;
           }
         }
       }
@@ -184,11 +181,11 @@
         }
       }
 
-      div.image + div.content >div {
+      img + div.content >div {
         top: 50%;
       }
 
-      div.image.drop-shadow + div.content, div.image.transparent + div.content, div.image.logo + div.content {
+      img.drop-shadow + div.content, img.transparent-border + div.content, img.logo + div.content {
         border-top: 1px solid rgba(0,0,0,0.05);
       }
 
@@ -233,17 +230,13 @@
         }
       }
 
-      &.image {
+      &.imageOnly {
         div.content {
           display: none;
         }
 
-        div.image {
-          padding-bottom: 100%;
-
-          @media (min-width: 40em) {
-            height: 100%;
-          }
+        img {
+          height: 100%;
         }
       }
     }
@@ -256,15 +249,7 @@
 
     ul {
       flex-wrap: nowrap;
-      min-width: 965px;
-
-      @media (min-width: 40em) {
-        min-width: 1488px;
-      }
-
-      @media (min-width: 50em) {
-        min-width: 1632px;
-      }
+      width: fit-content;
 
       li {
         padding: 16px;
@@ -289,14 +274,6 @@
           }
         }
 
-        div.image img {
-          height: 60px;
-
-          @media (min-width: 40em) {
-            height: 90px;
-          }
-        }
-
         div.description {
           bottom: 0;
           left: 0;
@@ -304,7 +281,7 @@
           width: 100%;
         }
 
-        &.image {
+        &.imageOnly {
           >a, >div.interior {
             @media (max-width: 40em) {
               height: 279px;

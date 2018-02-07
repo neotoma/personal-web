@@ -1,5 +1,6 @@
 import attribute from 'personal-web/utils/attribute';
 import Ember from 'ember';
+import removeMarkdown from 'npm:remove-markdown';
 
 export default Ember.Route.extend({
   headData: Ember.inject.service(),
@@ -19,7 +20,7 @@ export default Ember.Route.extend({
     this.set('headData.imageHeight', photo.get('height'));
     this.set('headData.imageUrl', photo.get('imageUrl'));
     this.set('headData.imageWidth', photo.get('width'));
-    this.set('headData.title', photo.get('description') ? photo.get('description') : 'Photo');
+    this.set('headData.title', photo.get('description') ? removeMarkdown(photo.get('description')) : 'Photo');
   },
 
   actions: {

@@ -16,7 +16,9 @@ export default Ember.Route.extend({
     controller.set('photo', photo);
 
     this.set('headData.canonicalUrl', attribute(models['attributes'], 'url') + this.router.generate('photo', photo.get('id')));
+    this.set('headData.imageHeight', photo.get('height'));
     this.set('headData.imageUrl', photo.get('imageUrl'));
+    this.set('headData.imageWidth', photo.get('width'));
     this.set('headData.title', photo.get('description') ? photo.get('description') : 'Photo');
   },
 

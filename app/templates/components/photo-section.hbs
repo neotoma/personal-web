@@ -5,7 +5,7 @@
 </div>
 
 {{#if photo.description}}
-  <div class="description">{{photo.description}}</div>
+  <div class="description">{{compiled-markdown markdown=photo.description}}</div>
 {{/if}}
 
 <div class="published-at">{{format-date photo.publishedAt day="numeric" month="long" year="numeric"}}</div>

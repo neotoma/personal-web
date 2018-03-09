@@ -9,7 +9,10 @@
     "deploy": "ember build --env=production && grunt deploy",
     "start": "ember server",
     "install-all": "npm install && bower install",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy-all": "grunt hoist-deploy-all",
+    "deploy-app": "grunt hoist-deploy-app",
+    "deploy-dependencies": "grunt hoist-deploy-dependencies"
   },
   "name": "personal-web",
   "description": "Ember-powered personal website app for the IndieWeb 🔥",
@@ -33,7 +36,7 @@
     "ember-cli-dependency-checker": "^2.1.0",
     "ember-cli-document-title": "0.3.3",
     "ember-cli-eslint": "^4.2.3",
-    "ember-cli-fastboot": "^1.1.1",
+    "ember-cli-fastboot": "1.1.1",
     "ember-cli-head": "^0.4.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",

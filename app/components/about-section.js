@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
-  classNameBindings: ['expanded'],
-  classNames: ['history'],
-  computedAttributes: ['birthday', 'history'],
-  id: 'history',
+  classNameBindings: ['expanded', 'about:notEmpty:empty'],
+  classNames: ['about'],
+  computedAttributes: ['about', 'birthday', 'firstName'],
+  id: 'about',
   store: Ember.inject.service(),
   tagName: 'section',
   today: Date(),

@@ -33,7 +33,7 @@ If you intend to deploy the server to another system using scripts within the "D
 
 The app will expect the data server to fulfill requests for the following types of data:
 
-- `attribute`: Basic attributes about the individual, namely those with IDs `birthday`, `coverImageUrl`, `description`, `firstName`, `fullName`, `gender`,  `history`, `homeLocation`, `imageUrl`, `lastName`, and `profession`
+- `attribute`: Basic attributes about the individual, namely those with IDs `birthday`, `coverImageUrl`, `description`, `firstName`, `fullName`, `gender`,  `about`, `homeLocation`, `imageUrl`, `lastName`, and `profession`
 - `checkin`: Check-ins to list on homepage under "Check-ins"
 - `company`: Companies to list on homepage under "Companies"
 - `image`: Images to show in relation to posts
@@ -45,7 +45,7 @@ The app will expect the data server to fulfill requests for the following types 
 
 ## Running the app
 
-Once the environment is ready per above, and [Node.js](http://nodejs.org/) with [NPM](https://www.npmjs.com/), [Bower](https://bower.io/), and [Ember CLI](https://ember-cli.com/) are installed, simply execute the following commands to prepare and run the app:
+Once the environment is ready per above, and [Node.js](http://nodejs.org/) with [NPM](https://www.npmjs.com/) is installed, simply execute the following commands to prepare and run the app:
 
 1. `npm run install-all` to install NPM and Bower dependencies
 2. `npm run build` to build the app

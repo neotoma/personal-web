@@ -1,3 +1,4 @@
+import dasherize from 'npm:dasherize';
 import DS from 'ember-data';
 import Ember from 'ember';
 import isNumeric from 'personal-web/utils/is-numeric';
@@ -5,12 +6,12 @@ import md5 from 'ember-md5';
 import { pluralize } from 'ember-inflector';
 
 export default DS.Store.extend({
-  boxes: [],
+  boxNames: [],
   fastboot: Ember.inject.service(),
 
   init() {
     this._super(...arguments);
-    this.set('boxes', this.get('fastboot.shoebox').retrieve('boxes'));
+    this.set('boxNames', this.get('fastboot.shoebox').retrieve('boxNames'));
   },
 
   queryShoebox(modelName, query) {
@@ -22,23 +23,29 @@ export default DS.Store.extend({
       store = this;
 
     return new Ember.RSVP.Promise((resolve, reject) => {
-      if (!fastboot.get('isFastBoot') && shoebox.retrieve(boxName) && store.get('boxes').indexOf(boxName) !== -1) {
-        var payload = shoebox.retrieve(boxName);
+      if (!fastboot.get('isFastBoot') && shoebox.retrieve(boxName) && store.get('boxNames').indexOf(boxName) !== -1) {
+        var payload = dasherize(shoebox.retrieve(boxName));
 
-        store.pushPayload(payload);
-        store.get('boxes').splice(store.get('boxes').indexOf(boxName), 1);
+        store.get('boxNames').splice(store.get('boxNames').indexOf(boxName), 1);
 
-        Ember.RSVP.all(payload.data.map((resourceObject) => store.peekRecord(resourceObject.type, resourceObject.id))).then(resolve).catch(reject);
+        if (payload.errors) {
+          reject(payload.errors[0]);
+        } else {
+          store.pushPayload(payload);
+          Ember.RSVP.all(payload.data.map((resourceObject) => store.peekRecord(resourceObject.type, resourceObject.id))).then(resolve).catch(reject);
+        }
       } else {
+        if (fastboot.get('isFastBoot')) {
+          var boxNames = shoebox.retrieve('boxNames');
+
+          if (!boxNames) { boxNames = []; }
+
+          boxNames.push(boxName);
+          shoebox.put('boxNames', boxNames);
+        }
+
         store.query(modelName, query).then((records) => {
           if (fastboot.get('isFastBoot')) {
-            var boxes = shoebox.retrieve('boxes');
-
-            if (!boxes) { boxes = []; }
-
-            boxes.push(boxName);
-            shoebox.put('boxes', boxes);
-
             store.adapterFor(modelName).query(store, store.modelFor(modelName), query).then(payload => {
               shoebox.put(boxName, payload);
               resolve(records);
@@ -47,15 +54,11 @@ export default DS.Store.extend({
             resolve(records);
           }
         }).catch((error) => {
-          // If error, load empty hash into shoebox to prevent second request attempt upon app render
-
-          var boxes = shoebox.retrieve('boxes');
-
-          if (!boxes) { boxes = []; }
-
-          boxes.push(boxName);
-          shoebox.put('boxes', boxes);
-          shoebox.put(boxName, {});
+          if (fastboot.get('isFastBoot')) {
+            shoebox.put(boxName, {
+              errors: [error]
+            });
+          }
 
           reject(error);
         });

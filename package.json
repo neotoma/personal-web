@@ -68,6 +68,7 @@
     "orientation": "^0.2.0"
   },
   "dependencies": {
+    "dasherize": "^2.0.0",
     "ember-md5": "^1.0.1",
     "express": "^4.14.0",
     "grunt": "~1.0.1",

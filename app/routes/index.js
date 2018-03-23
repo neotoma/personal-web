@@ -5,13 +5,17 @@ export default Ember.Route.extend({
   headData: Ember.inject.service(),
 
   model() {
-    return this.get('store').findAll('attribute');
+    return this.get('store').findAll('attribute').catch((error) => {
+      Ember.Logger.error('attribute records not found for index route', error);
+    });
   },
 
   setupController(controller, attributes) {
-    attributes.forEach((attribute) => {
-      this.get('headData').set(attribute.get('id'), attribute.get('value'));
-    });
+    if (attributes) {
+      attributes.forEach((attribute) => {
+        this.get('headData').set(attribute.get('id'), attribute.get('value'));
+      });
+    }
 
     this.set('headData.title', this.get('headData.fullName'));
     this.set('headData.type', 'profile');

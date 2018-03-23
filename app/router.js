@@ -18,6 +18,10 @@ Router.map(function() {
   this.route('photo', { path: '/photos/:photo_id' });
   this.route('photo-album', { path: '/photo-albums/:photo_album_id' });
   this.route('photos');
+  this.route('books');
+  this.route('book', { path: '/books/:book_id' });
+  this.route('publications');
+  this.route('affiliations');
 });
 
 Ember.Route.reopen({

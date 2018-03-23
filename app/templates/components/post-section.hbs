@@ -1,5 +1,6 @@
 {{#if post.title}}
   <h1>{{post.title}}</h1>
+
   {{#if post.publishedAt}}
     <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
   {{/if}}
@@ -11,9 +12,15 @@
   {{#if bodyReady}}
     <div class="body" id="post-{{post.id}}">{{compiled-markdown markdown=post.body}}</div>
   {{/if}}
+
 {{else}}
+
   {{#if bodyReady}}
     <div class="body" id="post-{{post.id}}">{{compiled-markdown markdown=post.body}}</div>
   {{/if}}
-  <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+
+  {{#if post.publishedAt}}
+    <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
+  {{/if}}
+
 {{/if}}

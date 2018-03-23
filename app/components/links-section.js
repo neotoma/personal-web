@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
+  classNameBindings: ['links.length:notEmpty:empty'],
   classNames: ['links'],
   id: 'links',
   sortedLinksProperties: ['name:asc'],
@@ -12,10 +13,10 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    var query = this.get('store').findAll('link').then((links) => {
+    this.findAll('link').then((links) => {
       this.set('links', links);
-    });
-
-    this.deferRendering(query);
+    }).catch((error) => {
+      Ember.Logger.log('links-section initialized empty');
+    });;
   }
 });

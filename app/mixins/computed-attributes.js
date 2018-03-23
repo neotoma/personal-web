@@ -11,6 +11,8 @@ export default Ember.Mixin.create({
 
     var query = this.get('store').findAll('attribute').then((attributes) => {
       this.set('attributes', attributes);
+    }).catch((error) => {
+      Ember.Logger.error(`attribute records not found for computed attributes ${this.get('computedAttributes').join(',')}`, error);
     });
 
     this.get('computedAttributes').forEach((attributeName) => {

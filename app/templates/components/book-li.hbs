@@ -1,0 +1,17 @@
+<div class="interior">
+  <div class="content">
+    <div>
+      {{#if book.isNew}}
+        <div class="new">New</div>
+      {{/if}}
+      <div class="title header">{{book.title}}</div>
+      <div class="subtitle">{{book.subtitle}}</div>
+      {{#if book.purchaseUrl}}
+        <a href="{{book.purchaseUrl}}" class="button purchase">{{purchaseButtonLabel}}</a>
+      {{/if}}
+      {{#if book.preview}}
+        {{#link-to "book" book.id}}Read preview{{/link-to}}
+      {{/if}}
+    </div>
+  </div>
+</div>

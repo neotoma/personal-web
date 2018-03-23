@@ -16,9 +16,9 @@ export default Ember.Component.extend({
   ],
   classNames: 'listings',
   id: pluralModelName,
+  layoutName: 'components/listings-section',
+  listingLi: 'listing-li',
   pluralModelName: pluralModelName,
-  sortedListingsProperties: ['publishedAt:desc', 'createdAt:desc', 'id:desc'],
-  sortedListings: Ember.computed.sort('listings', 'sortedListingsProperties'),
   store: Ember.inject.service(),
   tagName: 'section',
 
@@ -36,14 +36,14 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     if (!this.get('listings')) {
-      var query = this.get('store').findAll(this.get('modelName'), {
+      this.findAll(this.get('modelName'), {
         limit: this.get('limit'),
-        sort: '-publishedAt,-createdAt,-id'
+        sort: this.get('sort') ? this.get('sort') : '-publishedAt,-createdAt,-id'
       }).then((listings) => {
         this.set('listings', listings);
-      }).catch(() => {});
-
-      this.deferRendering(query);
+      }).catch(() => {
+        Ember.Logger.log(`${this.get('modelName')} listings-section initialized empty`);
+      });
     }
   },
 

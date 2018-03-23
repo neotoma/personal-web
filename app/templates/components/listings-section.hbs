@@ -2,12 +2,12 @@
   <h2>{{header}}</h2>
 {{/if}}
 
-{{#if sortedListings}}
+{{#if listings}}
   <div>
     <div>
       <ul>
-        {{#each sortedListings as |listing|}}
-          {{listing-li descriptionProperty=descriptionProperty format=format linkListings=linkListings listing=listing modelName=modelName}}
+        {{#each listings as |listing|}}
+          {{component listingLi descriptionProperty=descriptionProperty format=format linkListings=linkListings listing=listing modelName=modelName}}
         {{/each}}
       </ul>
     </div>

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
+  classNameBindings: ['skills.length:notEmpty:empty'],
   classNames: ['skills'],
   id: 'skills',
   store: Ember.inject.service(),
@@ -10,11 +11,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
 
-    var query = this.get('store').findAll('skill').then((skills) => {
+    this.findAll('skill').then((skills) => {
       this.set('featuredSkills', skills.filter(skill => skill.get('imageUrl')));
       this.set('skills', skills.filter(skill => !skill.get('imageUrl')));
+    }).catch(() => {
+      Ember.Logger.log('skills-section initialized empty');
     });
-
-    this.deferRendering(query);
   }
 });

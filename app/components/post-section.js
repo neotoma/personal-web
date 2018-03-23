@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   tagName: 'section',
 
   didReceiveAttrs() {
-    this.set('bodyReady', false); // hack to force component rerender
+    this.set('bodyResolved', false); // hack to force component rerender
 
     var deferred = Ember.RSVP.defer();
 
@@ -15,14 +15,14 @@ export default Ember.Component.extend({
         return;
       }
 
-      this.set('bodyReady', true);
+      this.set('bodyResolved', true);
       deferred.resolve();
     });
 
     this.deferRendering(deferred.promise);
   },
 
-  bodyReady: Ember.computed('bodyReady', 'post', function() {
-    return (this.get('bodyReady') && this.get('post'));
+  bodyReady: Ember.computed('bodyResolved', 'post', 'post.body', function() {
+    return (this.get('bodyResolved') && this.get('post') && this.get('post.body'));
   })
 });

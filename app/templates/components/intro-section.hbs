@@ -1,31 +1,51 @@
 <h1>{{fullName}}</h1>
 <div class="subheader">{{subheader}}</div>
 <nav>
-  <a href="#history">History</a>
+  {{#if about}}
+    <a href="#about">About</a>
+  {{/if}}
 
-  {{#if hasPosts}}
+  {{#if book}}
+    <a href="#books">Books</a>
+  {{/if}}
+
+  {{#if project}}
+    <a href="#project">{{project.shortName}}</a>
+  {{/if}}
+
+  {{#if post}}
     <a href="#posts">Posts</a>
   {{/if}}
 
-  {{#if hasPhotos}}
+  {{#if photo}}
     <a href="#photos">Photos</a>
   {{/if}}
 
-  {{#if hasCheckins}}
+  {{#if checkin}}
     <a href="#checkins">Check-ins</a>
   {{/if}}
 
-  {{#if hasCompanies}}
+  {{#if company}}
     <a href="#companies">Companies</a>
   {{/if}}
 
-  {{#if hasSkills}}
+  {{#if affiliation}}
+    <a href="#affiliations">Affiliations</a>
+  {{/if}}
+
+  {{#if publication}}
+    <a href="#publications">Publications</a>
+  {{/if}}
+
+  {{#if skill}}
     <a href="#skills">Skills</a>
   {{/if}}
 
-  {{#if hasLinks}}
+  {{#if link}}
     <a href="#links">Links</a>
   {{/if}}
-
 </nav>
-<img src={{coverImageUrl}} />
+
+{{#if coverImageUrl}}
+  <img src={{coverImageUrl}} />
+{{/if}}

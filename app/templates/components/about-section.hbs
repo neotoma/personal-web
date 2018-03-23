@@ -1,13 +1,16 @@
-<h2>A little history</h2>
-<div class="timeline">
-  {{#if hasDates}}
+<h2>About {{firstName}}</h2>
+
+{{#if hasDates}}
+  <div class="timeline">
     <div class="birthday">{{format-date birthday day="numeric" month="long" year="numeric"}}</div>
     <div class="today">{{format-date today day="numeric" month="long" year="numeric"}}</div>
-  {{/if}}
-</div>
+  </div>
+{{/if}}
+
 <div class="content">
-  {{#if history}}
-    {{markdown-to-html markdown=history}}
+  {{#if about}}
+    {{markdown-to-html markdown=about}}
   {{/if}}
 </div>
-<button class="expand" {{action 'expand'}}>View all history</button>
+
+<button class="expand" {{action 'expand'}}>Read more</button>

@@ -11,7 +11,7 @@ module.exports = function(environment) {
     },
     environment: environment,
     fastboot: {
-      hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/, process.env.HOIST_DEST_HOST]
+      hostWhitelist: [/^127\.0\.0\.1:\d+$/, /^localhost:\d+$/]
     },
     historySupportMiddleware: true,
     intl: {
@@ -24,6 +24,10 @@ module.exports = function(environment) {
       WRITE_KEY: process.env.PERSONAL_WEB_SEGMENT_WRITE_KEY
     }
   };
+
+  if (process.env.HOIST_DEST_HOST) {
+    ENV.fastboot.hostWhitelist.push(process.env.HOIST_DEST_HOST);
+  }
 
   ENV.EmberENV.API_HOST = process.env.PERSONAL_WEB_API_HOST ? process.env.PERSONAL_WEB_API_HOST : 'http://127.0.0.1:9100';
 

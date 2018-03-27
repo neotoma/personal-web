@@ -20,6 +20,10 @@ export default Ember.Mixin.create({
     });
   },
 
+  findOneFeatured (modelName, featured, conditions) {
+    return this.findOne(modelName, Object.assign({ filter: { featured: featured } }, conditions ? conditions : {}));
+  },
+
   queryHash (hash) {
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.deferRendering(Ember.RSVP.hashSettled(hash).then(resolve).catch(reject));

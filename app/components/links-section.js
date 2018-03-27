@@ -15,7 +15,7 @@ export default Ember.Component.extend({
 
     this.findAll('link').then((links) => {
       this.set('links', links);
-    }).catch((error) => {
+    }).catch(() => {
       Ember.Logger.log('links-section initialized empty');
     });;
   }

@@ -16,7 +16,7 @@ export default Model.extend({
   testimonials: attr(),
 
   isNew: Ember.computed('releasedAt', function() {
-    if (!this.get('releasedAt')) { return true; }
+    if (!this.get('releasedAt')) { return true; }
 
     let daysSinceRelease = (this.get('releasedAt') - Date.now()) / -(1000 * 3600 * 24);
     return (daysSinceRelease <= 365);

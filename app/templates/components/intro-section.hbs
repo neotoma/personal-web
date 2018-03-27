@@ -9,7 +9,7 @@
     <a href="#books">Books</a>
   {{/if}}
 
-  {{#if project}}
+  {{#if project.shortName}}
     <a href="#project">{{project.shortName}}</a>
   {{/if}}
 
@@ -27,6 +27,10 @@
 
   {{#if company}}
     <a href="#companies">Companies</a>
+  {{/if}}
+
+  {{#if affiliation.shortName}}
+    <a href="#affiliation">{{affiliation.shortName}}</a>
   {{/if}}
 
   {{#if affiliation}}

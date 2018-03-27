@@ -1,2 +1,6 @@
 <h2>{{project.name}}</h2>
 {{markdown-to-html project.description}}
+
+{{#if project.url}}
+  <a class="button" href="{{project.url}}">Visit website</a>
+{{/if}}

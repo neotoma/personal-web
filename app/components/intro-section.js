@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { pluralize } from 'ember-inflector';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
@@ -17,14 +16,14 @@ export default Ember.Component.extend({
     this._super(...arguments);
 
     this.queryHash({
-      affiliation: this.findOne('affiliation'),
+      affiliation: this.findOneFeatured('affiliation', 'index'),
       book: this.findOne('book'),
       checkin: this.findOne('checkin'),
       company: this.findOne('company'),
       link: this.findOne('link'),
       photo: this.findOne('photo'),
       post: this.findOne('post'),
-      project: this.findOne('project'),
+      project: this.findOneFeatured('project', 'index'),
       publication: this.findOne('publication'),
       skill: this.findOne('skill')
     }).then((models) => {

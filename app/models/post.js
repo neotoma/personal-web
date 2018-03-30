@@ -1,17 +1,19 @@
 import attr from 'ember-data/attr';
+import { belongsTo, hasMany } from 'ember-data/relationships';
 import Ember from 'ember';
 import Model from 'ember-data/model';
-import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   author: attr('string'),
   body: attr('string'),
+  categories: hasMany('category'),
   createdAt: attr('date'),
   description: attr('string'),
   excerpt: attr('string'),
   image: belongsTo('image'),
   longDescription: attr('string'),
   photo: belongsTo('photo'),
+  publication: attr('string'),
   publishedAt: attr('date'),
   title: attr('string'),
   updatedAt: attr('date'),

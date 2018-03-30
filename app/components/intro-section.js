@@ -18,6 +18,7 @@ export default Ember.Component.extend({
     this.queryHash({
       affiliation: this.findOneFeatured('affiliation', 'index'),
       book: this.findOne('book'),
+      categories: this.findAll('category'),
       checkin: this.findOne('checkin'),
       company: this.findOne('company'),
       link: this.findOne('link'),

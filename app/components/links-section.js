@@ -17,6 +17,6 @@ export default Ember.Component.extend({
       this.set('links', links);
     }).catch(() => {
       Ember.Logger.log('links-section initialized empty');
-    });;
+    });
   }
 });

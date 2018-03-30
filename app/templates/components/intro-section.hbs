@@ -13,8 +13,16 @@
     <a href="#project">{{project.shortName}}</a>
   {{/if}}
 
-  {{#if post}}
-    <a href="#posts">Posts</a>
+  {{#if categories.length}}
+    {{#each categories as |category|}}
+      {{#if category.posts.length}}
+        <a href="#category-{{category.id}}">{{category.name}}</a>
+      {{/if}}
+    {{/each}}
+  {{else}}
+    {{#if post}}
+      <a href="#posts">Posts</a>
+    {{/if}}
   {{/if}}
 
   {{#if photo}}

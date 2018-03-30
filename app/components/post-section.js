@@ -22,7 +22,7 @@ export default Ember.Component.extend({
     this.deferRendering(deferred.promise);
   },
 
-  bodyReady: Ember.computed('bodyResolved', 'post', 'post.body', function() {
-    return (this.get('bodyResolved') && this.get('post') && this.get('post.body'));
+  bodyReady: Ember.computed('bodyResolved', 'post', 'post.body', 'post.excerpt', function() {
+    return (this.get('bodyResolved') && this.get('post') && (this.get('post.body') || this.get('post.excerpt')));
   })
 });

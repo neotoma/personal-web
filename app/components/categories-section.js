@@ -12,7 +12,8 @@ export default Component.extend({
     this._super(...arguments);
 
     this.findAll('category', {
-      include: 'posts'
+      include: 'posts',
+      sort: 'shortName'
     }).then((categories) => {
       this.set('categories', categories);
     }).catch(() => {

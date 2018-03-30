@@ -15,8 +15,10 @@ export default Model.extend({
   photo: belongsTo('photo'),
   publication: attr('string'),
   publishedAt: attr('date'),
+  subtitle: attr('string'),
   title: attr('string'),
   updatedAt: attr('date'),
+  url: attr('string'),
 
   imageType: Ember.computed('photo.type', 'image.type', function() {
     if (this.get('photo.type')) {

@@ -6,5 +6,6 @@ export default Model.extend({
   affiliations: hasMany('affiliation'),
   name: attr('string'),
   posts: hasMany('post'),
-  projects: hasMany('project')
+  projects: hasMany('project'),
+  shortName: attr('string')
 });

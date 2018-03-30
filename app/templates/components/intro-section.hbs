@@ -16,7 +16,9 @@
   {{#if categories.length}}
     {{#each categories as |category|}}
       {{#if category.posts.length}}
-        <a href="#category-{{category.id}}">{{category.name}}</a>
+        {{#if category.shortName}}
+          <a href="#category-{{category.id}}">{{category.shortName}}</a>
+        {{/if}}
       {{/if}}
     {{/each}}
   {{else}}

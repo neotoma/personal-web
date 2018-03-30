@@ -7,7 +7,7 @@
     <div>
       <ul>
         {{#each listings as |listing|}}
-          {{component listingLi descriptionProperty=descriptionProperty format=format linkListings=linkListings listing=listing modelName=modelName}}
+          {{component listingLi descriptionProperty=descriptionProperty format=format linkListings=linkListings linkUrl=linkUrl listing=listing modelName=modelName}}
         {{/each}}
       </ul>
     </div>

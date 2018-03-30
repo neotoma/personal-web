@@ -1,7 +1,13 @@
 {{#if post.title}}
   <h1>{{post.title}}</h1>
 
-  {{#if post.publishedAt}}
+  {{#if post.subtitle}}
+    <div class="subtitle">{{post.subtitle}}</div>
+  {{/if}}
+
+  {{#if post.publication}}
+    <div class="publication">{{post.publication}}</div>
+  {{else if post.publishedAt}}
     <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
   {{/if}}
 
@@ -10,7 +16,15 @@
   {{/if}}
 
   {{#if bodyReady}}
-    <div class="body" id="post-{{post.id}}">{{compiled-markdown markdown=post.body}}</div>
+    {{#if post.body}}
+      <div class="body" id="post-{{post.id}}">{{compiled-markdown markdown=post.body}}</div>
+    {{else if post.excerpt}}
+      <div class="excerpt" id="post-{{post.id}}">{{compiled-markdown markdown=post.excerpt}}</div>
+    {{/if}}
+  {{/if}}
+
+  {{#if post.url}}
+    <a class="url" href="{{post.url}}">Read more</a>
   {{/if}}
 
 {{else}}

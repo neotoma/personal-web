@@ -4,6 +4,7 @@ import Ember from 'ember';
 import Model from 'ember-data/model';
 
 export default Model.extend({
+  audioUrl: attr('string'),
   author: attr('string'),
   body: attr('string'),
   categories: hasMany('category'),
@@ -12,6 +13,7 @@ export default Model.extend({
   excerpt: attr('string'),
   image: belongsTo('image'),
   longDescription: attr('string'),
+  pdfUrl: attr('string'),
   photo: belongsTo('photo'),
   publication: attr('string'),
   publishedAt: attr('date'),
@@ -19,6 +21,10 @@ export default Model.extend({
   title: attr('string'),
   updatedAt: attr('date'),
   url: attr('string'),
+
+  hasMedia: Ember.computed('audioUrl', function() {
+    return (this.get('audioUrl'));
+  }),
 
   imageType: Ember.computed('photo.type', 'image.type', function() {
     if (this.get('photo.type')) {

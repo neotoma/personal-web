@@ -15,6 +15,12 @@
     <div class="image {{post.imageOrientation}} {{post.imageType}}" style={{background-image-style post.imageUrl}}></div>
   {{/if}}
 
+  {{#if post.audioUrl}}
+    <div class="audio">
+      <audio src="{{post.audioUrl}}" controls="controls" />
+    </div>
+  {{/if}}
+
   {{#if bodyReady}}
     {{#if post.body}}
       <div class="body" id="post-{{post.id}}">{{compiled-markdown markdown=post.body}}</div>
@@ -24,7 +30,13 @@
   {{/if}}
 
   {{#if post.url}}
-    <a class="url" href="{{post.url}}">Read more</a>
+    {{#if post.hasMedia}}
+      <a class="url" href="{{post.url}}">Visit original publication &raquo;</a>
+    {{else}}
+      <a class="url button" href="{{post.url}}">Read in full</a>
+    {{/if}}
+  {{else if post.pdfUrl}}
+    <a class="url button" href="{{post.pdfUrl}}">Read in full (PDF)</a>
   {{/if}}
 
 {{else}}

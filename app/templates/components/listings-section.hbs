@@ -17,5 +17,9 @@
 {{/if}}
 
 {{#if showViewAll}}
-  {{#link-to pluralModelName class="view-all"}}View all {{pluralModelName}}{{/link-to}}
+  {{#if viewAllContext}}
+    {{#link-to viewAllLink viewAllContext class="view-all"}}{{viewAllLabel}}{{/link-to}}
+  {{else}}
+    {{#link-to viewAllLink class="view-all"}}{{viewAllLabel}}{{/link-to}}
+  {{/if}}
 {{/if}}

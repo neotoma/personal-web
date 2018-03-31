@@ -139,6 +139,30 @@ section.post {
   }
 
   a.url {
-    .standard-button;
+    &.button {
+      .standard-button;
+    }
+
+    &:not(.button) {
+      opacity: 0.5;
+    }
+  }
+
+  div.audio {
+    box-shadow: 0 1px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    margin: 64px auto 80px auto;
+    max-width: 600px;
+    padding: 32px;
+
+    @media (max-width: 600px) {
+      border-left: none;
+      border-right: none;
+    }
+
+    audio {
+      width: 100%;
+    }
   }
 }

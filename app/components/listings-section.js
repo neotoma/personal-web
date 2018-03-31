@@ -49,5 +49,13 @@ export default Ember.Component.extend({
 
   showViewAll: Ember.computed('limit', 'hideViewAll', function() {
     return (this.get('limit') && !this.get('hideViewAll'));
+  }),
+
+  viewAllLabel: Ember.computed('pluralModelName', function() {
+    return `View all ${this.get('pluralModelName')}`;
+  }),
+
+  viewAllLink: Ember.computed('pluralModelName', function() {
+    return this.get('pluralModelName');
   })
 });

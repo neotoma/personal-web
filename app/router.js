@@ -7,8 +7,10 @@ const Router = Ember.Router.extend(RouterScroll, {
 });
 
 Router.map(function() {
+  this.route('affiliations');
   this.route('application-error');
   this.route('not-found', { path: '*path'});
+  this.route('category', { path: '/categories/:category_id' });
   this.route('checkins');
   this.route('companies');
   this.route('post', { path: '/posts/:post_id' });
@@ -21,7 +23,6 @@ Router.map(function() {
   this.route('books');
   this.route('book', { path: '/books/:book_id' });
   this.route('publications');
-  this.route('affiliations');
 });
 
 Ember.Route.reopen({

@@ -58,6 +58,10 @@
   {{#if link}}
     <a href="#links">Links</a>
   {{/if}}
+
+  {{#if email}}
+    {{#link-to 'messages'}}Contact{{/link-to}}
+  {{/if}}
 </nav>
 
 {{#if coverImageUrl}}

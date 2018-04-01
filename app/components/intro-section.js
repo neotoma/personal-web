@@ -4,7 +4,14 @@ export default Ember.Component.extend({
   attributeBindings: ['id'],
   classNameBindings: ['empty:empty:notEmpty'],
   classNames: ['intro'],
-  computedAttributes: ['about', 'coverImageUrl', 'fullName', 'homeLocation', 'profession'],
+  computedAttributes: [
+    'about',
+    'coverImageUrl',
+    'email',
+    'fullName',
+    'homeLocation',
+    'profession'
+  ],
   id: 'intro',
   tagName: 'section',
 
@@ -19,7 +26,7 @@ export default Ember.Component.extend({
       affiliation: this.findOneFeatured('affiliation', 'index'),
       book: this.findOne('book'),
       categories: this.findAll('category', {
-        sort: 'shortName'
+        sort: 'position'
       }),
       checkin: this.findOne('checkin'),
       company: this.findOne('company'),

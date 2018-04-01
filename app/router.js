@@ -9,20 +9,21 @@ const Router = Ember.Router.extend(RouterScroll, {
 Router.map(function() {
   this.route('affiliations');
   this.route('application-error');
-  this.route('not-found', { path: '*path'});
+  this.route('book', { path: '/books/:book_id' });
+  this.route('books');
   this.route('category', { path: '/categories/:category_id' });
   this.route('checkins');
   this.route('companies');
-  this.route('post', { path: '/posts/:post_id' });
-  this.route('posts');
-  this.route('skills');
   this.route('links');
+  this.route('messages');
+  this.route('not-found', { path: '*path'});
   this.route('photo', { path: '/photos/:photo_id' });
   this.route('photo-album', { path: '/photo-albums/:photo_album_id' });
   this.route('photos');
-  this.route('books');
-  this.route('book', { path: '/books/:book_id' });
+  this.route('post', { path: '/posts/:post_id' });
+  this.route('posts');
   this.route('publications');
+  this.route('skills');
 });
 
 Ember.Route.reopen({

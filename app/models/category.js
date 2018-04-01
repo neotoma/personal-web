@@ -5,6 +5,7 @@ import Model from 'ember-data/model';
 export default Model.extend({
   affiliations: hasMany('affiliation'),
   name: attr('string'),
+  position: attr('number'),
   posts: hasMany('post'),
   projects: hasMany('project'),
   shortName: attr('string')

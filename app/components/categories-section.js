@@ -13,7 +13,7 @@ export default Component.extend({
 
     this.findAll('category', {
       include: 'posts',
-      sort: 'shortName'
+      sort: 'position'
     }).then((categories) => {
       this.set('categories', categories);
     }).catch(() => {

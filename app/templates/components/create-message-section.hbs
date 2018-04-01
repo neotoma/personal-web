@@ -1,0 +1,9 @@
+<h2>Contact</h2>
+<form action="https://formspree.io/{{email}}" method="post">
+  <p>Please submit a short message and your email address. I’ll be in touch as soon as possible.</p>
+  <input type="hidden" name="_next" value="{{url}}/messages?sent=true" />
+  <input type="hidden" name="_subject" value="New message sent from website" />
+  <textarea name="message" placeholder="Your short message"></textarea>
+  <input name="email" type="email" placeholder="Your email address" />
+  <button type="submit">Send message</button>
+</form>

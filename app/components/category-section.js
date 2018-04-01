@@ -12,7 +12,7 @@ export default Component.extend({
     return `category-${this.get('category.id')}`;
   }),
 
-  viewAllLabel: Ember.computed('category.name', function() {
-    return `View all ${this.get('category.name')}`;
+  viewAllLabel: Ember.computed('category.shortName', function() {
+    return `View all ${this.get('category.shortName')}`;
   })
 });

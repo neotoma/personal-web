@@ -41,14 +41,14 @@ body {
   background: #ffffff;
   color: #000000;
   text-align: center;
-  margin: 0;
+  margin: 0 0 64px 0;
   min-width: 320px;
   cursor: default;
   text-rendering: geometricPrecision;
   -webkit-tap-highlight-color: transparent;
 
   @media (min-width: 40em) {
-    padding: 0 0 8em 0;
+    margin-bottom: 96px;
   }
 }
 
@@ -156,20 +156,8 @@ section {
   padding: 64px 0;
   position: relative;
 
-  &:first-of-type {
-    padding-top: 32px;
-  }
-
   @media (min-width: 50em) {
     padding: 96px;
-
-    &:first-of-type {
-      padding-top: 64px;
-    }
-  }
-
-  &:last-child {
-    border-bottom: none;
   }
 
   &.empty {
@@ -199,9 +187,9 @@ pre {
 }
 
 textarea, input[type=email] {
+  border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 1px 40px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
-  border: 0;
   font-size: 18px;
   margin-top: 32px;
   outline: none;

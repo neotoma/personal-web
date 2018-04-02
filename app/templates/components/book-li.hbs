@@ -1,16 +1,22 @@
 <div class="interior">
   <div class="content">
+    {{#if book.coverImageUrl}}
+      <img class="cover" src="{{book.coverImageUrl}}" />
+    {{/if}}
     <div>
       {{#if book.isNew}}
         <div class="new">New</div>
       {{/if}}
-      <div class="title header">{{book.title}}</div>
+      <div class="title">{{book.title}}</div>
       <div class="subtitle">{{book.subtitle}}</div>
       {{#if book.purchaseUrl}}
         <a href="{{book.purchaseUrl}}" class="button purchase">{{purchaseButtonLabel}}</a>
       {{/if}}
       {{#if book.preview}}
         {{#link-to "book" book.id}}Read preview{{/link-to}}
+      {{/if}}
+      {{#if book.pendingRelease}}
+        <div class="released-at">Coming on {{format-date book.releasedAt day="numeric" month="long" year="numeric"}}</div>
       {{/if}}
     </div>
   </div>

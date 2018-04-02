@@ -9,6 +9,6 @@ export default Component.extend({
   }),
 
   purchaseButtonLabel: Ember.computed('book.releasedAt', function() {
-    return (Date.now() - this.get('book.releasedAt') < 0) ? 'Pre-Order Now' : 'Order Now';
+    return (this.get('book.pendingRelease')) ? 'Pre-Order Now' : 'Order Now';
   })
 });

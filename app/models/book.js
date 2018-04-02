@@ -15,6 +15,12 @@ export default Model.extend({
   coverImageUrl: attr('string'),
   testimonials: attr(),
 
+  pendingRelease: Ember.computed('releasedAt', function() {
+    if (!this.get('releasedAt')) { return true; }
+
+    return (this.get('releasedAt') > new Date(Date.now()));
+  }),
+
   isNew: Ember.computed('releasedAt', function() {
     if (!this.get('releasedAt')) { return true; }
 

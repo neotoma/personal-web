@@ -1,9 +1,64 @@
 section.books {
   >div >div >ul li {
-    width: 732px;
+    width: 800px;
+
+    div.new {
+      .standard-font-family-bold;
+      font-size: 14px;
+      color: rgba(0,0,0,0.50);
+      letter-spacing: 1.75px;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+
+    div.content {
+      display: flex;
+
+      >div {
+        padding: 40px;
+      }
+
+      div.title, div.subtitle {
+        .standard-font-family-bold;
+        margin-top: 24px;
+      }
+
+      div.title {
+        font-size: 24px;
+        line-height: 28.8px;
+      }
+
+      div.subtitle {
+        .standard-font-family;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      a {
+        .standard-button;
+        margin-top: 16px;
+        width: 100%;
+
+        &:first-of-type {
+          border-color: @standard-color-link;
+          color: @standard-color-link;
+          margin-top: 32px;
+        }
+      }
+
+      div.released-at {
+        font-size: 14px;
+        margin-top: 32px;
+      }
+    }
+
+    img.cover {
+      height: 100%;
+      width: 40%;
+    }
   }
 
   &.carousel >div >div >ul li {
-    width: 732px;
+    width: 800px;
   }
 }

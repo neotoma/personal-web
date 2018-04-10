@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('posts');
   this.route('publications');
   this.route('skills');
+  this.route('message-sent');
 });
 
 Ember.Route.reopen({

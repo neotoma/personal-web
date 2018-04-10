@@ -38,15 +38,6 @@ section.books {
         @media (min-width: 40em) {
           width: 60%;
         }
-
-        >div {
-          @media (min-width: 40em) {
-            position: absolute;
-            height: auto;
-            top: 50%;
-            transform: translateY(-50%);
-          }
-        }
       }
     }
 
@@ -119,7 +110,7 @@ section.books {
     }
   }
 
-  &.carousel >div >div >ul li {
+  &:not(.carousel) >div >div >ul li {
     &.hasImage {
       @media (min-width: 40em) {
         width: 800px;
@@ -127,6 +118,33 @@ section.books {
 
       div.content {
         height: 100%;
+      }
+    }
+
+    div.content {
+      height: 100%;
+
+      >div {
+        padding: 70px 40px;
+      }
+
+      @media (min-width: 40em) {
+        >div {
+          position: absolute;
+          height: auto;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  &.carousel >div >div >ul li {
+    div.interior {
+      height: 336px;
+
+      @media (min-width: 40em) {
+        height: 448px;
       }
     }
 

@@ -1,0 +1,30 @@
+{{#if book.coverTopImageUrl}}
+  <div class="coverTop">
+    <img src="{{book.coverTopImageUrl}}" />
+  </div>
+{{/if}}
+
+{{#if book.coverImageUrl}}
+  <div class="cover">
+    <img src="{{book.coverImageUrl}}" />
+  </div>
+{{/if}}
+
+<div class="content">
+  {{#if book.isNew}}
+    <div class="new">New</div>
+  {{/if}}
+
+  <h2>{{book.title}}</h2>
+
+  {{#if book.subtitle}}
+    <div class="subtitle">{{book.subtitle}}</div>
+  {{/if}}
+
+  {{book-release-div book=book}}
+
+  {{#if book.description}}
+    <div class="description">{{compiled-markdown markdown=book.description}}</div>
+  {{/if}}
+
+</div>

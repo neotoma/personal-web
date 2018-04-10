@@ -1,16 +1,23 @@
-<h2>About {{firstName}}</h2>
-
-{{#if hasDates}}
-  <div class="timeline">
-    <div class="birthday">{{format-date birthday day="numeric" month="long" year="numeric"}}</div>
-    <div class="today">{{format-date today day="numeric" month="long" year="numeric"}}</div>
-  </div>
+{{#if coverImageUrl}}
+  <div class="image"><img src={{coverImageUrl}} /></div>
 {{/if}}
 
-<div class="content">
-  {{#if about}}
-    {{markdown-to-html markdown=about}}
+<div class="header">
+  <h2>About {{firstName}}</h2>
+  {{#if hasDates}}
+    <div class="timeline">
+      <div class="birthday">{{format-date birthday day="numeric" month="long" year="numeric"}}</div>
+      <div class="today">{{format-date today day="numeric" month="long" year="numeric"}}</div>
+    </div>
   {{/if}}
 </div>
 
-<button class="expand" {{action 'expand'}}>Read more</button>
+<div class="content">
+  {{#if about}}
+    <div class="about">
+      {{markdown-to-html markdown=about}}
+    </div>
+    <button class="expand" {{action "expand"}}>Read more</button>
+  {{/if}}
+</div>
+

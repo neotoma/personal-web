@@ -1,4 +1,3 @@
-import attribute from 'personal-web/utils/attribute';
 import Ember from 'ember';
 
 export default Ember.Route.extend({

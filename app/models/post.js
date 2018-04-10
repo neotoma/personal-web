@@ -19,6 +19,7 @@ export default Model.extend({
   publishedAt: attr('date'),
   subtitle: attr('string'),
   title: attr('string'),
+  type: attr('string', { 'defaultValue': 'publication' }),
   updatedAt: attr('date'),
   url: attr('string'),
 
@@ -48,5 +49,9 @@ export default Model.extend({
     } else if (this.get('image.orientation')) {
       return this.get('image.orientation');
     }
+  }),
+
+  hasHeaderImage: Ember.computed('imageUrl', 'type', function() {
+    return (this.get('imageUrl') && this.get('imageType') !== 'logo');
   })
 });

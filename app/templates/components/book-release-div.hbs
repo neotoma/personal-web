@@ -1,0 +1,7 @@
+{{#if book.release}}
+  {{book.release}}
+{{else if book.releasedAt}}
+  Coming on {{format-date book.releasedAt day="numeric" month="long" year="numeric"}}
+{{else}}
+  Coming soon
+{{/if}}

@@ -27,6 +27,18 @@
   font-weight: 100;
 }
 
+
+.standard-drop-caps {
+  p:first-of-type::first-letter {
+    .standard-font-family-bold;
+    font-family: "Libre Baskerville", serif;
+    float: left;
+    font-size: 4.8em;
+    margin-left: -4px;
+    padding: 30px 12px 32px 4px;
+  }
+}
+
 /* Misc */
 
 .standard-max-container {
@@ -43,15 +55,17 @@
   color: rgba(0,0,0,0.9);
   cursor: pointer;
   display: inline-block;
+  font-size: 14px;
   letter-spacing: 1px;
   padding: 1em 4em 1em 4em;
   position: relative;
   text-transform: uppercase;
   transition: box-shadow 0.25s, color 0.25s, border 0.25s, transform 0.25s, background 0.25s;
+  width: ~"calc(100% - 64px)";
 
-  @media (max-width: 40em) {
-    font-size: 14px;
-    width: ~"calc(100% - 64px)";
+  @media (min-width: 40em) {
+    font-size: 1em;
+    width: auto;
   }
 
   @media (hover: hover) {
@@ -144,6 +158,10 @@
   }
 
   @media (min-width: 40em) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 70em) {
     font-size: 22px;
   }
 }

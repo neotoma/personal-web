@@ -1,21 +1,72 @@
 section.books {
   >div >div >ul li {
-    width: 800px;
+    &.hasImage {
+      @media (min-width: 40em) {
+        width: 800px;
+      }
 
-    div.new {
-      .standard-font-family-bold;
-      font-size: 14px;
-      color: rgba(0,0,0,0.50);
-      letter-spacing: 1.75px;
-      line-height: 16px;
-      text-transform: uppercase;
+      div.interior {
+        overflow: hidden;
+
+        @media (min-width: 40em) {
+          display: flex;
+        }
+      }
+
+      img.coverTop {
+        left: 0;
+        position: absolute;
+        top: -4em;
+        width: 100%;
+
+        @media (min-width: 40em) {
+          display: none;
+        }
+      }
+
+      img.cover {
+        display: none;
+        height: 100%;
+        width: 40%;
+
+        @media (min-width: 40em) {
+          display: block;
+        }
+      }
+
+      div.content {
+        @media (min-width: 40em) {
+          width: 60%;
+        }
+
+        >div {
+          @media (min-width: 40em) {
+            position: absolute;
+            height: auto;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
 
     div.content {
-      display: flex;
-
       >div {
         padding: 40px;
+      }
+
+      div.new {
+        .standard-font-family-bold;
+        display: none;
+        font-size: 14px;
+        color: rgba(0,0,0,0.50);
+        letter-spacing: 1.75px;
+        line-height: 16px;
+        text-transform: uppercase;
+
+        @media (min-width: 40em) {
+          display: block;
+        }
       }
 
       div.title, div.subtitle {
@@ -30,13 +81,23 @@ section.books {
 
       div.subtitle {
         .standard-font-family;
+        display: none;
         font-size: 18px;
         line-height: 24px;
+
+        @media (min-width: 40em) {
+          display: block;
+        }
       }
 
       a {
         .standard-button;
+        display: block;
+        font-size: 0.8em;
+        margin: auto;
         margin-top: 16px;
+        max-width: 20em;
+        padding: 0.75em 2em;
         width: 100%;
 
         &:first-of-type {
@@ -44,21 +105,40 @@ section.books {
           color: @standard-color-link;
           margin-top: 32px;
         }
+
+        @media (min-width: 40em) {
+          .standard-button;
+          font-size: 1em;
+        }
       }
 
-      div.released-at {
+      div.book-release {
         font-size: 14px;
         margin-top: 32px;
       }
     }
-
-    img.cover {
-      height: 100%;
-      width: 40%;
-    }
   }
 
   &.carousel >div >div >ul li {
-    width: 800px;
+    &.hasImage {
+      @media (min-width: 40em) {
+        width: 800px;
+      }
+
+      div.content {
+        height: 100%;
+      }
+    }
+
+    div.content {
+      height: 100%;
+
+      >div {
+        position: absolute;
+        height: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
   }
 }

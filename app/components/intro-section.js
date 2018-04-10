@@ -2,10 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   attributeBindings: ['id'],
-  classNameBindings: ['empty:empty:notEmpty'],
+  classNameBindings: ['empty:empty:notEmpty', 'showImage:hasImage:hasNoImage'],
   classNames: ['intro'],
   computedAttributes: [
     'about',
+    'coverImageSection',
     'coverImageUrl',
     'email',
     'fullName',
@@ -42,6 +43,10 @@ export default Ember.Component.extend({
       });
     });
   },
+
+  showImage: Ember.computed('coverImageUrl', 'coverImageSection', function() {
+    return (this.get('coverImageUrl') && this.get('coverImageSection') === 'intro');
+  }),
 
   subheader: Ember.computed('profession', 'homeLocation', function() {
     if (this.get('profession') && this.get('homeLocation')) {

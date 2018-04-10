@@ -1,0 +1,90 @@
+section.book {
+  @media (min-width: 50em) {
+    display: flex;
+  }
+
+  div.cover {
+    box-sizing: border-box;
+    display: none;
+
+    @media (min-width: 50em) {
+      display: block;
+      padding: 0 48px 32px 0;
+      width: 40%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  div.coverTop {
+    margin-top: -64px;
+    width: 100%;
+
+    @media (min-width: 50em) {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  div.content {
+    padding: 0 16px;
+
+    @media (min-width: 30em) {
+      padding: 0 32px;
+    }
+
+    @media (min-width: 50em) {
+      box-sizing: border-box;
+      padding: 0 0 32px 48px;
+      text-align: left;
+      width: 60%;
+    }
+
+    div.new {
+      .standard-font-family-bold;
+      font-size: 14px;
+      color: rgba(0,0,0,0.50);
+      letter-spacing: 1.75px;
+      line-height: 16px;
+      text-transform: uppercase;
+    }
+
+    div.book-release {
+      color: rgba(0,0,0,0.50);
+      margin-top: 32px;
+    }
+
+    h2 {
+      margin: 24px 0 0 0;
+    }
+
+    div.subtitle {
+      font-size: 20px;
+      margin: 24px 0 0 0;
+
+      @media (min-width: 40em) {
+        font-size: 22px;
+      }
+
+      @media (min-width: 60em) {
+        font-size: 24px;
+      }
+    }
+
+    div.description {
+      border-top: 1px solid @border-color;
+      margin-top: 32px;
+      padding-top: 32px;
+      text-align: left;
+
+      p {
+        .standard-paragraph;
+      }
+    }
+  }
+}

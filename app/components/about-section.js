@@ -1,10 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  actions: {
+    expand() {
+      this.set('expanded', true);
+    }
+  },
+
   attributeBindings: ['id'],
-  classNameBindings: ['expanded', 'about:notEmpty:empty'],
+  classNameBindings: ['expanded', 'about:notEmpty:empty', 'showImage:hasImage:hasNoImage'],
   classNames: ['about'],
-  computedAttributes: ['about', 'birthday', 'firstName'],
+
+  computedAttributes: [
+    'about',
+    'coverImageSection',
+    'coverImageUrl',
+    'birthday',
+    'firstName'
+  ],
+
   id: 'about',
   store: Ember.inject.service(),
   tagName: 'section',
@@ -14,9 +28,7 @@ export default Ember.Component.extend({
     return (this.get('birthday') && this.get('today'));
   }),
 
-  actions: {
-    expand() {
-      this.set('expanded', true);
-    }
-  }
+  showImage: Ember.computed('coverImageUrl', 'coverImageSection', function() {
+    return (this.get('coverImageUrl') && this.get('coverImageSection') === 'about');
+  })
 });

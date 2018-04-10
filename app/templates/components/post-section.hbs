@@ -11,7 +11,7 @@
     <div class="published-at">{{format-date post.publishedAt day="numeric" month="long" year="numeric"}}</div>
   {{/if}}
 
-  {{#if post.imageUrl}}
+  {{#if post.hasHeaderImage}}
     <div class="image {{post.imageOrientation}} {{post.imageType}}" style={{background-image-style post.imageUrl}}></div>
   {{/if}}
 
@@ -31,7 +31,7 @@
 
   {{#if post.url}}
     {{#if post.hasMedia}}
-      <a class="url" href="{{post.url}}">Visit original publication &raquo;</a>
+      <a class="url" href="{{post.url}}">Visit original {{post.type}} &raquo;</a>
     {{else}}
       <a class="url button" href="{{post.url}}">Read in full</a>
     {{/if}}

@@ -97,7 +97,6 @@ section.about {
 
   button.expand {
     .standard-button;
-    display: none;
     margin: 32px auto 0 auto;
     max-width: 400px;
     width: 100%;
@@ -108,15 +107,10 @@ section.about {
       max-width: none;
       width: ~"calc(100% - 64px)";
     }
-
-    @media (min-width: 70em) {
-      display: none;
-    }
   }
 
   div.content {
     position: relative;
-    text-align: left;
     vertical-align: top;
 
     @media (max-width: 50em) {
@@ -126,6 +120,16 @@ section.about {
     @media (min-width: 70em) {
       max-width: 608px;
     }
+
+    @media (min-width: 70em) {
+      margin: inherit;
+      max-width: 608px;
+      padding: 0;
+    }
+  }
+
+  div.about {
+    text-align: left;
 
     p {
       font-size: 1.125em;
@@ -142,49 +146,66 @@ section.about {
         }
       }
     }
+  }
 
-    @media (min-width: 70em) {
-      margin: inherit;
-      max-width: 608px;
-      padding: 0;
-
-      p.placeholder {
-        width: 38em;
-
-        &:nth-of-type(2) {
-          width: 25em;
-        }
-
-        &:nth-of-type(5) {
-          width: 15em;
-        }
-      }
+  &.expanded {
+    button.expand {
+      display: none;
     }
   }
 
   &:not(.expanded) {
-    @media (max-width: 70em) {
-      button.expand {
+    div.about {
+      max-height: 28em;
+      overflow: hidden;
+
+      &:after {
+        background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,100));
+        bottom: 0;
+        content: "";
+        height: 8em;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+
+      div {
+        height: 28em;
+      }
+    }
+  }
+
+  div.image {
+    display: none;
+    margin-right: 40px;
+    max-width: 800px;
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 70em) {
+    &.hasImage {
+      padding-left: 0;
+
+      h2 {
+        display: none;
+      }
+
+      div.image {
         display: block;
       }
 
       div.content {
-        max-height: 28em;
-        overflow: hidden;
+        margin-left: 40px;
+        max-width: 800px;
+        width: 50%;
+      }
 
-        &:after {
-          background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,100));
-          bottom: 0;
-          content: "";
-          height: 8em;
-          left: 0;
-          position: absolute;
-          width: 100%;
-        }
-
-        div {
-          height: 28em;
-        }
+      div.about {
+        .standard-drop-caps;
       }
     }
   }

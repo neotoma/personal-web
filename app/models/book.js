@@ -5,6 +5,7 @@ import Model from 'ember-data/model';
 export default Model.extend({
   description: attr('string'),
   publishedAt: attr('date'),
+  release: attr('string'),
   releasedAt: attr('date'),
   publisher: attr('string'),
   title: attr('string'),
@@ -13,6 +14,7 @@ export default Model.extend({
   publisherUrl: attr('string'),
   preview: attr('string'),
   coverImageUrl: attr('string'),
+  coverTopImageUrl: attr('string'),
   testimonials: attr(),
 
   pendingRelease: Ember.computed('releasedAt', function() {

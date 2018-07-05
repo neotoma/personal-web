@@ -23,6 +23,14 @@
 
   {{book-release-div book=book}}
 
+  {{#if book.purchaseUrl}}
+    <a href="{{book.purchaseUrl}}" class="button purchase">{{purchaseButtonLabel}}</a>
+  {{/if}}
+
+  {{#if book.publisherUrl}}
+    <a href="{{book.publisherUrl}}" class="button">Visit publisher</a>
+  {{/if}}
+
   {{#if book.description}}
     <div class="description">{{compiled-markdown markdown=book.description}}</div>
   {{/if}}

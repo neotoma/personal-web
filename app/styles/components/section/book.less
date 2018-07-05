@@ -76,6 +76,32 @@ section.book {
       }
     }
 
+    a.button {
+      .standard-button;
+      display: block;
+      margin: 1em 0 0 0;
+      width: 100%;
+
+      &:first-of-type {
+        margin-top: 2em;
+      }
+
+      @media (min-width: 40em) {
+        display: inline-block;
+        margin: 1em 1em 0 0;
+        width: auto;
+
+        &:first-of-type {
+          margin-top: 2em;
+        }
+      }
+
+      &.purchase {
+        border-color: @standard-color-link;
+        color: @standard-color-link;
+      }
+    }
+
     div.description {
       border-top: 1px solid @border-color;
       margin-top: 32px;

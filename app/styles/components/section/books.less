@@ -13,24 +13,16 @@ section.books {
         }
       }
 
-      img.coverTop {
-        left: 0;
-        position: absolute;
-        top: -4em;
-        width: 100%;
-
-        @media (min-width: 40em) {
-          display: none;
-        }
-      }
-
       img.cover {
-        display: none;
-        height: 100%;
-        width: 40%;
+        box-shadow: 0 8px 64px rgba(0,0,0,0.1);
+        margin-top: 40px;
+        width: 6em;
 
         @media (min-width: 40em) {
-          display: block;
+          box-shadow: none;
+          height: 100%;
+          margin-top: 0;
+          width: 40%;
         }
       }
 
@@ -62,7 +54,6 @@ section.books {
 
       div.title, div.subtitle {
         .standard-font-family-bold;
-        margin-top: 24px;
       }
 
       div.title {
@@ -75,6 +66,7 @@ section.books {
         display: none;
         font-size: 18px;
         line-height: 24px;
+        margin-top: 24px;
 
         @media (min-width: 40em) {
           display: block;
@@ -138,6 +130,16 @@ section.books {
   }
 
   &.carousel >div >div >ul li {
+    &.hasImage {
+      div.interior {
+        height: 100%;
+
+        @media (min-width: 40em) {
+          height: auto;
+        }
+      }
+    }
+
     div.interior {
       height: 336px;
 
@@ -147,13 +149,15 @@ section.books {
     }
 
     div.content {
-      height: 100%;
+      height: auto;
 
       >div {
-        position: absolute;
-        height: auto;
-        top: 50%;
-        transform: translateY(-50%);
+        @media (min-width: 40em) {
+          position: absolute;
+          height: auto;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
   }

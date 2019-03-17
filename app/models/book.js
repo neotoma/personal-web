@@ -3,6 +3,7 @@ import Ember from 'ember';
 import Model from 'ember-data/model';
 
 export default Model.extend({
+  announcement: attr('string'),
   description: attr('string'),
   publishedAt: attr('date'),
   release: attr('string'),

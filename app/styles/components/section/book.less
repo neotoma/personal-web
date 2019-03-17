@@ -14,6 +14,7 @@ section.book {
     }
 
     img {
+      box-shadow: 0 8px 64px rgba(0,0,0,0.25);
       width: 100%;
     }
   }
@@ -63,6 +64,37 @@ section.book {
       margin: 24px 0 0 0;
     }
 
+    h3 {
+      margin: 64px 0 40px 0;
+    }
+
+    em {
+      font-weight: 600;
+    }
+
+    strong {
+      font-weight: normal;
+      font-style: italic;
+      opacity: 0.5;
+    }
+
+    hr {
+      border: none;
+      background: rgba(0,0,0,0.2);
+      height: 1px;
+      margin: 40px 0;
+    }
+
+    ul {
+      margin-left: 2em;
+
+      li {
+        .standard-paragraph;
+        font-size: inherit;
+        list-style: square;
+      }
+    }
+
     div.subtitle {
       font-size: 20px;
       margin: 24px 0 0 0;
@@ -102,11 +134,20 @@ section.book {
       }
     }
 
+    div.announcement {
+      font-style: italic;
+      margin: 2em 0;
+    }
+
     div.description {
       border-top: 1px solid @border-color;
       margin-top: 32px;
       padding-top: 32px;
       text-align: left;
+
+      a {
+        .standard-link;
+      }
 
       p {
         .standard-paragraph;

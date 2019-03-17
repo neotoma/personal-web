@@ -31,6 +31,10 @@
     <a href="{{book.publisherUrl}}" class="button">Visit publisher</a>
   {{/if}}
 
+  {{#if book.announcement}}
+    <div class="announcement">{{book.announcement}}</div>
+  {{/if}}
+
   {{#if book.description}}
     <div class="description">{{compiled-markdown markdown=book.description}}</div>
   {{/if}}
